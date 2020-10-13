@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
@@ -103,3 +104,6 @@ Then, from within your project folder:
 npm run build
 surge public my-project.surge.sh
 ```
+=======
+# bmbf_mobility-map
+>>>>>>> 6371af9804e637bc0fe72159e2a62c7d3cd93a8d
