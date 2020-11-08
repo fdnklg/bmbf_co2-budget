@@ -1,63 +1,115 @@
-html, body {
-	position: relative;
-	width: 100%;
-	height: 100%;
+@font-face {
+  font-family: "Piazzolla Bold";
+  src: url("./fonts/Piazzolla-Bold.woff2") format("woff2"),
+    url("./fonts/Piazzolla-Bold.woff") format("woff");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Post Grotesk";
+  src: url("./fonts/PostGrotesk-Bold.woff2") format("woff2"),
+    url("./fonts/PostGrotesk-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Post Grotesk";
+  src: url("./fonts/PostGrotesk-Regular.woff2") format("woff2"),
+    url("./fonts/PostGrotesk-Regular.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* colors */
+  --color-main: blue;
+
+  /* spaces */
+  --space-xs: 2px;
+  --space-s: 5px;
+  --space-m: 10px;
+  --space-l: 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Piazzolla Bold";
+}
+
+html,
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-family: "Post Grotesk", BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
 }
 
 body {
-	color: #333;
-	margin: 0;
-	padding: 8px;
-	box-sizing: border-box;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #333;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 a {
-	color: rgb(0,100,200);
-	text-decoration: none;
+  color: rgb(0, 100, 200);
+  text-decoration: none;
 }
 
 a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 a:visited {
-	color: rgb(0,80,160);
+  color: rgb(0, 80, 160);
 }
 
 label {
-	display: block;
+  display: block;
 }
 
-input, button, select, textarea {
-	font-family: inherit;
-	font-size: inherit;
-	-webkit-padding: 0.4em 0;
-	padding: 0.4em;
-	margin: 0 0 0.5em 0;
-	box-sizing: border-box;
-	border: 1px solid #ccc;
-	border-radius: 2px;
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  -webkit-padding: 0.4em 0;
+  padding: 0.4em;
+  margin: 0 0 0.5em 0;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 2px;
 }
 
 input:disabled {
-	color: #ccc;
+  color: #ccc;
 }
 
 button {
-	color: #333;
-	background-color: #f4f4f4;
-	outline: none;
+  color: #333;
+  background-color: #f4f4f4;
+  outline: none;
 }
 
 button:disabled {
-	color: #999;
+  color: #999;
 }
 
 button:not(:disabled):active {
-	background-color: #ddd;
+  background-color: #ddd;
 }
 
 button:focus {
-	border-color: #666;
+  border-color: #666;
 }

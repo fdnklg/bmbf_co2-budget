@@ -1,24 +1,38 @@
 <script>
-  import Map from "./components/Map/index.svelte";
-  export let name;
+  import Vis from "components/Vis/index.svelte";
+  import List from "components/List/index.svelte";
+  import Article from "components/Article/index.svelte";
 </script>
 
 <style>
-  main {
-    text-align: center;
-    padding: 1em;
-    height: calc(100% - 2em);
-    width: calc(100% - 2em);
-    margin: 0 auto;
+  .container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-main);
   }
 
-  @media (min-width: 640px) {
-    main {
-      max-width: none;
-    }
+  main {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 </style>
 
-<main>
-  <Map lat={35} lon={-84} zoom={3.5} />
-</main>
+<div class="container">
+  <header>
+    <!-- intro and teaser here -->
+    <div
+      style="height: 100vh; display: flex; justify-content: center; align-items: center; border: 1px solid black;">
+      <span>Teaser</span>
+    </div>
+  </header>
+  <section class="intro">
+    <List />
+  </section>
+  <main>
+    <Vis />
+    <Article />
+  </main>
+</div>

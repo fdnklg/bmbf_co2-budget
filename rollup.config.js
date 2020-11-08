@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
 import { terser } from "rollup-plugin-terser";
 import replace from "@rollup/plugin-replace";
+import alias from '@rollup/plugin-alias';
 import { config } from "dotenv";
 
 const production = !process.env.ROLLUP_WATCH;
@@ -79,6 +80,13 @@ export default {
     // If we're building for production (npm run build
     // instead of npm run dev), minify
     production && terser(),
+    alias({
+      resolve: ['.svelte', '.js'],
+      entries: [
+        { find: 'components', replacement: 'src/components' },
+        { find: 'content', replacement: 'src/content.js' },
+      ]
+    })
   ],
   watch: {
     clearScreen: false,
