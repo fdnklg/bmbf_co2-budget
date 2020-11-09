@@ -85,6 +85,8 @@ export default {
       entries: [
         { find: 'components', replacement: 'src/components' },
         { find: 'content', replacement: 'src/content.js' },
+        { find: 'stores', replacement: 'src/stores.js' },
+        { find: 'utils', replacement: 'src/utils.js' },
       ]
     })
   ],

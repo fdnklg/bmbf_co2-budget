@@ -1,3 +1,4 @@
 import { writable } from 'svelte/store';
 
-export const activeItem = writable(0);
+export const activeArticle = writable(0);
+export const activeVisItem = writable(0);

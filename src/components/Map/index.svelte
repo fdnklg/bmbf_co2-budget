@@ -24,6 +24,7 @@
         style: "mapbox://styles/mapbox/streets-v9",
         center: [lon, lat],
         zoom,
+        scrollZoom: false,
       });
     };
 

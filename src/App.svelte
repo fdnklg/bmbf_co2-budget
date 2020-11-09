@@ -18,6 +18,10 @@
     display: flex;
     flex-direction: column;
   }
+
+  .intro {
+    padding: 0 var(--space-m);
+  }
 </style>
 
 <div class="container">

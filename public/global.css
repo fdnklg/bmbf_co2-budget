@@ -26,13 +26,27 @@
 
 :root {
   /* colors */
-  --color-main: blue;
+  --color-main: #000;
 
   /* spaces */
   --space-xs: 2px;
   --space-s: 5px;
   --space-m: 10px;
-  --space-l: 20px;
+  --space-l: 15px;
+  --space-xl: 30px;
+
+  /* line-height */
+  --line-height-s: 120%;
+  --line-height-m: 135%;
+  --line-height-l: 150%;
+
+  /* font-sizes */
+  --font-size-xs: 12px;
+  --font-size-s: 14px;
+  --font-size-m: 18px;
+  --font-size-l: 20px;
+  --font-size-xl: 24px;
+  --font-size-xxl: 48px;
 }
 
 h1,
@@ -50,6 +64,8 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  font-size: var(--font-size-m);
+  line-height: var(--line-height-l);
   font-family: "Post Grotesk", BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 500;
