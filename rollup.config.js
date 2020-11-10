@@ -87,6 +87,7 @@ export default {
         { find: 'content', replacement: 'src/content.js' },
         { find: 'stores', replacement: 'src/stores.js' },
         { find: 'utils', replacement: 'src/utils.js' },
+        { find: 'data', replacement: 'src/data/data.js' },
       ]
     })
   ],

@@ -28,6 +28,15 @@
   /* colors */
   --color-main: #000;
 
+  --color-grey-0: #808080;
+
+  --color-white: #ffffff;
+
+  /* letter spacing */
+  --spacing-s: 0.125px;
+  --spacing-m: 0.25px;
+  --spacing-l: 0.75px;
+
   /* spaces */
   --space-xs: 2px;
   --space-s: 5px;
@@ -57,6 +66,17 @@ h5 {
   font-family: "Piazzolla Bold";
 }
 
+a.source {
+  font-size: var(--font-size-s);
+  color: var(--color-grey-0);
+  text-decoration: none;
+}
+
+.source:after {
+  content: "↗";
+  padding-left: 5px;
+}
+
 html,
 body {
   position: relative;
@@ -77,18 +97,13 @@ body {
   box-sizing: border-box;
 }
 
-a {
-  color: rgb(0, 100, 200);
-  text-decoration: none;
-}
-
 a:hover {
   text-decoration: underline;
 }
 
-a:visited {
-  color: rgb(0, 80, 160);
-}
+/* a:visited {
+  color: black;
+} */
 
 label {
   display: block;

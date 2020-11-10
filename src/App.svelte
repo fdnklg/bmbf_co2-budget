@@ -1,22 +1,16 @@
 <script>
-  import Vis from "components/Vis/index.svelte";
   import List from "components/List/index.svelte";
-  import Article from "components/Article/index.svelte";
+  import Main from "components/Main/index.svelte";
 </script>
 
 <style>
   .container {
-    height: 100vh;
+    height: auto;
+    max-width: 550px;
     width: 100vw;
     display: flex;
     flex-direction: column;
     color: var(--color-main);
-  }
-
-  main {
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
   }
 
   .intro {
@@ -35,8 +29,5 @@
   <section class="intro">
     <List />
   </section>
-  <main>
-    <Vis />
-    <Article />
-  </main>
+  <Main />
 </div>

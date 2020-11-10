@@ -1,6 +1,8 @@
 <script>
-  import { onMount, setContext } from "svelte";
+  import { onMount, setContext, onDestroy } from "svelte";
   import { mapbox, key } from "./mapbox.js";
+  import { activeVisItem } from "stores";
+  import { items } from "content";
 
   setContext(key, {
     getMap: () => map,
@@ -35,6 +37,17 @@
       link.parentNode.removeChild(link);
     };
   });
+
+  const subscribeActiveMapItem = activeVisItem.subscribe((newActiveMapItem) => {
+    if (map) {
+      map.flyTo({
+        center: items[newActiveMapItem].coordinates,
+        zoom: items[newActiveMapItem].zoom,
+      });
+    }
+  });
+
+  onDestroy(subscribeActiveMapItem);
 </script>
 
 <style>
