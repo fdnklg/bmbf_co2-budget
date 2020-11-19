@@ -1,9 +1,12 @@
 export const parseData = data => {
-	const dataKeys = ['emissions', 'emissionsDetail'];
-	let parsed = {};
+	const emissionKeys = ['start', 'transition', 'zoom'];
 
-	dataKeys.map(key => {
-		let selectedData = data[key];
+	let parsed = {
+		emissions: {}
+	};
+
+	emissionKeys.map(key => {
+		let selectedData = data.emissions[key];
 		selectedData.d = selectedData.d
 			.sort((a, b) => b.value - a.value)
 			.map((d) => {
@@ -11,7 +14,7 @@ export const parseData = data => {
 				d.y = 1;
 				return d;
 			});
-		parsed[key] = selectedData;
+		parsed.emissions[key] = selectedData;
 	})
 
 	return parsed;
@@ -19,7 +22,7 @@ export const parseData = data => {
 
 export const observe = (target) => {
   const observer = new IntersectionObserver(entries => {
-		if (entries[0].isIntersecting) {
+	if (entries[0].isIntersecting) {
       console.log(`${entries[0].target.id} INTERSECTING, Visible: ${entries[0].isVisible}`)
     } 
   }, {

@@ -2,14 +2,14 @@
   import { onMount } from "svelte";
   import { items } from "content";
 
-  import { activeVisItem, activeCategory, selectedData, data } from "stores";
+  import { activeVisItem, activeCategory } from "stores";
 
   import { observe, getId } from "./util.js";
 
   import Map from "components/Map/index.svelte";
   import Barchart from "components/Barchart/index.svelte";
 
-  let barchartOverview, barchartDetail;
+  let markerBarStart, markerBarTrans, markerBarZoom;
 
   const setActiveArticleItem = (elm) => {
     const articleId = getId(elm.id);
@@ -25,14 +25,20 @@
 
     // set observe for markers
     observe(
-      barchartOverview,
-      () => setActiveCategory("emissions"),
+      markerBarStart,
+      () => setActiveCategory("start"),
       () => null
     );
 
     observe(
-      barchartDetail,
-      () => setActiveCategory("emissionsDetail"),
+      markerBarTrans,
+      () => setActiveCategory("transition"),
+      () => null
+    );
+
+    observe(
+      markerBarZoom,
+      () => setActiveCategory("zoom"),
       () => null
     );
 
@@ -65,15 +71,18 @@
 <main>
   <Barchart />
 
-  <div class="marker" bind:this={barchartOverview}>
+  <div class="marker" bind:this={markerBarStart}>
     marker: emissions overview
   </div>
 
   {#each items as item, index}
-    {#if index === 2}
-      <div class="marker" bind:this={barchartDetail}>
-        marker: emissions detail
+    {#if index === 1}
+      <div class="marker" bind:this={markerBarTrans}>
+        marker: emissions transition
       </div>
+    {/if}
+    {#if index === 2}
+      <div class="marker" bind:this={markerBarZoom}>marker: emissions zoom</div>
     {/if}
     <div class="article-item padding" id={`article-item-${index}`}>
       <h2>{item.headline}</h2>

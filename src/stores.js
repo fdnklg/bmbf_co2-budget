@@ -11,6 +11,6 @@ export const selectedData = derived(
 	[data, activeCategory],
 	([$data, $activeCategory]) => {
 		if ($activeCategory && $data) {
-			return $data[$activeCategory]
+			return $data.emissions[$activeCategory]
 		} 
 	});
