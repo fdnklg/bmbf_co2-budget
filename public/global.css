@@ -144,3 +144,30 @@ button:not(:disabled):active {
 button:focus {
   border-color: #666;
 }
+
+.marker {
+  font-size: var(--font-size-xs);
+  background: var(--color-grey-0);
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.vis {
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: rgba(26, 25, 43, 0.016) 0px 2.8px 2.2px,
+    rgba(26, 25, 43, 0.02) 0px 12.5px 10px,
+    rgba(26, 25, 43, 0.024) 0px 22.3px 17.9px,
+    rgba(26, 25, 43, 0.027) 0px 41.8px 33.4px,
+    rgba(26, 25, 43, 0.02) 0px 100px 80px;
+}
+
+.padding {
+  padding: 0 var(--space-m);
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+}

@@ -1,6 +1,18 @@
 <script>
-  import List from "components/List/index.svelte";
+  import { onMount } from "svelte";
+
+  import datasets from "data";
+  import { data } from "stores";
+
+  import { parseData } from "utils";
+
   import Main from "components/Main/index.svelte";
+  import Intro from "components/Intro/index.svelte";
+  import Header from "components/Header/index.svelte";
+
+  onMount(async () => {
+    data.set(parseData(datasets));
+  });
 </script>
 
 <style>
@@ -12,22 +24,10 @@
     flex-direction: column;
     color: var(--color-main);
   }
-
-  .intro {
-    padding: 0 var(--space-m);
-  }
 </style>
 
 <div class="container">
-  <header>
-    <!-- intro and teaser here -->
-    <div
-      style="height: 100vh; display: flex; justify-content: center; align-items: center; border: 1px solid black;">
-      <span>Teaser</span>
-    </div>
-  </header>
-  <section class="intro">
-    <List />
-  </section>
+  <Header />
+  <Intro />
   <Main />
 </div>

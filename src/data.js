@@ -1,5 +1,5 @@
 
-const data = {
+export default {
   emissions: {
     meta: {
       title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
@@ -77,5 +77,3 @@ const data = {
     ],
   }
 }
-
-export default data;

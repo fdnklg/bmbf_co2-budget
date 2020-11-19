@@ -14,7 +14,7 @@
         "titleBar.activeForeground": "#e7e7e7",
         "titleBar.inactiveBackground": "#222d8499",
         "titleBar.inactiveForeground": "#e7e7e799",
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
     },
     "peacock.color": "#222d84"
 }
