@@ -29,6 +29,7 @@
   --color-main: #000;
 
   --color-grey-0: #808080;
+  --color-grey-1: #eff0f0;
 
   --color-white: #ffffff;
 
@@ -170,4 +171,20 @@ button:focus {
 .sticky {
   position: sticky;
   top: 0;
+}
+
+.distWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 100%;
+}
+
+.metric {
+  font-size: var(--font-size-xs);
+}
+
+.dist {
+  font-size: var(--font-size-l);
+  font-weight: bold;
 }

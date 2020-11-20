@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { items } from "content";
+  import { items, typesMobility, distances } from "content";
 
   import { activeVisItem, activeCategory } from "stores";
 
@@ -8,6 +8,7 @@
 
   import Map from "components/Map/index.svelte";
   import Barchart from "components/Barchart/index.svelte";
+  import SelectGroup from "components/SelectGroup/index.svelte";
 
   let markerBarStart, markerBarTrans, markerBarZoom;
 
@@ -101,5 +102,8 @@
         <p>{item.paragraph}</p>
       </div>
     {/each}
+
+    <SelectGroup data={typesMobility} isType="typesMobility" />
+    <SelectGroup data={distances} isType="distances" />
   </article>
 </main>

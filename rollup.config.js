@@ -2,6 +2,7 @@ import svelte from "rollup-plugin-svelte";
 import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import livereload from "rollup-plugin-livereload";
+import sveltePreprocess from 'svelte-preprocess';
 import { terser } from "rollup-plugin-terser";
 import replace from "@rollup/plugin-replace";
 import alias from '@rollup/plugin-alias';
@@ -44,13 +45,19 @@ export default {
   },
   plugins: [
     svelte({
+        preprocess: sveltePreprocess({
+          sourceMap: !production,
+          defaults: {
+            style: 'scss'
+          },
+      }),
       // enable run-time checks when not in production
       dev: !production,
       // we'll extract any component CSS out into
       // a separate file - better for performance
       css: (css) => {
         css.write("bundle.css");
-      },
+        },
     }),
     replace({
       __env__: JSON.stringify({
