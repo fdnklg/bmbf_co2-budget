@@ -10,10 +10,23 @@
   import Intro from "components/Intro/index.svelte";
   import Header from "components/Header/index.svelte";
 
+  /*
+
+  Validation:
+
+  - check if postal code is included in zip code array
+  - if it's included:
+    - load isocrone that match with zip code
+    - zoom to location
+    - show isochrone on map
+  - if NOT included:
+    - show feedback, that postal code doesn't exist or isn't valid and show information that tells you to type avalid germany postal code
+
+  */
+
   onMount(async () => {
     const codes = await loadFile(`zipcodes.txt`);
-    const parsed = codes.columns.map((d) => parseInt(d));
-    zipcodes.set(parsed);
+    zipcodes.set(codes.columns);
 
     data.set(parseData(datasets));
   });
