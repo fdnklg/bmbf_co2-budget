@@ -1,3 +1,5 @@
+import {dsvFormat} from 'd3-dsv';
+
 export const parseData = data => {
 	const emissionKeys = ['start', 'transition', 'zoom'];
 
@@ -31,4 +33,13 @@ export const observe = (target) => {
     trackVisibility: true
   });
   return observer.observe(target);
+};
+
+export const loadFile = async (filePath, delimiter = ',') => {
+  const csv = dsvFormat(delimiter);
+
+  const res = await fetch(filePath);
+  const text = await res.text();
+
+  return csv.parse(text);
 };

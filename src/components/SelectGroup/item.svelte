@@ -5,7 +5,7 @@
   export let isHTML;
   export let isType;
 
-  import { type, distance } from "stores";
+  import { type, distance, activeColor } from "stores";
 
   $: isActive = (isType, value) => {
     if (isType === "distances") return value === $distance;
@@ -46,16 +46,22 @@
 
   .label {
     font-size: var(--font-size-s);
+    width: 80px;
+    margin-top: 10px;
+    line-height: var(--line-height-s);
+    text-align: center;
   }
 </style>
 
 <li
   class="item {isActive(isType, value) ? 'active' : ''}"
   on:click={() => handleClick(isType, value)}>
-  <div class="icon">
+  <div
+    class="icon"
+    style="background-color: {isActive(isType, value) ? $activeColor : '#eff0f0'}">
     {#if isHTML}
       {@html icon}
-    {:else}<img src={icon} alt={label} />{/if}
+    {:else}<img />{/if}
   </div>
   <span class="label">{label}</span>
 </li>

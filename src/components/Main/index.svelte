@@ -9,6 +9,7 @@
   import Map from "components/Map/index.svelte";
   import Barchart from "components/Barchart/index.svelte";
   import SelectGroup from "components/SelectGroup/index.svelte";
+  import Input from "components/Input/index.svelte";
 
   let markerBarStart, markerBarTrans, markerBarZoom;
 
@@ -91,10 +92,6 @@
     </div>
   {/each}
 
-  <div class="vis map sticky">
-    <Map lat={35} lon={-84} zoom={3.5} />
-  </div>
-
   <article id="articles-wrapper">
     {#each items as item, index}
       <div class="article-item" id={`article-item-${index}`}>
@@ -105,5 +102,9 @@
 
     <SelectGroup data={typesMobility} isType="typesMobility" />
     <SelectGroup data={distances} isType="distances" />
+    <Input />
+    <div class="vis map sticky">
+      <Map lat={35} lon={-84} zoom={3.5} />
+    </div>
   </article>
 </main>

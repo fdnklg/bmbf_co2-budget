@@ -1,5 +1,6 @@
 <script>
   import Item from "./item.svelte";
+  import Intro from "./intro.svelte";
   export let data;
   export let isType;
 
@@ -17,22 +18,11 @@
     margin: 0;
     padding: 0;
   }
-
-  .title {
-    font-size: var(--font-size-xl);
-  }
-
-  .subtitle {
-    font-size: var(--font-sizes-s);
-  }
 </style>
 
 <div class="container">
   {#if hasIntro}
-    <div class="intro">
-      <h2 class="title">{title}</h2>
-      <span class="subtitle">{subtitle}</span>
-    </div>
+    <Intro {title} {subtitle} />
   {/if}
   <ol class="wrapper">
     {#each elements as elm}

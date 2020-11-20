@@ -2,15 +2,19 @@
   import { onMount } from "svelte";
 
   import datasets from "data";
-  import { data } from "stores";
+  import { data, zipcodes } from "stores";
 
-  import { parseData } from "utils";
+  import { parseData, loadFile } from "utils";
 
   import Main from "components/Main/index.svelte";
   import Intro from "components/Intro/index.svelte";
   import Header from "components/Header/index.svelte";
 
   onMount(async () => {
+    const codes = await loadFile(`zipcodes.txt`);
+    const parsed = codes.columns.map((d) => parseInt(d));
+    zipcodes.set(parsed);
+
     data.set(parseData(datasets));
   });
 </script>
