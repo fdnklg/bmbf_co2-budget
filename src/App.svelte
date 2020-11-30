@@ -2,49 +2,172 @@
   import { onMount } from "svelte";
 
   import datasets from "data";
-  import { data, zipcodes } from "stores";
+  import { data, zipcodes, activeWaypoint } from "stores";
 
-  import { parseData, loadFile } from "utils";
+  import { parseData, loadFile, nextUntil } from "utils";
+  import { zipcodesUrl } from "config";
 
-  import Main from "components/Main/index.svelte";
-  import Intro from "components/Intro/index.svelte";
+  import ChartEmissionen from "components/ChartEmissionen/index.svelte";
+
   import Header from "components/Header/index.svelte";
+  import Waypoint from "components/Waypoint.svelte";
+  import Gap from "components/Gap.svelte";
 
-  /*
+  let embedContents = {};
 
-  Validation:
-
-  - check if postal code is included in zip code array
-  - if it's included:
-    - load isocrone that match with zip code
-    - zoom to location
-    - show isochrone on map
-  - if NOT included:
-    - show feedback, that postal code doesn't exist or isn't valid and show information that tells you to type avalid germany postal code
-
-  */
+  const setActiveWaypoint = (key) => {
+    activeWaypoint.set(key);
+  };
 
   onMount(async () => {
-    const codes = await loadFile(`zipcodes.txt`);
+    const codes = await loadFile(zipcodesUrl);
     zipcodes.set(codes.columns);
-
     data.set(parseData(datasets));
+
+    const embedContainers = document.querySelectorAll(".embed");
+    embedContainers.forEach((embedContainer) => {
+      const id = embedContainer.getAttribute("data-embed-id");
+      embedContents[id] = [];
+
+      const siblings = nextUntil(
+        embedContainer,
+        '[data-waypoint="end"]',
+        true
+      ).filter((d) => d.nodeType === Node.ELEMENT_NODE);
+
+      siblings.forEach((sibling) => {
+        if (sibling.matches(".waypoint")) {
+          const waypointId = sibling.getAttribute("data-waypoint");
+          embedContents[id].push({
+            type: "waypoint",
+            data: waypointId,
+          });
+        }
+      });
+    });
   });
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
+
+  global {
+    .sticky {
+      position: sticky;
+      top: 25%;
+    }
+  }
   .container {
     height: auto;
-    max-width: 550px;
     width: 100vw;
     display: flex;
     flex-direction: column;
-    color: var(--color-main);
+    color: $color-main;
+    margin: 0 auto;
+  }
+  .article-item {
+    transform: translateZ(0);
+    background-color: $color-light;
+    max-width: $size-content;
+    margin: 50px auto;
+    padding: 20px;
   }
 </style>
 
 <div class="container">
   <Header />
-  <Intro />
-  <Main />
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+
+  <ChartEmissionen isSticky={true} />
+  <Waypoint
+    id="start"
+    waypoints={embedContents['emissionen']}
+    {setActiveWaypoint} />
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+
+  <Gap />
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+
+    <br />
+    <br />
+
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+
+  <Gap />
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+  <Waypoint
+    id="blue"
+    waypoints={embedContents['emissionen']}
+    {setActiveWaypoint} />
+
+  <Gap />
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+  <Waypoint
+    id="green"
+    waypoints={embedContents['emissionen']}
+    {setActiveWaypoint} />
+
+  <Gap />
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+  <Waypoint
+    id="end"
+    waypoints={embedContents['emissionen']}
+    {setActiveWaypoint} />
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
+
+  <p class="article-item">
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </p>
 </div>

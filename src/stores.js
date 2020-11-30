@@ -1,13 +1,18 @@
-import { writable, derived } from 'svelte/store';
+import { writable, readable, derived } from 'svelte/store';
+import { lightenColor } from './utils';
 
 export const activeArticleItem = writable(0);
 export const activeVisItem = writable(0);
 
+export const activeWaypoint = writable(null);
+
 export const activeCategory = writable(null);
 export const data = writable(null);
-export const type = writable('opnv'); // opnv, car, carPlus, walk; 
-export const distance = writable(50); // 5, 10, 25, 50
+export const travelType = writable('car');
+export const distance = writable(50);
 export const zipcodes = writable([]);
+export const activeZipcode = writable(41372);
+export const isLocal = readable(true);
 
 export const selectedData = derived(
 	[data, activeCategory],
@@ -18,14 +23,22 @@ export const selectedData = derived(
     });
     
 export const activeColor = derived(
-    type,
-    ($type) => {
+    travelType,
+    ($travelType) => {
         const colors = {
-            walk: '#3C3372',
-            opnv: '#61BBA0',
+            bike: '#3C3372',
+            public: '#61BBA0',
+            car_mf: '#E2733B',
+            ecar: '#4790D0',
             car: '#E2733B',
-            carplus: '#4790D0',
         }
-        return colors[$type];
+        return colors[$travelType];
+    }
+)
+
+export const activeColor20 = derived(
+    activeColor,
+    ($activeColor) => {
+        return lightenColor($activeColor, 5);
     }
 )

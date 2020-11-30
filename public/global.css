@@ -128,6 +128,17 @@ input:disabled {
   color: #ccc;
 }
 
+#zipcode:-webkit-autofill,
+#zipcode:-webkit-autofill:hover,
+#zipcode:-webkit-autofill:focus,
+#zipcode:-webkit-autofill:active {
+  background-color: transparent;
+}
+
+#zipcode:-internal-autofill-selected {
+  background-color: transparent !important;
+}
+
 textarea:focus,
 input:focus {
   outline: none;
@@ -192,4 +203,8 @@ button:focus {
 .dist {
   font-size: var(--font-size-l);
   font-weight: bold;
+}
+
+.sticky {
+  position: sticky;
 }

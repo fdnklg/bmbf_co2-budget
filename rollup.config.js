@@ -5,6 +5,7 @@ import livereload from "rollup-plugin-livereload";
 import sveltePreprocess from 'svelte-preprocess';
 import { terser } from "rollup-plugin-terser";
 import replace from "@rollup/plugin-replace";
+import svg from 'rollup-plugin-svg-import';
 import alias from '@rollup/plugin-alias';
 import { config } from "dotenv";
 
@@ -65,6 +66,10 @@ export default {
         ...config().parsed,
       }),
     }),
+    svg({
+      // process SVG to DOM Node or String. Default: false
+      stringify: true,
+    }),
     // If you have external dependencies installed from
     // npm, you'll most likely need these plugins. In
     // some cases you'll need additional configuration -
@@ -95,6 +100,7 @@ export default {
         { find: 'stores', replacement: 'src/stores.js' },
         { find: 'utils', replacement: 'src/utils.js' },
         { find: 'data', replacement: 'src/data.js' },
+        { find: 'config', replacement: 'src/config.js' },
       ]
     })
   ],

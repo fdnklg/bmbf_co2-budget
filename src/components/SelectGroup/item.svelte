@@ -5,16 +5,16 @@
   export let isHTML;
   export let isType;
 
-  import { type, distance, activeColor } from "stores";
+  import { travelType, distance, activeColor } from "stores";
 
   $: isActive = (isType, value) => {
     if (isType === "distances") return value === $distance;
-    if (isType === "typesMobility") return value === $type;
+    if (isType === "transportTypes") return value === $travelType;
   };
 
   const handleClick = (isType, value) => {
     if (isType === "distances") distance.set(value);
-    if (isType === "typesMobility") type.set(value);
+    if (isType === "transportTypes") travelType.set(value);
   };
 </script>
 

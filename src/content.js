@@ -52,25 +52,25 @@ export const distances = {
     ]
 };
 
-export const typesMobility = {
+export const transportTypes = {
     hasIntro: true,
     title: 'Auf welche Weise bewegst du dich fort?',
     subtitle: 'Wählen Sie einen Mobilitätstyp aus der deinen Gewohnheit sich fortzubewegen deckt.',
     elements: [
         {
             label: 'Fuß / Fahrrad',
-            icon: 'pedstrn.svg',
-            value: 'walk',
+            icon: 'bike.svg',
+            value: 'bike',
         },
         {
             label: 'ÖPNV',
-            icon: 'opnv.svg',
-            value: 'opnv',
+            icon: 'public.svg',
+            value: 'public',
         },
         {
             label: 'Auto+',
-            icon: 'carPlus.svg',
-            value: 'carplus',
+            icon: 'car_mf.svg',
+            value: 'car_mf',
         },
         {
             label: 'Auto',

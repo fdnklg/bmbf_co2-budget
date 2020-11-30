@@ -19,10 +19,12 @@
   },
   "dependencies": {
     "@rollup/plugin-alias": "^3.1.1",
+    "@rollup/plugin-url": "^5.0.1",
     "d3-dsv": "^2.0.0",
     "d3-scale": "^3.2.3",
     "mapbox-gl": "^1.12.0",
     "node-sass": "^5.0.0",
+    "rollup-plugin-svg-import": "^1.5.1",
     "sirv-cli": "^1.0.0",
     "svelte-preprocess": "^4.6.0",
     "svelte-select": "^3.14.1"

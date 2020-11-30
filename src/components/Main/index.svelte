@@ -1,22 +1,17 @@
 <script>
   import { onMount } from "svelte";
-  import { items, typesMobility, distances } from "content";
+  import { items, transportTypes, distances } from "content";
 
-  import { activeVisItem, activeCategory } from "stores";
+  import { activeCategory } from "stores";
 
   import { observe, getId } from "./util.js";
 
   import Map from "components/Map/index.svelte";
   import Barchart from "components/Barchart/index.svelte";
   import SelectGroup from "components/SelectGroup/index.svelte";
-  import Input from "components/Input/index.svelte";
+  import Input from "components/Input.svelte";
 
   let markerBarStart, markerBarTrans, markerBarZoom;
-
-  const setActiveArticleItem = (elm) => {
-    const articleId = getId(elm.id);
-    activeVisItem.set(parseInt(articleId));
-  };
 
   const setActiveCategory = (category) => {
     activeCategory.set(category);
@@ -43,14 +38,6 @@
       () => setActiveCategory("zoom"),
       () => null
     );
-
-    Array.from(articleItems).forEach((article) => {
-      observe(
-        article,
-        () => setActiveArticleItem(article),
-        () => null
-      );
-    });
   });
 </script>
 
@@ -100,11 +87,25 @@
       </div>
     {/each}
 
-    <SelectGroup data={typesMobility} isType="typesMobility" />
     <SelectGroup data={distances} isType="distances" />
+    <SelectGroup data={transportTypes} isType="transportTypes" />
     <Input />
     <div class="vis map sticky">
       <Map lat={35} lon={-84} zoom={3.5} />
     </div>
+
+    {#each items as item, index}
+      <div class="article-item" id={`article-item-${index}`}>
+        <h2>{item.headline}</h2>
+        <p>{item.paragraph}</p>
+      </div>
+    {/each}
+
+    {#each items as item, index}
+      <div class="article-item" id={`article-item-${index}`}>
+        <h2>{item.headline}</h2>
+        <p>{item.paragraph}</p>
+      </div>
+    {/each}
   </article>
 </main>

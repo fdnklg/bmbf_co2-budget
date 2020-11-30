@@ -9,6 +9,7 @@
 
 <style>
   .container {
+    margin-bottom: 20px;
   }
 
   .wrapper {

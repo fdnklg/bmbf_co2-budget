@@ -1,13 +1,44 @@
 <script>
-  import { activeColor, zipcodes } from "stores";
+  import { activeColor, activeColor20, zipcodes, activeZipcode } from "stores";
+
+  import Icon from "components/Icon.svelte";
+  import ButtonSmall from "components/ButtonSmall.svelte";
 
   $: isValid = true;
+  $: isEditing = true;
 
   let zip;
+
   const validate = (e) => {
     const value = zip.value;
     isValid = $zipcodes.includes(value);
-    console.log(isValid, value);
+    isEditing = false;
+
+    if (isValid) {
+      activeZipcode.set(value);
+    }
+  };
+
+  const setIconName = (isValid, isEditing) => {
+    if (isEditing) return "search";
+    if (!isValid) return "invalid";
+    return "valid";
+  };
+
+  const setRandomZip = () => {
+    const exampleZipCodes = [52531, 41372, 52070]; // @TODO add more
+    const randIndex = Math.floor(Math.random() * exampleZipCodes.length);
+    zip.value = exampleZipCodes[randIndex];
+    validate();
+  };
+
+  const handleKeydown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      validate();
+    } else {
+      isEditing = true;
+    }
   };
 </script>
 
@@ -39,7 +70,6 @@
       opacity: 0.5;
       color: white;
     }
-
     button {
       position: absolute;
       right: 15px;
@@ -47,7 +77,6 @@
       width: 40px;
       height: 40px;
       border-radius: 100%;
-      background-color: white;
       border: 0px solid transparent;
     }
   }
@@ -71,20 +100,25 @@
     <input
       id="zipcode"
       bind:this={zip}
-      on:click={(event) => {
-        console.log(event);
-        event.preventDefault();
-        console.log('click');
-      }}
+      on:keydown={handleKeydown}
       placeholder="z.B. 10115 (Berlin)"
       class="zipInput" />
-    <button type="button" value="Submit" on:click={validate}>v</button>
+    <button
+      style="background-color: {$activeColor20}"
+      type="button"
+      value="Submit"
+      on:click={validate}>
+      <Icon name={setIconName(isValid, isEditing)} />
+    </button>
   </form>
-  {#if !isValid}
+  {#if !isValid && !isEditing}
     <p class="error">
       Die eingegebene Postleitzahl ist ungültig. Bitte versuche erneut eine
       <strong>deine Postleitzahl</strong>
       einzugeben.
     </p>
   {/if}
+  <ButtonSmall handleClick={setRandomZip}>
+    Wähle deutsche Beispiel-Postleitzahl.
+  </ButtonSmall>
 </div>

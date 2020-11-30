@@ -3,17 +3,19 @@
   export let subtitle;
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   .title {
     font-size: var(--font-size-xl);
   }
 
   .subtitle {
-    font-size: var(--font-sizes-s);
+    @include font-small;
+    line-height: 150%;
   }
 </style>
 
 <div class="intro">
   <h2 class="title">{title}</h2>
-  <span class="subtitle">{subtitle}</span>
+  <p class="subtitle">{subtitle}</p>
 </div>
