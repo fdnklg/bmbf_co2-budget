@@ -10,14 +10,17 @@
   const handleIsIntersecting = (e, obj) => {
     const { isScrollingUp, isEnter, intersecting } = obj;
 
-    if (isEnter) setActiveWaypoint(id);
-
     /*
-
-    Intersection Observer provides three props:
-    isScrollingUp, isEnter, intersecting
-
+        Intersection Observer provides three props:
+        isScrollingUp, isEnter, intersecting
     */
+
+    console.log(
+      "isScrollingUp, isEnter, intersecting",
+      isScrollingUp,
+      isEnter,
+      intersecting
+    );
 
     if (isScrollingUp && !isEnter) {
       if (waypoints && id !== "start") {
@@ -27,7 +30,6 @@
       }
     } else if (!isScrollingUp && intersecting) {
       setActiveWaypoint(id);
-      console.log(id);
     }
   };
 

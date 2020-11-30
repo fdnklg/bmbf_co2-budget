@@ -84,7 +84,7 @@
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </p>
 
-  <ChartEmissionen isSticky={true} />
+  <ChartEmissionen {activeWaypoint} isSticky={true} />
   <Waypoint
     id="start"
     waypoints={embedContents['emissionen']}
