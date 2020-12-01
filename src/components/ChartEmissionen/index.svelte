@@ -1,33 +1,43 @@
 <script>
-  export let isSticky;
-  export let activeWaypoint;
-  export let color = "red";
+  import Chart from "../Chart/Chart.svelte";
+  import Bars from "../Chart/Bars.svelte";
+  import Header from "../Chart/Header.svelte";
+  import Footer from "../Chart/Footer.svelte";
+  import Annotation from "../Chart/Annotation.svelte";
 
-  const setColor = (wp) => {
-    if (wp === "start") return "black";
-    if (wp === "end") return "grey";
-    return wp;
-  };
+  import { emissionenActiveData } from "stores";
+  import { afterUpdate } from "svelte";
 </script>
 
 <style lang="scss">
   @import "src/style/root.scss";
-
+  .bar {
+    height: 275px;
+  }
+  .barchart {
+    padding: 1em var(--space-s) 2em var(--space-xs);
+  }
   .container {
-    width: 100%;
     color: white;
-    height: 500px;
+    height: auto;
     margin: 0 auto;
-    top: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
 </style>
 
-<div
-  data-embed-id="emissionen"
-  class="container embed {isSticky ? 'sticky' : ''}"
-  style="background-color: {setColor($activeWaypoint)}">
-  Chart Container
+<div data-embed-id="emissionen" class="container embed vis bar sticky padding">
+  {#if $emissionenActiveData}
+    <Header data={$emissionenActiveData.meta} />
+    <div class="barchart">
+      <Chart
+        subset={$emissionenActiveData.meta.subset}
+        x1={0}
+        x2={100}
+        y1={0}
+        y2={100}>
+        <Bars data={$emissionenActiveData.d} />
+        <Annotation data={$emissionenActiveData.annotation} />
+      </Chart>
+    </div>
+    <Footer data={$emissionenActiveData.meta} />
+  {/if}
 </div>

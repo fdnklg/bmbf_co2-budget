@@ -6,8 +6,6 @@
   import Annotation from "../Chart/Annotation.svelte";
 
   import { selectedData } from "stores";
-
-  export let data;
 </script>
 
 <style>

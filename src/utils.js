@@ -10,14 +10,14 @@ export const lightenColor = (color, percent) => {
 };
 
 export const parseData = data => {
-	const emissionKeys = ['start', 'transition', 'zoom'];
+    const emissionKeys = Object.keys(data.emissionen);
 
 	let parsed = {
-		emissions: {}
+		emissionen: {}
 	};
 
 	emissionKeys.map(key => {
-		let selectedData = data.emissions[key];
+		let selectedData = data.emissionen[key];
 		selectedData.d = selectedData.d
 			.sort((a, b) => b.value - a.value)
 			.map((d) => {
@@ -25,7 +25,7 @@ export const parseData = data => {
 				d.y = 1;
 				return d;
 			});
-		parsed.emissions[key] = selectedData;
+		parsed.emissionen[key] = selectedData;
 	})
 
 	return parsed;

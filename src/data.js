@@ -1,6 +1,6 @@
 
 export default {
-	emissions: {
+	emissionen: {
 			start: {
 				meta: {
 					title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
@@ -67,7 +67,7 @@ export default {
 					},
 				],
 			},
-			zoom: {
+			end: {
 				meta: {
 					subset: 72,
 					title: 'CO2-Emissionen im Straßenverkehr',

@@ -5,7 +5,9 @@
   export let bottom = 0;
   export let waypoints;
   export let id;
+  export let key;
   export let setActiveWaypoint;
+  export let setActiveKey;
 
   const handleIsIntersecting = (e, obj) => {
     const { isScrollingUp, isEnter, intersecting } = obj;
@@ -22,21 +24,26 @@
       intersecting
     );
 
+    if (isScrollingUp && isEnter) {
+      setActiveWaypoint(id);
+      return null;
+    }
+
+    console.log(id, waypoints);
     if (isScrollingUp && !isEnter) {
       if (waypoints && id !== "start") {
         const matchIndex = waypoints.map((elm) => elm.data).indexOf(id);
         const prevWaypoint = waypoints[matchIndex - 1];
         setActiveWaypoint(prevWaypoint.data);
+        return null;
       }
-    } else if (!isScrollingUp && intersecting) {
-      setActiveWaypoint(id);
     }
-  };
 
-  const color = (id) => {
-    if (id === "start") return "black";
-    if (id === "end") return "grey";
-    return id;
+    if (!isScrollingUp && intersecting) {
+      if (id === "start") setActiveKey(key);
+      setActiveWaypoint(id);
+      return null;
+    }
   };
 </script>
 
@@ -59,15 +66,13 @@
     {#if intersecting}
       <div
         class="waypoint"
-        use:handleIsIntersecting={{ isScrollingUp, isEnter, intersecting }}
-        style="background-color: {color(id)}">
+        use:handleIsIntersecting={{ isScrollingUp, isEnter, intersecting }}>
         Waypoint
       </div>
     {:else}
       <div
         class="waypoint"
-        use:handleIsIntersecting={{ isScrollingUp, isEnter, intersecting }}
-        style="background-color: {id}">
+        use:handleIsIntersecting={{ isScrollingUp, isEnter, intersecting }}>
         Waypoint
       </div>
     {/if}

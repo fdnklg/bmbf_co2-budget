@@ -2,26 +2,30 @@
   import { onMount } from "svelte";
 
   import datasets from "data";
-  import { data, zipcodes, activeWaypoint } from "stores";
+  import { zipcodes, activeWaypoint, activeKey, data } from "stores";
 
   import { parseData, loadFile, nextUntil } from "utils";
   import { zipcodesUrl } from "config";
 
   import ChartEmissionen from "components/ChartEmissionen/index.svelte";
-
   import Header from "components/Header/index.svelte";
   import Waypoint from "components/Waypoint.svelte";
   import Gap from "components/Gap.svelte";
 
   let embedContents = {};
 
-  const setActiveWaypoint = (key) => {
-    activeWaypoint.set(key);
+  const setActiveWaypoint = (id) => {
+    activeWaypoint.set(id);
+  };
+
+  const setActiveKey = (key) => {
+    activeKey.set(key);
   };
 
   onMount(async () => {
     const codes = await loadFile(zipcodesUrl);
     zipcodes.set(codes.columns);
+
     data.set(parseData(datasets));
 
     const embedContainers = document.querySelectorAll(".embed");
@@ -84,71 +88,65 @@
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </p>
 
-  <ChartEmissionen {activeWaypoint} isSticky={true} />
-  <Waypoint
-    id="start"
-    waypoints={embedContents['emissionen']}
-    {setActiveWaypoint} />
+  <div class="emissionen">
+    <ChartEmissionen isSticky={true} />
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+    <Waypoint
+      id="start"
+      waypoints={embedContents['emissionen']}
+      key="emissionen"
+      {setActiveKey}
+      {setActiveWaypoint} />
 
-  <Gap />
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    <Gap />
 
-    <br />
-    <br />
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
 
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+      <br />
+      <br />
 
-  <Gap />
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
-  <Waypoint
-    id="blue"
-    waypoints={embedContents['emissionen']}
-    {setActiveWaypoint} />
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
 
-  <Gap />
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
-  <Waypoint
-    id="green"
-    waypoints={embedContents['emissionen']}
-    {setActiveWaypoint} />
+    <Gap />
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+    <Waypoint
+      id="transition"
+      waypoints={embedContents['emissionen']}
+      {setActiveWaypoint} />
 
-  <Gap />
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
-  <Waypoint
-    id="end"
-    waypoints={embedContents['emissionen']}
-    {setActiveWaypoint} />
+    <Gap />
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
+    <Waypoint
+      id="end"
+      waypoints={embedContents['emissionen']}
+      {setActiveWaypoint} />
+  </div>
 
   <p class="article-item">
     Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
