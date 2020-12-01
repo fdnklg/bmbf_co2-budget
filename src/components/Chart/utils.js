@@ -4,6 +4,9 @@ const e10 = Math.sqrt(50);
 const e5 = Math.sqrt(10);
 const e2 = Math.sqrt(2);
 
+export const default_x = d => d.x;
+export const default_y = d => d.y;
+
 export function get_ticks(start, stop, count = 5) {
 	var reverse;
 	var i = -1;

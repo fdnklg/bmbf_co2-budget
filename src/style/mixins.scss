@@ -2,3 +2,11 @@
   font-size: var(--font-size-s);
   line-height: var(--line-height-s);
 }
+
+@mixin box-shadow {
+  box-shadow: rgba(26, 25, 43, 0.016) 0px 2.8px 2.2px,
+    rgba(26, 25, 43, 0.02) 0px 12.5px 10px,
+    rgba(26, 25, 43, 0.024) 0px 22.3px 17.9px,
+    rgba(26, 25, 43, 0.027) 0px 41.8px 33.4px,
+    rgba(26, 25, 43, 0.02) 0px 100px 80px;
+}

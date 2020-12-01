@@ -2,10 +2,13 @@
   export let data;
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   .chart-headline {
+    margin-bottom: 0;
     font-size: var(--font-size-xl);
     line-height: var(--line-height-m);
+    color: $color-main;
   }
 
   .chart-subtitle {

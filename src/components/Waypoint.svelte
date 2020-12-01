@@ -18,10 +18,11 @@
     */
 
     console.log(
-      "isScrollingUp, isEnter, intersecting",
+      "isScrollingUp, isEnter, intersecting, waypoints",
       isScrollingUp,
       isEnter,
-      intersecting
+      intersecting,
+      waypoints
     );
 
     if (isScrollingUp && isEnter) {
@@ -29,7 +30,6 @@
       return null;
     }
 
-    console.log(id, waypoints);
     if (isScrollingUp && !isEnter) {
       if (waypoints && id !== "start") {
         const matchIndex = waypoints.map((elm) => elm.data).indexOf(id);
@@ -47,12 +47,16 @@
   };
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   .waypoint {
     height: auto;
     width: 100%;
-    background-color: green;
+    background-color: $color-light-20;
     margin: 0 auto;
+    text-align: center;
+    font-size: 14px;
+    color: $color-main;
   }
 </style>
 

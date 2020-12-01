@@ -1,30 +1,30 @@
 <script>
-  import Chart from "../Chart/Chart.svelte";
-  import Bars from "../Chart/Bars.svelte";
-  import Header from "../Chart/Header.svelte";
-  import Footer from "../Chart/Footer.svelte";
-  import Annotation from "../Chart/Annotation.svelte";
+  import Chart from "./Chart/Chart.svelte";
+  import Bars from "./Chart/Bars.svelte";
+  import Header from "./Chart/Header.svelte";
+  import Footer from "./Chart/Footer.svelte";
+  import Annotation from "./Chart/Annotation.svelte";
 
   import { emissionenActiveData } from "stores";
-  import { afterUpdate } from "svelte";
 </script>
 
 <style lang="scss">
   @import "src/style/root.scss";
-  .bar {
-    height: 275px;
-  }
+
   .barchart {
     padding: 1em var(--space-s) 2em var(--space-xs);
   }
   .container {
     color: white;
     height: auto;
+    width: auto;
+    max-width: $size-chart;
     margin: 0 auto;
+    top: 50%;
   }
 </style>
 
-<div data-embed-id="emissionen" class="container embed vis bar sticky padding">
+<div data-embed-id="emissionen" class="container embed vis sticky padding">
   {#if $emissionenActiveData}
     <Header data={$emissionenActiveData.meta} />
     <div class="barchart">

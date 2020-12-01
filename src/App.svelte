@@ -4,13 +4,20 @@
   import datasets from "data";
   import { zipcodes, activeWaypoint, activeKey, data } from "stores";
 
-  import { parseData, loadFile, nextUntil } from "utils";
-  import { zipcodesUrl } from "config";
+  import {
+    parseDataEmissionen,
+    parseDataSektoren,
+    loadFile,
+    nextUntil,
+  } from "utils";
 
-  import ChartEmissionen from "components/ChartEmissionen/index.svelte";
+  import { zipcodesUrl, sektorenUrl } from "config";
+
   import Header from "components/Header/index.svelte";
   import Waypoint from "components/Waypoint.svelte";
   import Gap from "components/Gap.svelte";
+  import ChartEmissionen from "components/ChartEmissionen.svelte";
+  import ChartSektoren from "components/ChartSektoren.svelte";
 
   let embedContents = {};
 
@@ -23,10 +30,17 @@
   };
 
   onMount(async () => {
+    let parsed = {};
     const codes = await loadFile(zipcodesUrl);
-    zipcodes.set(codes.columns);
+    const sektoren = await loadFile(sektorenUrl, ";");
 
-    data.set(parseData(datasets));
+    parsed["emissionen"] = parseDataEmissionen(datasets);
+    parsed["sektoren"] = parseDataSektoren(sektoren, datasets);
+
+    zipcodes.set(codes.columns);
+    data.set(parsed);
+
+    console.log(parsed);
 
     const embedContainers = document.querySelectorAll(".embed");
     embedContainers.forEach((embedContainer) => {
@@ -49,6 +63,8 @@
         }
       });
     });
+
+    console.log("embedContents", embedContainers);
   });
 </script>
 
@@ -75,6 +91,17 @@
     max-width: $size-content;
     margin: 50px auto;
     padding: 20px;
+    @include box-shadow;
+  }
+
+  .chart-section {
+    display: block;
+    border-top: 1px solid $color-light-20;
+    border-bottom: 1px solid $color-light-20;
+
+    .article-item {
+      margin-left: 600px;
+    }
   }
 </style>
 
@@ -88,8 +115,8 @@
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </p>
 
-  <div class="emissionen">
-    <ChartEmissionen isSticky={true} />
+  <div class="section emissionen">
+    <ChartEmissionen />
 
     <Waypoint
       id="start"
@@ -98,13 +125,6 @@
       {setActiveKey}
       {setActiveWaypoint} />
 
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
     <Gap />
 
     <p class="article-item">
@@ -112,29 +132,15 @@
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-
-      <br />
-      <br />
-
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
 
-    <Gap />
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
     <Waypoint
       id="transition"
       waypoints={embedContents['emissionen']}
       {setActiveWaypoint} />
 
     <Gap />
+
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
@@ -146,26 +152,47 @@
       id="end"
       waypoints={embedContents['emissionen']}
       {setActiveWaypoint} />
+
+    <Gap />
   </div>
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+  <div class="section sektoren">
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+    <ChartSektoren />
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+    <Waypoint
+      id="start"
+      waypoints={embedContents['sektoren']}
+      key="sektoren"
+      {setActiveKey}
+      {setActiveWaypoint} />
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+    <Gap />
+
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+  </div>
 </div>

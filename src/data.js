@@ -103,5 +103,20 @@ export default {
 					},
 				],
 			}
-	}
+    },
+    sektoren: {
+        start: {
+            meta: {
+                title: 'CO-2 Emissionen nach Sektoren',
+                subtitle: 'Hier steht die zweite Überschrift',
+                src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
+            },
+            annotation: [
+                {
+                    id: "Verkehr",
+                    
+                }
+            ]
+        }
+    }
 }

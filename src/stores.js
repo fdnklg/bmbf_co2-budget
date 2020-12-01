@@ -18,9 +18,17 @@ export const isLocal = readable(true);
 export const emissionenActiveData = derived(
     [data, activeWaypoint],
     ([$data, $activeWaypoint]) => {
-        console.log("$activeWaypoint", $activeWaypoint)
         if ($data && $activeWaypoint) {
             return $data.emissionen[$activeWaypoint];
+        }
+    }
+)
+
+export const sektorenData = derived(
+    [data, activeWaypoint],
+    ([$data, $activeWaypoint]) => {
+        if ($data && $activeWaypoint) {
+            return $data.sektoren[$activeWaypoint];
         }
     }
 )

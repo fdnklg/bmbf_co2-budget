@@ -8,17 +8,16 @@
   import { selectedData } from "stores";
 </script>
 
-<style>
-  .bar {
-    height: 275px;
-  }
+<style lang="scss">
+  @import "src/style/root.scss";
   .barchart {
     padding: 1em var(--space-s) 2em var(--space-xs);
+    height: $height-vis;
   }
 </style>
 
 {#if $selectedData}
-  <div class="vis bar sticky padding">
+  <div class="vis sticky padding">
     <Header data={$selectedData.meta} />
     <div class="barchart">
       <Chart subset={$selectedData.meta.subset} x1={0} x2={100} y1={0} y2={100}>
