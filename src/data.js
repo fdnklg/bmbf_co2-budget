@@ -111,12 +111,15 @@ export default {
                 subtitle: 'Hier steht die zweite Überschrift',
                 src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
             },
-            annotation: [
-                {
-                    id: "Verkehr",
-                    
-                }
-            ]
-        }
+            highlight: []
+        },
+        verkehr: {
+            meta: {
+                title: 'CO-2 Emissionen nach Sektoren',
+                subtitle: 'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+                src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
+            },
+            highlight: ['Verkehr']
+        },
     }
 }

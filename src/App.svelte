@@ -40,8 +40,6 @@
     zipcodes.set(codes.columns);
     data.set(parsed);
 
-    console.log(parsed);
-
     const embedContainers = document.querySelectorAll(".embed");
     embedContainers.forEach((embedContainer) => {
       const id = embedContainer.getAttribute("data-embed-id");
@@ -180,6 +178,15 @@
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
+
+    <Waypoint
+      id="verkehr"
+      waypoints={embedContents['sektoren']}
+      key="sektoren"
+      {setActiveKey}
+      {setActiveWaypoint} />
+
+    <Gap />
 
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und

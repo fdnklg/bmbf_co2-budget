@@ -24,7 +24,7 @@
     width: 100%;
     max-width: $size-chart;
     margin: 0 auto;
-    top: 30%;
+    top: 25%;
     padding: $space-m;
   }
 
@@ -42,6 +42,9 @@
     fill: none;
     stroke: black;
     stroke-width: 1px;
+    &.highlight {
+      stroke-width: 3px;
+    }
   }
 
   .x-label {
@@ -74,9 +77,12 @@
           <span class="x-label">{value}</span>
         </Grid>
         <Svg>
-          {#each $sektorenData.d as country}
-            <Line data={country.data} let:d>
-              <path class="data" {d} />
+          {#each $sektorenData.d as sektor}
+            <Line data={sektor.data} let:d>
+              <path
+                style="stroke: {sektor.color}"
+                class="data {sektor.highlight ? 'highlight' : ''}"
+                {d} />
             </Line>
           {/each}
         </Svg>

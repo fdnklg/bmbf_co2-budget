@@ -17,13 +17,13 @@
         isScrollingUp, isEnter, intersecting
     */
 
-    console.log(
-      "isScrollingUp, isEnter, intersecting, waypoints",
-      isScrollingUp,
-      isEnter,
-      intersecting,
-      waypoints
-    );
+    // console.log(
+    //   "isScrollingUp, isEnter, intersecting, waypoints",
+    //   isScrollingUp,
+    //   isEnter,
+    //   intersecting,
+    //   waypoints
+    // );
 
     if (isScrollingUp && isEnter) {
       setActiveWaypoint(id);

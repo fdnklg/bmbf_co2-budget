@@ -4,6 +4,29 @@ export const s3Url = "https://locobss-story-co2.s3.eu-central-1.amazonaws.com/";
 
 export const isoChronesUrl = isLocal ? `data/` : s3Url;
 
+export const colorsSektoren = [
+    {
+        name: "Verkehr",
+        color: "red"
+    },
+    {
+        name: "Land-, Forstwirtschaft, Fischerei",
+        color: "grey"
+    },
+    {
+        name: "Energie",
+        color: "grey"
+    },
+    {
+        name: "Landwirtschaft",
+        color: "grey"
+    },
+    {
+        name: "Industrie",
+        color: "grey"
+    },
+];
+
 export const zipcodesUrl = `${s3Url}postcodes.txt`; 
 export const sektorenUrl = 'data/co2_sektoren.csv';
 

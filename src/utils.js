@@ -1,4 +1,5 @@
 import { dsvFormat } from 'd3-dsv';
+import { colorsSektoren } from './config';
 
 export const lightenColor = (color, percent) => {
     const num = parseInt(color.replace("#", ""), 16),
@@ -32,20 +33,22 @@ export const parseDataEmissionen = data => {
 export const parseDataSektoren = (data, config) => {
     config = config.sektoren;
     const keys = Object.keys(config);
-
-    const d = data.map(sektor => {
-        const years = Object.keys(sektor);
-        years.length = years.length - 1
-
-        const data = years.map(year => ({ x: parseFloat(year), y: 100 + parseFloat(sektor[year]) }));
-
-        return {
-            name: sektor.sector,
-            data: data
-        }
-    })
-
     keys.map(key => {
+
+        const d = data.map(sektor => {
+            const years = Object.keys(sektor);
+            years.length = years.length - 1
+
+            const data = years.map(year => ({ x: parseFloat(year), y: 100 + parseFloat(sektor[year]) }));
+            
+            return {
+                name: sektor.sector,
+                data: data,
+                highlight: config[key].highlight.includes(sektor.sector),
+                color: colorsSektoren.find(d => d.name === sektor.sector).color
+            }
+        })
+        
         config[key].d = d;
     })
 
