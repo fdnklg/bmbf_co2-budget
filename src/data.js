@@ -156,5 +156,82 @@ export default {
             annotation: [
             ]
         },
+    },
+    szenarien: {
+        start: {
+            scenario: "2020",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7,
+            diameter: true
+        },
+        szenarioEins: {
+            scenario: "2020",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 6,
+            diameter: true,
+            isochrones: ['car']
+        },
+        szenarioZwei: {
+            scenario: "2050_max",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7,
+            diameter: true,
+            isochrones: ['car']
+        },
+        szenarioDrei: {
+            scenario: "2050_max",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7,
+            diameter: true,
+            isochrones: ['public']
+        },
+        szenarioDrei: {
+            scenario: "2050_max",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7,
+            diameter: true,
+            isochrones: ['car', 'public']
+        },
+        end: {
+            scenario: "2050_max",
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7,
+            diameter: true,
+            isochrones: ['car', 'public']
+        },
     }
 }
+
+/*
+   Wie ist der Flow? 
+   - Nutzer gibt Daten ein / wählt default Werte
+   - Anzeigen des Kreises und Umkreises auf der Karte
+   - Bei Scroll wird das Widget angezeigt
+   - Bei Scroll wird das Widget beschrieben (CO2 Verbrauch / Distanz)
+   - Bei Scroll werden die Szenarien geladen (Widget zeigt neuen CO2 Verbrauch an)
+
+   Was muss implementiert werden?
+   - config objekt für karte (annotationen, x, y, position, hasDiameter)
+   - datenaufbereitung für Karte
+
+   - implementierung der logik in der karte
+
+   - die quelle sollte verschiedene layer enthalten
+
+   - wenn diameter === true erstelle 2 points mit radius
+   - wenn isochrone array elemente enthält: erstelle eine quelle mit layerm pro element
+
+
+
+   - kommunikation mit waypoints
+   - widget (in karte)
+
+   wird das config objekt erstellt, sobald eigene angaben gemacht wurden?
+   is es sinnvoll ein standard flow zu definieren (für den fall, dass keine Angaben gemacht werden)
+*/

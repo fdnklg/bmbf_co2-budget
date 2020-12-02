@@ -1,9 +1,15 @@
 <script>
-  import { onMount, setContext, onDestroy } from "svelte";
-  import { activeZipcode, travelType, activeColor } from "stores";
+  import { onMount, afterUpdate, setContext, onDestroy } from "svelte";
+  import {
+    activeZipcode,
+    travelType,
+    activeColor,
+    distance,
+    szenarienData,
+  } from "stores";
   import { mapbox, key } from "./mapbox.js";
   import { s3Url } from "config";
-  import { createGeoJson } from "./util";
+  import { createGeojson, createFeature, createCircle } from "./util";
   import { isoChronesUrl } from "../../config.js";
 
   let map;
@@ -25,7 +31,7 @@
       const currentFeature = activeIsochrone[travelKey];
 
       if (currentFeature) {
-        const geoJson = createGeoJson(currentFeature);
+        const geoJson = createFeature(currentFeature);
         activeGeoJson = geoJson;
 
         const source = map.getSource("isochrone");
@@ -60,17 +66,39 @@
       });
 
       map.on("load", () => {
-        map.addSource("isochrone", { type: "geojson", data: activeGeoJson });
+        map.addSource("isochrone", { type: "geojson", data: createGeojson() });
 
         map.addLayer({
-          id: "iso",
+          id: "distance",
           type: "fill",
           source: "isochrone",
-          layout: {},
           paint: {
-            "fill-color": "red",
+            "fill-color": $activeColor,
             "fill-opacity": 0.4,
           },
+          filter: ["==", "$type", "Polygon"],
+        });
+
+        map.addLayer({
+          id: "car",
+          type: "fill",
+          source: "isochrone",
+          paint: {
+            "fill-color": "orange",
+            "fill-opacity": 0,
+          },
+          filter: ["==", "$type", "Polygon"],
+        });
+
+        map.addLayer({
+          id: "public",
+          type: "fill",
+          source: "isochrone",
+          paint: {
+            "fill-color": "green",
+            "fill-opacity": 0,
+          },
+          filter: ["==", "$type", "Polygon"],
         });
       });
     };
@@ -83,35 +111,50 @@
     };
   });
 
-  const subscribeTravelType = travelType.subscribe(async () => {
-    const isochrone = await fetchJson(
-      `${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`
-    );
+  //   prepare data fetch inside after update!
+  afterUpdate(async () => {
+    if ($szenarienData && map) {
+      // data fetch
+      const { diameter, zipcode, zoom, isochrones, scenario } = $szenarienData;
+      const centroid = await fetchJson(
+        `${s3Url}centroids/${$activeZipcode}.json`
+      );
 
-    activeIsochrone = isochrone;
-  });
+      const isochroneJson = await fetchJson(
+        `${isoChronesUrl}isochrones/${zipcode}_${$travelType}.json`
+      );
 
-  const subscribeActiveZipcode = activeZipcode.subscribe(async () => {
-    const centroid = await fetchJson(
-      `${s3Url}centroids/${$activeZipcode}.json`
-    );
+      const { x, y } = centroid;
+      const geojson = createGeojson();
 
-    const isochrone = await fetchJson(
-      `${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`
-    );
+      //   draw circle
+      if (diameter) {
+        geojson.features.push(createCircle([x, y], $distance));
+      }
 
-    if (map) {
+      //   set isochrones
+      if (isochrones && isochrones.length > 0) {
+        const path = isochroneJson[`${$travelType}_${scenario}`];
+        const isochroneFeat = createFeature(path);
+        geojson.features.push(isochroneFeat);
+      }
+
+      const source = map.getSource("isochrone");
+
+      if (source) {
+        //   update map props
+        source.setData(geojson);
+        map.setPaintProperty("distance", "fill-color", $activeColor);
+        map.setPaintProperty("car", "fill-color", "black");
+        map.setPaintProperty("public", "fill-color", "white");
+      }
+
       map.flyTo({
         center: [centroid.x, centroid.y],
-        zoom: 5,
+        zoom: zoom,
       });
     }
-
-    activeIsochrone = isochrone;
   });
-
-  onDestroy(subscribeActiveZipcode);
-  onDestroy(subscribeTravelType);
 </script>
 
 <style>

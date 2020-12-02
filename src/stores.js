@@ -33,6 +33,15 @@ export const sektorenData = derived(
     }
 )
 
+export const szenarienData = derived(
+    [data, activeWaypoint],
+    ([$data, $activeWaypoint]) => {
+        if ($data && $activeWaypoint) {
+            return $data.szenarien[$activeWaypoint];
+        }
+    }
+)
+
 export const selectedData = derived(
 	[data, activeCategory],
 	([$data, $activeCategory]) => {

@@ -55,6 +55,10 @@ export const parseDataSektoren = (data, config) => {
     return config;
 }
 
+export const parseDataSzenarien = (config) => {
+    return config.szenarien;
+}
+
 export const observe = (target) => {
   const observer = new IntersectionObserver(entries => {
 	if (entries[0].isIntersecting) {

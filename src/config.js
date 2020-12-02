@@ -2,7 +2,7 @@ import { isLocal } from 'stores';
 
 export const s3Url = "https://locobss-story-co2.s3.eu-central-1.amazonaws.com/";
 
-export const isoChronesUrl = isLocal ? `data/` : s3Url;
+export const isoChronesUrl = true ? `data/` : s3Url;
 
 export const colorsSektoren = [
     {
@@ -29,6 +29,66 @@ export const colorsSektoren = [
 
 export const zipcodesUrl = `${s3Url}postcodes.txt`; 
 export const sektorenUrl = 'data/co2_sektoren.csv';
+
+export const distances = {
+    hasIntro: true,
+    title: 'Wie weit fährst du täglich?',
+    subtitle: 'Markiere deine täglich zurückgelegte Strecke.',
+    elements: [
+        {
+            label: '',
+            isHTML: true,
+            icon: '<div class="distWrapper"><span class="dist">5</span><span class="metric">km</span></div>',
+            value: 5,
+        },
+        {
+            label: '',
+            isHTML: true,
+            icon: '<div class="distWrapper"><span class="dist">10</span><span class="metric">km</span></div>',
+            value: 10,
+        },
+        {
+            label: '',
+            isHTML: true,
+            icon: '<div class="distWrapper"><span class="dist">25</span><span class="metric">km</span></div>',
+            value: 25,
+        },
+        {
+            label: '',
+            isHTML: true,
+            icon: '<div class="distWrapper"><span class="dist">50</span><span class="metric">km</span></div>',
+            value: 50,
+        },
+    ]
+};
+
+export const transportTypes = {
+    hasIntro: true,
+    title: 'Auf welche Weise bewegst du dich fort?',
+    subtitle: 'Wählen Sie einen Mobilitätstyp aus der deinen Gewohnheit sich fortzubewegen deckt.',
+    elements: [
+        {
+            label: 'Fuß / Fahrrad',
+            icon: 'bike.svg',
+            value: 'bike',
+        },
+        {
+            label: 'ÖPNV',
+            icon: 'public.svg',
+            value: 'public',
+        },
+        {
+            label: 'Auto+',
+            icon: 'car_mf.svg',
+            value: 'car_mf',
+        },
+        {
+            label: 'Auto',
+            icon: 'car.svg',
+            value: 'car',
+        },
+    ]
+};
 
 export const data = {
   emissionen: {
