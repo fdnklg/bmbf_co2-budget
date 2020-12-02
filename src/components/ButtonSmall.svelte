@@ -5,7 +5,7 @@
 <style lang="scss">
   @import "src/style/root.scss";
   .btnSmall {
-    @include font-small;
+    @include type-small;
     background-color: transparent;
     border: none;
     padding: 0 0 3px 0;

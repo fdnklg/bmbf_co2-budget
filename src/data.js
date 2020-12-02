@@ -111,7 +111,8 @@ export default {
                 subtitle: 'Hier steht die zweite Überschrift',
                 src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
             },
-            highlight: []
+            highlight: [],
+            annotation: []
         },
         verkehr: {
             meta: {
@@ -119,7 +120,31 @@ export default {
                 subtitle: 'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
                 src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
             },
-            highlight: ['Verkehr']
+            highlight: ['Verkehr'],
+            annotation: [
+                {
+                    label: 'Verkehr',
+                    color: 'red',
+                    x: 2012,
+                    y: 110
+                }
+            ]
         },
+        landwirtschaft: {
+            meta: {
+                title: 'CO-2 Emissionen nach Sektoren',
+                subtitle: 'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+                src: '<a class="source" href="https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer">Europäisches Parlament</a>'
+            },
+            highlight: ['Land-, Forstwirtschaft, Fischerei'],
+            annotation: [
+                {
+                    label: 'Land-, Forstwirtschaft, Fischerei',
+                    color: 'grey',
+                    x: 2009,
+                    y: 120
+                }
+            ]
+        }
     }
 }

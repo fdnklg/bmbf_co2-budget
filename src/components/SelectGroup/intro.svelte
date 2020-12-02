@@ -10,7 +10,7 @@
   }
 
   .subtitle {
-    @include font-small;
+    @include type-small;
     line-height: 150%;
   }
 </style>

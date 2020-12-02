@@ -5,8 +5,10 @@
   import Grid from "./Chart/Grid.svelte";
   import Footer from "./Chart/Footer.svelte";
   import Header from "./Chart/Header.svelte";
+  import Point from "./Chart/Point.svelte";
   import Svg from "./Chart/Svg.svelte";
   import Line from "./Chart/Line.svelte";
+  import Annotation from "./Chart/Annotation.svelte";
 </script>
 
 <style lang="scss">
@@ -15,7 +17,6 @@
   .linechart {
     padding: 2em var(--space-s) 2em var(--space-xs);
     height: $height-vis;
-    // width: calc(100% - 2em);
     margin: 0 auto;
   }
 
@@ -41,10 +42,20 @@
   .data {
     fill: none;
     stroke: black;
-    stroke-width: 1px;
+    stroke-width: 2px;
+    opacity: 0.5;
+    @include transition-s;
     &.highlight {
       stroke-width: 3px;
+      opacity: 1;
     }
+  }
+
+  .data-contour {
+    stroke: white;
+    opacity: 1;
+    stroke-width: 5px;
+    fill: none;
   }
 
   .x-label {
@@ -54,6 +65,10 @@
     font-size: 14px;
     color: $color-light-60;
     text-align: center;
+  }
+
+  .label {
+    @include type-medium;
   }
 
   .grid-line span {
@@ -79,6 +94,9 @@
         <Svg>
           {#each $sektorenData.d as sektor}
             <Line data={sektor.data} let:d>
+              <path class="data-contour" {d} />
+            </Line>
+            <Line data={sektor.data} let:d>
               <path
                 style="stroke: {sektor.color}"
                 class="data {sektor.highlight ? 'highlight' : ''}"
@@ -86,6 +104,13 @@
             </Line>
           {/each}
         </Svg>
+        {#each $sektorenData.annotation as annotation}
+          <Point x={annotation.x} y={annotation.y}>
+            <span
+              class="label"
+              style="color: {annotation.color}">{annotation.label}</span>
+          </Point>
+        {/each}
       </Chart>
     </div>
     <Footer data={$sektorenData.meta} />

@@ -195,6 +195,15 @@
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
 
+    <Waypoint
+      id="landwirtschaft"
+      waypoints={embedContents['sektoren']}
+      key="sektoren"
+      {setActiveKey}
+      {setActiveWaypoint} />
+
+    <Gap />
+
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles

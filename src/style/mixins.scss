@@ -1,6 +1,11 @@
-@mixin font-small {
-  font-size: var(--font-size-s);
+@mixin type-small {
+  font-size: $font-size-s;
   line-height: var(--line-height-s);
+}
+
+@mixin type-medium {
+  font-size: $font-size-m;
+  line-height: $line-height-s;
 }
 
 @mixin box-shadow {
@@ -9,4 +14,8 @@
     rgba(26, 25, 43, 0.024) 0px 22.3px 17.9px,
     rgba(26, 25, 43, 0.027) 0px 41.8px 33.4px,
     rgba(26, 25, 43, 0.02) 0px 100px 80px;
+}
+
+@mixin transition-s {
+  transition: all 0.125s ease-in-out;
 }

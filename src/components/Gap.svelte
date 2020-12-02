@@ -3,7 +3,7 @@
 
 <style lang="scss">
   .gap {
-    padding-top: 30vh;
+    padding-top: 50vh;
   }
 </style>
 
