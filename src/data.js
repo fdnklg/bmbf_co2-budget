@@ -162,14 +162,14 @@ export default {
             scenario: "2020",
             zipcode: 41372,
             distance: 50,
-            zoom: 7,
+            zoom: 8.2,
             diameter: true
         },
         szenarioEins: {
             scenario: "2020",
             zipcode: 41372,
             distance: 50,
-            zoom: 6,
+            zoom: 7.9,
             diameter: true,
             isochrones: ['car']
         },
@@ -177,7 +177,7 @@ export default {
             scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
-            zoom: 7,
+            zoom: 8.2,
             diameter: true,
             isochrones: ['car']
         },
@@ -185,7 +185,7 @@ export default {
             scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
-            zoom: 7,
+            zoom: 7.9,
             diameter: true,
             isochrones: ['public']
         },
@@ -193,7 +193,7 @@ export default {
             scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
-            zoom: 7,
+            zoom: 7.9,
             diameter: true,
             isochrones: ['car', 'public']
         },
@@ -201,7 +201,7 @@ export default {
             scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
-            zoom: 7,
+            zoom: 7.9,
             diameter: true,
             isochrones: ['car', 'public']
         },

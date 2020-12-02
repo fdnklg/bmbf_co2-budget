@@ -1,6 +1,6 @@
 import { dsvFormat } from 'd3-dsv';
 
-export const createFeature = (path) => {
+export const createFeature = (path, type) => {
     const coordPairs = parse(path, ';');
 
     const coords = coordPairs.map(coordPair => {
@@ -10,10 +10,13 @@ export const createFeature = (path) => {
     const geojson = 
         {
             "type": "Feature",
+            "properties": {
+                    color: 'blue'
+                },
             "geometry": {   
                 "type": "Polygon",
                 "coordinates": [coords]
-            }
+        },
         }
 
 

@@ -2,7 +2,13 @@
   import { onMount } from "svelte";
 
   import datasets from "data";
-  import { zipcodes, activeWaypoint, activeKey, data } from "stores";
+  import {
+    zipcodes,
+    activeWaypoint,
+    activeKey,
+    data,
+    szenarienData,
+  } from "stores";
 
   import {
     parseDataEmissionen,
@@ -22,6 +28,11 @@
   import SelectGroup from "components/SelectGroup/index.svelte";
   import Input from "components/Input.svelte";
   import Map from "components/Map/index.svelte";
+
+  $: currentIsos =
+    $szenarienData && $szenarienData.isochrones
+      ? $szenarienData.isochrones
+      : "distance";
 
   let embedContents = {};
 
@@ -242,18 +253,9 @@
       <SelectGroup data={transportTypes} isType="transportTypes" />
       <Input />
     </div>
-    <div class="vis map sticky">
+    <div data-embed-id="szenarien" class="vis map sticky embed">
       <Map lat={35} lon={-84} zoom={3.5} />
     </div>
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Gap />
-
     <Waypoint
       id="start"
       waypoints={embedContents['szenarien']}
@@ -262,6 +264,7 @@
       {setActiveWaypoint} />
 
     <p class="article-item">
+      <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -278,6 +281,7 @@
       {setActiveWaypoint} />
 
     <p class="article-item">
+      <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -294,11 +298,13 @@
       {setActiveWaypoint} />
 
     <p class="article-item">
+      <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
+
     <Gap />
 
     <Waypoint
@@ -309,6 +315,7 @@
       {setActiveWaypoint} />
 
     <p class="article-item">
+      <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -323,9 +330,11 @@
       key="szenarien"
       {setActiveKey}
       {setActiveWaypoint} />
+    <Gap />
   </div>
 
   <p class="article-item">
+    <strong>{currentIsos}</strong>
     Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
     weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
     eröffnen und auseinander setzen, was jener Begründer der Wahrheit und

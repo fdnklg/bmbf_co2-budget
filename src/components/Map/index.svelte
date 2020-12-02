@@ -7,6 +7,7 @@
     distance,
     szenarienData,
   } from "stores";
+
   import { mapbox, key } from "./mapbox.js";
   import { s3Url } from "config";
   import { createGeojson, createFeature, createCircle } from "./util";
@@ -66,39 +67,26 @@
       });
 
       map.on("load", () => {
-        map.addSource("isochrone", { type: "geojson", data: createGeojson() });
+        map.addSource("layers", { type: "geojson", data: createGeojson() });
 
         map.addLayer({
           id: "distance",
           type: "fill",
-          source: "isochrone",
+          source: "layers",
           paint: {
             "fill-color": $activeColor,
             "fill-opacity": 0.4,
           },
-          filter: ["==", "$type", "Polygon"],
         });
 
         map.addLayer({
-          id: "car",
+          id: "isochrones",
           type: "fill",
-          source: "isochrone",
+          source: "layers",
           paint: {
-            "fill-color": "orange",
+            "fill-color": ["get", "color"],
             "fill-opacity": 0,
           },
-          filter: ["==", "$type", "Polygon"],
-        });
-
-        map.addLayer({
-          id: "public",
-          type: "fill",
-          source: "isochrone",
-          paint: {
-            "fill-color": "green",
-            "fill-opacity": 0,
-          },
-          filter: ["==", "$type", "Polygon"],
         });
       });
     };
@@ -115,13 +103,13 @@
   afterUpdate(async () => {
     if ($szenarienData && map) {
       // data fetch
-      const { diameter, zipcode, zoom, isochrones, scenario } = $szenarienData;
+      const { diameter, zoom, isochrones, scenario } = $szenarienData;
       const centroid = await fetchJson(
         `${s3Url}centroids/${$activeZipcode}.json`
       );
 
       const isochroneJson = await fetchJson(
-        `${isoChronesUrl}isochrones/${zipcode}_${$travelType}.json`
+        `${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`
       );
 
       const { x, y } = centroid;
@@ -134,19 +122,19 @@
 
       //   set isochrones
       if (isochrones && isochrones.length > 0) {
-        const path = isochroneJson[`${$travelType}_${scenario}`];
-        const isochroneFeat = createFeature(path);
-        geojson.features.push(isochroneFeat);
+        isochrones.map((name) => {
+          const path = isochroneJson[`${name}_${scenario}`];
+          const isochroneFeat = createFeature(path);
+          geojson.features.push(isochroneFeat);
+        });
       }
 
-      const source = map.getSource("isochrone");
+      const source = map.getSource("layers");
 
       if (source) {
         //   update map props
         source.setData(geojson);
         map.setPaintProperty("distance", "fill-color", $activeColor);
-        map.setPaintProperty("car", "fill-color", "black");
-        map.setPaintProperty("public", "fill-color", "white");
       }
 
       map.flyTo({
