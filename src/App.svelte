@@ -123,22 +123,20 @@
       {setActiveKey}
       {setActiveWaypoint} />
 
-    <Gap />
-
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
+
+    <Gap />
 
     <Waypoint
       id="transition"
       waypoints={embedContents['emissionen']}
       {setActiveWaypoint} />
 
-    <Gap />
-
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
@@ -146,12 +144,12 @@
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
 
+    <Gap />
+
     <Waypoint
       id="end"
       waypoints={embedContents['emissionen']}
       {setActiveWaypoint} />
-
-    <Gap />
   </div>
 
   <div class="section sektoren">
@@ -204,6 +202,34 @@
 
     <Gap />
 
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
+    <Gap />
+    <Waypoint
+      id="end"
+      waypoints={embedContents['sektoren']}
+      key="sektoren"
+      {setActiveKey}
+      {setActiveWaypoint} />
+  </div>
+  <div class="section onboarding">
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+    <p class="article-item">
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles

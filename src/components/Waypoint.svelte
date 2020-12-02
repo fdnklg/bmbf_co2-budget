@@ -57,6 +57,7 @@
     text-align: center;
     font-size: 14px;
     color: $color-main;
+    opacity: 0;
   }
 </style>
 

@@ -80,7 +80,7 @@
   }
 </style>
 
-<div data-embed-id="sektoren" class="container embed vis sticky padding">
+<div data-embed-id="sektoren" class="container embed sticky padding">
   {#if $sektorenData}
     <Header data={$sektorenData.meta} />
     <div class="linechart">

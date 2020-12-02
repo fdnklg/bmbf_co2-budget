@@ -24,7 +24,7 @@
   }
 </style>
 
-<div data-embed-id="emissionen" class="container embed vis sticky padding">
+<div data-embed-id="emissionen" class="container embed sticky padding">
   {#if $emissionenActiveData}
     <Header data={$emissionenActiveData.meta} />
     <div class="barchart">
