@@ -21,5 +21,7 @@
 
 <div class="chart-headline">
   <h2 class="chart-headline">{data.title}</h2>
-  <p class="chart-subtitle">{data.subtitle}</p>
+  {#if data.subtitle}
+    <p class="chart-subtitle">{data.subtitle}</p>
+  {/if}
 </div>

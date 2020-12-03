@@ -13,34 +13,31 @@ export const lightenColor = (color, percent) => {
 export const parseDataEmissionen = data => {
     const emissionKeys = Object.keys(data.emissionen);
 
-	let parsed = {};
+    let parsed = {};
 
-	emissionKeys.map(key => {
-		let selectedData = data.emissionen[key];
-		selectedData.d = selectedData.d
-			.sort((a, b) => b.value - a.value)
-			.map((d) => {
-				d.x = parseFloat((d.value * 100).toFixed(1));
-				d.y = 1;
-				return d;
-			});
-		parsed[key] = selectedData;
-	})
+    emissionKeys.map(key => {
+        let selectedData = data.emissionen[key];
+        selectedData.d = selectedData.d
+            .sort((a, b) => b.value - a.value)
+            .map((d) => {
+                d.x = parseFloat((d.value * 100).toFixed(1));
+                d.y = 1;
+                return d;
+            });
+        parsed[key] = selectedData;
+    })
 
-	return parsed;
+    return parsed;
 }
 
 export const parseDataSektoren = (data, config) => {
     config = config.sektoren;
     const keys = Object.keys(config);
     keys.map(key => {
-
         const d = data.map(sektor => {
             const years = Object.keys(sektor);
             years.length = years.length - 1
-
             const data = years.map(year => ({ x: parseFloat(year), y: 100 + parseFloat(sektor[year]) }));
-            
             return {
                 name: sektor.sector,
                 data: data,
@@ -48,20 +45,34 @@ export const parseDataSektoren = (data, config) => {
                 color: colorsSektoren.find(d => d.name === sektor.sector).color
             }
         })
-        
         config[key].d = d;
     })
-
     return config;
 }
 
-export const parseDataSzenarien = (config) => {
-    return config.szenarien;
+export const parseDataSzenarien = (data) => {
+    const szenarienKeys = Object.keys(data.szenarien);
+
+    let parsed = {};
+
+    szenarienKeys.map(key => {
+        let selectedData = data.szenarien[key];
+        selectedData.widget.d = selectedData.widget.d
+            .sort((a, b) => b.value - a.value)
+            .map((d) => {
+                d.x = parseFloat((d.value * 100).toFixed(1));
+                d.y = 1;
+                return d;
+            });
+        parsed[key] = selectedData;
+    })
+
+    return parsed;
 }
 
 export const observe = (target) => {
   const observer = new IntersectionObserver(entries => {
-	if (entries[0].isIntersecting) {
+    if (entries[0].isIntersecting) {
       console.log(`${entries[0].target.id} INTERSECTING, Visible: ${entries[0].isVisible}`)
     } 
   }, {
@@ -100,6 +111,12 @@ export const nextUntil = function(originalElement, selector, includeLast) {
 
   return siblings;
 };
+
+export const fetchJson = async (path) => {
+    const res = await fetch(path);
+    const json = await res.json();
+    return json;
+  };
 
 
 export const loadJson = async (filePath) => {

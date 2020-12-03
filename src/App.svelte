@@ -28,10 +28,11 @@
   import SelectGroup from "components/SelectGroup/index.svelte";
   import Input from "components/Input.svelte";
   import Map from "components/Map/index.svelte";
+  import Widget from "components/Widget/index.svelte";
 
   $: currentIsos =
-    $szenarienData && $szenarienData.isochrones
-      ? $szenarienData.isochrones
+    $szenarienData && $szenarienData[$activeWaypoint]
+      ? $szenarienData[$activeWaypoint].isochrones
       : "distance";
 
   let embedContents = {};
@@ -254,9 +255,11 @@
       <Input />
     </div>
     <div data-embed-id="szenarien" class="vis map sticky embed">
+      <Widget />
       <Map lat={35} lon={-84} zoom={3.5} />
     </div>
     <Waypoint
+      index={0}
       id="start"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -274,6 +277,7 @@
     <Gap />
 
     <Waypoint
+      index={1}
       id="szenarioEins"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -291,6 +295,7 @@
     <Gap />
 
     <Waypoint
+      index={2}
       id="szenarioZwei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -308,6 +313,7 @@
     <Gap />
 
     <Waypoint
+      index={3}
       id="szenarioDrei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -325,21 +331,39 @@
     <Gap />
 
     <Waypoint
+      index={4}
+      id="szenarioView"
+      waypoints={embedContents['szenarien']}
+      key="szenarien"
+      {setActiveKey}
+      {setActiveWaypoint} />
+    <Gap />
+
+    <p class="article-item">
+      <strong>{currentIsos}</strong>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
+    <Waypoint
+      index={5}
       id="end"
       waypoints={embedContents['szenarien']}
       key="szenarien"
       {setActiveKey}
       {setActiveWaypoint} />
     <Gap />
-  </div>
 
-  <p class="article-item">
-    <strong>{currentIsos}</strong>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+    <p class="article-item">
+      <strong>{currentIsos}</strong>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+  </div>
 
   <Gap />
 </div>

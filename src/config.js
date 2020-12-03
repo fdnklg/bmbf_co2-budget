@@ -83,6 +83,11 @@ export const transportTypes = {
             value: 'car_mf',
         },
         {
+            label: 'E-Auto',
+            icon: 'car.svg',
+            value: 'ecar',
+        },
+        {
             label: 'Auto',
             icon: 'car.svg',
             value: 'car',

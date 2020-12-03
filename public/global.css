@@ -208,3 +208,7 @@ button:focus {
 .sticky {
   position: sticky;
 }
+
+.mapboxgl-map {
+  z-index: -1;
+}

@@ -30,6 +30,18 @@ To create an optimised version of the app:
 npm run build
 ```
 
+## Docs
+
+### Setup a new Embed that listens to Waypoints
+
+- don't forget to set the class `embed`
+- and add the `data-embed-id` tag to the wrapping container with a key that exists in the data.js object`
+
+### Deliver Isochrone Data
+
+- Szenarien expect the number of way points to match with the `sets` array
+- if the number of waypoints updates, the `sets` array has to update as well
+
 ## TODO
 
 - remove personal mapbox access token before launch

@@ -163,7 +163,18 @@ export default {
             zipcode: 41372,
             distance: 50,
             zoom: 8.2,
-            diameter: true
+            diameter: true,
+            widget: {
+                meta: {
+                    title: 'Dein Reiseprofil',
+                },
+                annotation: {
+                    label: 'Deine CO2-Emissionen',
+                    align: 'right',
+                    x: 100
+                },
+				d: [],
+            }
         },
         szenarioEins: {
             scenario: "2020",
@@ -171,7 +182,24 @@ export default {
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car']
+            isochrones: ['car'],
+            widget: {
+                meta: {
+                    title: 'CO2-Emissionen im Straßenverkehr',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: [
+                    {
+                        type: 'Motorräder',
+                        value: .9,
+                        fill: '#E2E0EA'
+                    },
+                ]
+            }
         },
         szenarioZwei: {
             scenario: "2050_max",
@@ -179,7 +207,29 @@ export default {
             distance: 50,
             zoom: 8.2,
             diameter: true,
-            isochrones: ['car']
+            isochrones: ['car'],
+            widget: {
+                meta: {
+                    title: 'CO2-Emissionen im Straßenverkehr',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: [
+                    {
+                        type: 'Motorräder',
+                        value: .9,
+                        fill: '#E2E0EA'
+                    },
+                    {
+                        type: 'Schwerlaster',
+                        value: .1,
+                        fill: '#928DB0'
+                    },
+                ]
+            }
         },
         szenarioDrei: {
             scenario: "2050_max",
@@ -187,7 +237,29 @@ export default {
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['public']
+            isochrones: ['public'],
+            widget: {
+                meta: {
+                    title: 'CO2-Emissionen im Straßenverkehr',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: [
+                    {
+                        type: 'Motorräder',
+                        value: .9,
+                        fill: '#E2E0EA'
+                    },
+                    {
+                        type: 'Schwerlaster',
+                        value: .1,
+                        fill: '#928DB0'
+                    },
+                ]
+            }
         },
         szenarioDrei: {
             scenario: "2050_max",
@@ -195,7 +267,29 @@ export default {
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car', 'public']
+            isochrones: ['car', 'public'],
+            widget: {
+                meta: {
+                    title: 'CO2-Emissionen im Straßenverkehr',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: [
+                    {
+                        type: 'Motorräder',
+                        value: .9,
+                        fill: '#E2E0EA'
+                    },
+                    {
+                        type: 'Schwerlaster',
+                        value: .1,
+                        fill: '#928DB0'
+                    },
+                ]
+            }
         },
         end: {
             scenario: "2050_max",
@@ -203,35 +297,29 @@ export default {
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car', 'public']
+            isochrones: ['car', 'public'],
+            widget: {
+                meta: {
+                    title: 'CO2-Emissionen im Straßenverkehr',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: [
+                    {
+                        type: 'Motorräder',
+                        value: .9,
+                        fill: '#E2E0EA'
+                    },
+                    {
+                        type: 'Schwerlaster',
+                        value: .1,
+                        fill: '#928DB0'
+                    },
+                ]
+            }
         },
-    }
+    },
 }
-
-/*
-   Wie ist der Flow? 
-   - Nutzer gibt Daten ein / wählt default Werte
-   - Anzeigen des Kreises und Umkreises auf der Karte
-   - Bei Scroll wird das Widget angezeigt
-   - Bei Scroll wird das Widget beschrieben (CO2 Verbrauch / Distanz)
-   - Bei Scroll werden die Szenarien geladen (Widget zeigt neuen CO2 Verbrauch an)
-
-   Was muss implementiert werden?
-   - config objekt für karte (annotationen, x, y, position, hasDiameter)
-   - datenaufbereitung für Karte
-
-   - implementierung der logik in der karte
-
-   - die quelle sollte verschiedene layer enthalten
-
-   - wenn diameter === true erstelle 2 points mit radius
-   - wenn isochrone array elemente enthält: erstelle eine quelle mit layerm pro element
-
-
-
-   - kommunikation mit waypoints
-   - widget (in karte)
-
-   wird das config objekt erstellt, sobald eigene angaben gemacht wurden?
-   is es sinnvoll ein standard flow zu definieren (für den fall, dass keine Angaben gemacht werden)
-*/

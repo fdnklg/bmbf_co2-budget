@@ -1,17 +1,9 @@
 <script>
   import { onMount, afterUpdate, setContext, onDestroy } from "svelte";
-  import {
-    activeZipcode,
-    travelType,
-    activeColor,
-    distance,
-    szenarienData,
-  } from "stores";
+  import { activeColor, szenarienDataActive } from "stores";
 
   import { mapbox, key } from "./mapbox.js";
-  import { s3Url } from "config";
-  import { createGeojson, createFeature, createCircle } from "./util";
-  import { isoChronesUrl } from "../../config.js";
+  import { createGeojson } from "./util";
 
   let map;
 
@@ -23,34 +15,7 @@
   export let lon;
   export let zoom;
 
-  let container, activeIsochrone, activeGeoJson;
-
-  $: {
-    if (activeIsochrone && map) {
-      const scenario = 2020;
-      const travelKey = `${$travelType}_${scenario}`;
-      const currentFeature = activeIsochrone[travelKey];
-
-      if (currentFeature) {
-        const geoJson = createFeature(currentFeature);
-        activeGeoJson = geoJson;
-
-        const source = map.getSource("isochrone");
-        if (source) {
-          // set new data for map if new feature is available
-          map.getSource("isochrone").setData(geoJson);
-          map.setPaintProperty("iso", "fill-color", $activeColor);
-          console.log("activeIsochrone", geoJson);
-        }
-      }
-    }
-  }
-
-  const fetchJson = async (path) => {
-    const res = await fetch(path);
-    const json = await res.json();
-    return json;
-  };
+  let container;
 
   onMount(() => {
     const link = document.createElement("link");
@@ -60,7 +25,7 @@
     link.onload = () => {
       map = new mapbox.Map({
         container,
-        style: "mapbox://styles/mapbox/streets-v9",
+        style: "mapbox://styles/fdnklg/cki1gf6nl3fpj19mvtr8k06en",
         center: [lon, lat],
         zoom,
         scrollZoom: false,
@@ -101,33 +66,11 @@
 
   //   prepare data fetch inside after update!
   afterUpdate(async () => {
-    if ($szenarienData && map) {
+    if ($szenarienDataActive && map) {
       // data fetch
-      const { diameter, zoom, isochrones, scenario } = $szenarienData;
-      const centroid = await fetchJson(
-        `${s3Url}centroids/${$activeZipcode}.json`
-      );
-
-      const isochroneJson = await fetchJson(
-        `${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`
-      );
-
+      const geojson = $szenarienDataActive.geojsons[0];
+      const { zoom, centroid } = $szenarienDataActive;
       const { x, y } = centroid;
-      const geojson = createGeojson();
-
-      //   draw circle
-      if (diameter) {
-        geojson.features.push(createCircle([x, y], $distance));
-      }
-
-      //   set isochrones
-      if (isochrones && isochrones.length > 0) {
-        isochrones.map((name) => {
-          const path = isochroneJson[`${name}_${scenario}`];
-          const isochroneFeat = createFeature(path);
-          geojson.features.push(isochroneFeat);
-        });
-      }
 
       const source = map.getSource("layers");
 
@@ -138,7 +81,7 @@
       }
 
       map.flyTo({
-        center: [centroid.x, centroid.y],
+        center: [x, y],
         zoom: zoom,
       });
     }

@@ -2,9 +2,7 @@
   import Box from "./Box.svelte";
 
   export let data;
-  export let height = 1;
   export let x = (d) => d.x;
-  export let y = (d) => d.y;
 </script>
 
 <style>

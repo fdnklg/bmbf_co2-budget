@@ -17,14 +17,14 @@
         isScrollingUp, isEnter, intersecting
     */
 
-    console.log(
-      "isScrollingUp, isEnter, intersecting, waypoints",
-      isScrollingUp,
-      isEnter,
-      intersecting,
-      waypoints,
-      id
-    );
+    // console.log(
+    //   "isScrollingUp, isEnter, intersecting, waypoints",
+    //   isScrollingUp,
+    //   isEnter,
+    //   intersecting,
+    //   waypoints,
+    //   id
+    // );
 
     if (isScrollingUp && isEnter) {
       setActiveWaypoint(id);
@@ -35,7 +35,6 @@
       if (waypoints && id !== "start") {
         const matchIndex = waypoints.map((elm) => elm.data).indexOf(id);
         const prevWaypoint = waypoints[matchIndex - 1];
-        console.log("prevWaypoint", prevWaypoint);
         setActiveWaypoint(prevWaypoint.data);
         return null;
       }
