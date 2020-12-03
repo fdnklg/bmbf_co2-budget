@@ -159,14 +159,13 @@ export default {
     },
     szenarien: {
         start: {
-            scenario: "2020",
             zipcode: 41372,
             distance: 50,
             zoom: 8.2,
             diameter: true,
             widget: {
                 meta: {
-                    title: 'Dein Reiseprofil',
+                    title: 'Waypoint Start',
                 },
                 annotation: {
                     label: 'Deine CO2-Emissionen',
@@ -177,148 +176,88 @@ export default {
             }
         },
         szenarioEins: {
-            scenario: "2020",
             zipcode: 41372,
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car'],
             widget: {
                 meta: {
-                    title: 'CO2-Emissionen im Straßenverkehr',
+                    title: 'Waypoint Szenario Eins',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',
                     align: 'right',
                     x: 100
                 },
-                d: [
-                    {
-                        type: 'Motorräder',
-                        value: .9,
-                        fill: '#E2E0EA'
-                    },
-                ]
+                d: []
             }
         },
         szenarioZwei: {
-            scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
             zoom: 8.2,
             diameter: true,
-            isochrones: ['car'],
             widget: {
                 meta: {
-                    title: 'CO2-Emissionen im Straßenverkehr',
+                    title: 'Waypoint Scenario Zwei',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',
                     align: 'right',
                     x: 100
                 },
-                d: [
-                    {
-                        type: 'Motorräder',
-                        value: .9,
-                        fill: '#E2E0EA'
-                    },
-                    {
-                        type: 'Schwerlaster',
-                        value: .1,
-                        fill: '#928DB0'
-                    },
-                ]
+                d: []
             }
         },
         szenarioDrei: {
-            scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['public'],
             widget: {
                 meta: {
-                    title: 'CO2-Emissionen im Straßenverkehr',
+                    title: 'Waypoint Scenario Drei',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',
                     align: 'right',
                     x: 100
                 },
-                d: [
-                    {
-                        type: 'Motorräder',
-                        value: .9,
-                        fill: '#E2E0EA'
-                    },
-                    {
-                        type: 'Schwerlaster',
-                        value: .1,
-                        fill: '#928DB0'
-                    },
-                ]
+                d: []
             }
         },
-        szenarioDrei: {
-            scenario: "2050_max",
+        szenarioVier: {
             zipcode: 41372,
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car', 'public'],
             widget: {
                 meta: {
-                    title: 'CO2-Emissionen im Straßenverkehr',
+                    title: 'Waypoint Scenario 4',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',
                     align: 'right',
                     x: 100
                 },
-                d: [
-                    {
-                        type: 'Motorräder',
-                        value: .9,
-                        fill: '#E2E0EA'
-                    },
-                    {
-                        type: 'Schwerlaster',
-                        value: .1,
-                        fill: '#928DB0'
-                    },
-                ]
+                d: []
             }
         },
         end: {
-            scenario: "2050_max",
             zipcode: 41372,
             distance: 50,
             zoom: 7.9,
             diameter: true,
-            isochrones: ['car', 'public'],
             widget: {
                 meta: {
-                    title: 'CO2-Emissionen im Straßenverkehr',
+                    title: 'Waypoint End',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',
                     align: 'right',
                     x: 100
                 },
-                d: [
-                    {
-                        type: 'Motorräder',
-                        value: .9,
-                        fill: '#E2E0EA'
-                    },
-                    {
-                        type: 'Schwerlaster',
-                        value: .1,
-                        fill: '#928DB0'
-                    },
-                ]
+                d: []
             }
         },
     },

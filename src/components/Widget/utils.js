@@ -29,7 +29,7 @@ export const emissDistance = (type, distance) => {
     return distance * (CO2PerKm * multiplier);
 }
 
-export const iso_definitions = {
+export const emissions = {
   'car_2020':             emiss(co2_perday_today, co2_perday_today), // 9700
   'car_2050_min':         emiss(co2_perday_model_low, co2_perday_model_low  * (1 + (1 / (100 - performance_2050_car) * performance_2050_car))), // 990
   'car_2050_max':         emiss(co2_perday_model_high, co2_perday_model_high * (1 + (1 / (100 - performance_2050_car) * performance_2050_car))), // 2640

@@ -67,23 +67,21 @@
   //   prepare data fetch inside after update!
   afterUpdate(async () => {
     if ($szenarienDataActive && map) {
-      // data fetch
-      const geojson = $szenarienDataActive.geojsons[0];
+      const geojson = $szenarienDataActive.geojson;
       const { zoom, centroid } = $szenarienDataActive;
-      const { x, y } = centroid;
 
       const source = map.getSource("layers");
 
       if (source) {
-        //   update map props
         source.setData(geojson);
         map.setPaintProperty("distance", "fill-color", $activeColor);
       }
 
-      map.flyTo({
-        center: [x, y],
-        zoom: zoom,
-      });
+      if (centroid)
+        map.flyTo({
+          center: [centroid.x, centroid.y],
+          zoom: zoom,
+        });
     }
   });
 </script>

@@ -7,7 +7,7 @@
     activeWaypoint,
     activeKey,
     data,
-    szenarienData,
+    szenarienDataActive,
   } from "stores";
 
   import {
@@ -30,10 +30,9 @@
   import Map from "components/Map/index.svelte";
   import Widget from "components/Widget/index.svelte";
 
-  $: currentIsos =
-    $szenarienData && $szenarienData[$activeWaypoint]
-      ? $szenarienData[$activeWaypoint].isochrones
-      : "distance";
+  $: currentIsos = $szenarienDataActive
+    ? $szenarienDataActive.isochrones
+    : "distance";
 
   let embedContents = {};
 
@@ -332,7 +331,7 @@
 
     <Waypoint
       index={4}
-      id="szenarioView"
+      id="szenarioVier"
       waypoints={embedContents['szenarien']}
       key="szenarien"
       {setActiveKey}
