@@ -15,28 +15,34 @@ export default {
 				d: [
 					{
 						type: 'Straßenverkehr',
-						value: .72,
+                        value: .72,
+                        format: 'percent',
 						fill: '#3C3372',
-						showLabel: true
+                        showLabel: true,
+                        showValue: true
 					},
 					{
 						type: 'Zivilluftfahrt',
-						value: .134,
+                        value: .134,
+                        format: 'percent',
 						fill: '#F2F2F2',
 					},
 					{
 						type: 'Schiffahrt',
-						value: .136,
+                        value: .136,
+                        format: 'percent',
 						fill: '#F2F2F2',
 					},
 					{
 						type: 'Eisenbahn',
-						value: .005,
+                        value: .005,
+                        format: 'percent',
 						fill: '#F2F2F2',
 					},
 					{
 						type: 'Andere',
-						value: .005,
+                        value: .005,
+                        format: 'percent',
 						fill: '#F2F2F2',
 					},
 				],
@@ -54,14 +60,18 @@ export default {
 				},
 				d: [
 					{
-						type: 'Straßenverkehr',
-						value: .72,
+                        type: 'Straßenverkehr',
+                        format: 'percent',
+                        value: .72,
+                        format: 'percent',
 						fill: '#3C3372',
-						showLabel: true
+                        showLabel: true,
+                        showValue: true
 					},
 					{
 						type: 'Andere',
-						value: .28,
+                        value: .28,
+                        format: 'percent',
 						fill: '#F2F2F2',
 						showLabel: false
 					},
@@ -82,24 +92,29 @@ export default {
 				d: [
 					{
 						type: 'Motorräder',
-						value: .012,
+                        value: .012,
+                        format: 'percent',
 						fill: '#E2E0EA'
 					},
 					{
 						type: 'Schwerlaster',
-						value: .262,
+                        value: .262,
+                        format: 'percent',
 						fill: '#928DB0'
 					},
 					{
 						type: 'Leichte Nutzfahrzeuge',
-						value: .119,
+                        value: .119,
+                        format: 'percent',
 						fill: '#C5C2D5'
 					},
 					{
 						type: 'Autos',
-						value: .607,
+                        value: .607,
+                        format: 'percent',
 						fill: '#3C3372',
-						showLabel: true
+                        showLabel: true,
+                        showValue: true
 					},
 				],
 			}
@@ -217,23 +232,6 @@ export default {
             widget: {
                 meta: {
                     title: 'Waypoint Scenario Drei',
-                },
-                annotation: {
-                    label: 'Anteil Straßenverkehr',
-                    align: 'right',
-                    x: 100
-                },
-                d: []
-            }
-        },
-        szenarioVier: {
-            zipcode: 41372,
-            distance: 50,
-            zoom: 7.9,
-            diameter: true,
-            widget: {
-                meta: {
-                    title: 'Waypoint Scenario 4',
                 },
                 annotation: {
                     label: 'Anteil Straßenverkehr',

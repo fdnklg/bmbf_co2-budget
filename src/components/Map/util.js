@@ -1,6 +1,6 @@
 import { dsvFormat } from 'd3-dsv';
 
-export const createFeature = (path, type) => {
+export const createFeature = (path, style) => {
     const coordPairs = parse(path, ';');
 
     const coords = coordPairs.map(coordPair => {
@@ -10,9 +10,7 @@ export const createFeature = (path, type) => {
     const geojson = 
         {
             "type": "Feature",
-            "properties": {
-                    color: 'blue'
-                },
+            "properties": style,
             "geometry": {   
                 "type": "Polygon",
                 "coordinates": [coords]
@@ -23,8 +21,8 @@ export const createFeature = (path, type) => {
     return geojson; 
 }
 
-export const createCircle = (center, radiusInKm, points) => {
-    if(!points) points = 64;
+export const createCircle = (center, radiusInKm, style) => {
+    const points = 64;
 
     const coords = {
         latitude: center[1],
@@ -49,10 +47,11 @@ export const createCircle = (center, radiusInKm, points) => {
 
     return {
         "type": "Feature",
+        "properties": style,
         "geometry": {
             "type": "Polygon",
-            "coordinates": [ret]
-        }
+            "coordinates": [ret],
+        },
     };
 };
 

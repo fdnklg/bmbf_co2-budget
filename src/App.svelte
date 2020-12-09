@@ -258,7 +258,6 @@
       <Map lat={35} lon={-84} zoom={3.5} />
     </div>
     <Waypoint
-      index={0}
       id="start"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -276,7 +275,6 @@
     <Gap />
 
     <Waypoint
-      index={1}
       id="szenarioEins"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -294,7 +292,6 @@
     <Gap />
 
     <Waypoint
-      index={2}
       id="szenarioZwei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -312,7 +309,6 @@
     <Gap />
 
     <Waypoint
-      index={3}
       id="szenarioDrei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
@@ -329,15 +325,6 @@
 
     <Gap />
 
-    <Waypoint
-      index={4}
-      id="szenarioVier"
-      waypoints={embedContents['szenarien']}
-      key="szenarien"
-      {setActiveKey}
-      {setActiveWaypoint} />
-    <Gap />
-
     <p class="article-item">
       <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -347,7 +334,6 @@
     </p>
 
     <Waypoint
-      index={5}
       id="end"
       waypoints={embedContents['szenarien']}
       key="szenarien"

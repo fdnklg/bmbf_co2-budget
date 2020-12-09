@@ -1,6 +1,7 @@
 <script>
   import { tweened } from "svelte/motion";
   import { cubicOut } from "svelte/easing";
+  import Icon from "components/Icon.svelte";
 
   export let data;
 
@@ -14,13 +15,14 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .annotation {
     transform: translateY(10px);
     font-size: var(--font-size-s);
     letter-spacing: var(--spacing-m);
     color: var(--color-grey-0);
     width: auto;
+    display: flex;
     position: absolute;
   }
 
@@ -30,6 +32,15 @@
     display: inline-block;
     width: auto;
     height: 0;
+    position: absolute;
+
+    &.left {
+      left: 0;
+    }
+
+    &.right {
+      right: 0;
+    }
   }
 
   .right {
@@ -38,6 +49,10 @@
 
   .left {
     transform: translate(-1px, -2px);
+  }
+
+  .iconWrapper {
+    height: 15px;
   }
 
   .flipped {
@@ -49,8 +64,12 @@
   }
 </style>
 
-<div style="right: {$pos}%;" class="annotation">
-  {#if data.align === 'left'}<span class="tip {data.align} flipped" />{/if}
-  <span>{data.label}</span>
-  {#if data.align === 'right'}<span class="tip {data.align} flipped" />{/if}
+<div
+  style="{data.align}: {data.align === 'left' ? 100 - $pos : $pos}%;"
+  class="annotation">
+  {#if data.icon}
+    <Icon name={data.icon} />
+  {/if}
+  <div>{data.label}</div>
+  <div class="tip {data.align} flipped" />
 </div>

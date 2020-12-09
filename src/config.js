@@ -4,6 +4,14 @@ export const s3Url = "https://locobss-story-co2.s3.eu-central-1.amazonaws.com/";
 
 export const isoChronesUrl = true ? `data/` : s3Url;
 
+export const colors = {
+    bike: '#404455',
+    public: '#87AAAB',
+    car_mf: '#E9CD68',
+    ecar: '#E79D67',
+    car: '#E77667',
+}
+
 export const colorsSektoren = [
     {
         name: "Verkehr",

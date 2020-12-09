@@ -1,3 +1,5 @@
+import { colors } from "../../config";
+
 const co2_today = 11; // t
 const co2_model_low = 1; // t
 const co2_model_high = 2.7; // t
@@ -77,3 +79,105 @@ export const sets = {
   'public': [[],['public_2020'], ['public_2050_min', 'public_2050_max'], ['public_2050_bike_min', 'public_2050_bike_max'], []],
   'bike': [[],['car_2020'], ['car_2050_min', 'car_2050_max'], ['bike_2050_car_min', 'bike_2050_car_max'], ['bike_2050_public_min', 'bike_2050_public_max']]
 };
+
+export const setsNew = {
+    'car': [
+        [
+            { iso: null, highlight: true, annotation: 'Deine CO2-Emissionen pro 100 km' }
+        ], [
+            { iso: 'car_2020', highlight: true, annotation: 'Ø-Emissionen eines Autos in Deutschland' },
+            { iso: null, highlight: false }
+        ], [
+            // { iso: 'car_2050_min', highlight: false},
+            { iso: 'car_2050_max', highlight: true, annotation: 'Emissionen: Einhaltung der Klimaziele 2050' },
+            { iso: null, annotation: 'distance', highlight: false },
+        ], [
+            // { iso: 'car_2050_bike_min', highlight: false},
+            { iso: 'car_2050_bike_max', highlight: true, annotation: 'car_2050_bike_max' },
+            { iso: null, highlight: false},
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ]
+    ],
+    'car_mf': [
+        [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
+            { iso: 'car_mf_2020', highlight: true, annotation: 'car_mf_2020' },
+            { iso: null, highlight: false }
+        ], [
+            // { iso: 'car_mf_2050_min', highlight: false},
+            { iso: 'car_mf_2050_max', highlight: true, annotation: 'car_mf_2050_max' },
+            { iso: null, highlight: false },
+        ], [
+            // { iso: 'car_mf_2050_bike_min', highlight: false},
+            { iso: 'car_mf_2050_bike_max', highlight: true, annotation: 'car_mf_2050_bike_max' },
+            { iso: null, highlight: false },
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ]
+    ],
+    'ecar': [
+        [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
+            { iso: 'ecar_2020', highlight: true, annotation: 'ecar_2020' },
+            { iso: null, highlight: false }
+        ], [
+            // { iso: 'ecar_2050_min', highlight: false},
+            { iso: 'ecar_2050_max', highlight: true, annotation: 'ecar_2050_max' },
+            { iso: null, highlight: false },
+        ], [
+            // { iso: 'ecar_2050_bike_min', highlight: false},
+            { iso: 'ecar_2050_bike_max', highlight: true, annotation: 'ecar_2050_bike_max' },
+            { iso: null, highlight: false },
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ]
+    ],
+    'public': [
+        [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
+            { iso: 'public_2020', highlight: true, annotation: 'public_2020' },
+            { iso: null, highlight: false }
+        ], [
+            // { iso: 'public_2050_min', highlight: false},
+            { iso: 'public_2050_max', highlight: true, annotation: 'public_2050_max' },
+            { iso: null, highlight: false },
+        ], [
+            // { iso: 'public_2050_bike_min', highlight: false},
+            { iso: 'public_2050_bike_max', highlight: true, annotation: 'public_2050_bike_max' },
+            { iso: null, highlight: false },
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ]
+    ],
+    'bike': [
+        [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
+            { iso: 'car_2020', highlight: true, annotation: 'car_2020' },
+            { iso: null, highlight: false }
+        ], [
+            // { iso: 'car_2050_min', highlight: false},
+            { iso: 'car_2050_max', highlight: true, annotation: 'car_2050_max' },
+            { iso: null, highlight: false },
+        ], [
+            // { iso: 'bike_2050_car_min', highlight: false},
+            { iso: 'bike_2050_car_max', highlight: true, annotation: 'bike_2050_car_max' },
+            { iso: null, highlight: false },
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ]
+    ]
+}
+
+export const widgetColors = name => {
+    if (name.includes('ecar')) return colors.ecar;
+    if (name.includes('car_mf')) return colors.car_mf;
+    if (name.includes('public')) return colors.public;
+    if (name.includes('bike')) return colors.bike;
+    if (name.includes('car')) return colors.car;
+    return '#EFF0F0';
+}

@@ -16,7 +16,8 @@ export default {
 					type: 'Straßenverkehr',
 					value: .72,
 					fill: '#3C3372',
-					showLabel: true
+                    showLabel: true,
+                    showValue: true
 				},
 				{
 					type: 'Zivilluftfahrt',
@@ -56,7 +57,8 @@ export default {
 					type: 'Straßenverkehr',
 					value: .72,
 					fill: '#3C3372',
-					showLabel: true
+                    showLabel: true,
+                    showValue: true
 				},
 				{
 					type: 'Andere',
@@ -98,7 +100,8 @@ export default {
 					type: 'Autos',
 					value: .607,
 					fill: '#3C3372',
-					showLabel: true
+                    showLabel: true,
+                    showValue: true
 				},
 			],
 		}

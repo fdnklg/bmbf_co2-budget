@@ -32,6 +32,7 @@
 <style>
   .box {
     background-color: black;
+    margin-right: 2px;
   }
 </style>
 

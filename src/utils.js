@@ -70,6 +70,11 @@ export const parseDataSzenarien = (data) => {
     return parsed;
 }
 
+export const formatNumber = (format, value) => {
+    if (format === 'gram') return `${(value / 1000).toFixed(1)}&thinsp;kg`
+    if (format === 'percent') return `${(value * 100).toFixed(1)}&thinsp;%`
+}
+
 export const observe = (target) => {
   const observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) {

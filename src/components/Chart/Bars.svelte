@@ -1,8 +1,11 @@
 <script>
   import Box from "./Box.svelte";
+  import { formatNumber } from "utils";
 
   export let data;
   export let x = (d) => d.x;
+
+  console.log("bars data", data);
 </script>
 
 <style>
@@ -27,12 +30,12 @@
   {#each data as d, i}
     <Box fill={d.fill} x1={0} x2={x(d, i)}>
       <slot index={i} value={d} first={i === 0} last={i === data.length - 1} />
-      {#if d.showLabel}
-        <div class="bar-wrapper-label">
-          <span class="bar-label">{d.type}</span>
-          <span class="bar-label">{d.x}&thinsp;%</span>
-        </div>
-      {/if}
+      <div class="bar-wrapper-label">
+        <span class="bar-label">{#if d.showLabel}{d.type}{/if}</span>
+        <span class="bar-label">{#if d.showValue}
+            {@html formatNumber(d.format, d.value)}
+          {/if}</span>
+      </div>
     </Box>
   {/each}
 </div>

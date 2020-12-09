@@ -1,7 +1,7 @@
 import { writable, readable, derived } from 'svelte/store';
 import { lightenColor, fetchJson } from './utils';
-import { s3Url, isoChronesUrl } from './config';
-import { emissDistance, sets, emissions } from 'components/Widget/utils.js';
+import { s3Url, isoChronesUrl, colors } from './config';
+import { emissDistance, sets, setsNew, emissions, widgetColors } from 'components/Widget/utils.js';
 import { createGeojson, createFeature, createCircle } from "components/Map/util.js";
 
 export const activeArticleItem = writable(0);
@@ -39,24 +39,20 @@ export const sektorenData = derived(
 export const activeColor = derived(
     travelType,
     ($travelType) => {
-        const colors = {
-            bike: '#3C3372',
-            public: '#61BBA0',
-            car_mf: '#E2733B',
-            ecar: '#4790D0',
-            car: '#E2733B',
-        }
         return colors[$travelType];
     }
 )
 
 export const szenarienData = derived(
-    [data, travelType, distance, activeZipcode, activeColor],
-    ([$data, $travelType, $distance, $activeZipcode, $activeColor]) => {
+    [data, travelType, distance, activeZipcode],
+    ([$data, $travelType, $distance, $activeZipcode]) => {
         if ($data) {
             const szenarienKeys = Object.keys($data.szenarien);
 
+            //
             // laden der externen Daten und Aufbereitung der Jsons
+            //
+
             const getData = async () => {
                 const centroid = await fetchJson(`${s3Url}centroids/${$activeZipcode}.json`);
                 const isoJson = await fetchJson(`${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`);
@@ -65,48 +61,107 @@ export const szenarienData = derived(
                 szenarienKeys.map((szenario, i) => {
                     // füge isochrone namen array zu daten objekt
                     const szenarioObject = $data.szenarien[szenario];
-                    const { diameter, isochrones } = szenarioObject;
-                    const isochroneNames = sets[$travelType][i];
-                    szenarioObject.isochrones = isochroneNames;
+                    szenarioObject.isochrones = setsNew[$travelType][i];
                     szenarioObject.centroid = centroid;
+
+                    const { diameter, isochrones } = szenarioObject;
 
                     // erstelle geojson
                     const geojson = createGeojson();
-                    if (diameter && centroid) {
-                        geojson.features.push(createCircle([centroid.x, centroid.y], $distance));
-                    };
 
-                    // füge features der isochrone (die im sets array^)in geojson
-                    if (szenarioObject && szenarioObject.isochrones) {
-                        szenarioObject.isochrones.map(name => {
-                            if (isochroneNames && isochroneNames.length > 0) {
-                                isochroneNames.map((name) => {
-                                    const path = isoJson[`${name}`];
-                                    const isochroneFeat = createFeature(path);
-                                    geojson.features.push(isochroneFeat);
-                                });
+                    // füge features der isochrone/kreise (die im sets array liegen)in geojson
+                    if (szenarioObject && isochrones) {
+                        isochrones.map(({ iso, highlight }) => {
+                            
+                            // definiere stil des geojson als style objekt, was später übergeben wird
+                            // @TODO: Style Funkion die alle Fälle abdeckt
+                            const style = {
+                                "fill": highlight ? widgetColors(`${$travelType}_`) : widgetColors('_'),
+                                "fill-opacity": highlight ? 0.5 : 0.1,
+                                "stroke": widgetColors(`${$travelType}_`),
+                                "stroke-opacity": 1,
+                            }; 
+                            if (iso) {
+                                const path = isoJson[`${iso}`];
+                                // @TODO
+                                const isochroneFeat = createFeature(path, style);
+                                geojson.features.push(isochroneFeat);
+                            } else {
+                                geojson.features.push(createCircle([centroid.x, centroid.y], $distance, style));
                             }
                         })
                     }
                     szenarioObject.geojson = geojson;
 
-                    // add settings here
-                    const personalSettings = {
-                        type: $travelType,
-                        value: emissDistance($travelType, $distance),
-                        color: $activeColor
-                    }
+                    //
+                    // erstelle config für widget hier
+                    //
 
                     let settings = [];
-                    settings.push(personalSettings);
-
-                    if (isochrones && isochrones.length > 0) {
-                        isochrones.map(name => {
+                        
+                    isochrones.map(({ iso, highlight }) => {
+                        if (!iso) {
+                            // create data object for personal settings
                             settings.push({
-                                type: name,
-                                value: emissions[name],
-                                color: 'red'
+                                type: $travelType,
+                                value: emissDistance($travelType, $distance),
+                                fill: highlight ? widgetColors(`${$travelType}`) : widgetColors(''),
+                                highlight: highlight ? highlight : false,
+                                showValue: highlight ? true : false,
+                                format: 'gram',
                             })
+                        } else {
+                            // erstelle daten objekt für alle anderen dinge
+                            settings.push({
+                                type: !iso ? 'distance' : iso,
+                                value: emissions[iso],
+                                fill: highlight ? widgetColors(`${$travelType}`) : widgetColors(''),
+                                highlight: highlight ? highlight : false,
+                                showValue: true,
+                                format: 'gram',
+                            })
+                        }
+                    })
+                    
+                    const max = Math.max(...settings.map(item => item.value));
+                    const percent = max / 100;
+
+                    // berechne prozentwerte für jedes element
+                    settings = settings.map(item => ({ ...item, y: 1, x: item.value / percent }))
+                    
+                    // summiere Anteile der anderen Emissionen
+                    let shareOthers = 0;
+                    settings.map(item => {
+                        if (item.value !== max) {
+                            shareOthers = shareOthers + (item.value / percent);
+                        }
+                    });
+
+                    if (isochrones && diameter) {
+                        // ziehe Werte der anderen ab von max Wert ab
+                        settings = settings.map(item => {
+                            return {
+                                ...item,
+                                max: max === item.value ? true : false,
+                                x: max === item.value ? item.x - shareOthers : item.x,
+                                fill: item.highlight ? widgetColors(item.type) : widgetColors('')
+                            }
+                        }
+                        ).sort((a,b) => b.highlight - a.highlight)
+                    }
+                    
+                    if (isochrones) {
+                        // setze daten für annotation
+                        isochrones.map(({ iso, highlight, annotation }) => {
+                            const x = settings.find(item => item.highlight).x;
+                            if (highlight) {
+                                szenarioObject.widget.annotation = {
+                                    label: annotation,
+                                    icon: $travelType,
+                                    x: x,
+                                    align: x > 50 ? 'right' : 'left'
+                                }
+                            }
                         })
                     }
                     szenarioObject.widget.d = settings;
@@ -121,7 +176,7 @@ export const szenarienData = derived(
 )
 
 export const szenarienDataActive = derived(
-    [szenarienData, activeWaypoint],
+    [szenarienData, activeWaypoint, travelType],
     ([$szenarienData, $activeWaypoint]) => {
         if ($szenarienData && $activeWaypoint) {
             return $szenarienData[$activeWaypoint];

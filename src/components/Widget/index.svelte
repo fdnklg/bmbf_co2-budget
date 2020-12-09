@@ -20,8 +20,8 @@
     left: 50%;
     transform: translateX(-50%);
     height: auto;
-    width: $size-chart;
-    max-width: $size-chart;
+    width: $size-content;
+    max-width: $size-content;
     margin: 0 auto;
     @include box-shadow;
   }
@@ -37,7 +37,7 @@
         y1={0}
         y2={100}
         subset={$szenarienDataActive.widget.meta.subset}>
-        <Bars data={$szenarienDataActive.widget.d} name={'szenarien'} />
+        <Bars data={$szenarienDataActive.widget.d} />
         <Annotation data={$szenarienDataActive.widget.annotation} />
       </Chart>
     </div>

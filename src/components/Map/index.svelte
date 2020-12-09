@@ -1,5 +1,5 @@
 <script>
-  import { onMount, afterUpdate, setContext, onDestroy } from "svelte";
+  import { onMount, beforeUpdate, setContext, onDestroy } from "svelte";
   import { activeColor, szenarienDataActive } from "stores";
 
   import { mapbox, key } from "./mapbox.js";
@@ -35,22 +35,23 @@
         map.addSource("layers", { type: "geojson", data: createGeojson() });
 
         map.addLayer({
-          id: "distance",
-          type: "fill",
-          source: "layers",
-          paint: {
-            "fill-color": $activeColor,
-            "fill-opacity": 0.4,
-          },
-        });
-
-        map.addLayer({
           id: "isochrones",
           type: "fill",
           source: "layers",
           paint: {
-            "fill-color": ["get", "color"],
-            "fill-opacity": 0,
+            "fill-color": ["get", "fill"],
+            "fill-opacity": ["get", "fill-opacity"],
+          },
+        });
+
+        map.addLayer({
+          id: "isoContours",
+          type: "line",
+          source: "layers",
+          paint: {
+            "line-color": ["get", "stroke"],
+            "line-opacity": ["get", "stroke-opacity"],
+            "line-width": 1,
           },
         });
       });
@@ -65,7 +66,7 @@
   });
 
   //   prepare data fetch inside after update!
-  afterUpdate(async () => {
+  beforeUpdate(async () => {
     if ($szenarienDataActive && map) {
       const geojson = $szenarienDataActive.geojson;
       const { zoom, centroid } = $szenarienDataActive;
@@ -74,7 +75,7 @@
 
       if (source) {
         source.setData(geojson);
-        map.setPaintProperty("distance", "fill-color", $activeColor);
+        map.setPaintProperty("isochrones", "fill-color", $activeColor);
       }
 
       if (centroid)
