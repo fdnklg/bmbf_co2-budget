@@ -5,7 +5,7 @@
   import {
     zipcodes,
     activeWaypoint,
-    activeKey,
+    activeVis,
     data,
     szenarienDataActive,
   } from "stores";
@@ -40,8 +40,8 @@
     activeWaypoint.set(id);
   };
 
-  const setActiveKey = (key) => {
-    activeKey.set(key);
+  const setActiveVis = (key) => {
+    activeVis.set(key);
   };
 
   onMount(async () => {
@@ -144,7 +144,7 @@
       id="start"
       waypoints={embedContents['emissionen']}
       key="emissionen"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <p class="article-item">
@@ -189,7 +189,7 @@
       id="start"
       waypoints={embedContents['sektoren']}
       key="sektoren"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <Gap />
@@ -205,7 +205,7 @@
       id="verkehr"
       waypoints={embedContents['sektoren']}
       key="sektoren"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <Gap />
@@ -221,7 +221,7 @@
       id="landwirtschaft"
       waypoints={embedContents['sektoren']}
       key="sektoren"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <Gap />
@@ -238,7 +238,7 @@
       id="end"
       waypoints={embedContents['sektoren']}
       key="sektoren"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
   </div>
   <div class="section onboarding">
@@ -261,7 +261,7 @@
       id="start"
       waypoints={embedContents['szenarien']}
       key="szenarien"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <p class="article-item">
@@ -278,7 +278,7 @@
       id="szenarioEins"
       waypoints={embedContents['szenarien']}
       key="szenarien"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <p class="article-item">
@@ -295,7 +295,7 @@
       id="szenarioZwei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <p class="article-item">
@@ -312,7 +312,7 @@
       id="szenarioDrei"
       waypoints={embedContents['szenarien']}
       key="szenarien"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
 
     <p class="article-item">
@@ -337,7 +337,7 @@
       id="end"
       waypoints={embedContents['szenarien']}
       key="szenarien"
-      {setActiveKey}
+      {setActiveVis}
       {setActiveWaypoint} />
     <Gap />
 

@@ -3,9 +3,6 @@
   import { formatNumber } from "utils";
 
   export let data;
-  export let x = (d) => d.x;
-
-  console.log("bars data", data);
 </script>
 
 <style>
@@ -28,7 +25,7 @@
 
 <div class="bars">
   {#each data as d, i}
-    <Box fill={d.fill} x1={0} x2={x(d, i)}>
+    <Box fill={d.fill} x1={0} x2={d.x}>
       <slot index={i} value={d} first={i === 0} last={i === data.length - 1} />
       <div class="bar-wrapper-label">
         <span class="bar-label">{#if d.showLabel}{d.type}{/if}</span>

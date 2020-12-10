@@ -1,4 +1,5 @@
 import { dsvFormat } from 'd3-dsv';
+import * as turf from '@turf/turf';
 
 export const createFeature = (path, style) => {
     const coordPairs = parse(path, ';');
@@ -19,6 +20,35 @@ export const createFeature = (path, style) => {
 
 
     return geojson; 
+}
+
+export const createBoundingBox = (cutOutFeat) => {
+    let united = false;
+    if (cutOutFeat && cutOutFeat.length > 1) {
+        united = turf.union(...cutOutFeat)
+    }
+
+    const bboxEurope = [[[-5.2288281645, 42.0255985816], [25.622332041, 42.0255985816], [25.622332041, 58.9956007543], [-5.2288281645, 58.9956007543], [-5.2288281645, 42.0255985816]]];    
+    if (united) {
+        console.log('united', turf.polygon(bboxEurope))
+
+        var options = {tolerance: 0.1, highQuality: true};
+        var simplified = turf.simplify(turf.polygon(bboxEurope), options);
+        const diffPolygon = turf.difference(simplified, united);
+        console.log('diffPolygon', diffPolygon);
+    }
+
+    return {
+        "type": "Feature",
+        "properties": {
+            'fill': '#fff',
+            'fill-opacity': .9
+        },
+        "geometry": {
+            "type": "Polygon",
+            "coordinates": bboxEurope,
+        },
+    };
 }
 
 export const createCircle = (center, radiusInKm, style) => {

@@ -75,7 +75,7 @@
 
       if (source) {
         source.setData(geojson);
-        map.setPaintProperty("isochrones", "fill-color", $activeColor);
+        // map.setPaintProperty("isochrones", "fill-color", $activeColor);
       }
 
       if (centroid)

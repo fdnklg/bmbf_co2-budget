@@ -5,7 +5,7 @@
   export let isHTML;
   export let isType;
 
-  import { travelType, distance, activeColor } from "stores";
+  import { travelType, distance, activeColor, activeWaypoint } from "stores";
 
   $: isActive = (isType, value) => {
     if (isType === "distances") return value === $distance;

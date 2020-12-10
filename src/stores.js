@@ -2,13 +2,10 @@ import { writable, readable, derived } from 'svelte/store';
 import { lightenColor, fetchJson } from './utils';
 import { s3Url, isoChronesUrl, colors } from './config';
 import { emissDistance, sets, setsNew, emissions, widgetColors } from 'components/Widget/utils.js';
-import { createGeojson, createFeature, createCircle } from "components/Map/util.js";
-
-export const activeArticleItem = writable(0);
-export const activeVisItem = writable(0);
+import { createGeojson, createFeature, createCircle, createBoundingBox } from "components/Map/util.js";
 
 export const activeWaypoint = writable(null);
-export const activeKey = writable(null);
+export const activeVis = writable(null);
 
 export const activeCategory = writable(null);
 export const data = writable(null);
@@ -43,9 +40,18 @@ export const activeColor = derived(
     }
 )
 
+/*
+es sollte ein objekt geben, welches alle json-daten enthält, die bereits geladen wurden.
+wenn das json nicht nicht enthalten ist, soll es hineingeschrieben werden.
+wenn es schon enthalten ist, dann soll kein json geladen werden und stattdessen das json im cache objekt geladen werden.
+das cache objekt kann in stores.js liegen
+*/
+
+let cache = {}
+
 export const szenarienData = derived(
-    [data, travelType, distance, activeZipcode],
-    ([$data, $travelType, $distance, $activeZipcode]) => {
+    [data, travelType, distance, activeZipcode, activeWaypoint],
+    ([$data, $travelType, $distance, $activeZipcode], set) => {
         if ($data) {
             const szenarienKeys = Object.keys($data.szenarien);
 
@@ -53,9 +59,19 @@ export const szenarienData = derived(
             // laden der externen Daten und Aufbereitung der Jsons
             //
 
+            console.log('cache', cache)
+
             const getData = async () => {
-                const centroid = await fetchJson(`${s3Url}centroids/${$activeZipcode}.json`);
-                const isoJson = await fetchJson(`${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`);
+
+                // cache objekt -> lädt neue Daten, wenn cache jsonKey nicht in cache enthalten ist
+                const jsonKey = `${$activeZipcode}-${$travelType}`;
+                if (!cache[jsonKey]) {
+                    const centroid = await fetchJson(`${s3Url}centroids/${$activeZipcode}.json`);
+                    const isoJson = await fetchJson(`${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`);
+                    cache[jsonKey] = {centroid, isoJson}
+                }
+
+                const { centroid, isoJson } = cache[jsonKey];
                 
                 // iteriere über alle szenarien
                 szenarienKeys.map((szenario, i) => {
@@ -71,6 +87,7 @@ export const szenarienData = derived(
 
                     // füge features der isochrone/kreise (die im sets array liegen)in geojson
                     if (szenarioObject && isochrones) {
+                        let featuresToCut = [];
                         isochrones.map(({ iso, highlight }) => {
                             
                             // definiere stil des geojson als style objekt, was später übergeben wird
@@ -81,15 +98,23 @@ export const szenarienData = derived(
                                 "stroke": widgetColors(`${$travelType}_`),
                                 "stroke-opacity": 1,
                             }; 
+
+
                             if (iso) {
                                 const path = isoJson[`${iso}`];
-                                // @TODO
                                 const isochroneFeat = createFeature(path, style);
+                                featuresToCut.push(isochroneFeat);
                                 geojson.features.push(isochroneFeat);
-                            } else {
-                                geojson.features.push(createCircle([centroid.x, centroid.y], $distance, style));
                             }
+                            
+                            if (!iso){
+                                const distCircle = createCircle([centroid.x, centroid.y], $distance, style);
+                                geojson.features.push(distCircle);
+                                featuresToCut.push(distCircle);
+                            }
+
                         })
+                        geojson.features.push(createBoundingBox(featuresToCut));
                     }
                     szenarioObject.geojson = geojson;
 
@@ -166,20 +191,20 @@ export const szenarienData = derived(
                     }
                     szenarioObject.widget.d = settings;
                 });
+                set($data.szenarien);
             };
-
             getData();
-
-            return $data.szenarien;
         }
+
     }
 )
 
+
 export const szenarienDataActive = derived(
     [szenarienData, activeWaypoint, travelType],
-    ([$szenarienData, $activeWaypoint]) => {
+    ([$szenarienData, $activeWaypoint], set) => {
         if ($szenarienData && $activeWaypoint) {
-            return $szenarienData[$activeWaypoint];
+            set($szenarienData[$activeWaypoint]);
         }
     }
 )

@@ -7,7 +7,7 @@
   export let id;
   export let key;
   export let setActiveWaypoint;
-  export let setActiveKey;
+  export let setActiveVis;
 
   const handleIsIntersecting = (e, obj) => {
     const { isScrollingUp, isEnter, intersecting } = obj;
@@ -41,7 +41,7 @@
     }
 
     if (!isScrollingUp && intersecting) {
-      if (id === "start") setActiveKey(key);
+      if (id === "start") setActiveVis(key);
       setActiveWaypoint(id);
       return null;
     }

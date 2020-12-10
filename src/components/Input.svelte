@@ -43,25 +43,18 @@
 </script>
 
 <style lang="scss">
-  .form {
-    display: flex;
-    outline: none;
-    background-color: none;
-    flex-direction: column;
-    box-shadow: none;
-  }
-
-  .error {
-    font-size: var(--font-size-s);
-    line-height: var(--line-height-m);
-  }
-
+  @import "src/style/root.scss";
   .form {
     position: relative;
     height: 50px;
     display: flex;
     justify-content: center;
     padding: 15px;
+    outline: none;
+    background-color: none;
+    flex-direction: column;
+    box-shadow: none;
+    @include transition-s;
 
     label {
       font-size: var(--font-size-s);
@@ -78,7 +71,13 @@
       height: 40px;
       border-radius: 100%;
       border: 0px solid transparent;
+      @include transition-s;
     }
+  }
+
+  .error {
+    font-size: var(--font-size-s);
+    line-height: var(--line-height-m);
   }
 
   .zipInput {
