@@ -1,13 +1,14 @@
 <script>
+  import { onMount } from "svelte";
   import Intersectionobserver from "./Intersectionobserver.svelte";
+
+  import { activeVis, activeWaypoint } from "stores";
 
   export let top = 0;
   export let bottom = 0;
   export let waypoints;
   export let id;
   export let key;
-  export let setActiveWaypoint;
-  export let setActiveVis;
 
   const handleIsIntersecting = (e, obj) => {
     const { isScrollingUp, isEnter, intersecting } = obj;
@@ -27,7 +28,7 @@
     // );
 
     if (isScrollingUp && isEnter) {
-      setActiveWaypoint(id);
+      activeWaypoint.set(id);
       return null;
     }
 
@@ -35,14 +36,14 @@
       if (waypoints && id !== "start") {
         const matchIndex = waypoints.map((elm) => elm.data).indexOf(id);
         const prevWaypoint = waypoints[matchIndex - 1];
-        setActiveWaypoint(prevWaypoint.data);
+        activeWaypoint.set(prevWaypoint.data);
         return null;
       }
     }
 
     if (!isScrollingUp && intersecting) {
-      if (id === "start") setActiveVis(key);
-      setActiveWaypoint(id);
+      if (id === "start") activeVis.set(key);
+      activeWaypoint.set(id);
       return null;
     }
   };

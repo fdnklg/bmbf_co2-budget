@@ -40,13 +40,6 @@ export const activeColor = derived(
     }
 )
 
-/*
-es sollte ein objekt geben, welches alle json-daten enthält, die bereits geladen wurden.
-wenn das json nicht nicht enthalten ist, soll es hineingeschrieben werden.
-wenn es schon enthalten ist, dann soll kein json geladen werden und stattdessen das json im cache objekt geladen werden.
-das cache objekt kann in stores.js liegen
-*/
-
 let cache = {}
 
 export const szenarienData = derived(
@@ -58,8 +51,6 @@ export const szenarienData = derived(
             //
             // laden der externen Daten und Aufbereitung der Jsons
             //
-
-            console.log('cache', cache)
 
             const getData = async () => {
 
@@ -114,6 +105,8 @@ export const szenarienData = derived(
                             }
 
                         })
+
+                        // füge masken layer hinzu
                         geojson.features.push(createBoundingBox(featuresToCut));
                     }
                     szenarioObject.geojson = geojson;
@@ -136,7 +129,7 @@ export const szenarienData = derived(
                                 format: 'gram',
                             })
                         } else {
-                            // erstelle daten objekt für alle anderen dinge
+                            // erstelle daten objekt für alle anderen elemente aus der config
                             settings.push({
                                 type: !iso ? 'distance' : iso,
                                 value: emissions[iso],
@@ -196,6 +189,17 @@ export const szenarienData = derived(
             getData();
         }
 
+    }
+)
+
+export const content = derived(
+    [travelType, distance, activeZipcode],
+    ([$travelType, $distance, $activeZipcode]) => {
+        return {
+            type: $travelType,
+            distance: $distance,
+            zip: $activeZipcode
+        }
     }
 )
 

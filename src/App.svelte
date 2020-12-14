@@ -1,11 +1,13 @@
 <script>
-  import { onMount } from "svelte";
+  import { afterUpdate, onMount } from "svelte";
 
   import datasets from "data";
+
   import {
     zipcodes,
     activeWaypoint,
     activeVis,
+    content,
     data,
     szenarienDataActive,
   } from "stores";
@@ -29,6 +31,7 @@
   import Input from "components/Input.svelte";
   import Map from "components/Map/index.svelte";
   import Widget from "components/Widget/index.svelte";
+  import Szenarien from "components/Szenarien.svelte";
 
   $: currentIsos = $szenarienDataActive
     ? $szenarienDataActive.isochrones
@@ -43,6 +46,10 @@
   const setActiveVis = (key) => {
     activeVis.set(key);
   };
+
+  afterUpdate(() => {
+    console.log("content", $content);
+  });
 
   onMount(async () => {
     let parsed = {};
@@ -77,6 +84,7 @@
         }
       });
     });
+    console.log("embedContents", embedContents);
   });
 </script>
 
@@ -105,17 +113,6 @@
     padding: 20px;
     @include box-shadow;
   }
-
-  .chart-section {
-    display: block;
-    border-top: 1px solid $color-light-20;
-    border-bottom: 1px solid $color-light-20;
-
-    .article-item {
-      margin-left: 600px;
-    }
-  }
-
   .wrapper-onboarding {
     margin: 0 auto;
     width: $size-content;
@@ -241,6 +238,7 @@
       {setActiveVis}
       {setActiveWaypoint} />
   </div>
+
   <div class="section onboarding">
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -253,19 +251,21 @@
       <SelectGroup data={transportTypes} isType="transportTypes" />
       <Input />
     </div>
+
     <div data-embed-id="szenarien" class="vis map sticky embed">
       <Widget />
       <Map lat={35} lon={-84} zoom={3.5} />
     </div>
-    <Waypoint
+
+    <Szenarien />
+    <!-- <Waypoint
       id="start"
       waypoints={embedContents['szenarien']}
       key="szenarien"
       {setActiveVis}
       {setActiveWaypoint} />
 
-    <p class="article-item">
-      <strong>{currentIsos}</strong>
+    <p class="article-item szenario-start">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -281,8 +281,7 @@
       {setActiveVis}
       {setActiveWaypoint} />
 
-    <p class="article-item">
-      <strong>{currentIsos}</strong>
+    <p class="article-item szenario-eins">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -298,8 +297,7 @@
       {setActiveVis}
       {setActiveWaypoint} />
 
-    <p class="article-item">
-      <strong>{currentIsos}</strong>
+    <p class="article-item szenario-zwei">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -315,8 +313,7 @@
       {setActiveVis}
       {setActiveWaypoint} />
 
-    <p class="article-item">
-      <strong>{currentIsos}</strong>
+    <p class="article-item szenario-drei">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
       weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
@@ -324,14 +321,6 @@
     </p>
 
     <Gap />
-
-    <p class="article-item">
-      <strong>{currentIsos}</strong>
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
 
     <Waypoint
       id="end"
@@ -341,6 +330,14 @@
       {setActiveWaypoint} />
     <Gap />
 
+    <p class="article-item ">
+      <strong>{currentIsos}</strong>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </p>
+
     <p class="article-item">
       <strong>{currentIsos}</strong>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -348,7 +345,8 @@
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </p>
-  </div>
+  
 
-  <Gap />
+  <Gap /> -->
+  </div>
 </div>
