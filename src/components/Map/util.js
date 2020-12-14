@@ -25,28 +25,30 @@ export const createFeature = (path, style) => {
 export const createBoundingBox = (cutOutFeat) => {
     let united = false;
     if (cutOutFeat && cutOutFeat.length > 1) {
+        cutOutFeat = cutOutFeat.map(feat => {
+            var options = {tolerance: 0.002, highQuality: true};
+            return turf.simplify(feat, options);
+        })
         united = turf.union(...cutOutFeat)
     }
 
-    const bboxEurope = [[[-5.2288281645, 42.0255985816], [25.622332041, 42.0255985816], [25.622332041, 58.9956007543], [-5.2288281645, 58.9956007543], [-5.2288281645, 42.0255985816]]];    
+    let bboxEurope = [[[-5.2288281645, 42.0255985816], [25.622332041, 42.0255985816], [25.622332041, 58.9956007543], [-5.2288281645, 58.9956007543], [-5.2288281645, 42.0255985816]]]; 
+    
     if (united) {
-        console.log('united', turf.polygon(bboxEurope))
-
-        var options = {tolerance: 0.1, highQuality: true};
-        var simplified = turf.simplify(turf.polygon(bboxEurope), options);
-        // const diffPolygon = turf.difference(simplified, united);
-        // console.log('diffPolygon', diffPolygon);
+        bboxEurope = turf.difference(turf.polygon(bboxEurope), united);
     }
+
 
     return {
         "type": "Feature",
         "properties": {
             'fill': '#fff',
-            'fill-opacity': .9
+            'fill-opacity': .9,
+            'stroke-opacity': 0
         },
         "geometry": {
             "type": "Polygon",
-            "coordinates": bboxEurope,
+            "coordinates": united ? bboxEurope.geometry.coordinates : [],
         },
     };
 }
