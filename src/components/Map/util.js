@@ -34,8 +34,8 @@ export const createBoundingBox = (cutOutFeat) => {
 
         var options = {tolerance: 0.1, highQuality: true};
         var simplified = turf.simplify(turf.polygon(bboxEurope), options);
-        const diffPolygon = turf.difference(simplified, united);
-        console.log('diffPolygon', diffPolygon);
+        // const diffPolygon = turf.difference(simplified, united);
+        // console.log('diffPolygon', diffPolygon);
     }
 
     return {

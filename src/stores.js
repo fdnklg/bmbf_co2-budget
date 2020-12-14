@@ -114,7 +114,7 @@ export const szenarienData = derived(
                             }
 
                         })
-                        geojson.features.push(createBoundingBox(featuresToCut));
+                        // geojson.features.push(createBoundingBox(featuresToCut));
                     }
                     szenarioObject.geojson = geojson;
 
