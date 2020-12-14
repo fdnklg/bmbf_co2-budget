@@ -22,12 +22,54 @@ export const createFeature = (path, style) => {
     return geojson; 
 }
 
+/*
+
+
+    if (cutOutFeat && cutOutFeat.length > 1) {
+        cutOutFeat = cutOutFeat.map(feat => {
+            var options = { tolerance: 0.001, highQuality: true };
+
+            // turf.coordEach(feat, function (currentCoord, coordIndex, featureIndex, multiFeatureIndex, geometryIndex) {
+            //     currentCoord[0] = Math.round(currentCoord[0] * 1e6) / 1e6;
+            //     currentCoord[1] = Math.round(currentCoord[1] * 1e6) / 1e6;
+            // });
+
+            
+            feat = turf.cleanCoords(turf.simplify(feat, options));
+
+            // var kinks = turf.kinks(feat);
+            // if (kinks.features.length) {
+            //     const polys = turf.unkinkPolygon(feat);
+            //     console.log(polys)
+            //     return polys;
+            // }
+
+            // return feat.features;
+
+        })
+        united = turf.union(...cutOutFeat)
+    }
+
+
+*/
+
+
 export const createBoundingBox = (cutOutFeat) => {
     let united = false;
     if (cutOutFeat && cutOutFeat.length > 1) {
         cutOutFeat = cutOutFeat.map(feat => {
-            var options = {tolerance: 0.002, highQuality: true};
-            return turf.simplify(feat, options);
+            // var options = { tolerance: 0.001, highQuality: false, mutate: true };
+            // feat = turf.simplify(feat, options);
+            
+            var kinks = turf.kinks(feat);
+
+            if (kinks.features.length) {
+                const polys = turf.unkinkPolygon(feat);
+                console.log(polys.features)
+                return polys.features[0];
+            }
+
+            return feat;
         })
         united = turf.union(...cutOutFeat)
     }
@@ -43,7 +85,7 @@ export const createBoundingBox = (cutOutFeat) => {
         "type": "Feature",
         "properties": {
             'fill': '#fff',
-            'fill-opacity': .9,
+            'fill-opacity': .75,
             'stroke-opacity': 0
         },
         "geometry": {
