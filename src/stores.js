@@ -110,6 +110,17 @@ export const szenarienData = derived(
                                 featuresToCut.push(distCircle);
                             }
 
+                            // Füge Pulsing Dot hinzu
+                            geojson.features.push({
+                                'type': 'Feature',
+                                'properties': {
+                                    'id': 'pulsingDot' 
+                                },
+                                'geometry': {
+                                'type': 'Point',
+                                'coordinates': [centroid.x, centroid.y]
+                            }})
+
                         })
 
                         // füge masken layer hinzu

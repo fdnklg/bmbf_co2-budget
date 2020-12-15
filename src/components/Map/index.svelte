@@ -1,6 +1,7 @@
 <script>
-  import { onMount, beforeUpdate, setContext, onDestroy } from "svelte";
+  import { onMount, beforeUpdate, setContext } from "svelte";
   import { szenarienDataActive } from "stores";
+  import { pulsingDot } from "./pulsingDot";
 
   import { mapbox, key } from "./mapbox.js";
   import { createGeojson } from "./util";
@@ -32,6 +33,7 @@
       });
 
       map.on("load", () => {
+        map.addImage("pulsing-dot", pulsingDot(map, 200), { pixelRatio: 2 });
         map.addSource("layers", { type: "geojson", data: createGeojson() });
 
         map.addLayer({
@@ -42,6 +44,16 @@
             "fill-color": ["get", "fill"],
             "fill-opacity": ["get", "fill-opacity"],
           },
+        });
+
+        map.addLayer({
+          id: "points",
+          type: "symbol",
+          source: "layers",
+          layout: {
+            "icon-image": "pulsing-dot",
+          },
+          filter: ["==", "$type", "Point"],
         });
 
         map.addLayer({
