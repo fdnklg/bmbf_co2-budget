@@ -14,4 +14,6 @@
   }
 </style>
 
-<div class="article-item">{text}</div>
+<div class="article-item">
+  {@html text}
+</div>

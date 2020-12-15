@@ -145,6 +145,7 @@ export const getDistanceProzent = (travelType, distance, mobility) => {
     // - foot benötigt eigene Kategorie
     
     const tDict = {
+        ecar: 'car',
         car: 'car',
         car_mf: 'car_plus',
         foot: 'bike',
@@ -166,6 +167,7 @@ export const createSzenarioText = (szenario, travelType, distance, space, prozen
     const texte = {
         start: {
             car_mf: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
+            ecar: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
             car: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
             bike: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
             foot: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
@@ -173,12 +175,14 @@ export const createSzenarioText = (szenario, travelType, distance, space, prozen
         },
         szenarioEins: {
             car_mf: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+            ecar: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
             car: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
             bike: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
             foot: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
             public: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
         },
         szenarioZwei: {
+            ecar: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
             car_mf: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
             car: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
             bike: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
@@ -186,6 +190,7 @@ export const createSzenarioText = (szenario, travelType, distance, space, prozen
             public: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
         },
         szenarioDrei: {
+            ecar: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
             car_mf: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
             car: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
             bike: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
@@ -195,12 +200,14 @@ export const createSzenarioText = (szenario, travelType, distance, space, prozen
         szenarioVier: {
             car_mf: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
             car: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
+            ecar: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
             bike: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
             foot: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
             public: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
         },
         end: {
             car_mf: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
+            ecar: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
             car: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
             bike: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
             foot: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
