@@ -80,10 +80,14 @@ export const sets = {
   'bike': [[],['car_2020'], ['car_2050_min', 'car_2050_max'], ['bike_2050_car_min', 'bike_2050_car_max'], ['bike_2050_public_min', 'bike_2050_public_max']]
 };
 
+// isochrone / widget config 
+// @IMPORTANT: Has to match with the number of waypoints
 export const setsNew = {
     'car': [
         [
             { iso: null, highlight: true, annotation: 'Deine CO2-Emissionen pro 100 km' }
+        ],  [
+            { iso: null, highlight: true, annotation: 'distance' }
         ], [
             { iso: 'car_2020', highlight: true, annotation: 'Ø-Emissionen eines Autos in Deutschland' },
             { iso: null, highlight: false }
@@ -103,6 +107,8 @@ export const setsNew = {
         [
             { iso: null, highlight: true, annotation: 'distance' }
         ], [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
             { iso: 'car_mf_2020', highlight: true, annotation: 'car_mf_2020' },
             { iso: null, highlight: false }
         ], [
@@ -120,7 +126,9 @@ export const setsNew = {
     'ecar': [
         [
             { iso: null, highlight: true, annotation: 'distance' }
-        ], [
+        ],  [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ],[
             { iso: 'ecar_2020', highlight: true, annotation: 'ecar_2020' },
             { iso: null, highlight: false }
         ], [
@@ -151,10 +159,14 @@ export const setsNew = {
             { iso: null, highlight: false },
         ], [
             { iso: null, highlight: true, annotation: 'distance' }
+        ], [
+            { iso: null, highlight: true, annotation: 'distance' }
         ]
     ],
     'bike': [
         [
+            { iso: null, highlight: true, annotation: 'distance' }
+        ], [
             { iso: null, highlight: true, annotation: 'distance' }
         ], [
             { iso: 'car_2020', highlight: true, annotation: 'car_2020' },

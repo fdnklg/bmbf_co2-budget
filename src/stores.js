@@ -1,7 +1,7 @@
 import { writable, readable, derived } from 'svelte/store';
-import { lightenColor, fetchJson } from './utils';
-import { s3Url, isoChronesUrl, colors } from './config';
-import { emissDistance, sets, setsNew, emissions, widgetColors } from 'components/Widget/utils.js';
+import { lightenColor, fetchJson, createSzenarioText, getDistanceProzent } from './utils';
+import { s3Url, isoChronesUrl, colors, spaceTypes } from './config';
+import { emissDistance, setsNew, emissions, widgetColors } from 'components/Widget/utils.js';
 import { createGeojson, createFeature, createCircle, createBoundingBox } from "components/Map/util.js";
 
 export const activeWaypoint = writable(null);
@@ -63,6 +63,7 @@ export const szenarienData = derived(
                 }
 
                 const { centroid, isoJson } = cache[jsonKey];
+                const { mobility, regiostar } = centroid;
                 
                 // iteriere über alle szenarien
                 szenarienKeys.map((szenario, i) => {
@@ -70,8 +71,14 @@ export const szenarienData = derived(
                     const szenarioObject = $data.szenarien[szenario];
                     szenarioObject.isochrones = setsNew[$travelType][i];
                     szenarioObject.centroid = centroid;
+                    szenarioObject.mobility = mobility;
+                    szenarioObject.space = spaceTypes[regiostar];
 
-                    const { diameter, isochrones } = szenarioObject;
+                    const { diameter, isochrones, space } = szenarioObject;
+
+                    // füge Texte zum Daten Objekt hinzu:
+                    const dProzent = getDistanceProzent($travelType, $distance, mobility);
+                    szenarioObject.text = createSzenarioText(szenario, $travelType, $distance, space, dProzent);
 
                     // erstelle geojson
                     const geojson = createGeojson();
@@ -89,7 +96,6 @@ export const szenarienData = derived(
                                 "stroke": widgetColors(`${$travelType}_`),
                                 "stroke-opacity": 1,
                             }; 
-
 
                             if (iso) {
                                 const path = isoJson[`${iso}`];
@@ -116,6 +122,8 @@ export const szenarienData = derived(
                     //
 
                     let settings = [];
+
+                    console.log('isochrones', isochrones)
                         
                     isochrones.map(({ iso, highlight }) => {
                         if (!iso) {

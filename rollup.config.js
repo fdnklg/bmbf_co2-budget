@@ -101,6 +101,7 @@ export default {
         { find: 'utils', replacement: 'src/utils.js' },
         { find: 'data', replacement: 'src/data.js' },
         { find: 'config', replacement: 'src/config.js' },
+        { find: 'constants', replacement: 'src/constants.js' },
       ]
     })
   ],

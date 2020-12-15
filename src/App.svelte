@@ -33,10 +33,6 @@
   import Widget from "components/Widget/index.svelte";
   import Szenarien from "components/Szenarien.svelte";
 
-  $: currentIsos = $szenarienDataActive
-    ? $szenarienDataActive.isochrones
-    : "distance";
-
   let embedContents = {};
 
   const setActiveWaypoint = (id) => {

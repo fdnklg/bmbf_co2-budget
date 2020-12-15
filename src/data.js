@@ -241,6 +241,23 @@ export default {
                 d: []
             }
         },
+        szenarioVier: {
+            zipcode: 41372,
+            distance: 50,
+            zoom: 7.9,
+            diameter: true,
+            widget: {
+                meta: {
+                    title: 'Waypoint Scenario Drei',
+                },
+                annotation: {
+                    label: 'Anteil Straßenverkehr',
+                    align: 'right',
+                    x: 100
+                },
+                d: []
+            }
+        },
         end: {
             zipcode: 41372,
             distance: 50,

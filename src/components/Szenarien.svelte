@@ -1,112 +1,118 @@
 <script>
+  import { afterUpdate } from "svelte";
+  import { szenarienData } from "stores";
+
   import Waypoint from "components/Waypoint.svelte";
   import Paragraph from "components/Paragraph.svelte";
   import Gap from "components/Gap.svelte";
 
-  import { activeVis, activeWaypoint } from "stores";
+  let items = [];
 
-  // @TODO:
-  // - get real data from fetched data here!
+  afterUpdate(() => {
+    if ($szenarienData) {
+      const waypoints = [
+        {
+          data: "start",
+        },
+        {
+          data: "szenarioEins",
+        },
+        {
+          data: "szenarioZwei",
+        },
+        {
+          data: "szenarioDrei",
+        },
+        {
+          data: "szenarioVier",
+        },
+        {
+          data: "end",
+        },
+      ];
 
-  const TRAVELGROUP_PERCENT = "Daten Hier";
-  const TRAVELGROUP_DISTANCE = "50km";
-  const RAUMTYP = "Daten Hier";
-
-  const waypoints = [
-    {
-      data: "start",
-    },
-    {
-      data: "szenarioEins",
-    },
-    {
-      data: "szenarioZwei",
-    },
-    {
-      data: "szenarioDrei",
-    },
-    {
-      data: "end",
-    },
-  ];
-
-  const items = [
-    {
-      component: Waypoint,
-      id: "start",
-      key: "szenarien",
-      setActiveVis: (id) => activeVis.set(id),
-      setActiveWaypoint: (id) => activeWaypoint.set(id),
-      waypoints: waypoints,
-    },
-    {
-      component: Paragraph,
-      text: `${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke von ${TRAVELGROUP_DISTANCE} km.`,
-    },
-    {
-      component: Gap,
-    },
-    {
-      component: Waypoint,
-      id: "szenarioEins",
-      key: "szenarien",
-      setActiveVis: (id) => activeVis.set(id),
-      setActiveWaypoint: (id) => activeWaypoint.set(id),
-      waypoints: waypoints,
-    },
-    {
-      component: Paragraph,
-      text: `${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke von ${TRAVELGROUP_DISTANCE} km.`,
-    },
-    {
-      component: Gap,
-    },
-    {
-      component: Waypoint,
-      id: "szenarioZwei",
-      key: "szenarien",
-      setActiveVis: (id) => activeVis.set(id),
-      setActiveWaypoint: (id) => activeWaypoint.set(id),
-      waypoints: waypoints,
-    },
-    {
-      component: Paragraph,
-      text: `${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke von ${TRAVELGROUP_DISTANCE} km.`,
-    },
-    {
-      component: Gap,
-    },
-    {
-      component: Waypoint,
-      id: "szenarioDrei",
-      key: "szenarien",
-      setActiveVis: (id) => activeVis.set(id),
-      setActiveWaypoint: (id) => activeWaypoint.set(id),
-      waypoints: waypoints,
-    },
-    {
-      component: Paragraph,
-      text: `${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke von ${TRAVELGROUP_DISTANCE} km.`,
-    },
-    {
-      component: Gap,
-    },
-    {
-      component: Waypoint,
-      id: "end",
-      key: "szenarien",
-      setActiveVis: (id) => activeVis.set(id),
-      setActiveWaypoint: (id) => activeWaypoint.set(id),
-      waypoints: waypoints,
-    },
-    {
-      component: Paragraph,
-      text: `${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke von ${TRAVELGROUP_DISTANCE} km.`,
-    },
-    {
-      component: Gap,
-    },
-  ];
+      items = [
+        {
+          component: Waypoint,
+          id: "start",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["start"].text,
+        },
+        {
+          component: Gap,
+        },
+        {
+          component: Waypoint,
+          id: "szenarioEins",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["szenarioEins"].text,
+        },
+        {
+          component: Gap,
+        },
+        {
+          component: Waypoint,
+          id: "szenarioZwei",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["szenarioZwei"].text,
+        },
+        {
+          component: Gap,
+        },
+        {
+          component: Waypoint,
+          id: "szenarioDrei",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["szenarioDrei"].text,
+        },
+        {
+          component: Gap,
+        },
+        {
+          component: Waypoint,
+          id: "szenarioVier",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["szenarioVier"].text,
+        },
+        {
+          component: Gap,
+        },
+        {
+          component: Waypoint,
+          id: "end",
+          key: "szenarien",
+          waypoints: waypoints,
+        },
+        {
+          component: Paragraph,
+          text: $szenarienData["end"].text,
+        },
+        {
+          component: Gap,
+        },
+      ];
+    }
+  });
 </script>
 
 <style>

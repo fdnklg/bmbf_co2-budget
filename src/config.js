@@ -1,5 +1,4 @@
-import { isLocal } from 'stores';
-
+import { d0to5, d5to20, d20to50, d50more } from 'constants';
 export const s3Url = "https://locobss-story-co2.s3.eu-central-1.amazonaws.com/";
 
 export const isoChronesUrl = true ? `data/` : s3Url;
@@ -10,6 +9,14 @@ export const colors = {
     car_mf: '#E9CD68',
     ecar: '#E79D67',
     car: '#E77667',
+}
+
+export const spaceTypes = {
+    51: 'Metropolen',
+    52: 'Großstädt',
+    53: 'Mittelstädten',
+    54: 'Städtischen Raum',
+    55: 'Kleinstädtischen oder dörflichen Raum'
 }
 
 export const colorsSektoren = [
@@ -47,25 +54,25 @@ export const distances = {
             label: '',
             isHTML: true,
             icon: '<div class="distWrapper"><span class="dist">5</span><span class="metric">km</span></div>',
-            value: 5,
+            value: d0to5,
         },
         {
             label: '',
             isHTML: true,
             icon: '<div class="distWrapper"><span class="dist">10</span><span class="metric">km</span></div>',
-            value: 10,
+            value: d5to20,
         },
         {
             label: '',
             isHTML: true,
             icon: '<div class="distWrapper"><span class="dist">25</span><span class="metric">km</span></div>',
-            value: 25,
+            value: d20to50,
         },
         {
             label: '',
             isHTML: true,
             icon: '<div class="distWrapper"><span class="dist">50</span><span class="metric">km</span></div>',
-            value: 50,
+            value: d50more,
         },
     ]
 };

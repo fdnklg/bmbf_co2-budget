@@ -1,6 +1,6 @@
 <script>
   import { onMount, beforeUpdate, setContext, onDestroy } from "svelte";
-  import { activeColor, szenarienDataActive } from "stores";
+  import { szenarienDataActive } from "stores";
 
   import { mapbox, key } from "./mapbox.js";
   import { createGeojson } from "./util";
