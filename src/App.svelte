@@ -3,14 +3,7 @@
 
   import datasets from "data";
 
-  import {
-    zipcodes,
-    activeWaypoint,
-    activeVis,
-    content,
-    data,
-    szenarienDataActive,
-  } from "stores";
+  import { zipcodes, activeWaypoint, activeVis, content, data } from "stores";
 
   import {
     parseDataEmissionen,
@@ -32,6 +25,7 @@
   import Map from "components/Map/index.svelte";
   import Widget from "components/Widget/index.svelte";
   import Szenarien from "components/Szenarien.svelte";
+  import Legend from "components/Legend/index.svelte";
 
   let embedContents = {};
 
@@ -112,6 +106,10 @@
   .wrapper-onboarding {
     margin: 0 auto;
     width: $size-content;
+
+    @include media-phablet {
+      width: auto;
+    }
   }
 
   .map {
@@ -251,6 +249,7 @@
     <div data-embed-id="szenarien" class="vis map sticky embed">
       <Widget />
       <Map lat={35} lon={-84} zoom={3.5} />
+      <Legend />
     </div>
 
     <Szenarien />

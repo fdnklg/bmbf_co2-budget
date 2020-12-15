@@ -92,11 +92,11 @@ export const setsNew = {
             { iso: 'car_2020', highlight: true, annotation: 'Ø-Emissionen eines Autos in Deutschland' },
             { iso: null, highlight: false }
         ], [
-            // { iso: 'car_2050_min', highlight: false},
+            { iso: 'car_2050_min', highlight: false},
             { iso: 'car_2050_max', highlight: true, annotation: 'Emissionen: Einhaltung der Klimaziele 2050' },
             { iso: null, annotation: 'distance', highlight: false },
         ], [
-            // { iso: 'car_2050_bike_min', highlight: false},
+            { iso: 'car_2050_bike_min', highlight: false},
             { iso: 'car_2050_bike_max', highlight: true, annotation: 'car_2050_bike_max' },
             { iso: null, highlight: false},
         ], [
@@ -112,11 +112,11 @@ export const setsNew = {
             { iso: 'car_mf_2020', highlight: true, annotation: 'car_mf_2020' },
             { iso: null, highlight: false }
         ], [
-            // { iso: 'car_mf_2050_min', highlight: false},
+            { iso: 'car_mf_2050_min', highlight: false},
             { iso: 'car_mf_2050_max', highlight: true, annotation: 'car_mf_2050_max' },
             { iso: null, highlight: false },
         ], [
-            // { iso: 'car_mf_2050_bike_min', highlight: false},
+            { iso: 'car_mf_2050_bike_min', highlight: false},
             { iso: 'car_mf_2050_bike_max', highlight: true, annotation: 'car_mf_2050_bike_max' },
             { iso: null, highlight: false },
         ], [
@@ -132,11 +132,11 @@ export const setsNew = {
             { iso: 'ecar_2020', highlight: true, annotation: 'ecar_2020' },
             { iso: null, highlight: false }
         ], [
-            // { iso: 'ecar_2050_min', highlight: false},
+            { iso: 'ecar_2050_min', highlight: false},
             { iso: 'ecar_2050_max', highlight: true, annotation: 'ecar_2050_max' },
             { iso: null, highlight: false },
         ], [
-            // { iso: 'ecar_2050_bike_min', highlight: false},
+            { iso: 'ecar_2050_bike_min', highlight: false},
             { iso: 'ecar_2050_bike_max', highlight: true, annotation: 'ecar_2050_bike_max' },
             { iso: null, highlight: false },
         ], [

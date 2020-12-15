@@ -133,8 +133,6 @@ export const szenarienData = derived(
                     //
 
                     let settings = [];
-
-                    console.log('isochrones', isochrones)
                         
                     isochrones.map(({ iso, highlight }) => {
                         if (!iso) {

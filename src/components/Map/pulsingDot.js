@@ -1,8 +1,6 @@
 // implementation of CustomLayerInterface to draw a pulsing dot icon on the map
 // see https://docs.mapbox.com/mapbox-gl-js/api/#customlayerinterface for more info
-
-
-export const pulsingDot = (map, size) => {
+export const pulsingDot = (map, size, fill) => {
     return {
         width: size,
         height: size,
@@ -37,7 +35,7 @@ export const pulsingDot = (map, size) => {
                 Math.PI * 2
             );
 
-            context.fillStyle = 'rgba(255, 200, 200,' + (1 - t) + ')';
+            context.fillStyle = 'rgba(120, 120, 120,' + (1 - t) + ')';
             context.fill();
             
             // draw inner circle
@@ -51,7 +49,7 @@ export const pulsingDot = (map, size) => {
                 Math.PI * 2
             );
 
-            context.fillStyle = 'rgba(255, 100, 100, 1)';
+            context.fillStyle = fill;
             context.strokeStyle = 'white';
             context.lineWidth = 2 + 4 * (1 - t);
             context.fill();

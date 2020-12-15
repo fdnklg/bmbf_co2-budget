@@ -19,3 +19,9 @@
 @mixin transition-s {
   transition: all 0.125s ease-in-out;
 }
+
+@mixin media-phablet {
+  @media (max-width: $size-content) {
+    @content;
+  }
+}
