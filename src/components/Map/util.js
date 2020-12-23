@@ -52,7 +52,7 @@ export const createBoundingBox = (cutOutFeat) => {
         "type": "Feature",
         "properties": {
             'fill': '#fff',
-            'fill-opacity': .75,
+            'fill-opacity': .85,
             'stroke-opacity': 0
         },
         "geometry": {

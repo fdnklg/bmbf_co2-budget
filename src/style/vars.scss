@@ -1,15 +1,20 @@
-$color-main: #000;
+$color-main: #080e2f;
+$color-main-light: #52566d;
 
-$font-size-xs: 12px;
-$font-size-s: 14px;
-$font-size-m: 18px;
-$font-size-l: 20px;
-$font-size-xl: 24px;
-$font-size-xxl: 48px;
+$font-size-xxs: 12px;
+$font-size-xs: 14px;
+$font-size-s: 18px;
+$font-size-m: 20px;
+$font-size-l: 32px;
+$font-size-xl: 36px;
+$font-size-xxl: 44px;
 
 $line-height-s: 120%;
 $line-height-m: 135%;
 $line-height-l: 150%;
+
+$letter-spacing-s: 0.5px;
+$letter-spacing-m: 1px;
 
 $color-light: #fff;
 $color-light-20: rgb(233, 233, 233);
@@ -26,5 +31,9 @@ $space-xl: 30px;
 $size-vis: 960px;
 $size-chart: 640px;
 $size-content: 550px;
+
+$screen-phablet: 550px;
+$screen-medium: 960px;
+$screen-large: 1280px;
 
 $height-vis: 300px;

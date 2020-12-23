@@ -1,10 +1,10 @@
 @mixin type-small {
-  font-size: $font-size-s;
-  line-height: var(--line-height-s);
+  font-size: $font-size-xs;
+  line-height: $line-height-s;
 }
 
 @mixin type-medium {
-  font-size: $font-size-m;
+  font-size: $font-size-s;
   line-height: $line-height-s;
 }
 
@@ -16,12 +16,34 @@
     rgba(26, 25, 43, 0.02) 0px 100px 80px;
 }
 
+@mixin box-shadow-btn {
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+}
+
 @mixin transition-s {
   transition: all 0.125s ease-in-out;
 }
 
-@mixin media-phablet {
-  @media (max-width: $size-content) {
+@mixin respond-max-screen-phablet {
+  @media (max-width: $screen-phablet) {
+    @content;
+  }
+}
+
+@mixin respond-max-screen-medium {
+  @media (max-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin respond-min-screen-medium {
+  @media (min-width: $screen-medium) {
+    @content;
+  }
+}
+
+@mixin respond-min-screen-large {
+  @media (min-width: $screen-large) {
     @content;
   }
 }

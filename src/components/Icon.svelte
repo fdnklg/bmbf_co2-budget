@@ -8,6 +8,7 @@
   import ecar from "../../icons/ecar.svg";
   import car from "../../icons/car.svg";
   import car_mf from "../../icons/car_mf.svg";
+  import arrow_down from "../../icons/arrow_down.svg";
 
   export let name = "search";
 
@@ -20,6 +21,7 @@
     ecar,
     car,
     car_mf,
+    arrow_down,
   };
 </script>
 
@@ -28,7 +30,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 7px 0 0;
   }
 </style>
 

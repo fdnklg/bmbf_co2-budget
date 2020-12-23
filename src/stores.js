@@ -72,6 +72,7 @@ export const szenarienData = derived(
                     szenarioObject.isochrones = setsNew[$travelType][i];
                     szenarioObject.centroid = centroid;
                     szenarioObject.mobility = mobility;
+                    szenarioObject.travelType = $travelType;
                     szenarioObject.space = spaceTypes[regiostar];
 
                     const { diameter, isochrones, space } = szenarioObject;

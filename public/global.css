@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Piazzolla Bold";
-  src: url("./fonts/Piazzolla-Bold.woff2") format("woff2"),
-    url("./fonts/Piazzolla-Bold.woff") format("woff");
+  font-family: "Piazzolla Light";
+  src: url("./fonts/Piazzolla-Light.woff2") format("woff2"),
+    url("./fonts/Piazzolla-Light.woff") format("woff");
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: "Post Grotesk";
-  src: url("./fonts/PostGrotesk-Bold.woff2") format("woff2"),
-    url("./fonts/PostGrotesk-Bold.woff") format("woff");
-  font-weight: 700;
+  src: url("./fonts/PostGrotesk-Regular.woff2") format("woff2"),
+    url("./fonts/PostGrotesk-Regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
@@ -24,52 +24,17 @@
   font-display: swap;
 }
 
-:root {
-  /* colors */
-  --color-main: #000;
-
-  --color-grey-0: #808080;
-  --color-grey-1: #eff0f0;
-
-  --color-white: #ffffff;
-
-  /* letter spacing */
-  --spacing-s: 0.125px;
-  --spacing-m: 0.25px;
-  --spacing-l: 0.75px;
-
-  /* spaces */
-  --space-xs: 2px;
-  --space-s: 5px;
-  --space-m: 10px;
-  --space-l: 15px;
-  --space-xl: 30px;
-
-  /* line-height */
-  --line-height-s: 120%;
-  --line-height-m: 135%;
-  --line-height-l: 150%;
-
-  /* font-sizes */
-  --font-size-xs: 12px;
-  --font-size-s: 14px;
-  --font-size-m: 18px;
-  --font-size-l: 20px;
-  --font-size-xl: 24px;
-  --font-size-xxl: 48px;
-}
-
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: "Piazzolla Bold";
+  font-family: "Piazzolla Light";
 }
 
 a.source {
-  font-size: var(--font-size-s);
-  color: var(--color-grey-0);
+  font-size: 14px;
+  color: black;
   text-decoration: none;
 }
 
@@ -85,8 +50,8 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  font-size: var(--font-size-m);
-  line-height: var(--line-height-l);
+  font-size: 18px;
+  line-height: 150%;
   font-family: "Post Grotesk", BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   font-weight: 500;

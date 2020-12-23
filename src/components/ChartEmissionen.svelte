@@ -21,6 +21,11 @@
     max-width: $size-chart;
     margin: 0 auto;
     top: 50%;
+
+    @include respond-max-screen-medium {
+      max-width: auto;
+      width: auto;
+    }
   }
 </style>
 

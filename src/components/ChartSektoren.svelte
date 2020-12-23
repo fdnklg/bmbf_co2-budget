@@ -27,6 +27,11 @@
     margin: 0 auto;
     top: 25%;
     padding: $space-m;
+
+    @include respond-max-screen-medium {
+      max-width: none;
+      width: auto;
+    }
   }
 
   .grid-line {

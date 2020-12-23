@@ -176,7 +176,7 @@ export const getDistanceProzent = (travelType, distance, mobility) => {
 export const createSzenarioText = (szenario, travelType, distance, space, prozent) => {
     // @Sebastian
     // hier kannst du die Texte für die einzelnen Szenarien verfassen.
-    // wir können hier einfach HTML reinschreiben, um die Textblöcke zu stylen
+    // wir können hier einfach HTML reinschreiben um die Textblöcke zu stylen
     const texte = {
         start: {
             car_mf: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,

@@ -1,12 +1,13 @@
 <script>
-  import { onMount, beforeUpdate, setContext } from "svelte";
-  import { szenarienDataActive, activeColor } from "stores";
+  import { onMount, beforeUpdate, afterUpdate, setContext } from "svelte";
   import { pulsingDot } from "./pulsingDot";
-  import { hexToRgbA } from "utils";
 
   import { mapbox, key } from "./mapbox.js";
   import { createGeojson } from "./util";
+  import IconWrapper from "./IconWrapper.svelte";
 
+  export let hasPulsingDot;
+  export let data;
   let map;
 
   setContext(key, {
@@ -16,8 +17,10 @@
   export let lat;
   export let lon;
   export let zoom;
+  export let projected;
 
   let container;
+  let tType = "bike";
 
   onMount(() => {
     const link = document.createElement("link");
@@ -27,7 +30,7 @@
     link.onload = () => {
       map = new mapbox.Map({
         container,
-        style: "mapbox://styles/fdnklg/cki1gf6nl3fpj19mvtr8k06en",
+        style: "mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77",
         center: [lon, lat],
         zoom,
         scrollZoom: false,
@@ -47,16 +50,6 @@
         });
 
         map.addLayer({
-          id: "points",
-          type: "symbol",
-          source: "layers",
-          layout: {
-            "icon-image": "pulsing-dot",
-          },
-          filter: ["==", "$type", "Point"],
-        });
-
-        map.addLayer({
           id: "isoContours",
           type: "line",
           source: "layers",
@@ -67,9 +60,21 @@
           },
         });
 
-        map.addImage("pulsing-dot", pulsingDot(map, 120, "rgba(0,0,0,1)"), {
-          pixelRatio: 2,
-        });
+        if (hasPulsingDot) {
+          map.addLayer({
+            id: "points",
+            type: "symbol",
+            source: "layers",
+            layout: {
+              "icon-image": "pulsing-dot",
+            },
+            filter: ["==", "$type", "Point"],
+          });
+
+          map.addImage("pulsing-dot", pulsingDot(map, 200, "rgba(0,0,0,1)"), {
+            pixelRatio: 2,
+          });
+        }
       });
     };
 
@@ -81,24 +86,29 @@
     };
   });
 
-  //   prepare data fetch inside after update!
-  beforeUpdate(async () => {
-    if ($szenarienDataActive && map) {
-      const geojson = $szenarienDataActive.geojson;
-      const { zoom, centroid } = $szenarienDataActive;
+  // prepare data fetch inside after update!
+  afterUpdate(async () => {
+    if (data && map) {
+      const geojson = data.geojson;
+      const { zoom, centroid, travelType } = data;
 
       const source = map.getSource("layers");
 
       if (source) {
         source.setData(geojson);
-        // map.setPaintProperty("isochrones", "fill-color", $activeColor);
       }
 
-      if (centroid)
+      if (centroid) {
         map.flyTo({
           center: [centroid.x, centroid.y],
           zoom: zoom,
         });
+
+        tType = travelType;
+        setTimeout(() => {
+          projected = map.project([centroid.x, centroid.y]);
+        }, 250);
+      }
     }
   });
 </script>
@@ -113,5 +123,8 @@
 <div bind:this={container}>
   {#if map}
     <slot />
+  {/if}
+  {#if projected}
+    <IconWrapper name={tType} coords={projected} />
   {/if}
 </div>

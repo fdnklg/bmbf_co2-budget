@@ -16,7 +16,7 @@ export const pulsingDot = (map, size, fill) => {
         
         // called once before every frame where the icon will be used
         render: function () {
-            var duration = 1000;
+            var duration = 1500;
             var t = (performance.now() % duration) / duration;
             
             var radius = (size / 2) * 0.3;

@@ -3,7 +3,14 @@
 
   import datasets from "data";
 
-  import { zipcodes, activeWaypoint, activeVis, content, data } from "stores";
+  import {
+    zipcodes,
+    activeWaypoint,
+    activeVis,
+    content,
+    data,
+    szenarienDataActive,
+  } from "stores";
 
   import {
     parseDataEmissionen,
@@ -26,6 +33,14 @@
   import Widget from "components/Widget/index.svelte";
   import Szenarien from "components/Szenarien.svelte";
   import Legend from "components/Legend/index.svelte";
+
+  /*
+
+    - Die Map Component erhält daten von Außen.
+    - Es hat ein Prop, das zeigt ob der Pulsing dot angezeigt werden soll.
+    - für den Teaser braucht es ein weiteres Datenobjekt, das so strukturiert ist 
+
+  */
 
   let embedContents = {};
 
@@ -102,12 +117,16 @@
     margin: 50px auto;
     padding: 20px;
     @include box-shadow;
+
+    @include respond-max-screen-phablet {
+      max-width: 100%;
+    }
   }
   .wrapper-onboarding {
     margin: 0 auto;
     width: $size-content;
 
-    @include media-phablet {
+    @include respond-max-screen-phablet {
       width: auto;
     }
   }
@@ -248,7 +267,12 @@
 
     <div data-embed-id="szenarien" class="vis map sticky embed">
       <Widget />
-      <Map lat={35} lon={-84} zoom={3.5} />
+      <Map
+        data={$szenarienDataActive}
+        hasPulsingDot={true}
+        lat={35}
+        lon={-84}
+        zoom={3.5} />
       <Legend />
     </div>
 
