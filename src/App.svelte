@@ -22,6 +22,8 @@
 
   import { zipcodesUrl, sektorenUrl, transportTypes, distances } from "config";
 
+  import Emissionen from "views/Emissionen.svelte";
+
   import Header from "components/Header/index.svelte";
   import Waypoint from "components/Waypoint.svelte";
   import Gap from "components/Gap.svelte";
@@ -103,7 +105,6 @@
     }
   }
   .container {
-    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
@@ -140,14 +141,9 @@
 <div class="container">
   <Header />
 
-  <p class="article-item">
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </p>
+  <Emissionen />
 
-  <div class="section emissionen">
+  <!-- <div class="section emissionen">
     <ChartEmissionen />
 
     <Waypoint
@@ -184,7 +180,7 @@
       id="end"
       waypoints={embedContents['emissionen']}
       {setActiveWaypoint} />
-  </div>
+  </div> -->
 
   <div class="section sektoren">
     <p class="article-item">

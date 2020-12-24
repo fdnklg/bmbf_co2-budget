@@ -1,8 +1,5 @@
 import { dsvFormat } from 'd3-dsv';
 import { colorsSektoren } from './config';
-import { d0to5, d5to20, d20to50, d50more } from 'constants';
-
-
 
 export const lightenColor = (color, percent) => {
     const num = parseInt(color.replace("#", ""), 16),
@@ -14,23 +11,22 @@ export const lightenColor = (color, percent) => {
 };
 
 export const parseDataEmissionen = data => {
-    const emissionKeys = Object.keys(data.emissionen);
+    const emissionenData = data.emissionen;
 
-    let parsed = {};
+    let transformedData = [];
 
-    emissionKeys.map(key => {
-        let selectedData = data.emissionen[key];
-        selectedData.d = selectedData.d
+    emissionenData.map(item => {
+        item.d = item.d
             .sort((a, b) => b.value - a.value)
             .map((d) => {
                 d.x = parseFloat((d.value * 100).toFixed(1));
                 d.y = 1;
                 return d;
             });
-        parsed[key] = selectedData;
+        transformedData.push(item);
     })
 
-    return parsed;
+    return transformedData;
 }
 
 export const parseDataSektoren = (data, config) => {

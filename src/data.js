@@ -1,7 +1,9 @@
 
 export default {
-	emissionen: {
-			start: {
+	emissionen: [
+        {
+                step: 1.0,
+                text: "Hier steht ein Paragraph zum aktuellen Zustand der Visualisierung. (Start)",
 				meta: {
 					title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
 					subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
@@ -47,7 +49,9 @@ export default {
 					},
 				],
 			},
-			transition: {
+        {
+                    step: 1.1,
+                    text: "Hier steht ein Paragraph zum aktuellen Zustand der Visualisierung. (Transition)",
 					meta: {
 						title: 'CO2-Emissionen im Straßenverkehr',
 						subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
@@ -77,7 +81,9 @@ export default {
 					},
 				],
 			},
-			end: {
+        {
+                step: 1.2,
+                text: "Hier steht ein Paragraph zum aktuellen Zustand der Visualisierung. (End)",
 				meta: {
 					subset: 72,
 					title: 'CO2-Emissionen im Straßenverkehr',
@@ -118,7 +124,8 @@ export default {
 					},
 				],
 			}
-    },
+        
+    ],
     sektoren: {
         start: {
             meta: {

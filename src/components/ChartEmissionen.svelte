@@ -5,7 +5,13 @@
   import Footer from "./Chart/Footer.svelte";
   import Annotation from "./Chart/Annotation.svelte";
 
-  import { emissionenActiveData } from "stores";
+  import { data } from "stores";
+
+  export let step = 1.0;
+
+  $: dataEmiss = $data
+    ? $data.emissionen.find((item) => item.step === step)
+    : false;
 </script>
 
 <style lang="scss">
@@ -30,19 +36,14 @@
 </style>
 
 <div data-embed-id="emissionen" class="container embed sticky padding">
-  {#if $emissionenActiveData}
-    <Header data={$emissionenActiveData.meta} />
+  {#if dataEmiss}
+    <Header data={dataEmiss.meta} />
     <div class="barchart">
-      <Chart
-        subset={$emissionenActiveData.meta.subset}
-        x1={0}
-        x2={100}
-        y1={0}
-        y2={100}>
-        <Bars data={$emissionenActiveData.d} />
-        <Annotation data={$emissionenActiveData.annotation} />
+      <Chart subset={dataEmiss.meta.subset} x1={0} x2={100} y1={0} y2={100}>
+        <Bars data={dataEmiss.d} />
+        <Annotation data={dataEmiss.annotation} />
       </Chart>
     </div>
-    <Footer data={$emissionenActiveData.meta} />
+    <Footer data={dataEmiss.meta} />
   {/if}
 </div>

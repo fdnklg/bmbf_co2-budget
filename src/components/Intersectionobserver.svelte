@@ -1,58 +1,28 @@
 <script>
-  import { onMount } from "svelte";
+  import { onMount, createEventDispatcher } from "svelte";
 
+  export let step;
   export let once = false;
-  export let top = 0;
-  export let bottom = 0;
-  export let left = 0;
-  export let right = 0;
-
-  let isRatioSmaller = false;
-  let isScrollingUp;
-  let prevY;
-  let isEnter;
-  let isYSmaller = false;
-  let prevRatio = null;
+  export let rootMargin = `-${0.5 * 100}% 0% -${100 - 0.5 * 100}% 0%`;
   let intersecting = false;
   let container;
 
+  const dispatch = createEventDispatcher();
+
   onMount(() => {
     if (typeof IntersectionObserver !== "undefined") {
-      const rootMargin = `${bottom}px ${left}px ${top}px ${right}px`;
-
       const observer = new IntersectionObserver(
         (entries) => {
           const entry = entries[0];
           intersecting = entry.isIntersecting;
 
-          isRatioSmaller = entry.intersectionRatio < prevRatio ? true : false;
-          isYSmaller = entry.boundingClientRect.y < prevY ? true : false;
-
-          // Scrolling down/up
-          if (isYSmaller) {
-            if (!isRatioSmaller) {
-              isEnter = true;
-              isScrollingUp = false;
-            } else {
-              isEnter = false;
-              isScrollingUp = false;
-            }
-          } else if (!isYSmaller) {
-            if (isRatioSmaller) {
-              isScrollingUp = true;
-              isEnter = false;
-            } else {
-              isEnter = true;
-              isScrollingUp = true;
-            }
+          if (intersecting) {
+            dispatch("step", step);
           }
 
           if (intersecting && once) {
             observer.unobserve(container);
           }
-
-          prevRatio = entries[0].intersectionRatio;
-          prevY = entry.boundingClientRect.y;
         },
         {
           rootMargin,
@@ -64,13 +34,6 @@
     }
 
     function handler() {
-      const bcr = container.getBoundingClientRect();
-      intersecting =
-        bcr.bottom + bottom > 0 &&
-        bcr.right + right > 0 &&
-        bcr.top - top < window.innerHeight &&
-        bcr.left - left < window.innerWidth;
-
       if (intersecting && once) {
         window.removeEventListener("scroll", handler);
       }
@@ -89,5 +52,5 @@
 </style>
 
 <div bind:this={container}>
-  <slot {isScrollingUp} {isEnter} {intersecting} />
+  <slot {intersecting}><span>I'm an IntersectionObserver</span></slot>
 </div>

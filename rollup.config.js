@@ -91,7 +91,8 @@ export default {
 
     // If we're building for production (npm run build
     // instead of npm run dev), minify
-    production && terser(),
+      production && terser(),
+    
     alias({
       resolve: ['.svelte', '.js'],
       entries: [
@@ -102,6 +103,7 @@ export default {
         { find: 'data', replacement: 'src/data.js' },
         { find: 'config', replacement: 'src/config.js' },
         { find: 'constants', replacement: 'src/constants.js' },
+        { find: 'views', replacement: 'src/views' },
       ]
     })
   ],
