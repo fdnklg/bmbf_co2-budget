@@ -143,45 +143,6 @@
 
   <Emissionen />
 
-  <!-- <div class="section emissionen">
-    <ChartEmissionen />
-
-    <Waypoint
-      id="start"
-      waypoints={embedContents['emissionen']}
-      key="emissionen"
-      {setActiveVis}
-      {setActiveWaypoint} />
-
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Gap />
-
-    <Waypoint
-      id="transition"
-      waypoints={embedContents['emissionen']}
-      {setActiveWaypoint} />
-
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Gap />
-
-    <Waypoint
-      id="end"
-      waypoints={embedContents['emissionen']}
-      {setActiveWaypoint} />
-  </div> -->
-
   <div class="section sektoren">
     <p class="article-item">
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -261,7 +222,7 @@
       <Input />
     </div>
 
-    <div data-embed-id="szenarien" class="vis map sticky embed">
+    <div data-embed-id="szenarien" class="vis map sticky">
       <Widget />
       <Map
         data={$szenarienDataActive}

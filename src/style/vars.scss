@@ -1,6 +1,9 @@
 $color-main: #080e2f;
 $color-main-light: #52566d;
 
+$color-tile-light: #f6f8f9;
+$color-tile: #e0e7eb;
+
 $font-size-xxs: 12px;
 $font-size-xs: 14px;
 $font-size-s: 18px;
@@ -13,8 +16,10 @@ $line-height-s: 120%;
 $line-height-m: 135%;
 $line-height-l: 150%;
 
-$letter-spacing-s: 0.5px;
-$letter-spacing-m: 1px;
+$letter-spacing-s: 0.25px;
+$letter-spacing-m: 0.5px;
+
+$border-radius-m: 6px;
 
 $color-light: #fff;
 $color-light-20: rgb(233, 233, 233);

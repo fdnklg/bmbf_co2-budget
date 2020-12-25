@@ -2,6 +2,7 @@
   import { data } from "stores";
   import { afterUpdate } from "svelte";
 
+  import Tile from "components/Tile.svelte";
   import Loading from "components/Loading.svelte";
   import ChartEmissionen from "components/ChartEmissionen.svelte";
   import LayoutScrollytelling from "components/LayoutScrollytelling.svelte";
@@ -13,10 +14,6 @@
   function handle(e) {
     stepVis = e.detail;
   }
-
-  afterUpdate(() => {
-    console.log("currentData", currentData);
-  });
 </script>
 
 <style lang="scss">
@@ -24,22 +21,36 @@
 
   .container {
     width: 100vw;
-    height: 100vh;
-    background-color: grey;
     @include max-width;
+  }
+
+  .tileTitle {
+    margin-top: 0;
+  }
+
+  .tileParagraph {
+    margin-bottom: 0;
+  }
+
+  .sticky {
+    top: 30vh;
+    position: sticky;
   }
 </style>
 
 <div class="emissionen container">
   {#if currentData}
     <LayoutScrollytelling>
-      <div slot="vis">
+      <div class="sticky" slot="vis">
         <ChartEmissionen step={stepVis} />
       </div>
-      <div class="wrapper" slot="text">
+      <div slot="text">
         {#each currentData as item}
           <IntersectionObserver on:step={handle} bind:step={item.step}>
-            <span>{item.text}</span>
+            <Tile active={item.step === stepVis}>
+              <h3 class="tileTitle">{item.text.title}</h3>
+              <p class="tileParagraph">{item.text.paragraph}</p>
+            </Tile>
           </IntersectionObserver>
         {/each}
       </div>

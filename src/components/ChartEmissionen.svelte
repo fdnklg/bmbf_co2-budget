@@ -17,11 +17,13 @@
 <style lang="scss">
   @import "src/style/root.scss";
 
-  .barchart {
-    padding: 1em var(--space-s) 2em var(--space-xs);
+  .wrapper {
+    padding: 1em 0 2.5em 0;
   }
+
   .container {
     color: white;
+    padding: 0 10px;
     height: auto;
     width: auto;
     max-width: $size-chart;
@@ -35,13 +37,12 @@
   }
 </style>
 
-<div data-embed-id="emissionen" class="container embed sticky padding">
+<div data-embed-id="emissionen" class="container">
   {#if dataEmiss}
-    <Header data={dataEmiss.meta} />
-    <div class="barchart">
+    <div class="wrapper">
       <Chart subset={dataEmiss.meta.subset} x1={0} x2={100} y1={0} y2={100}>
-        <Bars data={dataEmiss.d} />
         <Annotation data={dataEmiss.annotation} />
+        <Bars data={dataEmiss.d} />
       </Chart>
     </div>
     <Footer data={dataEmiss.meta} />

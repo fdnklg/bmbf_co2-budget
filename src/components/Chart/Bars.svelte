@@ -5,7 +5,8 @@
   export let data;
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   .bars {
     display: flex;
   }
@@ -13,13 +14,13 @@
   .bar-wrapper-label {
     display: flex;
     justify-content: space-between;
-    padding: 0 var(--space-m);
+    padding: 0 $space-m;
   }
 
   .bar-label {
-    font-size: var(--font-size-s);
-    color: var(--color-white);
-    letter-spacing: var(--spacing-m);
+    font-size: $font-size-xs;
+    color: white;
+    letter-spacing: $letter-spacing-s;
   }
 </style>
 

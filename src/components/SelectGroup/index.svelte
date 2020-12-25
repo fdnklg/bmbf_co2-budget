@@ -15,6 +15,7 @@
   .wrapper {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin: 0;
     padding: 0;

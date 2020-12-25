@@ -20,8 +20,6 @@
     left: 50%;
     transform: translateX(-50%);
     height: auto;
-    width: $size-content;
-    max-width: $size-content;
     margin: 0 auto;
     @include box-shadow;
   }

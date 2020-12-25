@@ -20,8 +20,22 @@
   margin: auto;
   width: 100%;
   max-width: calc(768px + 2rem);
-  padding-left: 1rem;
-  padding-right: 1rem;
+  //   padding-left: 1rem;
+  //   padding-right: 1rem;
+}
+
+@mixin marker {
+  font-size: $font-size-xs;
+  background: $color-main;
+  padding: $space-m;
+  border-radius: 3px;
+}
+
+@mixin tile {
+  background-color: $color-tile-light;
+  border: 1px solid $color-tile;
+  border-radius: 10px;
+  padding: 10px;
 }
 
 @mixin box-shadow-btn {

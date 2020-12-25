@@ -8,7 +8,6 @@
   import Point from "./Chart/Point.svelte";
   import Svg from "./Chart/Svg.svelte";
   import Line from "./Chart/Line.svelte";
-  import Annotation from "./Chart/Annotation.svelte";
 </script>
 
 <style lang="scss">

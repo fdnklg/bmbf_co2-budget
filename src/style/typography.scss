@@ -1,0 +1,10 @@
+a.source {
+  font-size: $font-size-xs;
+  color: $color-main-light;
+  text-decoration: none;
+}
+
+.source:after {
+  content: "↗";
+  padding-left: 5px;
+}

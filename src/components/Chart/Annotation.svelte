@@ -16,14 +16,13 @@
 </script>
 
 <style lang="scss">
+  @import "src/style/root.scss";
   .annotation {
     transform: translateY(10px);
-    font-size: var(--font-size-s);
-    letter-spacing: var(--spacing-m);
-    color: var(--color-grey-0);
+    font-size: $font-size-xs;
+    color: $color-main-light;
     width: auto;
     display: flex;
-    position: absolute;
   }
 
   .tip {
@@ -51,6 +50,10 @@
     transform: translate(-1px, -2px);
   }
 
+  .label {
+    line-height: $line-height-m;
+  }
+
   .iconWrapper {
     height: 15px;
   }
@@ -58,18 +61,20 @@
   .flipped {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-bottom: 4px solid var(--color-grey-0);
+    border-top: 4px solid $color-main-light;
     /* transform: translateY(5px); */
     z-index: 100;
   }
 </style>
 
 <div
-  style="{data.align}: {data.align === 'left' ? 100 - $pos : $pos}%;"
+  style="
+    {data.align}: {data.align === 'left' ? 100 - $pos : $pos}%;
+    text-align: {data.align === 'right' ? 'right' : 'left'};"
   class="annotation">
   {#if data.icon}
     <Icon name={data.icon} />
   {/if}
-  <div>{data.label}</div>
+  <p class="label">{data.label}</p>
   <div class="tip {data.align} flipped" />
 </div>

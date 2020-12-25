@@ -41,7 +41,8 @@
   });
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   main {
     max-width: 100%;
     display: flex;
@@ -50,6 +51,10 @@
 
   article {
     padding: 0 var(--space-m);
+  }
+
+  .marker {
+    @include marker;
   }
 
   .map {

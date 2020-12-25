@@ -1,15 +1,16 @@
 <script>
-  export let data;
+  export let data = { source: { label: "", url: "" } };
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
   .source-label {
-    font-size: var(--font-size-s);
-    color: var(--color-grey-0);
+    font-size: $font-size-xs;
+    color: $color-main-light;
   }
 </style>
 
 <div class="footer">
   <span class="source-label"> Quelle:</span>
-  {@html data.src}
+  <a class="source" href={data.source.url}>{data.source.label}</a>
 </div>
