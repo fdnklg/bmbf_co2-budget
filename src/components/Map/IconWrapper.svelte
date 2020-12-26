@@ -1,12 +1,12 @@
 <script>
   import Icon from "components/Icon.svelte";
-  import { colors } from "config";
+  import { colors } from "constants";
   export let coords;
   export let name;
 
   $: x = coords ? coords.x : 0;
   $: y = coords ? coords.y : 0;
-  $: color = colors[name];
+  $: color = colors[name].main;
 
   let dim = 26;
 </script>

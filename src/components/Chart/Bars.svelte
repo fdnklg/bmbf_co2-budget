@@ -12,15 +12,16 @@
   }
 
   .bar-wrapper-label {
+    align-items: center;
+    height: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 $space-m;
+    padding: 0 8px;
   }
 
   .bar-label {
     font-size: $font-size-xs;
     color: white;
-    letter-spacing: $letter-spacing-s;
   }
 </style>
 
@@ -31,7 +32,11 @@
       <div class="bar-wrapper-label">
         <span class="bar-label">{#if d.showLabel}{d.type}{/if}</span>
         <span class="bar-label">{#if d.showValue}
-            {@html formatNumber(d.format, d.value)}
+            {#if d.customValue}
+              {@html d.customValue}
+            {:else}
+              {@html formatNumber(d.format, d.value)}
+            {/if}
           {/if}</span>
       </div>
     </Box>

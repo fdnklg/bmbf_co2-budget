@@ -1,32 +1,26 @@
 <script>
-  import { tweened } from "svelte/motion";
-  import { cubicOut } from "svelte/easing";
   import Icon from "components/Icon.svelte";
-
   export let data;
 
-  const pos = tweened(undefined, {
-    duration: 300,
-    easing: cubicOut,
-  });
-
-  $: {
-    $pos = 100 - data.x;
-  }
+  $: pos = 100 - data.x;
 </script>
 
 <style lang="scss">
   @import "src/style/root.scss";
   .annotation {
+    bottom: 40px;
+    position: absolute;
     transform: translateY(10px);
     font-size: $font-size-xs;
-    color: $color-main-light;
+    color: $color-main;
     width: auto;
     display: flex;
+    padding-right: 5px;
   }
 
   .tip {
     position: absolute;
+    bottom: 3px;
     content: "";
     display: inline-block;
     width: auto;
@@ -34,23 +28,24 @@
     position: absolute;
 
     &.left {
-      left: 0;
+      left: 1px;
     }
 
     &.right {
-      right: 0;
+      right: 4px;
     }
   }
 
   .right {
-    transform: translate(-6px, -2px);
+    transform: translate(2px, -2px);
   }
 
   .left {
-    transform: translate(-1px, -2px);
+    transform: translate(-10px, -2px);
   }
 
   .label {
+    margin-bottom: 10px;
     line-height: $line-height-m;
   }
 
@@ -61,7 +56,7 @@
   .flipped {
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
-    border-top: 4px solid $color-main-light;
+    border-top: 4px solid $color-main;
     /* transform: translateY(5px); */
     z-index: 100;
   }
@@ -69,12 +64,12 @@
 
 <div
   style="
-    {data.align}: {data.align === 'left' ? 100 - $pos : $pos}%;
+    {data.align}: {data.align === 'left' ? 100 - pos : pos}%;
     text-align: {data.align === 'right' ? 'right' : 'left'};"
   class="annotation">
   {#if data.icon}
     <Icon name={data.icon} />
   {/if}
-  <p class="label">{data.label}</p>
+  <p class="label {data.align}">{data.label}</p>
   <div class="tip {data.align} flipped" />
 </div>

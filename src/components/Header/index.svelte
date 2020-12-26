@@ -42,7 +42,7 @@
 
   .inner {
     width: 550px;
-    margin: 0 auto;
+    margin: auto;
     text-align: center;
     padding-bottom: 40px;
 
@@ -96,7 +96,7 @@
 
     a {
       padding-bottom: 3px;
-      border-bottom: 1px solid $color-main-light;
+      border-bottom: 1px solid $color-main-40;
       text-decoration: none;
       color: $color-main;
 
@@ -108,7 +108,7 @@
   }
 
   .text {
-    color: $color-main-light;
+    color: $color-main-40;
   }
 </style>
 

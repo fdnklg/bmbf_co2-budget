@@ -1,6 +1,5 @@
 <script>
   import { data } from "stores";
-  import { afterUpdate } from "svelte";
 
   import Tile from "components/Tile.svelte";
   import Loading from "components/Loading.svelte";
@@ -24,16 +23,22 @@
     @include max-width;
   }
 
-  .tileTitle {
+  .tile-title {
     margin-top: 0;
   }
 
-  .tileParagraph {
+  .wrapper {
+    width: calc(100% - 20px);
+    height: auto;
+    margin: auto;
+  }
+
+  .tile-paragraph {
     margin-bottom: 0;
   }
 
   .sticky {
-    top: 30vh;
+    top: 45vh;
     position: sticky;
   }
 </style>
@@ -44,12 +49,12 @@
       <div class="sticky" slot="vis">
         <ChartEmissionen step={stepVis} />
       </div>
-      <div slot="text">
+      <div class="wrapper" slot="text">
         {#each currentData as item}
           <IntersectionObserver on:step={handle} bind:step={item.step}>
             <Tile active={item.step === stepVis}>
-              <h3 class="tileTitle">{item.text.title}</h3>
-              <p class="tileParagraph">{item.text.paragraph}</p>
+              <h3 class="tile-title">{item.text.title}</h3>
+              <p class="tile-paragraph">{item.text.paragraph}</p>
             </Tile>
           </IntersectionObserver>
         {/each}

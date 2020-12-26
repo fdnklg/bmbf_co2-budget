@@ -4,9 +4,13 @@
 
 <style lang="scss">
   @import "src/style/root.scss";
+
+  .footer {
+    padding-bottom: 0.5em;
+  }
   .source-label {
     font-size: $font-size-xs;
-    color: $color-main-light;
+    color: $color-main-60;
   }
 </style>
 

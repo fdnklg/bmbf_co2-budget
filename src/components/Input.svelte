@@ -1,5 +1,5 @@
 <script>
-  import { activeColor, activeColor20, zipcodes, activeZipcode } from "stores";
+  import { activeColor, zipcodes, activeZipcode } from "stores";
 
   import Icon from "components/Icon.svelte";
   import ButtonSmall from "components/ButtonSmall.svelte";
@@ -103,7 +103,7 @@
       placeholder="z.B. 10115 (Berlin)"
       class="zipInput" />
     <button
-      style="background-color: {$activeColor20}"
+      style="background-color: {$activeColor.light}"
       type="button"
       value="Submit"
       on:click={validate}>

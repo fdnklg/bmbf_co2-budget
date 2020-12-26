@@ -1,3 +1,5 @@
+import { colors } from 'constants'
+
 export default {
   emissionen: [
     {
@@ -16,7 +18,8 @@ export default {
         },
       },
       annotation: {
-        label: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
+        label:
+          'CO-2 Emissionen aller Verkehrs- und Transportmittel innerhalb Europas',
         align: 'right',
         textAlign: 'right',
         x: 100,
@@ -26,7 +29,7 @@ export default {
           type: 'Alle Verkehrsträger',
           value: 1,
           format: 'percent',
-          fill: '#3C3372',
+          fill: colors.car.main,
           showValue: true,
           showLabel: true,
         },
@@ -48,7 +51,7 @@ export default {
         },
       },
       annotation: {
-        label: 'Anteil Straßenverkehr',
+        label: 'Anteil der Emissionen verursacht durch Straßenverkehr',
         align: 'right',
         textAlign: 'right',
         x: 72,
@@ -58,8 +61,7 @@ export default {
           type: 'Straßenverkehr',
           format: 'percent',
           value: 0.72,
-          format: 'percent',
-          fill: '#3C3372',
+          fill: colors.car.main,
           showLabel: true,
           showValue: true,
         },
@@ -67,7 +69,7 @@ export default {
           type: 'Andere',
           value: 0.28,
           format: 'percent',
-          fill: '#F2F2F2',
+          fill: colors.neutral.light,
           showLabel: false,
         },
       ],
@@ -80,7 +82,6 @@ export default {
           'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
       },
       meta: {
-        subset: 72,
         title: 'CO2-Emissionen im Straßenverkehr',
         subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
         source: {
@@ -89,36 +90,31 @@ export default {
         },
       },
       annotation: {
-        label: 'Anteil Straßenverkehr',
-        align: 'right',
-        x: 100,
+        label: 'Anteil der Emissionen verursacht durch Autos im Straßenverkehr',
+        align: 'left',
+        x: 43,
       },
       d: [
         {
-          type: 'Motorräder',
-          value: 0.012,
-          format: 'percent',
-          fill: '#E2E0EA',
-        },
-        {
-          type: 'Schwerlaster',
-          value: 0.262,
-          format: 'percent',
-          fill: '#928DB0',
-        },
-        {
-          type: 'Leichte Nutzfahrzeuge',
-          value: 0.119,
-          format: 'percent',
-          fill: '#C5C2D5',
-        },
-        {
           type: 'Autos',
-          value: 0.607,
+          value: 0.43,
           format: 'percent',
-          fill: '#3C3372',
+          customValue: '60&thinsp;%',
+          fill: colors.car.main,
           showLabel: true,
           showValue: true,
+        },
+        {
+          type: 'Straßenverkehr',
+          value: 0.29,
+          format: 'percent',
+          fill: colors.car.light,
+        },
+        {
+          type: 'Alle Verkehrsträger',
+          value: 0.28,
+          format: 'percent',
+          fill: colors.neutral.light,
         },
       ],
     },

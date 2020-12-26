@@ -9,6 +9,10 @@
     padding: 15px;
     border: 1px solid transparent;
     margin-bottom: 40px;
+
+    @include respond-max-screen-phablet {
+      padding: 10px;
+    }
   }
 
   .active {

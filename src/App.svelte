@@ -35,6 +35,7 @@
   import Widget from "components/Widget/index.svelte";
   import Szenarien from "components/Szenarien.svelte";
   import Legend from "components/Legend/index.svelte";
+  import Section from "./components/Section.svelte";
 
   /*
 
@@ -140,6 +141,25 @@
 
 <div class="container">
   <Header />
+
+  <Section>
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+
+    <br />
+    <br />
+
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat. Damit
+    Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man
+    die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und
+    auseinander setzen, was jener Begründer der Wahrheit und gleichsam
+    Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </Section>
 
   <Emissionen />
 

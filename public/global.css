@@ -1,24 +1,24 @@
 @font-face {
-  font-family: "Piazzolla Light";
-  src: url("./fonts/Piazzolla-Light.woff2") format("woff2"),
-    url("./fonts/Piazzolla-Light.woff") format("woff");
+  font-family: 'Piazzolla Light';
+  src: url('./fonts/Piazzolla-Light.woff2') format('woff2'),
+    url('./fonts/Piazzolla-Light.woff') format('woff');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Post Grotesk";
-  src: url("./fonts/PostGrotesk-Regular.woff2") format("woff2"),
-    url("./fonts/PostGrotesk-Regular.woff") format("woff");
+  font-family: 'Post Grotesk';
+  src: url('./fonts/PostGrotesk-Regular.woff2') format('woff2'),
+    url('./fonts/PostGrotesk-Regular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Post Grotesk";
-  src: url("./fonts/PostGrotesk-Regular.woff2") format("woff2"),
-    url("./fonts/PostGrotesk-Regular.woff") format("woff");
+  font-family: 'Post Grotesk';
+  src: url('./fonts/PostGrotesk-Regular.woff2') format('woff2'),
+    url('./fonts/PostGrotesk-Regular.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -29,7 +29,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Piazzolla Light";
+  font-family: 'Piazzolla Light';
 }
 
 html,
@@ -39,10 +39,10 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 150%;
-  font-family: "Post Grotesk", BlinkMacSystemFont, "Segoe UI", Roboto,
-    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-family: 'Post Grotesk', BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   font-weight: 500;
 }
 

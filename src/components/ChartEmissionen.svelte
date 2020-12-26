@@ -18,7 +18,7 @@
   @import "src/style/root.scss";
 
   .wrapper {
-    padding: 1em 0 2.5em 0;
+    padding: 5em 0 1em 0;
   }
 
   .container {
