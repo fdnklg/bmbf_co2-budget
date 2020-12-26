@@ -6,7 +6,11 @@
   .section {
     font-size: $font-size-s;
     line-height: $line-height-l;
-    margin: 5em auto;
+    margin: 4em auto;
+
+    @include respond-max-screen-phablet {
+      margin: 2em auto;
+    }
   }
 </style>
 

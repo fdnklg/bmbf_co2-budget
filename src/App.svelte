@@ -36,6 +36,7 @@
   import Szenarien from "components/Szenarien.svelte";
   import Legend from "components/Legend/index.svelte";
   import Section from "./components/Section.svelte";
+  import Title from "./components/Title.svelte";
 
   /*
 
@@ -160,6 +161,8 @@
     auseinander setzen, was jener Begründer der Wahrheit und gleichsam
     Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </Section>
+
+  <Title>Wo entstehen die meisten CO2-Emissionen?</Title>
 
   <Emissionen />
 
