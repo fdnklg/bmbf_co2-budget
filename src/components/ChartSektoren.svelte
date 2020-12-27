@@ -118,7 +118,7 @@
             </Line>
             <Line data={sektor.data} let:d>
               <path
-                style="stroke: {sektor.highlight ? sektor.color.main : sektor.color.light}"
+                style="stroke: {sektor.highlight ? sektor.color.main : sektor.color.light};"
                 class="data {sektor.highlight ? 'highlight' : ''}"
                 {d} />
             </Line>
@@ -135,13 +135,6 @@
             </p>
           </Point>
         {/each}
-        <!-- {#each dataSektoren.annotation as annotation}
-          <Point x={annotation.x} y={annotation.y}>
-            <span
-              class="annotation"
-              style="color: {annotation.color}">{annotation.label}</span>
-          </Point>
-        {/each} -->
       </Chart>
     </div>
     <Footer data={dataSektoren.meta} />

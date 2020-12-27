@@ -123,14 +123,11 @@ export default {
     {
       step: 2.0,
       text: {
-        title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
+        title: 'Emissionen über Zeit nach Sektoren',
         paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       meta: {
-        title: 'CO-2 Emissionen nach Sektoren',
-        subtitle:
-          'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
         source: {
           url:
             'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
@@ -148,9 +145,28 @@ export default {
     {
       step: 2.1,
       text: {
-        title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
+        title: 'Sektoren, die heute weniger Emissionen produzieren als 1990',
         paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      meta: {
+        title: 'CO-2 Emissionen nach Sektoren',
+        subtitle:
+          'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+        source: {
+          url:
+            'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
+          label: 'Europäisches Parlament',
+        },
+      },
+      highlight: ['Landwirtschaft', 'Industrie', 'Energie'],
+    },
+    {
+      step: 2.2,
+      text: {
+        title: 'Steigende Tendenz im Sektor Verkehr',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
@@ -163,25 +179,6 @@ export default {
         },
       },
       highlight: ['Verkehr'],
-    },
-    {
-      step: 2.2,
-      text: {
-        title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
-        paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
-      },
-      meta: {
-        title: 'CO-2 Emissionen nach Sektoren',
-        subtitle:
-          'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
-        source: {
-          url:
-            'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
-          label: 'Europäisches Parlament',
-        },
-      },
-      highlight: ['Landwirtschaft'],
     },
   ],
   szenarien: {
