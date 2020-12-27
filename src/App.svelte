@@ -1,23 +1,14 @@
 <script>
-  import { afterUpdate, onMount } from "svelte";
+  import { onMount } from "svelte";
+  import { zipcodes, data, szenarienDataActive } from "stores";
 
   import datasets from "data";
-
-  import {
-    zipcodes,
-    activeWaypoint,
-    activeVis,
-    content,
-    data,
-    szenarienDataActive,
-  } from "stores";
 
   import {
     parseDataEmissionen,
     parseDataSektoren,
     parseDataSzenarien,
     loadFile,
-    nextUntil,
   } from "utils";
 
   import { zipcodesUrl, sektorenUrl, transportTypes, distances } from "config";
@@ -25,10 +16,6 @@
   import Emissionen from "views/Emissionen.svelte";
 
   import Header from "components/Header/index.svelte";
-  import Waypoint from "components/Waypoint.svelte";
-  import Gap from "components/Gap.svelte";
-  import ChartEmissionen from "components/ChartEmissionen.svelte";
-  import ChartSektoren from "components/ChartSektoren.svelte";
   import SelectGroup from "components/SelectGroup/index.svelte";
   import Input from "components/Input.svelte";
   import Map from "components/Map/index.svelte";
@@ -37,28 +24,7 @@
   import Legend from "components/Legend/index.svelte";
   import Section from "./components/Section.svelte";
   import Title from "./components/Title.svelte";
-
-  /*
-
-    - Die Map Component erhält daten von Außen.
-    - Es hat ein Prop, das zeigt ob der Pulsing dot angezeigt werden soll.
-    - für den Teaser braucht es ein weiteres Datenobjekt, das so strukturiert ist 
-
-  */
-
-  let embedContents = {};
-
-  const setActiveWaypoint = (id) => {
-    activeWaypoint.set(id);
-  };
-
-  const setActiveVis = (key) => {
-    activeVis.set(key);
-  };
-
-  afterUpdate(() => {
-    console.log("content", $content);
-  });
+  import Sektoren from "./views/Sektoren.svelte";
 
   onMount(async () => {
     let parsed = {};
@@ -71,29 +37,6 @@
 
     zipcodes.set(codes.columns);
     data.set(parsed);
-
-    const embedContainers = document.querySelectorAll(".embed");
-    embedContainers.forEach((embedContainer) => {
-      const id = embedContainer.getAttribute("data-embed-id");
-      embedContents[id] = [];
-
-      const siblings = nextUntil(
-        embedContainer,
-        '[data-waypoint="end"]',
-        true
-      ).filter((d) => d.nodeType === Node.ELEMENT_NODE);
-
-      siblings.forEach((sibling) => {
-        if (sibling.matches(".waypoint")) {
-          const waypointId = sibling.getAttribute("data-waypoint");
-          embedContents[id].push({
-            type: "waypoint",
-            data: waypointId,
-          });
-        }
-      });
-    });
-    console.log("embedContents", embedContents);
   });
 </script>
 
@@ -166,71 +109,16 @@
 
   <Emissionen />
 
-  <div class="section sektoren">
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-    <ChartSektoren />
+  <Section>
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </Section>
 
-    <Waypoint
-      id="start"
-      waypoints={embedContents['sektoren']}
-      key="sektoren"
-      {setActiveVis}
-      {setActiveWaypoint} />
+  <Title>Die Verkehrsziele hängen hinterher</Title>
 
-    <Gap />
-
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Waypoint
-      id="verkehr"
-      waypoints={embedContents['sektoren']}
-      key="sektoren"
-      {setActiveVis}
-      {setActiveWaypoint} />
-
-    <Gap />
-
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Waypoint
-      id="landwirtschaft"
-      waypoints={embedContents['sektoren']}
-      key="sektoren"
-      {setActiveVis}
-      {setActiveWaypoint} />
-
-    <Gap />
-
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-
-    <Gap />
-    <Waypoint
-      id="end"
-      waypoints={embedContents['sektoren']}
-      key="sektoren"
-      {setActiveVis}
-      {setActiveWaypoint} />
-  </div>
+  <Sektoren />
 
   <div class="section onboarding">
     <p class="article-item">

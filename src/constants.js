@@ -33,3 +33,19 @@ export const colors = {
     light: '#f2f2f2',
   },
 }
+
+export const colorsSektoren = {
+  Verkehr: colors.plane,
+  'Land-, Forstwirtschaft, Fischerei': colors.public,
+  Industrie: colors.car_mf,
+  Landwirtschaft: colors.bike,
+  Energie: colors.ecar,
+}
+
+export const offsetsSektoren = {
+  Verkehr: 8,
+  'Land-, Forstwirtschaft, Fischerei': 12,
+  Energie: 8,
+  Landwirtschaft: 11.5,
+  Industrie: 3,
+}

@@ -31,15 +31,6 @@ export const zipcodes = writable([])
 export const activeZipcode = writable(41372)
 export const isLocal = readable(true)
 
-export const sektorenData = derived(
-  [data, activeWaypoint],
-  ([$data, $activeWaypoint]) => {
-    if ($data && $activeWaypoint) {
-      return $data.sektoren[$activeWaypoint]
-    }
-  }
-)
-
 export const activeColor = derived(travelType, ($travelType) => {
   return colors[$travelType]
 })
