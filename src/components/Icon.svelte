@@ -6,8 +6,10 @@
   import bike from "../../icons/bike.svg";
   import publ from "../../icons/public.svg";
   import ecar from "../../icons/ecar.svg";
+  import ecar_extra from "../../icons/ecar_extra.svg";
   import car from "../../icons/car.svg";
   import car_mf from "../../icons/car_mf.svg";
+  import car_mf_extra from "../../icons/car_mf_extra.svg";
   import arrow_down from "../../icons/arrow_down.svg";
 
   export let name = "search";
@@ -19,8 +21,10 @@
     bike,
     public: publ,
     ecar,
+    ecar_extra,
     car,
     car_mf,
+    car_mf_extra,
     arrow_down,
   };
 </script>

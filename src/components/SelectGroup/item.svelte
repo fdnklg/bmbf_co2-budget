@@ -1,11 +1,12 @@
 <script>
+  import { travelType, distance, activeColor } from "stores";
+  import Icon from "components/Icon.svelte";
+
   export let label;
   export let value;
   export let icon;
   export let isHTML;
   export let isType;
-
-  import { travelType, distance, activeColor, activeWaypoint } from "stores";
 
   $: isActive = (isType, value) => {
     if (isType === "distances") return value === $distance;
@@ -19,29 +20,53 @@
 </script>
 
 <style lang="scss">
+  @import "src/style/root.scss";
   .item {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .icon {
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     flex-direction: column;
-    cursor: pointer;
-
-    &.active {
-      .icon {
-        background-color: var(--color-grey-0);
-      }
-      .label {
-        font-weight: bold;
-      }
-    }
-  }
-  .icon {
-    width: 54px;
-    height: 54px;
-    display: flex;
-    align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: var(--color-grey-1);
+    border: 2px solid $color-main-20;
+    background-color: white;
+  }
+
+  .active {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+    border: 2px solid $color-main;
+    &.car {
+      border-color: $color-car;
+    }
+    &.ecar {
+      border-color: $color-ecar;
+    }
+    &.car_mf {
+      border-color: $color-car_mf;
+    }
+    &.public {
+      border-color: $color-public;
+    }
+    &.bike {
+      border-color: $color-bike;
+    }
+  }
+
+  .value {
+    font-size: $font-size-l;
+    font-family: "Post Grotesk Bold";
+    color: $color-main;
+  }
+
+  .metric {
+    color: $color-main-40;
+    line-height: 120%;
   }
 
   .label {
@@ -53,15 +78,15 @@
   }
 </style>
 
-<li
-  class="item {isActive(isType, value) ? 'active' : ''}"
-  on:click={() => handleClick(isType, value)}>
-  <div
-    class="icon"
-    style="background-color: {isActive(isType, value) ? $activeColor : '#eff0f0'}">
-    {#if isHTML}
-      {@html icon}
-    {:else}<img />{/if}
+<li class="item" on:click={() => handleClick(isType, value)}>
+  <div class="icon {isType} {value} {isActive(isType, value) ? 'active' : ''}">
+    {#if isType === 'distances'}
+      <span class="value">{value}</span>
+      <span class="metric">km</span>
+    {/if}
+    {#if isType === 'transportTypes'}
+      <Icon name={value} />
+    {/if}
   </div>
   <span class="label">{label}</span>
 </li>

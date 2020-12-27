@@ -17,7 +17,7 @@
 
   .active {
     opacity: 1;
-    background-color: $color-tile-light;
+    background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
     border: 1px solid $color-tile;
     border-radius: $border-radius-m;
   }

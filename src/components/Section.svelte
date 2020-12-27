@@ -4,7 +4,7 @@
 <style lang="scss">
   @import "src/style/root.scss";
   .section {
-    font-size: $font-size-s;
+    font-size: $font-size-m;
     line-height: $line-height-l;
     margin: 4em auto;
 

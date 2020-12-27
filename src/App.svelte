@@ -11,13 +11,11 @@
     loadFile,
   } from "utils";
 
-  import { zipcodesUrl, sektorenUrl, transportTypes, distances } from "config";
+  import { zipcodesUrl, sektorenUrl } from "config";
 
   import Emissionen from "views/Emissionen.svelte";
 
   import Header from "components/Header/index.svelte";
-  import SelectGroup from "components/SelectGroup/index.svelte";
-  import Input from "components/Input.svelte";
   import Map from "components/Map/index.svelte";
   import Widget from "components/Widget/index.svelte";
   import Szenarien from "components/Szenarien.svelte";
@@ -25,6 +23,7 @@
   import Section from "./components/Section.svelte";
   import Title from "./components/Title.svelte";
   import Sektoren from "./views/Sektoren.svelte";
+  import Onboarding from "./views/Onboarding.svelte";
 
   onMount(async () => {
     let parsed = {};
@@ -120,19 +119,16 @@
 
   <Sektoren />
 
-  <div class="section onboarding">
-    <p class="article-item">
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-    </p>
-    <div class="wrapper-onboarding">
-      <SelectGroup data={distances} isType="distances" />
-      <SelectGroup data={transportTypes} isType="transportTypes" />
-      <Input />
-    </div>
+  <Section>
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </Section>
 
+  <Onboarding />
+
+  <div class="section onboarding">
     <div data-embed-id="szenarien" class="vis map sticky">
       <Widget />
       <Map

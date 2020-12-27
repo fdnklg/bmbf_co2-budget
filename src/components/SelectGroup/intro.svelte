@@ -6,12 +6,18 @@
 <style lang="scss">
   @import "src/style/root.scss";
   .title {
-    font-size: var(--font-size-xl);
+    font-size: $font-size-l;
+    color: $color-main;
+    margin-bottom: 0px;
   }
 
   .subtitle {
-    @include type-small;
+    font-size: $font-size-s;
+    letter-spacing: $letter-spacing-s;
     line-height: 150%;
+    color: $color-main-60;
+    margin-top: 10px;
+    margin-bottom: 20px;
   }
 </style>
 
