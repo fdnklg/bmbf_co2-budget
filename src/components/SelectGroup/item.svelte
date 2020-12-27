@@ -7,6 +7,7 @@
   export let icon;
   export let isHTML;
   export let isType;
+  export let iconExtra;
 
   $: isActive = (isType, value) => {
     if (isType === "distances") return value === $distance;
@@ -23,6 +24,8 @@
   @import "src/style/root.scss";
   .item {
     display: flex;
+    position: relative;
+    align-items: center;
     flex-direction: column;
     cursor: pointer;
   }
@@ -36,6 +39,17 @@
     border-radius: 50%;
     border: 2px solid $color-main-20;
     background-color: white;
+
+    &.small {
+      position: absolute;
+      top: -10px;
+      right: 0px;
+      width: 30px;
+      height: 30px;
+      background: white;
+      border-radius: 100%;
+      border: 2px solid $color-main-20;
+    }
   }
 
   .active {
@@ -70,10 +84,11 @@
   }
 
   .label {
-    font-size: var(--font-size-s);
+    font-size: $font-size-xs;
     width: 80px;
     margin-top: 10px;
-    line-height: var(--line-height-s);
+    color: $color-main;
+    line-height: $line-height-s;
     text-align: center;
   }
 </style>
@@ -88,5 +103,10 @@
       <Icon name={value} />
     {/if}
   </div>
+  {#if iconExtra}
+    <div class="icon small {value} {isActive(isType, value) ? 'active' : ''}">
+      <Icon name={iconExtra} />
+    </div>
+  {/if}
   <span class="label">{label}</span>
 </li>

@@ -9,7 +9,7 @@
 
 <style>
   .container {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 
   .wrapper {
@@ -30,6 +30,7 @@
       <Item
         label={elm.label}
         value={elm.value}
+        iconExtra={elm.iconExtra ? elm.iconExtra : false}
         {isType}
         icon={elm.icon}
         isHTML={elm.isHTML} />

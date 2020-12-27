@@ -39,8 +39,8 @@ export const sektorenUrl = 'data/co2_sektoren.csv'
 
 export const distances = {
   hasIntro: true,
-  title: 'Welcher Reisetyp bist du?',
-  subtitle: 'Wähle das Fortbewegnungsmittel das du hauptsächlich nutzt.',
+  title: 'Wie weit fährst du täglich?',
+  subtitle: 'Wähle die Strecke die du im Durchschnitt zurücklegst.',
   elements: [
     {
       label: '',
@@ -75,9 +75,8 @@ export const distances = {
 
 export const transportTypes = {
   hasIntro: true,
-  title: 'Auf welche Weise bewegst du dich fort?',
-  subtitle:
-    'Wählen Sie einen Mobilitätstyp aus der deinen Gewohnheit sich fortzubewegen deckt.',
+  title: 'Welcher Reisetyp bist du?',
+  subtitle: 'Wähle ein Fortbewegnungsmittel.',
   elements: [
     {
       label: 'Fuß / Fahrrad',
@@ -92,13 +91,13 @@ export const transportTypes = {
     {
       label: 'Auto+',
       icon: 'car_mf.svg',
-      iconExtra: 'car_mf_extra.svg',
+      iconExtra: 'car_mf_extra',
       value: 'car_mf',
     },
     {
       label: 'E-Auto',
       icon: 'car.svg',
-      iconExtra: 'ecar_extra.svg',
+      iconExtra: 'ecar_extra',
       value: 'ecar',
     },
     {

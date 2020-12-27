@@ -46,22 +46,27 @@
   @import "src/style/root.scss";
   .form {
     position: relative;
-    height: 50px;
+    height: 35px;
     display: flex;
     justify-content: center;
-    padding: 15px;
+    padding: 10px;
+    max-width: 50%;
     outline: none;
-    background-color: none;
+    background-color: white;
+    border: 1px solid $color-main-20;
     flex-direction: column;
     box-shadow: none;
     @include transition-s;
 
+    @include respond-max-screen-phablet {
+      max-width: 100%;
+    }
+
     label {
-      font-size: var(--font-size-s);
-      letter-spacing: var(--spacing-l);
-      line-height: var(--line-height-m);
-      opacity: 0.5;
-      color: white;
+      font-size: $font-size-s;
+      letter-spacing: $letter-spacing-s;
+      line-height: $line-height-m;
+      color: $color-main-60;
     }
     button {
       position: absolute;
@@ -76,8 +81,8 @@
   }
 
   .error {
-    font-size: var(--font-size-s);
-    line-height: var(--line-height-m);
+    font-size: $font-size-s;
+    line-height: $line-height-m;
   }
 
   .zipInput {
@@ -85,10 +90,11 @@
     border: 0px solid transparent;
     margin: 0;
     padding: 0;
-    color: white;
+    color: $color-main;
+    font-family: "Post Grotesk Bold";
+    font-size: $font-size-s;
 
     &::placeholder {
-      color: white;
     }
   }
 </style>
