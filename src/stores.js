@@ -38,15 +38,11 @@ export const activeColor = derived(travelType, ($travelType) => {
 let cache = {}
 
 export const szenarienData = derived(
-  [data, travelType, distance, activeZipcode, activeWaypoint],
+  [data, travelType, distance, activeZipcode],
   ([$data, $travelType, $distance, $activeZipcode], set) => {
-    if ($data) {
-      const szenarienKeys = Object.keys($data.szenarien)
-
-      //
+    const szenarien = $data ? $data.szenarien : null
+    if (szenarien) {
       // laden der externen Daten und Aufbereitung der Jsons
-      //
-
       const getData = async () => {
         // cache objekt -> lädt neue Daten, wenn cache jsonKey nicht in cache enthalten ist
         const jsonKey = `${$activeZipcode}-${$travelType}`
@@ -64,21 +60,20 @@ export const szenarienData = derived(
         const { mobility, regiostar } = centroid
 
         // iteriere über alle szenarien
-        szenarienKeys.map((szenario, i) => {
+        szenarien.map((szenario, i) => {
           // füge isochrone namen array zu daten objekt
-          const szenarioObject = $data.szenarien[szenario]
-          szenarioObject.isochrones = setsNew[$travelType][i]
-          szenarioObject.centroid = centroid
-          szenarioObject.mobility = mobility
-          szenarioObject.travelType = $travelType
-          szenarioObject.space = spaceTypes[regiostar]
+          szenario.isochrones = setsNew[$travelType][i]
+          szenario.centroid = centroid
+          szenario.mobility = mobility
+          szenario.travelType = $travelType
+          szenario.space = spaceTypes[regiostar]
 
-          const { diameter, isochrones, space } = szenarioObject
+          const { diameter, isochrones, space, step } = szenario
 
           // füge Texte zum Daten Objekt hinzu:
           const dProzent = getDistanceProzent($travelType, $distance, mobility)
-          szenarioObject.text = createSzenarioText(
-            szenario,
+          szenario.text = createSzenarioText(
+            step,
             $travelType,
             $distance,
             space,
@@ -89,7 +84,7 @@ export const szenarienData = derived(
           const geojson = createGeojson()
 
           // füge features der isochrone/kreise (die im sets array liegen)in geojson
-          if (szenarioObject && isochrones) {
+          if (szenario && isochrones) {
             let featuresToCut = []
             isochrones.map(({ iso, highlight }) => {
               // definiere stil des geojson als style objekt, was später übergeben wird
@@ -136,12 +131,9 @@ export const szenarienData = derived(
             // füge masken layer hinzu
             geojson.features.push(createBoundingBox(featuresToCut))
           }
-          szenarioObject.geojson = geojson
+          szenario.geojson = geojson
 
-          //
           // erstelle config für widget hier
-          //
-
           let settings = []
 
           isochrones.map(({ iso, highlight }) => {
@@ -211,7 +203,7 @@ export const szenarienData = derived(
             isochrones.map(({ iso, highlight, annotation }) => {
               const x = settings.find((item) => item.highlight).x
               if (highlight) {
-                szenarioObject.widget.annotation = {
+                szenario.widget.annotation = {
                   label: annotation,
                   icon: $travelType,
                   x: x,
@@ -220,7 +212,7 @@ export const szenarienData = derived(
               }
             })
           }
-          szenarioObject.widget.d = settings
+          szenario.widget.d = settings
         })
         set($data.szenarien)
       }

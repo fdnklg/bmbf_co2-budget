@@ -89,8 +89,10 @@
   // prepare data fetch inside after update!
   afterUpdate(async () => {
     if (data && map) {
-      const geojson = data.geojson;
-      const { zoom, centroid, travelType } = data;
+      const { geojson } = data;
+
+      const { centroid, travelType } = data;
+      const zoom = data.map.zoom;
 
       const source = map.getSource("layers");
 
@@ -103,6 +105,7 @@
           center: [centroid.x, centroid.y],
           zoom: zoom,
         });
+
         projected = map.project([centroid.x, centroid.y]);
         tType = travelType;
       }

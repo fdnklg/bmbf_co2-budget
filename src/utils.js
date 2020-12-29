@@ -65,20 +65,19 @@ export const parseDataSektoren = (data, config) => {
 }
 
 export const parseDataSzenarien = (data) => {
-  const szenarienKeys = Object.keys(data.szenarien)
+  const szenarien = data.szenarien
 
-  let parsed = {}
+  let parsed = []
 
-  szenarienKeys.map((key) => {
-    let selectedData = data.szenarien[key]
-    selectedData.widget.d = selectedData.widget.d
+  szenarien.map((szenario) => {
+    szenario.widget.data = szenario.widget.data
       .sort((a, b) => b.value - a.value)
       .map((d) => {
         d.x = parseFloat((d.value * 100).toFixed(1))
         d.y = 1
         return d
       })
-    parsed[key] = selectedData
+    parsed.push(szenario)
   })
 
   return parsed
@@ -191,7 +190,7 @@ export const getDistanceProzent = (travelType, distance, mobility) => {
 }
 
 export const createSzenarioText = (
-  szenario,
+  step,
   travelType,
   distance,
   space,
@@ -201,7 +200,7 @@ export const createSzenarioText = (
   // hier kannst du die Texte für die einzelnen Szenarien verfassen.
   // wir können hier einfach HTML reinschreiben um die Textblöcke zu stylen
   const texte = {
-    start: {
+    3.1: {
       car_mf: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
       ecar: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
       car: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
@@ -209,7 +208,7 @@ export const createSzenarioText = (
       foot: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
       public: `${prozent}&thinsp;% der Menschen in ${space} reisen täglich eine Strecke von ${distance} km. (${travelType})`,
     },
-    szenarioEins: {
+    3.2: {
       car_mf: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
       ecar: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
       car: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
@@ -217,7 +216,7 @@ export const createSzenarioText = (
       foot: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
       public: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
     },
-    szenarioZwei: {
+    3.3: {
       ecar: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
       car_mf: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
       car: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
@@ -225,7 +224,7 @@ export const createSzenarioText = (
       foot: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
       public: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
     },
-    szenarioDrei: {
+    3.4: {
       ecar: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
       car_mf: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
       car: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
@@ -233,7 +232,7 @@ export const createSzenarioText = (
       foot: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
       public: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
     },
-    szenarioVier: {
+    3.5: {
       car_mf: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       car: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       ecar: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
@@ -241,7 +240,7 @@ export const createSzenarioText = (
       foot: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       public: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
     },
-    end: {
+    3.6: {
       car_mf: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
       ecar: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
       car: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
@@ -250,5 +249,8 @@ export const createSzenarioText = (
       public: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
     },
   }
-  return texte[szenario][travelType]
+  return {
+    title: 'Title',
+    paragraph: texte[step][travelType],
+  }
 }

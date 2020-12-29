@@ -1,5 +1,6 @@
 <script>
   export let active;
+  export let isMap;
 </script>
 
 <style lang="scss">
@@ -9,20 +10,26 @@
     padding: 15px;
     border: 1px solid transparent;
     margin-bottom: 40px;
+    transition: opacity 0.125s ease-in-out;
 
     @include respond-max-screen-phablet {
       padding: 10px;
     }
   }
 
+  .map {
+    opacity: 0;
+  }
+
   .active {
-    opacity: 1;
+    opacity: 0.999;
     background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
     border: 1px solid $color-tile;
     border-radius: $border-radius-m;
+    transition: opacity 0.125s ease-in-out;
   }
 </style>
 
-<div class="tile {active ? 'active' : ''}">
+<div class="tile {active ? 'active' : ''} {isMap ? 'map' : ''}">
   <slot />
 </div>

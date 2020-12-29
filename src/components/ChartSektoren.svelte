@@ -14,10 +14,6 @@
   $: dataSektoren = $data
     ? $data.sektoren.find((item) => item.step === step)
     : false;
-
-  afterUpdate(() => {
-    console.log("dataSektoren", dataSektoren);
-  });
 </script>
 
 <style lang="scss">

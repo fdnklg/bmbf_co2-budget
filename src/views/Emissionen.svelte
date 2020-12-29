@@ -7,11 +7,11 @@
   import LayoutScrollytelling from "components/LayoutScrollytelling.svelte";
   import IntersectionObserver from "components/IntersectionObserver.svelte";
 
+  let step;
   $: currentData = $data ? $data["emissionen"] : null;
-  let stepVis;
 
-  function handle(e) {
-    stepVis = e.detail;
+  function handleActiveStep(e) {
+    step = e.detail;
   }
 </script>
 
@@ -47,12 +47,14 @@
   {#if currentData}
     <LayoutScrollytelling>
       <div class="sticky" slot="vis">
-        <ChartEmissionen step={stepVis} />
+        <ChartEmissionen {step} />
       </div>
       <div class="wrapper" slot="text">
         {#each currentData as item}
-          <IntersectionObserver on:step={handle} bind:step={item.step}>
-            <Tile active={item.step === stepVis}>
+          <IntersectionObserver
+            on:step={handleActiveStep}
+            bind:step={item.step}>
+            <Tile active={item.step === step}>
               <h3 class="tile-title">{item.text.title}</h3>
               <p class="tile-paragraph">{item.text.paragraph}</p>
             </Tile>

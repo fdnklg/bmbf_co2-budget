@@ -3,7 +3,7 @@ import { colors } from 'constants'
 export default {
   emissionen: [
     {
-      step: 1.0,
+      step: 1.1,
       text: {
         title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
         paragraph:
@@ -36,7 +36,7 @@ export default {
       ],
     },
     {
-      step: 1.1,
+      step: 1.2,
       text: {
         title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
         paragraph:
@@ -75,7 +75,7 @@ export default {
       ],
     },
     {
-      step: 1.2,
+      step: 1.3,
       text: {
         title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
         paragraph:
@@ -121,7 +121,7 @@ export default {
   ],
   sektoren: [
     {
-      step: 2.0,
+      step: 2.1,
       text: {
         title: 'Emissionen über Zeit nach Sektoren',
         paragraph:
@@ -143,7 +143,7 @@ export default {
       ],
     },
     {
-      step: 2.1,
+      step: 2.2,
       text: {
         title: 'Sektoren, die heute weniger Emissionen produzieren als 1990',
         paragraph:
@@ -162,7 +162,7 @@ export default {
       highlight: ['Landwirtschaft', 'Industrie', 'Energie'],
     },
     {
-      step: 2.2,
+      step: 2.3,
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
@@ -181,12 +181,20 @@ export default {
       highlight: ['Verkehr'],
     },
   ],
-  szenarien: {
-    start: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 8.2,
-      diameter: true,
+  szenarien: [
+    {
+      step: 3.1,
+      text: {
+        title: 'Szenarien Titel 01',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 6.2,
+        diameter: true,
+      },
       widget: {
         meta: {
           title: 'Waypoint Start',
@@ -196,93 +204,133 @@ export default {
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-    szenarioEins: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 7.9,
-      diameter: true,
+    {
+      step: 3.2,
+      text: {
+        title: 'Szenarien Titel 02',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 8.2,
+        diameter: true,
+      },
       widget: {
         meta: {
-          title: 'Waypoint Szenario Eins',
+          title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Anteil Straßenverkehr',
+          label: 'Deine CO2-Emissionen',
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-    szenarioZwei: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 8.2,
-      diameter: true,
+    {
+      step: 3.3,
+      text: {
+        title: 'Szenarien Titel 03',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 8.2,
+        diameter: true,
+      },
       widget: {
         meta: {
-          title: 'Waypoint Scenario Zwei',
+          title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Anteil Straßenverkehr',
+          label: 'Deine CO2-Emissionen',
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-    szenarioDrei: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 7.9,
-      diameter: true,
+    {
+      step: 3.4,
+      text: {
+        title: 'Szenarien Titel 04',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 8.2,
+        diameter: true,
+      },
       widget: {
         meta: {
-          title: 'Waypoint Scenario Drei',
+          title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Anteil Straßenverkehr',
+          label: 'Deine CO2-Emissionen',
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-    szenarioVier: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 7.9,
-      diameter: true,
+    {
+      step: 3.5,
+      text: {
+        title: 'Szenarien Titel 04',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 8.2,
+        diameter: true,
+      },
       widget: {
         meta: {
-          title: 'Waypoint Scenario Drei',
+          title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Anteil Straßenverkehr',
+          label: 'Deine CO2-Emissionen',
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-    end: {
-      zipcode: 41372,
-      distance: 50,
-      zoom: 7.9,
-      diameter: true,
+    {
+      step: 3.6,
+      text: {
+        title: 'Szenarien Titel 04',
+        paragraph:
+          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+      },
+      map: {
+        zipcode: 41372,
+        distance: 50,
+        zoom: 8.2,
+        diameter: true,
+      },
       widget: {
         meta: {
-          title: 'Waypoint End',
+          title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Anteil Straßenverkehr',
+          label: 'Deine CO2-Emissionen',
           align: 'right',
           x: 100,
         },
-        d: [],
+        data: [],
       },
     },
-  },
+  ],
 }
