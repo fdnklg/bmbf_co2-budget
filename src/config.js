@@ -1,7 +1,7 @@
-import { d0to5, d5to20, d20to50, d50more } from 'constants'
+import { d0to5, d5to20, d20to50, d50more, isLocal } from 'constants'
 export const s3Url = 'https://locobss-story-co2.s3.eu-central-1.amazonaws.com/'
 
-export const isoChronesUrl = true ? `data/` : s3Url
+export const isoChronesUrl = isLocal ? `data/` : s3Url
 
 export const spaceTypes = {
   51: 'Metropolen',
@@ -35,6 +35,7 @@ export const colorsSektoren = [
 ]
 
 export const zipcodesUrl = `${s3Url}postcodes.txt`
+export const airportsUrl = `${isLocal ? 'data/' : s3Url}airports.csv`
 export const sektorenUrl = 'data/co2_sektoren.csv'
 
 export const distances = {

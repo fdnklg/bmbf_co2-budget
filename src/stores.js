@@ -1,10 +1,5 @@
 import { writable, readable, derived } from 'svelte/store'
-import {
-  lightenColor,
-  fetchJson,
-  createSzenarioText,
-  getDistanceProzent,
-} from './utils'
+import { fetchJson, createSzenarioText, getDistanceProzent } from './utils'
 import { s3Url, isoChronesUrl, spaceTypes } from './config'
 import { colors } from 'constants'
 import {
@@ -36,6 +31,21 @@ export const activeColor = derived(travelType, ($travelType) => {
 })
 
 let cache = {}
+
+export const distancesData = derived(
+  [activeZipcode],
+  ([$activeZipcode], set) => {
+    if ($activeZipcode) {
+      const getData = async () => {
+        const distances = await fetchJson(
+          `${s3Url}distances/${$activeZipcode}.json`
+        )
+        set(distances)
+      }
+      getData()
+    }
+  }
+)
 
 export const szenarienData = derived(
   [data, travelType, distance, activeZipcode],

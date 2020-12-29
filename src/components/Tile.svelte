@@ -10,7 +10,7 @@
     padding: 15px;
     border: 1px solid transparent;
     margin-bottom: 40px;
-    transition: opacity 0.125s ease-in-out;
+    @include transition-m;
 
     @include respond-max-screen-phablet {
       padding: 10px;
@@ -26,7 +26,7 @@
     background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
     border: 1px solid $color-tile;
     border-radius: $border-radius-m;
-    transition: opacity 0.125s ease-in-out;
+    @include transition-m;
   }
 </style>
 

@@ -39,6 +39,10 @@
   transition: all 0.125s ease-in-out;
 }
 
+@mixin transition-m {
+  transition: all 0.25s ease-in-out;
+}
+
 @mixin respond-max-screen-phablet {
   @media (max-width: $screen-phablet) {
     @content;

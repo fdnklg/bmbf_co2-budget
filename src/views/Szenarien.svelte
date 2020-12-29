@@ -5,8 +5,6 @@
   import Loading from "components/Loading.svelte";
   import IntersectionObserver from "components/IntersectionObserver.svelte";
   import Tile from "components/Tile.svelte";
-  import Legend from "components/Legend/index.svelte";
-  import Widget from "components/Widget/index.svelte";
 
   function handleActiveStep(e) {
     step = e.detail;
@@ -63,13 +61,4 @@
   {:else}
     <Loading />
   {/if}
-
-  <!-- <Widget />
-  <Legend />
-  <div class="wrapper">
-    {#each items as item}
-      <svelte:component this={item.component} {...item} />
-    {/each}
-  </div>
-  -->
 </div>

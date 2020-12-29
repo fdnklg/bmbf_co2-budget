@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { zipcodes, data, szenarienDataActive } from "stores";
+  import { zipcodes, data } from "stores";
 
   import datasets from "data";
 
@@ -11,29 +11,28 @@
     loadFile,
   } from "utils";
 
-  import { zipcodesUrl, sektorenUrl } from "config";
-
-  import Emissionen from "views/Emissionen.svelte";
+  import { zipcodesUrl, sektorenUrl, airportsUrl } from "config";
 
   import Header from "components/Header/index.svelte";
-  import Map from "components/Map/index.svelte";
-  import Widget from "components/Widget/index.svelte";
-  import Legend from "components/Legend/index.svelte";
   import Section from "./components/Section.svelte";
   import Title from "./components/Title.svelte";
 
+  import Emissionen from "views/Emissionen.svelte";
   import Sektoren from "./views/Sektoren.svelte";
   import Onboarding from "./views/Onboarding.svelte";
   import Szenarien from "views/Szenarien.svelte";
+  import Flughaefen from "views/Flughaefen.svelte";
 
   onMount(async () => {
     let parsed = {};
     const codes = await loadFile(zipcodesUrl);
     const sektoren = await loadFile(sektorenUrl, ";");
+    const airports = await loadFile(airportsUrl, ",");
 
     parsed["emissionen"] = parseDataEmissionen(datasets);
     parsed["sektoren"] = parseDataSektoren(sektoren, datasets);
     parsed["szenarien"] = parseDataSzenarien(datasets);
+    parsed["airports"] = airports;
 
     zipcodes.set(codes.columns);
     data.set(parsed);
@@ -130,4 +129,13 @@
   <Onboarding />
 
   <Szenarien />
+
+  <Section>
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </Section>
+
+  <Flughaefen />
 </div>
