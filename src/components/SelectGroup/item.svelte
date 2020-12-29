@@ -30,8 +30,8 @@
     cursor: pointer;
   }
   .icon {
-    width: 60px;
-    height: 60px;
+    width: 54px;
+    height: 54px;
     display: flex;
     align-items: center;
     flex-direction: column;
