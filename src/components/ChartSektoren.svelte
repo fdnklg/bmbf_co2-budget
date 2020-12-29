@@ -27,6 +27,10 @@
     padding: 2em 0 3em 0;
     height: 220px;
     margin: auto;
+
+    @include respond-max-screen-phablet {
+      height: 100px;
+    }
   }
 
   .container {
@@ -40,6 +44,10 @@
     @include respond-max-screen-medium {
       max-width: none;
       width: auto;
+    }
+
+    @include respond-max-screen-phablet {
+      padding-top: 10px;
     }
   }
 
@@ -85,8 +93,37 @@
     font-size: $font-size-xs;
     line-height: $line-height-s;
     color: $color-main;
+    display: block;
+
+    @include respond-max-screen-phablet {
+      display: none;
+    }
   }
 
+  .legend {
+    display: none;
+    margin-bottom: 10px;
+    @include respond-max-screen-phablet {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+
+    .legend-line {
+      height: 3px;
+      border-radius: 8px;
+      width: 10px;
+      margin-right: 5px;
+    }
+
+    .legend-label {
+      font-size: $font-size-xs;
+    }
+  }
   .annotation {
     font-size: $font-size-s;
   }
@@ -101,6 +138,18 @@
 
 <div data-embed-id="sektoren" class="container embed sticky padding">
   {#if dataSektoren}
+    <div class="legend">
+      {#each dataSektoren.d as sektor}
+        <div class="legend-item">
+          <div
+            style="background-color: {sektor.color.main}"
+            class="legend-line" />
+          <span
+            style="color: {sektor.color.main}"
+            class="legend-label">{sektor.name}</span>
+        </div>
+      {/each}
+    </div>
     <div class="linechart">
       <Chart x1={1990} x2={2019} y1={60} y2={140}>
         <Grid horizontal count={4} let:value>

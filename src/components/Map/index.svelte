@@ -103,11 +103,8 @@
           center: [centroid.x, centroid.y],
           zoom: zoom,
         });
-
+        projected = map.project([centroid.x, centroid.y]);
         tType = travelType;
-        setTimeout(() => {
-          projected = map.project([centroid.x, centroid.y]);
-        }, 250);
       }
     }
   });

@@ -8,14 +8,22 @@
 </script>
 
 <style lang="scss">
+  @import "src/style/root.scss";
   .container {
     margin: auto;
+
+    @include respond-max-screen-phablet {
+      width: calc(100% - 20px);
+    }
   }
 
   .inner {
     max-width: 550px;
     width: 550px;
-    padding: 30px;
+
+    @include respond-max-screen-phablet {
+      width: 100%;
+    }
   }
 </style>
 

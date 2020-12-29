@@ -18,12 +18,13 @@
   import Header from "components/Header/index.svelte";
   import Map from "components/Map/index.svelte";
   import Widget from "components/Widget/index.svelte";
-  import Szenarien from "components/Szenarien.svelte";
   import Legend from "components/Legend/index.svelte";
   import Section from "./components/Section.svelte";
   import Title from "./components/Title.svelte";
+
   import Sektoren from "./views/Sektoren.svelte";
   import Onboarding from "./views/Onboarding.svelte";
+  import Szenarien from "views/Szenarien.svelte";
 
   onMount(async () => {
     let parsed = {};
@@ -128,18 +129,5 @@
 
   <Onboarding />
 
-  <div class="section onboarding">
-    <div data-embed-id="szenarien" class="vis map sticky">
-      <Widget />
-      <Map
-        data={$szenarienDataActive}
-        hasPulsingDot={true}
-        lat={35}
-        lon={-84}
-        zoom={3.5} />
-      <Legend />
-    </div>
-
-    <Szenarien />
-  </div>
+  <Szenarien />
 </div>

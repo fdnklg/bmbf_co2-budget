@@ -1,10 +1,13 @@
 <script>
   import { afterUpdate } from "svelte";
-  import { szenarienData } from "stores";
+  import { szenarienData, szenarienDataActive } from "stores";
 
   import Waypoint from "components/Waypoint.svelte";
   import Paragraph from "components/Paragraph.svelte";
   import Gap from "components/Gap.svelte";
+  import Map from "components/Map/index.svelte";
+  import Legend from "components/Legend/index.svelte";
+  import Widget from "components/Widget/index.svelte";
 
   let items = [];
 
@@ -115,11 +118,33 @@
   });
 </script>
 
-<style>
+<style lang="scss">
+  @import "src/style/root.scss";
+  .szenarien {
+  }
+
+  .map-container {
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    position: sticky;
+  }
 </style>
 
-<div class="wrapper szenarien">
-  {#each items as item}
-    <svelte:component this={item.component} {...item} />
-  {/each}
+<div class="container szenarien">
+  <!-- <Widget /> -->
+  <div class="map-container">
+    <Map
+      data={$szenarienDataActive}
+      hasPulsingDot={true}
+      lat={35}
+      lon={-84}
+      zoom={3.5} />
+  </div>
+  <Legend />
+  <div class="wrapper">
+    {#each items as item}
+      <svelte:component this={item.component} {...item} />
+    {/each}
+  </div>
 </div>

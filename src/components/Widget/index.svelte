@@ -11,7 +11,7 @@
   @import "src/style/root.scss";
 
   .barchart {
-    padding: 1em var(--space-s) 2em var(--space-xs);
+    padding: 1em 0 2em 0;
   }
   .container {
     background: white;
