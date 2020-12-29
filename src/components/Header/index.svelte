@@ -5,18 +5,18 @@
   import Indicator from "./Indicator.svelte";
   import Icon from "components/Icon.svelte";
 
-  const szenarioKeys = ["szenarioZwei", "szenarioDrei", "szenarioVier"];
+  const szenarioIndices = [2, 3, 4];
 
   export let duration = 8000;
   let szenarioIndex = 0;
-  $: key = szenarioKeys[szenarioIndex];
-  $: current = $szenarienData ? $szenarienData[key] : false;
+  $: current = $szenarienData
+    ? $szenarienData[szenarioIndices[szenarioIndex]]
+    : false;
 
   onMount(() => {
     const interval = setInterval(() => {
       szenarioIndex =
-        szenarioIndex === szenarioKeys.length - 1 ? 0 : szenarioIndex + 1;
-      key = szenarioKeys[szenarioIndex];
+        szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1;
     }, duration);
 
     return () => {
@@ -144,7 +144,7 @@
     </div>
     {#if current}
       <Indicator
-        items={szenarioKeys}
+        items={szenarioIndices}
         index={szenarioIndex}
         current={current.centroid} />
     {/if}
