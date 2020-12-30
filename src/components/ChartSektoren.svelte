@@ -132,7 +132,7 @@
   }
 </style>
 
-<div data-embed-id="sektoren" class="container embed sticky padding">
+<div class="container embed sticky padding">
   {#if dataSektoren}
     <div class="legend">
       {#each dataSektoren.d as sektor}

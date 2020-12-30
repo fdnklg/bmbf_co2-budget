@@ -37,7 +37,7 @@
   }
 </style>
 
-<div data-embed-id="emissionen" class="container">
+<div class="container">
   {#if dataEmiss}
     <div class="wrapper">
       <Chart subset={dataEmiss.meta.subset} x1={0} x2={100} y1={0} y2={100}>

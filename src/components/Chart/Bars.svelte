@@ -1,12 +1,12 @@
 <script>
-  import Box from "./Box.svelte";
-  import { formatNumber } from "utils";
+  import Box from './Box.svelte'
+  import { formatNumber } from 'utils'
 
-  export let data;
+  export let data
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .bars {
     display: flex;
   }

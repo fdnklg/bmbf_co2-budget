@@ -17,6 +17,7 @@ import {
 
 export const activeWaypoint = writable(null)
 export const activeVis = writable(null)
+export const flightDistance = writable(null)
 
 export const activeCategory = writable(null)
 export const data = writable(null)
@@ -36,11 +37,24 @@ export const distancesData = derived(
   [activeZipcode],
   ([$activeZipcode], set) => {
     if ($activeZipcode) {
+      // [distance, co2, x-, y-coordinates]
       const getData = async () => {
         const distances = await fetchJson(
           `${s3Url}distances/${$activeZipcode}.json`
         )
-        set(distances)
+        let data = []
+        const cityKeys = Object.keys(distances)
+        cityKeys.map((city) => {
+          const obj = distances[city]
+          data.push({
+            city: city,
+            distance: obj[0],
+            co2: obj[1],
+            lng: obj[2],
+            lat: obj[3],
+          })
+        })
+        set(data)
       }
       getData()
     }

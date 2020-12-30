@@ -5,6 +5,10 @@ export const d5to20 = 10
 export const d20to50 = 25
 export const d50more = 50
 
+export const co2PerKm = {
+  plane: 380,
+}
+
 export const colors = {
   car: {
     main: '#E79D67',
