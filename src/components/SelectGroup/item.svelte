@@ -32,8 +32,8 @@
     cursor: pointer;
   }
   .icon {
-    width: 54px;
-    height: 54px;
+    width: 46px;
+    height: 46px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -75,14 +75,16 @@
   }
 
   .value {
-    font-size: $font-size-l;
+    font-size: $font-size-m;
     font-family: 'Post Grotesk Bold';
     color: $color-main;
+    line-height: 100%;
   }
 
   .metric {
     color: $color-main-40;
-    line-height: 120%;
+    font-size: $font-size-xs;
+    line-height: 100%;
   }
 
   .label {

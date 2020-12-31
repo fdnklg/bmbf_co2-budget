@@ -10,9 +10,9 @@
   @import 'src/style/root.scss';
   .annotation {
     bottom: auto;
-    top: 30px;
+    top: 20px;
     position: absolute;
-    transform: translateY(10px);
+    transform: translate(-3px, 10px);
     font-size: $font-size-xs;
     color: $color-main;
     width: auto;
@@ -33,7 +33,7 @@
     height: 0;
     position: absolute;
     bottom: auto;
-    top: 3px;
+    top: 7px;
     border-bottom: 4px solid $color-main;
     border-left: 4px solid transparent;
     border-right: 4px solid transparent;
@@ -81,6 +81,8 @@
   {#if data.icon}
     <Icon name={data.icon} />
   {/if}
-  <p class="label {data.align}">{data.label}</p>
+  <p class="label {data.align}">
+    {@html data.label}
+  </p>
   <div class="tip {data.align} {flip ? 'flipped' : ''}" />
 </div>

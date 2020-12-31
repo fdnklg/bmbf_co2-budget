@@ -1,12 +1,13 @@
 <script>
-  import { distancesData, szenarienData, travelTypeRides } from 'stores'
-  import { travelTypesRides } from 'config'
+  import { distancesData, szenarienData } from 'stores'
+  import { travelTypesRides, airportsIntro } from 'config'
   import { afterUpdate } from 'svelte'
   import { data } from 'stores'
   import distance from '@turf/distance'
   import { point } from '@turf/helpers'
 
   import Select from 'components/Select.svelte'
+  import Intro from 'components/SelectGroup/Intro.svelte'
   import SelectGroup from 'components/SelectGroup/index.svelte'
   import Loading from 'components/Loading.svelte'
   import Tile from 'components/Tile.svelte'
@@ -48,7 +49,6 @@
     if ($szenarienData) {
       centroid = $data.szenarien[0].centroid
     }
-    console.log('travelTypeRides', $travelTypeRides)
   })
 </script>
 
@@ -74,6 +74,7 @@
   {#if loaded}
     <Tile active={true}>
       <div class="select-group inner">
+        <Intro title={airportsIntro.title} subtitle={airportsIntro.subtitle} />
         <Select on:start={handleStart} event="start" items={airports} />
         <Select
           on:destination={handleDestination}
@@ -89,6 +90,7 @@
             start={centroid.name}
             {width}
             distance={flightDistance}
+            airports={{ start: start, destination: destination }}
             data={city} />
         {/each}
       {/if}

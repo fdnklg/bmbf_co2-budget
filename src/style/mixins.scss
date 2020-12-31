@@ -66,3 +66,24 @@
     @content;
   }
 }
+
+@mixin travel-type-color($property, $light: true) {
+  &.car {
+    #{$property}: if($light, $color-car-light, $color-car);
+  }
+  &.ecar {
+    #{$property}: if($light, $color-ecar-light, $color-ecar);
+  }
+  &.car_mf {
+    #{$property}: if($light, $color-car_mf-light, $color-car_mf);
+  }
+  &.public {
+    #{$property}: if($light, $color-public-light, $color-public);
+  }
+  &.bike {
+    #{$property}: if($light, $color-bike-light, $color-bike);
+  }
+  &.plane {
+    #{$property}: if($light, $color-plane-light, $color-plane);
+  }
+}

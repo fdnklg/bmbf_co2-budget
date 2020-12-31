@@ -7,36 +7,36 @@ export const d50more = 50
 
 export const co2PerKm = {
   plane: 380,
-  car: 200,
-  ecar: 120,
-  car_mf: 100,
-  public: 40,
+  car: 130,
+  ecar: 90,
+  car_mf: 45,
+  public: 25,
 }
 
 export const colors = {
   car: {
     main: '#E79D67',
-    light: '#E5C3AA',
+    light: '#FBF0E8',
   },
   ecar: {
     main: '#E9CD68',
-    light: '#EEE1B2',
+    light: '#FCF7E8',
   },
   car_mf: {
     main: '#85C2A5',
-    light: '#ABD0BE',
+    light: '#EDF6F1',
   },
   public: {
     main: '#87AAAB',
-    light: '#ABC4C4',
+    light: '#EDF2F2',
   },
   bike: {
     main: '#404455',
-    light: '#868994',
+    light: '#E2E3E5',
   },
   plane: {
     main: '#E77667',
-    light: '#EA9C92',
+    light: '#FBEAE8',
   },
   neutral: {
     main: '#f8f8f8',

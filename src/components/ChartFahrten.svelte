@@ -12,6 +12,7 @@
   export let data
   export let distance
   export let start
+  export let airports
   export let width
 
   let transformedData = false
@@ -25,10 +26,39 @@
     return percentPerBar
   }
 
+  function addFlightData() {
+    const co2Plane = distance * (co2PerKm.plane * 2) // 2! rides in gram
+    return {
+      rides: 1,
+      travelLabel: 'Flug',
+      journey: {
+        start: airports.start.name,
+        destination: airports.destination.name,
+      },
+      data: [
+        {
+          value: 100,
+          x: 100,
+          format: 'percent',
+          fill: colors.plane.main,
+          showLabel: false,
+          showValue: false,
+        },
+      ],
+      annotation: {
+        label: `Hin- und Rückflug stoßen insgesamt <span class="annotation-label plane">${(
+          co2Plane / 1000
+        ).toFixed(1)} kg</span> CO2 aus. (${distance.toFixed(
+          1
+        )}&thinsp;km pro Fahrt)`,
+      },
+    }
+  }
+
   function transformData(data, width) {
     const distanceAirport = data.distance
-    const co2Plane = distance * co2PerKm.plane // gram
-    const co2Travel = distanceAirport * co2PerKm[$travelTypeRides] // co2 for distance to selected traveltype and start airport
+    const co2Plane = (distance * (co2PerKm.plane * 2)).toFixed(1) // 2! rides in gram
+    const co2Travel = distanceAirport * co2PerKm[$travelTypeRides] * 2 // co2 for distance to selected traveltype and start airport
     const rides = parseInt(co2Plane / co2Travel)
     const barSlice = 100 / rides
 
@@ -49,22 +79,26 @@
       showLabel: false,
       showValue: false,
     }))
+
     return {
       ...data,
       rides,
       travelLabel: label,
       co2Plane,
+      journey: {
+        start: start,
+        destination: data.city,
+      },
       data: arr,
       annotation: {
-        label: `Hin- und Rückfahrt stößt insgesamt ${
-          data.co2 / 1000
-        } kg CO2 aus.`,
+        label: `Hin- und Rückfahrt stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${
+          co2Travel / 1000
+        } kg</span> CO2 aus. (${data.distance}&thinsp;km pro Fahrt)`,
       },
     }
   }
 
   function getTravelTypeLabel(travelType, data) {
-    console.log(data)
     return data.elements.find((d) => d.value === travelType).ride
   }
 
@@ -76,7 +110,9 @@
   }
 
   afterUpdate(() => {
-    transformedData = transformData(data, width)
+    transformedData = data.isFlight
+      ? addFlightData()
+      : transformData(data, width)
   })
 </script>
 
@@ -92,6 +128,15 @@
     }
   }
 
+  :global(.annotation-label) {
+    font-family: 'Post Grotesk Bold';
+    border-radius: 3px;
+    padding: 3px 5px;
+    @include travel-type-color(background-color, $light: true);
+    @include travel-type-color(color, $light: false);
+    color: white;
+  }
+
   .wrapper {
     margin-bottom: 30px;
     width: auto;
@@ -105,8 +150,11 @@
     font-size: $font-size-xl;
     display: flex;
     margin-right: 8px;
-    align-items: center;
+    align-items: flex-end;
+    padding-bottom: 7px;
     justify-content: center;
+
+    @include travel-type-color(color, $light: false);
   }
 
   .details {
@@ -127,10 +175,19 @@
 <div class="fahrt">
   {#if transformedData}
     <div class="chart-header">
-      <div class="rides">{transformedData.rides}</div>
+      <div
+        class="rides {transformedData.travelLabel === 'Flug' ? 'plane' : $travelTypeRides}">
+        {transformedData.rides}
+      </div>
       <div class="details">
         <span class="description">{transformedData.travelLabel} zwischen</span>
-        <span class="journey">{start} und {transformedData.city}</span>
+        <div class="journey-container">
+          <span class="journey">
+            {transformedData.journey.start}
+            und
+            {transformedData.journey.destination}
+          </span>
+        </div>
       </div>
     </div>
     <div class="wrapper">

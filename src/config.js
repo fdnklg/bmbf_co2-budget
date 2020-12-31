@@ -99,8 +99,8 @@ const travelTypeItems = [
     iconExtra: 'car_mf_extra',
     value: 'car_mf',
     ride: {
-      singular: 'Autofahrt',
-      plural: 'Autofahrten',
+      singular: 'Autofahrt (2 Personen)',
+      plural: 'Autofahrten (2 Personen)',
     },
   },
   {
@@ -109,8 +109,8 @@ const travelTypeItems = [
     iconExtra: 'ecar_extra',
     value: 'ecar',
     ride: {
-      singular: 'Autofahrt',
-      plural: 'Autofahrten',
+      singular: 'Elekto-Autofahrt (1 Person)',
+      plural: 'Elektro-Autofahrten (1 Person)',
     },
   },
   {
@@ -118,8 +118,8 @@ const travelTypeItems = [
     icon: 'car.svg',
     value: 'car',
     ride: {
-      singular: 'Autofahrt',
-      plural: 'Autofahrten',
+      singular: 'Autofahrt (1 Person)',
+      plural: 'Autofahrten (1 Person)',
     },
   },
 ]
@@ -133,7 +133,12 @@ export const travelTypes = {
 
 export const travelTypesRides = {
   hasIntro: true,
-  title: 'Vergleiche deine Strecken mit anderen Fortbewegungsmitteln',
+  title: 'Vergleiche deinen Flug mit anderen Reisezielen.',
   subtitle: 'Wähle ein Fortbewegnungsmittel.',
   elements: travelTypeItems.filter((d) => d.value !== 'bike'),
+}
+
+export const airportsIntro = {
+  title: 'Wohin bist du das letzte Mal geflogen?',
+  subtitle: 'Wähle Start- und Ziel-Flughafen aus.',
 }

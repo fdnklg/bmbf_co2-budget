@@ -56,6 +56,9 @@ export const distancesData = derived(
           })
         })
         data = data.sort((a, b) => a.distance - b.distance)
+        data.unshift({
+          isFlight: true,
+        })
         set(data)
       }
       getData()
