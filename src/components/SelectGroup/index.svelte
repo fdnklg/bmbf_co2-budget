@@ -1,10 +1,10 @@
 <script>
-  import Item from "./item.svelte";
-  import Intro from "./intro.svelte";
-  export let data;
-  export let isType;
+  import Item from './item.svelte'
+  import Intro from './intro.svelte'
+  export let data
+  export let isType
 
-  const { title, subtitle, hasIntro, elements } = data;
+  const { title, subtitle, hasIntro, elements } = data
 </script>
 
 <style>

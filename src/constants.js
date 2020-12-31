@@ -7,6 +7,10 @@ export const d50more = 50
 
 export const co2PerKm = {
   plane: 380,
+  car: 200,
+  ecar: 120,
+  car_mf: 100,
+  public: 40,
 }
 
 export const colors = {

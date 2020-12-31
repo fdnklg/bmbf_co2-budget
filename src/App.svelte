@@ -1,46 +1,46 @@
 <script>
-  import { onMount } from "svelte";
-  import { zipcodes, data } from "stores";
+  import { onMount } from 'svelte'
+  import { zipcodes, data } from 'stores'
 
-  import datasets from "data";
+  import datasets from 'data'
 
   import {
     parseDataEmissionen,
     parseDataSektoren,
     parseDataSzenarien,
     loadFile,
-  } from "utils";
+  } from 'utils'
 
-  import { zipcodesUrl, sektorenUrl, airportsUrl } from "config";
+  import { zipcodesUrl, sektorenUrl, airportsUrl } from 'config'
 
-  import Header from "components/Header/index.svelte";
-  import Section from "./components/Section.svelte";
-  import Title from "./components/Title.svelte";
+  import Header from 'components/Header/index.svelte'
+  import Section from './components/Section.svelte'
+  import Title from './components/Title.svelte'
 
-  import Emissionen from "views/Emissionen.svelte";
-  import Sektoren from "./views/Sektoren.svelte";
-  import Onboarding from "./views/Onboarding.svelte";
-  import Szenarien from "views/Szenarien.svelte";
-  import Flughaefen from "views/Flughaefen.svelte";
+  import Emissionen from 'views/Emissionen.svelte'
+  import Sektoren from './views/Sektoren.svelte'
+  import Onboarding from './views/Onboarding.svelte'
+  import Szenarien from 'views/Szenarien.svelte'
+  import Flughaefen from 'views/Flughaefen.svelte'
 
   onMount(async () => {
-    let parsed = {};
-    const codes = await loadFile(zipcodesUrl);
-    const sektoren = await loadFile(sektorenUrl, ";");
-    const airports = await loadFile(airportsUrl, ",");
+    let parsed = {}
+    const codes = await loadFile(zipcodesUrl)
+    const sektoren = await loadFile(sektorenUrl, ';')
+    const airports = await loadFile(airportsUrl, ',')
 
-    parsed["emissionen"] = parseDataEmissionen(datasets);
-    parsed["sektoren"] = parseDataSektoren(sektoren, datasets);
-    parsed["szenarien"] = parseDataSzenarien(datasets);
-    parsed["airports"] = airports;
+    parsed['emissionen'] = parseDataEmissionen(datasets)
+    parsed['sektoren'] = parseDataSektoren(sektoren, datasets)
+    parsed['szenarien'] = parseDataSzenarien(datasets)
+    parsed['airports'] = airports
 
-    zipcodes.set(codes.columns);
-    data.set(parsed);
-  });
+    zipcodes.set(codes.columns)
+    data.set(parsed)
+  })
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
 
   global {
     .sticky {

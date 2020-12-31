@@ -1,14 +1,16 @@
 <script>
-  import Icon from "components/Icon.svelte";
-  export let data;
+  import Icon from 'components/Icon.svelte'
+  export let data
+  export let flip = false
 
-  $: pos = 100 - data.x;
+  $: pos = 100 - data.x
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .annotation {
-    bottom: 40px;
+    bottom: auto;
+    top: 30px;
     position: absolute;
     transform: translateY(10px);
     font-size: $font-size-xs;
@@ -16,17 +18,26 @@
     width: auto;
     display: flex;
     padding-right: 5px;
+
+    &.flip {
+      bottom: 40px;
+      top: auto;
+    }
   }
 
   .tip {
     position: absolute;
-    bottom: 3px;
-    content: "";
+    content: '';
     display: inline-block;
     width: auto;
     height: 0;
     position: absolute;
-
+    bottom: auto;
+    top: 3px;
+    border-bottom: 4px solid $color-main;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    z-index: 100;
     &.left {
       left: 1px;
     }
@@ -45,7 +56,7 @@
   }
 
   .label {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     line-height: $line-height-m;
   }
 
@@ -54,11 +65,11 @@
   }
 
   .flipped {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
     border-top: 4px solid $color-main;
+    border-bottom: 0px;
+    bottom: 10px;
+    top: auto;
     /* transform: translateY(5px); */
-    z-index: 100;
   }
 </style>
 
@@ -66,10 +77,10 @@
   style="
     {data.align}: {data.align === 'left' ? 100 - pos : pos}%;
     text-align: {data.align === 'right' ? 'right' : 'left'};"
-  class="annotation">
+  class="annotation {flip ? 'flip' : ''}">
   {#if data.icon}
     <Icon name={data.icon} />
   {/if}
   <p class="label {data.align}">{data.label}</p>
-  <div class="tip {data.align} flipped" />
+  <div class="tip {data.align} {flip ? 'flipped' : ''}" />
 </div>

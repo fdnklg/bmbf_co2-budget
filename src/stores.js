@@ -22,6 +22,7 @@ export const flightDistance = writable(null)
 export const activeCategory = writable(null)
 export const data = writable(null)
 export const travelType = writable('car')
+export const travelTypeRides = writable('car')
 export const distance = writable(50)
 export const zipcodes = writable([])
 export const activeZipcode = writable(41372)
@@ -54,6 +55,7 @@ export const distancesData = derived(
             lat: obj[3],
           })
         })
+        data = data.sort((a, b) => a.distance - b.distance)
         set(data)
       }
       getData()

@@ -1,21 +1,21 @@
 <script>
-  import Chart from "./Chart/Chart.svelte";
-  import Bars from "./Chart/Bars.svelte";
-  import Header from "./Chart/Header.svelte";
-  import Footer from "./Chart/Footer.svelte";
-  import Annotation from "./Chart/Annotation.svelte";
+  import Chart from './Chart/Chart.svelte'
+  import Bars from './Chart/Bars.svelte'
+  import Header from './Chart/Header.svelte'
+  import Footer from './Chart/Footer.svelte'
+  import Annotation from './Chart/Annotation.svelte'
 
-  import { data } from "stores";
+  import { data } from 'stores'
 
-  export let step = 1.0;
+  export let step = 1.0
 
   $: dataEmiss = $data
     ? $data.emissionen.find((item) => item.step === step)
-    : false;
+    : false
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
 
   .wrapper {
     padding: 5em 0 1em 0;
@@ -41,7 +41,7 @@
   {#if dataEmiss}
     <div class="wrapper">
       <Chart subset={dataEmiss.meta.subset} x1={0} x2={100} y1={0} y2={100}>
-        <Annotation data={dataEmiss.annotation} />
+        <Annotation flip={true} data={dataEmiss.annotation} />
         <Bars data={dataEmiss.d} />
       </Chart>
     </div>

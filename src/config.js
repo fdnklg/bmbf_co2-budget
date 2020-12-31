@@ -74,37 +74,66 @@ export const distances = {
   ],
 }
 
-export const transportTypes = {
+const travelTypeItems = [
+  {
+    label: 'Fuß / Fahrrad',
+    icon: 'bike.svg',
+    value: 'bike',
+    ride: {
+      singular: 'Radfahrt',
+      plural: 'Radfahrten',
+    },
+  },
+  {
+    label: 'ÖPNV',
+    icon: 'public.svg',
+    value: 'public',
+    ride: {
+      singular: 'Zugfahrt',
+      plural: 'Zugfahrten',
+    },
+  },
+  {
+    label: 'Auto+',
+    icon: 'car_mf.svg',
+    iconExtra: 'car_mf_extra',
+    value: 'car_mf',
+    ride: {
+      singular: 'Autofahrt',
+      plural: 'Autofahrten',
+    },
+  },
+  {
+    label: 'E-Auto',
+    icon: 'car.svg',
+    iconExtra: 'ecar_extra',
+    value: 'ecar',
+    ride: {
+      singular: 'Autofahrt',
+      plural: 'Autofahrten',
+    },
+  },
+  {
+    label: 'Auto',
+    icon: 'car.svg',
+    value: 'car',
+    ride: {
+      singular: 'Autofahrt',
+      plural: 'Autofahrten',
+    },
+  },
+]
+
+export const travelTypes = {
   hasIntro: true,
   title: 'Welcher Reisetyp bist du?',
   subtitle: 'Wähle ein Fortbewegnungsmittel.',
-  elements: [
-    {
-      label: 'Fuß / Fahrrad',
-      icon: 'bike.svg',
-      value: 'bike',
-    },
-    {
-      label: 'ÖPNV',
-      icon: 'public.svg',
-      value: 'public',
-    },
-    {
-      label: 'Auto+',
-      icon: 'car_mf.svg',
-      iconExtra: 'car_mf_extra',
-      value: 'car_mf',
-    },
-    {
-      label: 'E-Auto',
-      icon: 'car.svg',
-      iconExtra: 'ecar_extra',
-      value: 'ecar',
-    },
-    {
-      label: 'Auto',
-      icon: 'car.svg',
-      value: 'car',
-    },
-  ],
+  elements: travelTypeItems,
+}
+
+export const travelTypesRides = {
+  hasIntro: true,
+  title: 'Vergleiche deine Strecken mit anderen Fortbewegungsmitteln',
+  subtitle: 'Wähle ein Fortbewegnungsmittel.',
+  elements: travelTypeItems.filter((d) => d.value !== 'bike'),
 }

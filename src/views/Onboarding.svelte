@@ -4,7 +4,7 @@
   import Tile from 'components/Tile.svelte'
   import Intro from 'components/SelectGroup/Intro.svelte'
 
-  import { transportTypes, distances } from 'config'
+  import { travelTypes, distances } from 'config'
 </script>
 
 <style lang="scss">
@@ -21,7 +21,7 @@
 <div class="onboarding container">
   <Tile active={true}>
     <div class="inner">
-      <SelectGroup data={transportTypes} isType="transportTypes" />
+      <SelectGroup data={travelTypes} isType="travelTypes" />
       <SelectGroup data={distances} isType="distances" />
       <Intro
         title="In welchem Raum bist du unterwegs?"

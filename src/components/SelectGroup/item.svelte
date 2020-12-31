@@ -1,27 +1,29 @@
 <script>
-  import { travelType, distance, activeColor } from "stores";
-  import Icon from "components/Icon.svelte";
+  import { travelType, distance, travelTypeRides } from 'stores'
+  import Icon from 'components/Icon.svelte'
 
-  export let label;
-  export let value;
-  export let icon;
-  export let isHTML;
-  export let isType;
-  export let iconExtra;
+  export let label
+  export let value
+  export let icon
+  export let isHTML
+  export let isType
+  export let iconExtra
 
   $: isActive = (isType, value) => {
-    if (isType === "distances") return value === $distance;
-    if (isType === "transportTypes") return value === $travelType;
-  };
+    if (isType === 'distances') return value === $distance
+    if (isType === 'travelTypes') return value === $travelType
+    if (isType === 'travelTypeRides') return value === $travelTypeRides
+  }
 
   const handleClick = (isType, value) => {
-    if (isType === "distances") distance.set(value);
-    if (isType === "transportTypes") travelType.set(value);
-  };
+    if (isType === 'distances') distance.set(value)
+    if (isType === 'travelTypes') travelType.set(value)
+    if (isType === 'travelTypeRides') travelTypeRides.set(value)
+  }
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .item {
     display: flex;
     position: relative;
@@ -74,7 +76,7 @@
 
   .value {
     font-size: $font-size-l;
-    font-family: "Post Grotesk Bold";
+    font-family: 'Post Grotesk Bold';
     color: $color-main;
   }
 
@@ -99,7 +101,7 @@
       <span class="value">{value}</span>
       <span class="metric">km</span>
     {/if}
-    {#if isType === 'transportTypes'}
+    {#if isType === 'travelTypes' || isType === 'travelTypeRides'}
       <Icon name={value} />
     {/if}
   </div>

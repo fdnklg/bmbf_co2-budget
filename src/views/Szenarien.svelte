@@ -1,30 +1,35 @@
 <script>
-  import { szenarienData } from "stores";
+  import { szenarienData } from 'stores'
 
-  import Map from "components/Map/index.svelte";
-  import Loading from "components/Loading.svelte";
-  import IntersectionObserver from "components/IntersectionObserver.svelte";
-  import Tile from "components/Tile.svelte";
+  import Map from 'components/Map/index.svelte'
+  import Loading from 'components/Loading.svelte'
+  import IntersectionObserver from 'components/IntersectionObserver.svelte'
+  import Tile from 'components/Tile.svelte'
 
   function handleActiveStep(e) {
-    step = e.detail;
+    step = e.detail
   }
 
-  let step;
+  let step
 
-  $: data = $szenarienData ? $szenarienData : null;
+  $: data = $szenarienData ? $szenarienData : null
 
   $: currentData = $szenarienData
     ? $szenarienData.find((d) => d.step == step)
-    : false;
+    : false
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .szenario {
     margin-left: 20px;
     height: 500px;
     width: 400px;
+
+    @include respond-max-screen-phablet {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+    }
   }
 
   .sticky {

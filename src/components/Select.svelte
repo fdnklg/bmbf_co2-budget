@@ -1,18 +1,23 @@
 <script>
-  import { afterUpdate, createEventDispatcher } from "svelte";
+  import { afterUpdate, createEventDispatcher } from 'svelte'
 
-  export let items;
-  export let event = "select";
-  const dispatch = createEventDispatcher();
+  export let items
+  export let event = 'select'
+  const dispatch = createEventDispatcher()
 
-  let value = "none";
+  let value = 'none'
 
   afterUpdate(() => {
-    dispatch(event, value);
-  });
+    dispatch(event, value)
+  })
 </script>
 
-<style>
+<style lang="scss">
+  .select {
+    select {
+      width: 100%;
+    }
+  }
 </style>
 
 <div class="select">

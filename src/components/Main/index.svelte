@@ -1,48 +1,48 @@
 <script>
-  import { onMount } from "svelte";
-  import { items, transportTypes, distances } from "content";
+  import { onMount } from 'svelte'
+  import { items, travelTypes, distances } from 'content'
 
-  import { activeCategory } from "stores";
+  import { activeCategory } from 'stores'
 
-  import { observe, getId } from "./util.js";
+  import { observe, getId } from './util.js'
 
-  import Map from "components/Map/index.svelte";
-  import Barchart from "components/Barchart/index.svelte";
-  import SelectGroup from "components/SelectGroup/index.svelte";
-  import Input from "components/Input.svelte";
+  import Map from 'components/Map/index.svelte'
+  import Barchart from 'components/Barchart/index.svelte'
+  import SelectGroup from 'components/SelectGroup/index.svelte'
+  import Input from 'components/Input.svelte'
 
-  let markerBarStart, markerBarTrans, markerBarZoom;
+  let markerBarStart, markerBarTrans, markerBarZoom
 
   const setActiveCategory = (category) => {
-    activeCategory.set(category);
-  };
+    activeCategory.set(category)
+  }
 
   onMount(async () => {
-    const articleItems = document.querySelectorAll(".article-item");
+    const articleItems = document.querySelectorAll('.article-item')
 
     // set observe for markers
     observe(
       markerBarStart,
-      () => setActiveCategory("start"),
+      () => setActiveCategory('start'),
       () => null
-    );
+    )
 
     observe(
       markerBarTrans,
-      () => setActiveCategory("transition"),
+      () => setActiveCategory('transition'),
       () => null
-    );
+    )
 
     observe(
       markerBarZoom,
-      () => setActiveCategory("zoom"),
+      () => setActiveCategory('zoom'),
       () => null
-    );
-  });
+    )
+  })
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   main {
     max-width: 100%;
     display: flex;
@@ -93,7 +93,7 @@
     {/each}
 
     <SelectGroup data={distances} isType="distances" />
-    <SelectGroup data={transportTypes} isType="transportTypes" />
+    <SelectGroup data={travelTypes} isType="travelTypes" />
     <Input />
     <div class="vis map sticky">
       <Map lat={35} lon={-84} zoom={3.5} />

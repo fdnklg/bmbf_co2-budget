@@ -1,11 +1,13 @@
 <script>
-  import { distancesData } from 'stores'
+  import { distancesData, szenarienData, travelTypeRides } from 'stores'
+  import { travelTypesRides } from 'config'
   import { afterUpdate } from 'svelte'
   import { data } from 'stores'
   import distance from '@turf/distance'
   import { point } from '@turf/helpers'
 
   import Select from 'components/Select.svelte'
+  import SelectGroup from 'components/SelectGroup/index.svelte'
   import Loading from 'components/Loading.svelte'
   import Tile from 'components/Tile.svelte'
   import ChartFahrten from '../components/ChartFahrten.svelte'
@@ -16,6 +18,7 @@
   $: destination = null
   $: flightDistance = getDistance(start, destination)
   $: loaded = airports && $distancesData ? true : false
+  $: centroid = null
 
   let distancesRef
 
@@ -42,6 +45,10 @@
 
   afterUpdate(() => {
     width = distancesRef ? distancesRef.getBoundingClientRect().width : null
+    if ($szenarienData) {
+      centroid = $data.szenarien[0].centroid
+    }
+    console.log('travelTypeRides', $travelTypeRides)
   })
 </script>
 
@@ -49,6 +56,15 @@
   @import 'src/style/root.scss';
   .container {
     margin: auto;
+
+    @include respond-max-screen-phablet {
+      width: calc(100% - 20px);
+      margin-left: 10px;
+    }
+  }
+
+  .select-group {
+    width: 100%;
   }
   .distances {
   }
@@ -57,18 +73,23 @@
 <div class="container">
   {#if loaded}
     <Tile active={true}>
-      <div class="inner">
+      <div class="select-group inner">
         <Select on:start={handleStart} event="start" items={airports} />
         <Select
           on:destination={handleDestination}
           event="destination"
           items={airports} />
       </div>
+      <SelectGroup data={travelTypesRides} isType="travelTypeRides" />
     </Tile>
     <div bind:this={distancesRef} class="distances inner">
       {#if flightDistance && width}
         {#each $distancesData as city}
-          <ChartFahrten {width} distance={flightDistance} data={city} />
+          <ChartFahrten
+            start={centroid.name}
+            {width}
+            distance={flightDistance}
+            data={city} />
         {/each}
       {/if}
     </div>

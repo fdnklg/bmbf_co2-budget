@@ -1,14 +1,14 @@
 <script>
-  import { szenarienDataActive } from "stores";
+  import { szenarienDataActive } from 'stores'
 
-  import Chart from "../Chart/Chart.svelte";
-  import Bars from "../Chart/Bars.svelte";
-  import Header from "../Chart/Header.svelte";
-  import Annotation from "../Chart/Annotation.svelte";
+  import Chart from '../Chart/Chart.svelte'
+  import Bars from '../Chart/Bars.svelte'
+  import Header from '../Chart/Header.svelte'
+  import Annotation from '../Chart/Annotation.svelte'
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
 
   .barchart {
     padding: 1em 0 2em 0;
@@ -36,7 +36,7 @@
         y2={100}
         subset={$szenarienDataActive.widget.meta.subset}>
         <Bars data={$szenarienDataActive.widget.d} />
-        <Annotation data={$szenarienDataActive.widget.annotation} />
+        <Annotation flip={true} data={$szenarienDataActive.widget.annotation} />
       </Chart>
     </div>
   {/if}

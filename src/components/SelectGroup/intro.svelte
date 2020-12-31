@@ -1,14 +1,15 @@
 <script>
-  export let title;
-  export let subtitle;
+  export let title
+  export let subtitle
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .title {
     font-size: $font-size-l;
     color: $color-main;
     margin-bottom: 0px;
+    line-height: $line-height-m;
   }
 
   .subtitle {
