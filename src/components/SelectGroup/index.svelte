@@ -3,13 +3,18 @@
   import Intro from './intro.svelte'
   export let data
   export let isType
+  export let last
 
   const { title, subtitle, hasIntro, elements } = data
 </script>
 
-<style>
+<style lang="scss">
   .container {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+
+    &.last {
+      margin-bottom: 0px;
+    }
   }
 
   .wrapper {
@@ -21,7 +26,7 @@
   }
 </style>
 
-<div class="container">
+<div class="container {last ? 'last' : ''}">
   {#if hasIntro}
     <Intro {title} {subtitle} />
   {/if}

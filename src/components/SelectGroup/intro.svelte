@@ -9,6 +9,7 @@
     font-size: $font-size-l;
     color: $color-main;
     margin-bottom: 0px;
+    margin-top: 0px;
     line-height: $line-height-m;
   }
 
@@ -17,7 +18,7 @@
     letter-spacing: $letter-spacing-s;
     line-height: 150%;
     color: $color-main-60;
-    margin-top: 10px;
+    margin-top: 3px;
     margin-bottom: 20px;
   }
 </style>

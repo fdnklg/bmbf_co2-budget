@@ -1,32 +1,32 @@
 <script>
-  import { szenarienData } from "stores";
-  import { onMount } from "svelte";
-  import Map from "components/Map/index.svelte";
-  import Indicator from "./Indicator.svelte";
-  import Icon from "components/Icon.svelte";
+  import { szenarienData } from 'stores'
+  import { onMount } from 'svelte'
+  import Map from 'components/Map/index.svelte'
+  import Indicator from './Indicator.svelte'
+  import Icon from 'components/Icon.svelte'
 
-  const szenarioIndices = [2, 3, 4];
+  const szenarioIndices = [2, 3, 4]
 
-  export let duration = 8000;
-  let szenarioIndex = 0;
+  export let duration = 8000
+  let szenarioIndex = 0
   $: current = $szenarienData
     ? $szenarienData[szenarioIndices[szenarioIndex]]
-    : false;
+    : false
 
   onMount(() => {
     const interval = setInterval(() => {
       szenarioIndex =
-        szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1;
-    }, duration);
+        szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
+    }, duration)
 
     return () => {
-      clearInterval(interval);
-    };
-  });
+      clearInterval(interval)
+    }
+  })
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .container {
     height: 100vh;
   }
@@ -108,7 +108,7 @@
   }
 
   .text {
-    color: $color-main-40;
+    color: $color-main-60;
   }
 </style>
 

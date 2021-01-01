@@ -19,6 +19,7 @@ export const activeWaypoint = writable(null)
 export const activeVis = writable(null)
 export const flightDistance = writable(null)
 
+export const activeAnchor = writable('1')
 export const activeCategory = writable(null)
 export const data = writable(null)
 export const travelType = writable('car')

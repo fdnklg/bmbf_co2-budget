@@ -38,6 +38,69 @@ export const zipcodesUrl = `${s3Url}postcodes.txt`
 export const airportsUrl = `${isLocal ? 'data/' : s3Url}airports.csv`
 export const sektorenUrl = 'data/co2_sektoren.csv'
 
+export const navItems = [
+  {
+    id: 'start',
+    label: 'Start',
+    offsetY: 0,
+  },
+  {
+    id: '1',
+    label: 'Sektoren',
+    offsetY: '50%',
+    items: [
+      {
+        id: '1.1',
+        label: 'Alle Verkehrsträger',
+        offsetY: -400,
+      },
+      {
+        id: '1.2',
+        label: 'Straßenverkehr',
+        offsetY: -400,
+      },
+      {
+        id: '1.3',
+        label: 'Autos',
+        offsetY: -400,
+      },
+    ],
+  },
+  {
+    id: '2',
+    label: 'Emissionen',
+    offsetY: 0,
+    items: [
+      {
+        id: '2.1',
+        label: 'Alle Verkehrsträger',
+        offsetY: -400,
+      },
+      {
+        id: '2.2',
+        label: 'Straßenverkehr',
+        offsetY: -400,
+      },
+      {
+        id: '2.3',
+        label: 'Autos',
+        offsetY: -400,
+      },
+    ],
+  },
+  {
+    id: 'end',
+    label: 'Zusammenfassung',
+    offsetY: 0,
+  },
+]
+
+export const nav = [
+  {
+    id: '1.0',
+  },
+]
+
 export const distances = {
   hasIntro: true,
   title: 'Wie weit fährst du täglich?',

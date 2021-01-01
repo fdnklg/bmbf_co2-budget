@@ -19,7 +19,7 @@
 </style>
 
 <div class="onboarding container">
-  <Tile active={true}>
+  <Tile large={true} active={true}>
     <div class="inner">
       <SelectGroup data={travelTypes} isType="travelTypes" />
       <SelectGroup data={distances} isType="distances" />

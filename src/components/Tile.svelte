@@ -1,10 +1,11 @@
 <script>
-  export let active;
-  export let isMap;
+  export let active
+  export let large
+  export let isMap
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .tile {
     opacity: 0.5;
     padding: 15px;
@@ -21,6 +22,10 @@
     opacity: 0;
   }
 
+  .large {
+    padding: 45px;
+  }
+
   .active {
     opacity: 0.999;
     background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
@@ -30,6 +35,7 @@
   }
 </style>
 
-<div class="tile {active ? 'active' : ''} {isMap ? 'map' : ''}">
+<div
+  class="tile {active ? 'active' : ''} {large ? 'large' : ''} {isMap ? 'map' : ''}">
   <slot />
 </div>

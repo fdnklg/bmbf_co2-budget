@@ -14,8 +14,9 @@
   import { zipcodesUrl, sektorenUrl, airportsUrl } from 'config'
 
   import Header from 'components/Header/index.svelte'
-  import Section from './components/Section.svelte'
   import Title from './components/Title.svelte'
+  import Section from './components/Section.svelte'
+  import Navigation from './components/Navigation/index.svelte'
 
   import Emissionen from 'views/Emissionen.svelte'
   import Sektoren from './views/Sektoren.svelte'
@@ -84,6 +85,7 @@
 
 <div class="container">
   <Header />
+  <Navigation />
 
   <Section>
     Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -138,4 +140,12 @@
   </Section>
 
   <Flughaefen />
+
+  <Section>
+    <Title>Zusammenfassung</Title>
+    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  </Section>
 </div>

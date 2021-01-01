@@ -65,6 +65,7 @@
 
   .select-group {
     width: 100%;
+    margin-bottom: 30px;
   }
   .distances {
   }
@@ -72,7 +73,7 @@
 
 <div class="container">
   {#if loaded}
-    <Tile active={true}>
+    <Tile large={true} active={true}>
       <div class="select-group inner">
         <Intro title={airportsIntro.title} subtitle={airportsIntro.subtitle} />
         <Select on:start={handleStart} event="start" items={airports} />
@@ -81,7 +82,10 @@
           event="destination"
           items={airports} />
       </div>
-      <SelectGroup data={travelTypesRides} isType="travelTypeRides" />
+      <SelectGroup
+        data={travelTypesRides}
+        last={true}
+        isType="travelTypeRides" />
     </Tile>
     <div bind:this={distancesRef} class="distances inner">
       {#if flightDistance && width}
