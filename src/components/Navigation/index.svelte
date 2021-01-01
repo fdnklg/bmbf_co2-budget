@@ -2,6 +2,7 @@
   import * as animateScroll from 'svelte-scrollto'
   import { activeAnchor } from 'stores'
   import { navItems } from 'config'
+  import { afterUpdate } from 'svelte'
 
   animateScroll.setGlobalOptions({
     offset: 200,
@@ -20,6 +21,11 @@
   function handleClick(event, offsetY) {
     const id = event.target.dataset.id
     activeAnchor.set(id)
+    console.log(
+      event.target.dataset.id,
+      $activeAnchor,
+      $activeAnchor === event.target.dataset.id
+    )
     switch (id) {
       case 'start':
         animateScroll.scrollToTop()
@@ -28,7 +34,10 @@
         animateScroll.scrollToBottom()
         break
       default:
-        animateScroll.scrollTo({ element: `[id='${id}']`, offset: offsetY })
+        animateScroll.scrollTo({
+          element: `[id='anchor-${id}']`,
+          offset: offsetY,
+        })
         break
     }
   }
@@ -38,29 +47,33 @@
   @import 'src/style/root.scss';
   .nav {
     position: fixed;
-    left: 10px;
+    left: 25px;
     top: 40vh;
     z-index: 1000;
 
     ul {
-      padding-left: 10px;
+      padding-left: 7px;
+      margin-bottom: 10px;
     }
   }
 
   .nav-item {
-    margin-bottom: 5px;
-    color: $color-main;
+    font-family: 'Post Grotesk Bold';
+    color: $color-main-40;
     list-style: none;
-    opacity: 0.5;
     cursor: pointer;
 
+    &.sub {
+      font-family: 'Post Grotesk Regular';
+    }
+
     &:hover {
-      opacity: 0.75;
+      color: $color-main-60;
     }
 
     &.active {
-      opacity: 1;
-      @include transition-m;
+      color: $color-main;
+      @include transition-s;
     }
   }
 </style>
@@ -71,14 +84,14 @@
       <li
         class="nav-item {$activeAnchor == navItem.id ? 'active' : ''}"
         data-id={navItem.id}
-        on:click={handleClick}>
+        on:click={(e) => handleClick(e, navItem.offsetY)}>
         {navItem.label}
       </li>
       {#if navItem.items}
         <ul>
           {#each navItem.items as navSubItem}
             <li
-              class="nav-item {$activeAnchor == navItem.id ? 'active' : ''}"
+              class="nav-item sub {$activeAnchor == navSubItem.id ? 'active' : ''}"
               data-id={navSubItem.id}
               on:click={(e) => handleClick(e, navSubItem.offsetY)}>
               {navSubItem.label}

@@ -1,13 +1,15 @@
 <script>
-  import { szenarienData } from 'stores'
+  import { szenarienData, activeAnchor } from 'stores'
 
   import Map from 'components/Map/index.svelte'
+  import Anchor from 'components/Navigation/Anchor.svelte'
   import Loading from 'components/Loading.svelte'
   import IntersectionObserver from 'components/IntersectionObserver.svelte'
   import Tile from 'components/Tile.svelte'
 
   function handleActiveStep(e) {
     step = e.detail
+    activeAnchor.set(e.detail)
   }
 
   let step
@@ -52,15 +54,17 @@
     </div>
     {#each data as item}
       <div class="szenario">
-        <IntersectionObserver
-          rootMargin={`-${0.25 * 100}% 0% -${100 - 0.25 * 100}% 0%`}
-          on:step={handleActiveStep}
-          bind:step={item.step}>
-          <Tile isMap={true} active={item.step === step}>
-            <h3 class="tile-title">{item.text.title}</h3>
-            <p class="tile-paragraph">{item.text.paragraph}</p>
-          </Tile>
-        </IntersectionObserver>
+        <Anchor anchorId={item.step}>
+          <IntersectionObserver
+            rootMargin={`-${0.25 * 100}% 0% -${100 - 0.55 * 100}% 0%`}
+            on:step={handleActiveStep}
+            bind:step={item.step}>
+            <Tile isMap={true} active={item.step === step}>
+              <h3 class="tile-title">{item.text.title}</h3>
+              <p class="tile-paragraph">{item.text.paragraph}</p>
+            </Tile>
+          </IntersectionObserver>
+        </Anchor>
       </div>
     {/each}
   {:else}

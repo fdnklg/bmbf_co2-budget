@@ -1,8 +1,9 @@
 <script>
-  import { data } from 'stores'
+  import { data, activeAnchor } from 'stores'
 
   import Tile from 'components/Tile.svelte'
   import Loading from 'components/Loading.svelte'
+  import Anchor from 'components/Navigation/Anchor.svelte'
   import ChartSektoren from 'components/ChartSektoren.svelte'
   import LayoutScrollytelling from 'components/LayoutScrollytelling.svelte'
   import IntersectionObserver from 'components/IntersectionObserver.svelte'
@@ -12,6 +13,7 @@
 
   function handle(e) {
     stepVis = e.detail
+    activeAnchor.set(e.detail)
   }
 </script>
 
@@ -52,7 +54,7 @@
       <div class="wrapper" slot="text">
         {#each currentData as item}
           <IntersectionObserver on:step={handle} bind:step={item.step}>
-            <p class="anchor" id={item.step} />
+            <Anchor anchorId={item.step} />
             <Tile active={item.step === stepVis}>
               <h3 class="tile-title">{item.text.title}</h3>
               <p class="tile-paragraph">{item.text.paragraph}</p>

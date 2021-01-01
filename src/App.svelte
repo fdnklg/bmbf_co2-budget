@@ -17,6 +17,7 @@
   import Title from './components/Title.svelte'
   import Section from './components/Section.svelte'
   import Navigation from './components/Navigation/index.svelte'
+  import Anchor from './components/Navigation/Anchor.svelte'
 
   import Emissionen from 'views/Emissionen.svelte'
   import Sektoren from './views/Sektoren.svelte'
@@ -108,6 +109,7 @@
 
   <Title>Wo entstehen die meisten CO2-Emissionen?</Title>
 
+  <Anchor anchorId="1.0" />
   <Emissionen />
 
   <Section>
@@ -119,6 +121,7 @@
 
   <Title>Die Verkehrsziele hängen hinterher</Title>
 
+  <Anchor anchorId="2.0" />
   <Sektoren />
 
   <Section>
@@ -130,6 +133,7 @@
 
   <Onboarding />
 
+  <Anchor anchorId="3.0" />
   <Szenarien />
 
   <Section>
@@ -139,6 +143,7 @@
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </Section>
 
+  <Anchor anchorId="4.0" />
   <Flughaefen />
 
   <Section>

@@ -42,10 +42,10 @@ export const navItems = [
   {
     id: 'start',
     label: 'Start',
-    offsetY: 0,
+    offsetY: -400,
   },
   {
-    id: '1',
+    id: '1.0',
     label: 'Sektoren',
     offsetY: '50%',
     items: [
@@ -67,9 +67,9 @@ export const navItems = [
     ],
   },
   {
-    id: '2',
+    id: '2.0',
     label: 'Emissionen',
-    offsetY: 0,
+    offsetY: -400,
     items: [
       {
         id: '2.1',
@@ -89,9 +89,46 @@ export const navItems = [
     ],
   },
   {
+    id: '3.0',
+    label: 'Szenarien',
+    offsetY: -400,
+    items: [
+      {
+        id: '3.1',
+        label: 'Dein Reisestil',
+        offsetY: -25,
+      },
+      {
+        id: '3.2',
+        label: 'Deutscher Durchschnitt',
+        offsetY: -25,
+      },
+      {
+        id: '3.3',
+        label: 'Klimaziele 2050',
+        offsetY: -25,
+      },
+      {
+        id: '3.4',
+        label: 'Mobilitätsmix',
+        offsetY: -25,
+      },
+      {
+        id: '3.5',
+        label: 'Das Rad',
+        offsetY: -25,
+      },
+    ],
+  },
+  {
+    id: '4.0',
+    label: 'Fliegen',
+    offsetY: -300,
+  },
+  {
     id: 'end',
     label: 'Zusammenfassung',
-    offsetY: 0,
+    offsetY: -400,
   },
 ]
 

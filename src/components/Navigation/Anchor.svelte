@@ -5,4 +5,6 @@
 <style>
 </style>
 
-<a class="anchor" id={anchorId} />
+<div class="anchor" id="anchor-{anchorId}">
+  <slot />
+</div>
