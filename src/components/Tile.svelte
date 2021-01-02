@@ -1,7 +1,7 @@
 <script>
   export let active
   export let large
-  export let isMap
+  export let isMap = false
 </script>
 
 <style lang="scss">
@@ -11,6 +11,7 @@
     padding: 15px;
     border: 1px solid transparent;
     margin-bottom: 40px;
+    z-index: 20;
     @include transition-m;
 
     @include respond-max-screen-phablet {

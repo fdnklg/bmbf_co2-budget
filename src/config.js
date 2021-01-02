@@ -3,6 +3,18 @@ export const s3Url = 'https://locobss-story-co2.s3.eu-central-1.amazonaws.com/'
 
 export const isoChronesUrl = isLocal ? `data/` : s3Url
 
+export const metadata = {
+  title: 'Titel der Seite',
+  lang: 'de',
+  twitter_site: '@BMBF_Bund',
+  twitter_creator: '@fdnklg',
+  og_url: 'https://fabiandinklage.com',
+  og_title: 'Projekt Titel',
+  og_description: 'Hier steht ein Text der das Projekt kurz beschreibt.',
+  og_image:
+    'https://fabiandinklage.com/public/images/demos/demos-tooltip-3840x2040.jpg',
+}
+
 export const spaceTypes = {
   51: 'Metropolen',
   52: 'Großstädt',

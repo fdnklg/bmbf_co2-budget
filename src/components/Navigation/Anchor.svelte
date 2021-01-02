@@ -3,6 +3,9 @@
 </script>
 
 <style>
+  .anchor {
+    height: 5px;
+  }
 </style>
 
 <div class="anchor" id="anchor-{anchorId}">

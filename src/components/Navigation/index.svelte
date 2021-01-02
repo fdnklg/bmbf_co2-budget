@@ -2,12 +2,10 @@
   import * as animateScroll from 'svelte-scrollto'
   import { activeAnchor } from 'stores'
   import { navItems } from 'config'
-  import { afterUpdate } from 'svelte'
 
   animateScroll.setGlobalOptions({
     offset: 200,
     onStart: (element, offset) => {
-      console.log(element)
       if (element) {
         console.log('Start scrolling to element:', element)
       } else if (offset) {
@@ -47,9 +45,18 @@
   @import 'src/style/root.scss';
   .nav {
     position: fixed;
+    display: none;
     left: 25px;
-    top: 40vh;
-    z-index: 1000;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border-radius: 3px;
+    padding: 10px;
+    z-index: 10;
+
+    @include respond-min-screen-large {
+      display: block;
+    }
 
     ul {
       padding-left: 7px;
@@ -58,13 +65,18 @@
   }
 
   .nav-item {
-    font-family: 'Post Grotesk Bold';
+    font-family: 'Post Grotesk Regular';
+    text-transform: uppercase;
+    font-size: $font-size-xxs;
+    letter-spacing: $letter-spacing-m;
     color: $color-main-40;
     list-style: none;
     cursor: pointer;
 
     &.sub {
-      font-family: 'Post Grotesk Regular';
+      text-transform: unset;
+      font-size: $font-size-xs;
+      letter-spacing: 0px;
     }
 
     &:hover {

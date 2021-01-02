@@ -5,6 +5,8 @@ export const d5to20 = 10
 export const d20to50 = 25
 export const d50more = 50
 
+export let stepScenario = '4.0'
+
 export const co2PerKm = {
   plane: 380,
   car: 130,

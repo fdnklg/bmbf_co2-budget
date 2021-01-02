@@ -3,7 +3,7 @@
   import Intro from './intro.svelte'
   export let data
   export let isType
-  export let last
+  export let last = false
 
   const { title, subtitle, hasIntro, elements } = data
 </script>

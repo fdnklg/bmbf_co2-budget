@@ -11,13 +11,15 @@
     loadFile,
   } from 'utils'
 
-  import { zipcodesUrl, sektorenUrl, airportsUrl } from 'config'
+  import { zipcodesUrl, sektorenUrl, airportsUrl, metadata } from 'config'
 
+  import Meta from 'components/Meta.svelte'
   import Header from 'components/Header/index.svelte'
   import Title from './components/Title.svelte'
   import Section from './components/Section.svelte'
   import Navigation from './components/Navigation/index.svelte'
   import Anchor from './components/Navigation/Anchor.svelte'
+  import Share from 'components/Share.svelte'
 
   import Emissionen from 'views/Emissionen.svelte'
   import Sektoren from './views/Sektoren.svelte'
@@ -85,6 +87,7 @@
 </style>
 
 <div class="container">
+  <Meta meta={metadata} />
   <Header />
   <Navigation />
 
@@ -153,4 +156,6 @@
     eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </Section>
+
+  <Share />
 </div>
