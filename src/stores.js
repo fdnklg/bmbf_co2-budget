@@ -44,10 +44,11 @@ export const distancesData = derived(
         const distances = await fetchJson(
           `${s3Url}distances/${$activeZipcode}.json`
         )
+        console.log('distances', distances)
         let data = []
-        const cityKeys = Object.keys(distances)
+        const cityKeys = Object.keys(distances.cities)
         cityKeys.map((city) => {
-          const obj = distances[city]
+          const obj = distances.cities[city]
           data.push({
             city: city,
             distance: obj[0],

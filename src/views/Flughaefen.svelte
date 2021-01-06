@@ -88,7 +88,7 @@
         isType="travelTypeRides" />
     </Tile>
     <div bind:this={distancesRef} class="distances inner">
-      {#if flightDistance && width}
+      {#if flightDistance && width && $distancesData}
         {#each $distancesData as city}
           <ChartFahrten
             start={centroid.name}

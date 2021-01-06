@@ -1,49 +1,49 @@
 <script>
-  import { activeColor, zipcodes, activeZipcode } from "stores";
+  import { activeColor, zipcodes, activeZipcode } from 'stores'
 
-  import Icon from "components/Icon.svelte";
-  import ButtonSmall from "components/ButtonSmall.svelte";
+  import Icon from 'components/Icon.svelte'
+  import ButtonSmall from 'components/ButtonSmall.svelte'
 
-  $: isValid = true;
-  $: isEditing = true;
+  $: isValid = true
+  $: isEditing = true
 
-  let zip;
+  let zip
 
   const validate = (e) => {
-    const value = zip.value;
-    isValid = $zipcodes.includes(value);
-    isEditing = false;
+    const value = zip.value
+    isValid = $zipcodes.includes(value)
+    isEditing = false
 
     if (isValid) {
-      activeZipcode.set(value);
+      activeZipcode.set(value)
     }
-  };
+  }
 
   const setIconName = (isValid, isEditing) => {
-    if (isEditing) return "search";
-    if (!isValid) return "invalid";
-    return "valid";
-  };
+    if (isEditing) return 'search'
+    if (!isValid) return 'invalid'
+    return 'valid'
+  }
 
   const setRandomZip = () => {
-    const exampleZipCodes = [52531, 41372, 52070]; // @TODO add more
-    const randIndex = Math.floor(Math.random() * exampleZipCodes.length);
-    zip.value = exampleZipCodes[randIndex];
-    validate();
-  };
+    const exampleZipCodes = [52531, 41372, 52070] // @TODO add more
+    const randIndex = Math.floor(Math.random() * exampleZipCodes.length)
+    zip.value = exampleZipCodes[randIndex]
+    validate()
+  }
 
   const handleKeydown = (e) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      validate();
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      validate()
     } else {
-      isEditing = true;
+      isEditing = true
     }
-  };
+  }
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .form {
     position: relative;
     height: 35px;
@@ -91,7 +91,7 @@
     margin: 0;
     padding: 0;
     color: $color-main;
-    font-family: "Post Grotesk Bold";
+    font-family: 'Post Grotesk Bold';
     font-size: $font-size-s;
 
     &::placeholder {
@@ -108,13 +108,13 @@
       on:keydown={handleKeydown}
       placeholder="z.B. 10115 (Berlin)"
       class="zipInput" />
-    <button
+    <!-- <button
       style="background-color: {$activeColor.light}"
       type="button"
       value="Submit"
       on:click={validate}>
       <Icon name={setIconName(isValid, isEditing)} />
-    </button>
+    </button> -->
   </form>
   {#if !isValid && !isEditing}
     <p class="error">

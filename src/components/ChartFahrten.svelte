@@ -57,7 +57,7 @@
 
   function transformData(data, width) {
     const distanceAirport = data.distance
-    const co2Plane = (distance * (co2PerKm.plane * 2)).toFixed(1) // 2! rides in gram
+    const co2Plane = parseFloat((distance * (co2PerKm.plane * 2)).toFixed(1)) // 2! rides in gram
     const co2Travel = distanceAirport * co2PerKm[$travelTypeRides] * 2 // co2 for distance to selected traveltype and start airport
     const rides = parseInt(co2Plane / co2Travel)
     const barSlice = 100 / rides
@@ -67,6 +67,7 @@
 
     const marginPerBar = getPercentPerBar(rides, width)
 
+    console.log(distanceAirport, co2PerKm[$travelTypeRides])
     let arr = Array.from(Array(rides).keys())
     arr = arr.map((d, i) => ({
       value: barSlice,

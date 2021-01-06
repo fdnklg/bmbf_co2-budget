@@ -30,8 +30,8 @@
   }
 
   .icon {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -41,7 +41,7 @@
     margin-left: 10px;
 
     &:hover {
-      background-color: $color-main-80;
+      background-color: $color-main-60;
       @include transition-s;
     }
   }
