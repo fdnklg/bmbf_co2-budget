@@ -105,6 +105,7 @@ export default {
         { find: 'config', replacement: 'src/config.js' },
         { find: 'constants', replacement: 'src/constants.js' },
         { find: 'views', replacement: 'src/views' },
+        { find: 'projects', replacement: 'src/projects' },
       ],
     }),
     analyze({ summaryOnly: true }),

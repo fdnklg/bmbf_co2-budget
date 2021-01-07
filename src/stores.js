@@ -132,6 +132,7 @@ export const szenarienData = derived(
               if (iso) {
                 const path = isoJson[`${iso}`]
                 const isochroneFeat = createFeature(path, style)
+                console.log('isochroneFeat', isochroneFeat)
                 featuresToCut.push(isochroneFeat)
                 geojson.features.push(isochroneFeat)
               }
