@@ -4,7 +4,6 @@
 
   import { mapbox, key } from './mapbox.js'
   import { createGeojson } from './util'
-  import IconWrapper from './IconWrapper.svelte'
 
   export let hasPulsingDot
   export let data
@@ -20,7 +19,7 @@
   export let projected
 
   let container
-  let tType = 'bike'
+  $: tType = 'bike'
 
   onMount(() => {
     const link = document.createElement('link')
@@ -71,6 +70,17 @@
             filter: ['==', '$type', 'Point'],
           })
 
+          map.addLayer({
+            id: 'icons',
+            type: 'symbol',
+            source: 'layers',
+            layout: {
+              'icon-image': tType,
+              'icon-size': 0.75,
+            },
+            filter: ['==', '$type', 'Point'],
+          })
+
           map.addImage('pulsing-dot', pulsingDot(map, 200, 'rgba(0,0,0,1)'), {
             pixelRatio: 2,
           })
@@ -97,6 +107,7 @@
       const source = map.getSource('layers')
 
       if (source) {
+        console.log('geojson', geojson)
         source.setData(geojson)
       }
 
@@ -106,7 +117,6 @@
           zoom: zoom,
         })
 
-        projected = map.project([centroid.x, centroid.y])
         tType = travelType
       }
     }
@@ -123,8 +133,5 @@
 <div bind:this={container}>
   {#if map}
     <slot />
-  {/if}
-  {#if projected}
-    <IconWrapper name={tType} coords={projected} />
   {/if}
 </div>

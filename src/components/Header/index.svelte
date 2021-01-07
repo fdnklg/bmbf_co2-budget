@@ -1,13 +1,13 @@
 <script>
   import { szenarienData } from 'stores'
-  import { onMount } from 'svelte'
+  import { onMount, afterUpdate } from 'svelte'
   import Map from 'components/Map/index.svelte'
   import Indicator from './Indicator.svelte'
   import Icon from 'components/Icon.svelte'
 
   const szenarioIndices = [2, 3, 4]
 
-  export let duration = 8000
+  export let duration = 2000
   let szenarioIndex = 0
   $: current = $szenarienData
     ? $szenarienData[szenarioIndices[szenarioIndex]]
@@ -22,6 +22,10 @@
     return () => {
       clearInterval(interval)
     }
+  })
+  afterUpdate(() => {
+    szenarioIndex =
+      szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
   })
 </script>
 

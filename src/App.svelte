@@ -2,7 +2,7 @@
   import Isochrones from 'projects/Isochrones.svelte'
   import Maps from 'projects/Maps.svelte'
 
-  const activeProject = 'maps'
+  const activeProject = 'isochrones'
 </script>
 
 <style lang="scss">
