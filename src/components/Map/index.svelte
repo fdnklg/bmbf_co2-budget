@@ -16,7 +16,6 @@
   export let lat
   export let lon
   export let zoom
-  export let projected
 
   let container
   $: tType = 'bike'
@@ -99,6 +98,7 @@
   // prepare data fetch inside after update!
   afterUpdate(async () => {
     if (data && map) {
+      console.log('afterUpdate', data)
       const { geojson } = data
 
       const { centroid, travelType } = data
@@ -106,9 +106,10 @@
 
       const source = map.getSource('layers')
 
+      console.log('source', source)
       if (source) {
-        console.log('geojson', geojson)
         source.setData(geojson)
+        map.setLayoutProperty('icons', 'icon-image', travelType)
       }
 
       if (centroid) {
