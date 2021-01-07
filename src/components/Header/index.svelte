@@ -7,7 +7,7 @@
 
   const szenarioIndices = [2, 3, 4]
 
-  export let duration = 2000
+  export let duration = 6000
   let szenarioIndex = 0
   $: current = $szenarienData
     ? $szenarienData[szenarioIndices[szenarioIndex]]
@@ -121,6 +121,7 @@
     {#if current}
       <Map
         data={current}
+        animate={true}
         hasPulsingDot={true}
         lat={current.centroid.x}
         lon={current.centroid.y}

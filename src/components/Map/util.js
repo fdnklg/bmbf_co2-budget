@@ -34,6 +34,7 @@ export const createBoundingBox = (cutOutFeat) => {
         const polys = unkinkPolygon(feat)
         return polys.features[0]
       }
+
       return feat
     })
     united = union.default(...cutOutFeat)

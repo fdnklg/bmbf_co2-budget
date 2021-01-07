@@ -7,6 +7,7 @@
 
   export let hasPulsingDot
   export let data
+  export let animate
   let map
 
   setContext(key, {
@@ -43,7 +44,8 @@
           source: 'layers',
           paint: {
             'fill-color': ['get', 'fill'],
-            'fill-opacity': ['get', 'fill-opacity'],
+            'fill-opacity': 0,
+            'fill-opacity-transition': { duration: 1000 },
           },
         })
 
@@ -53,7 +55,9 @@
           source: 'layers',
           paint: {
             'line-color': ['get', 'stroke'],
-            'line-opacity': ['get', 'stroke-opacity'],
+            // 'line-opacity': ['get', 'stroke-opacity'],
+            'line-opacity': 0,
+            'line-opacity-transition': { duration: 1000 },
             'line-width': 1,
           },
         })
@@ -98,7 +102,6 @@
   // prepare data fetch inside after update!
   afterUpdate(async () => {
     if (data && map) {
-      console.log('afterUpdate', data)
       const { geojson } = data
 
       const { centroid, travelType } = data
@@ -106,10 +109,34 @@
 
       const source = map.getSource('layers')
 
-      console.log('source', source)
       if (source) {
         source.setData(geojson)
         map.setLayoutProperty('icons', 'icon-image', travelType)
+
+        if (animate) {
+          console.log('inside animate')
+          map.setPaintProperty('isoContours', 'line-opacity', 0)
+          map.setPaintProperty('isochrones', 'fill-opacity', 0)
+
+          setTimeout(() => {
+            map.setPaintProperty('isochrones', 'fill-opacity', 0.75)
+            map.setPaintProperty('isoContours', 'line-opacity', 1)
+          }, 500)
+
+          setTimeout(() => {
+            map.setPaintProperty('isochrones', 'fill-opacity', 0)
+            map.setPaintProperty('isoContours', 'line-opacity', 0)
+          }, 3500)
+        } else {
+          map.setPaintProperty('isoContours', 'line-opacity', [
+            'get',
+            'stroke-opacity',
+          ])
+          map.setPaintProperty('isochrones', 'fill-opacity', [
+            'get',
+            'fill-opacity',
+          ])
+        }
       }
 
       if (centroid) {
