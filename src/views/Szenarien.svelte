@@ -49,6 +49,7 @@
         data={currentData}
         hasPulsingDot={true}
         lat={35}
+        animate={false}
         lon={-84}
         zoom={3.5} />
     </div>
