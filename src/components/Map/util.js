@@ -1,16 +1,38 @@
 import { dsvFormat } from 'd3-dsv'
 import union from '@turf/union'
 import unkinkPolygon from '@turf/unkink-polygon'
+import cleanCoords from '@turf/clean-coords'
 import kinks from '@turf/kinks'
 import difference from 'turf-difference'
 import bboxPolygon from '@turf/bbox-polygon'
 
 export const createFeature = (path, style) => {
-  const coordPairs = parse(path, ';')
+  let coords = path.split(';').map((c) => c.split(',').map((cc) => parseFloat(cc)));
 
-  const coords = coordPairs.map((coordPair) => {
-    return parse(coordPair, ',').map((c) => parseFloat(c))
-  })
+  // remove direct sequences of duplicate coords
+  let tCoords = [];
+  coords.forEach((c, ci) => {
+    if (ci === 0 || c[0] !== coords[ci - 1][0] || c[1] !== coords[ci - 1][1]) {
+      tCoords.push(c);
+    }
+  });
+  coords = tCoords;
+
+  // remove duplicate coordinates in general (besides start and end)
+  // this is a turf bug?!
+  tCoords = [];
+  coords.forEach((c, ci) => {
+    let exists = false;
+    for (let i = ci - 1; i >= 0; i -= 1) {
+      if (c[0] === coords[i][0] && c[1] === coords[i][1]) {
+        exists = true;
+      }
+    }
+    if (ci === 0 || ci === coords.length - 1 || !exists) {
+      tCoords.push(c);
+    }
+  });
+  coords = tCoords;
 
   const geojson = {
     type: 'Feature',
@@ -25,18 +47,19 @@ export const createFeature = (path, style) => {
 }
 
 export const createBoundingBox = (cutOutFeat) => {
+  console.log(cutOutFeat[0]);
   let united = false
   if (cutOutFeat && cutOutFeat.length > 1) {
+    // better save than sorry
     cutOutFeat = cutOutFeat.map((feat) => {
-      var kink = kinks.default(feat)
-
-      if (kink.features.length) {
-        const polys = unkinkPolygon(feat)
-        return polys.features[0]
-      }
-      return feat
+      const polys = unkinkPolygon(cleanCoords.default(feat))
+      return polys.features[0]
     })
-    united = union.default(...cutOutFeat)
+
+    united = cutOutFeat[0]
+    for (let i = 1; i < cutOutFeat.length; i += 1) {
+      united = union.default(united, cutOutFeat[i])
+    }
   }
 
   let bboxEurope = [-5.2288281645, 42.0255985816, 25.622332041, 58.9956007543]

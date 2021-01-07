@@ -40,10 +40,13 @@ ${TRAVELGROUP_PERCENT} % der Menschen in ${RAUMTYP} reisen täglich eine Strecke
 In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.
 ## Step3
 Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)
+
 ## Step4 (low/high co2 iso zum vergleich)
 Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.
+
 ## Step5 (ÖPNV low/high iso zum vergleich)
 Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.
+
 ## Step6
 Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.
 
@@ -57,8 +60,10 @@ Die mobilität ist ja auf Tage umgerechnet, wahrscheinlich sollten wir alle sach
 # Flüge
 ## Step1
 Unsere vereinfachte Rechnung nutzt das gesamte individuelle CO2 Budget aus dem Bereich Verkehr für die täglichen Reisen. Daneben nutzen viele auch manchmal das Flugzeug als Reisemittel. [Der Zivile Flugverkehr macht 13.4% der europäischen CO2-Emissionen aus.] Die Menge CO2 die für einen einzelnen Flug anfällt ist im Vergleich zu den täglichen CO2-Budgets relativ hoch.
+
 ## Step2
 Im folgenden eine Umrechnung von Flugreisen in Autoreisen. Wähle einen Zielflughafen und erfahre mehr...
+
 ## Step3
 Die Flugstrecke zwischen ${AIRPORT1.name} und ${AIRPORT2.name} beträgt ${AIRPORT_DISTANCE}km. Dies entspricht CO2-Emmissionen von ${FLIGHT_EMISSIONS}. Mit diesem CO2 Fußabdruck könnte man ${EQUIVALENT.times} mit ${EQUIVALENT.type} nach ${EQUIVALENT.location} reisen.
 
