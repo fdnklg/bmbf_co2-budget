@@ -67,7 +67,6 @@
 
     const marginPerBar = getPercentPerBar(rides, width)
 
-    console.log(distanceAirport, co2PerKm[$travelTypeRides])
     let arr = Array.from(Array(rides).keys())
     arr = arr.map((d, i) => ({
       value: barSlice,

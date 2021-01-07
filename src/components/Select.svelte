@@ -1,13 +1,15 @@
 <script>
   import { afterUpdate, createEventDispatcher } from 'svelte'
 
+  export let selected
   export let items
   export let event = 'select'
   const dispatch = createEventDispatcher()
 
-  let value = 'none'
+  $: value = selected ? selected.id : 'none'
 
   afterUpdate(() => {
+    console.log(value, selected)
     dispatch(event, value)
   })
 </script>

@@ -1,5 +1,10 @@
 <script>
-  import { distancesData, szenarienData } from 'stores'
+  import {
+    distancesData,
+    szenarienData,
+    selectedAirport,
+    randomAirport,
+  } from 'stores'
   import { travelTypesRides, airportsIntro } from 'config'
   import { afterUpdate } from 'svelte'
   import { data } from 'stores'
@@ -46,8 +51,9 @@
 
   afterUpdate(() => {
     width = distancesRef ? distancesRef.getBoundingClientRect().width : null
-    if ($szenarienData) {
+    if ($szenarienData && $randomAirport) {
       centroid = $data.szenarien[0].centroid
+      destination = $randomAirport
     }
   })
 </script>
@@ -76,8 +82,13 @@
     <Tile large={true} active={true}>
       <div class="select-group inner">
         <Intro title={airportsIntro.title} subtitle={airportsIntro.subtitle} />
-        <Select on:start={handleStart} event="start" items={airports} />
         <Select
+          selected={$selectedAirport}
+          on:start={handleStart}
+          event="start"
+          items={airports} />
+        <Select
+          selected={destination}
           on:destination={handleDestination}
           event="destination"
           items={airports} />
