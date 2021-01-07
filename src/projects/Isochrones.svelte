@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte'
-  import { zipcodes, data } from 'stores'
+  import { zipcodes, data, userInput } from 'stores'
 
   import datasets from 'data'
 
@@ -49,6 +49,10 @@
   @import 'src/style/root.scss';
 
   global {
+    .disabled {
+      pointer-events: none;
+      opacity: 0.5;
+    }
     .sticky {
       position: sticky;
       top: 25%;
@@ -138,26 +142,27 @@
 
   <Onboarding />
 
-  <Anchor anchorId="3.0" />
-  <Szenarien />
+  {#if $userInput}
+    <Anchor anchorId="3.0" />
+    <Szenarien />
+    <Section>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </Section>
 
-  <Section>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </Section>
+    <Anchor anchorId="4.0" />
+    <Flughaefen />
 
-  <Anchor anchorId="4.0" />
-  <Flughaefen />
-
-  <Section>
-    <Title>Zusammenfassung</Title>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </Section>
+    <Section>
+      <Title>Zusammenfassung</Title>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </Section>
+  {/if}
 
   <Share />
 </div>

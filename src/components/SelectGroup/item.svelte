@@ -112,5 +112,5 @@
       <Icon name={iconExtra} />
     </div>
   {/if}
-  <span class="label">{label}</span>
+  <span class="label">{@html label}</span>
 </li>

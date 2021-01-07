@@ -5,6 +5,11 @@
   import Intro from 'components/SelectGroup/Intro.svelte'
 
   import { travelTypes, distances } from 'config'
+  import { userInput } from 'stores'
+
+  function handleClick() {
+    userInput.set(true)
+  }
 </script>
 
 <style lang="scss">

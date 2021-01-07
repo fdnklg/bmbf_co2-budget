@@ -25,9 +25,10 @@ export const data = writable(null)
 export const travelType = writable('car')
 export const travelTypeRides = writable('car')
 export const distance = writable(50)
+export const userInput = writable(false)
 export const zipcodes = writable([])
 export const activeZipcode = writable(41372)
-export const isLocal = readable(true)
+export const isLocal = readable(false)
 
 export const activeColor = derived(travelType, ($travelType) => {
   return colors[$travelType]
@@ -132,7 +133,6 @@ export const szenarienData = derived(
               if (iso) {
                 const path = isoJson[`${iso}`]
                 const isochroneFeat = createFeature(path, style)
-                console.log('isochroneFeat', isochroneFeat)
                 featuresToCut.push(isochroneFeat)
                 geojson.features.push(isochroneFeat)
               }

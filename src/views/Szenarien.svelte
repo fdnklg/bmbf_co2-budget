@@ -48,10 +48,10 @@
       <Map
         data={currentData}
         hasPulsingDot={true}
-        lat={35}
         animate={false}
-        lon={-84}
-        zoom={3.5} />
+        lat={51}
+        lon={9}
+        zoom={6} />
     </div>
     {#each data as item}
       <div class="szenario">

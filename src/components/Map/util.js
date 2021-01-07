@@ -7,32 +7,34 @@ import difference from 'turf-difference'
 import bboxPolygon from '@turf/bbox-polygon'
 
 export const createFeature = (path, style) => {
-  let coords = path.split(';').map((c) => c.split(',').map((cc) => parseFloat(cc)));
+  let coords = path
+    .split(';')
+    .map((c) => c.split(',').map((cc) => parseFloat(cc)))
 
   // remove direct sequences of duplicate coords
-  let tCoords = [];
+  let tCoords = []
   coords.forEach((c, ci) => {
     if (ci === 0 || c[0] !== coords[ci - 1][0] || c[1] !== coords[ci - 1][1]) {
-      tCoords.push(c);
+      tCoords.push(c)
     }
-  });
-  coords = tCoords;
+  })
+  coords = tCoords
 
   // remove duplicate coordinates in general (besides start and end)
   // this is a turf bug?!
-  tCoords = [];
+  tCoords = []
   coords.forEach((c, ci) => {
-    let exists = false;
+    let exists = false
     for (let i = ci - 1; i >= 0; i -= 1) {
       if (c[0] === coords[i][0] && c[1] === coords[i][1]) {
-        exists = true;
+        exists = true
       }
     }
     if (ci === 0 || ci === coords.length - 1 || !exists) {
-      tCoords.push(c);
+      tCoords.push(c)
     }
-  });
-  coords = tCoords;
+  })
+  coords = tCoords
 
   const geojson = {
     type: 'Feature',
@@ -47,7 +49,6 @@ export const createFeature = (path, style) => {
 }
 
 export const createBoundingBox = (cutOutFeat) => {
-  console.log(cutOutFeat[0]);
   let united = false
   if (cutOutFeat && cutOutFeat.length > 1) {
     // better save than sorry

@@ -1,4 +1,4 @@
-export const isLocal = true
+export const isLocal = false
 
 export const d0to5 = 5
 export const d5to20 = 10

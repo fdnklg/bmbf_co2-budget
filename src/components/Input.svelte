@@ -1,8 +1,8 @@
 <script>
-  import { activeColor, zipcodes, activeZipcode } from 'stores'
+  import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
 
   import Icon from 'components/Icon.svelte'
-  import ButtonSmall from 'components/ButtonSmall.svelte'
+  import Button from 'components/Button.svelte'
 
   $: isValid = true
   $: isEditing = true
@@ -19,6 +19,25 @@
     }
   }
 
+  const handleSubmit = (e) => {
+    validate()
+    disable(e)
+    userInput.set(true)
+  }
+
+  const disable = (e) => {
+    e.target.classList.add('disabled')
+    setTimeout(function () {
+      e.target.classList.remove('disabled')
+    }, 2000)
+  }
+
+  const handleRandom = (e) => {
+    disable(e)
+    setRandomZip()
+    userInput.set(true)
+  }
+
   const setIconName = (isValid, isEditing) => {
     if (isEditing) return 'search'
     if (!isValid) return 'invalid'
@@ -26,9 +45,8 @@
   }
 
   const setRandomZip = () => {
-    const exampleZipCodes = [52531, 41372, 52070] // @TODO add more
-    const randIndex = Math.floor(Math.random() * exampleZipCodes.length)
-    zip.value = exampleZipCodes[randIndex]
+    const randIndex = Math.floor(Math.random() * $zipcodes.length)
+    zip.value = $zipcodes[randIndex]
     validate()
   }
 
@@ -80,6 +98,13 @@
     }
   }
 
+  .buttons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 35px;
+  }
+
   .error {
     font-size: $font-size-s;
     line-height: $line-height-m;
@@ -108,13 +133,6 @@
       on:keydown={handleKeydown}
       placeholder="z.B. 10115 (Berlin)"
       class="zipInput" />
-    <!-- <button
-      style="background-color: {$activeColor.light}"
-      type="button"
-      value="Submit"
-      on:click={validate}>
-      <Icon name={setIconName(isValid, isEditing)} />
-    </button> -->
   </form>
   {#if !isValid && !isEditing}
     <p class="error">
@@ -123,7 +141,13 @@
       einzugeben.
     </p>
   {/if}
-  <ButtonSmall handleClick={setRandomZip}>
-    Wähle deutsche Beispiel-Postleitzahl.
-  </ButtonSmall>
+
+  <div class="onboarding buttons">
+    <Button primary={true} handleClick={handleSubmit}>
+      Auswahl bestätigen
+    </Button>
+    <Button primary={false} handleClick={handleRandom}>
+      Zufällige Auswahl
+    </Button>
+  </div>
 </div>

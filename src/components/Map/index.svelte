@@ -45,7 +45,7 @@
           paint: {
             'fill-color': ['get', 'fill'],
             'fill-opacity': 0,
-            'fill-opacity-transition': { duration: 1000 },
+            'fill-opacity-transition': { duration: 750 },
           },
         })
 
@@ -57,7 +57,7 @@
             'line-color': ['get', 'stroke'],
             // 'line-opacity': ['get', 'stroke-opacity'],
             'line-opacity': 0,
-            'line-opacity-transition': { duration: 1000 },
+            'line-opacity-transition': { duration: 750 },
             'line-width': 1,
           },
         })
@@ -114,7 +114,6 @@
         map.setLayoutProperty('icons', 'icon-image', travelType)
 
         if (animate) {
-          console.log('inside animate')
           map.setPaintProperty('isoContours', 'line-opacity', 0)
           map.setPaintProperty('isochrones', 'fill-opacity', 0)
 

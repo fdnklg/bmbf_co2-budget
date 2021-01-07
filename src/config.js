@@ -208,7 +208,7 @@ const travelTypeItems = [
     },
   },
   {
-    label: 'Auto+',
+    label: 'Auto <br/> (2 Personen)',
     icon: 'car_mf.svg',
     iconExtra: 'car_mf_extra',
     value: 'car_mf',
@@ -218,7 +218,7 @@ const travelTypeItems = [
     },
   },
   {
-    label: 'E-Auto',
+    label: 'E-Auto <br/> (1 Person)',
     icon: 'car.svg',
     iconExtra: 'ecar_extra',
     value: 'ecar',
@@ -228,7 +228,7 @@ const travelTypeItems = [
     },
   },
   {
-    label: 'Auto',
+    label: 'Auto  <br/> (1 Person)',
     icon: 'car.svg',
     value: 'car',
     ride: {
@@ -249,7 +249,14 @@ export const travelTypesRides = {
   hasIntro: true,
   title: 'Vergleiche deinen Flug mit anderen Reisezielen.',
   subtitle: 'Wähle ein Fortbewegnungsmittel.',
-  elements: travelTypeItems.filter((d) => d.value !== 'bike'),
+  elements: travelTypeItems
+    .filter((d) => d.value !== 'bike')
+    .map((d) => {
+      if (d.label === 'ÖPNV') {
+        d.label = 'Zug'
+      }
+      return d
+    }),
 }
 
 export const airportsIntro = {
