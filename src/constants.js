@@ -46,6 +46,44 @@ export const colors = {
   },
 }
 
+export const co2Colors = [
+  {
+    label: 'keine',
+    main: '#404354',
+    today: '#555B71',
+    future_max: '#888DA5',
+    future_min: '#A8ACBD',
+  },
+  {
+    label: 'wenig',
+    main: '#507172',
+    today: '#699596',
+    future_max: '#A5BFC0',
+    future_min: '#C3D5D5',
+  },
+  {
+    label: 'mittel',
+    main: '#448868',
+    today: '#63B18C',
+    future_max: '#92C9AE',
+    future_min: '#BBDDCD',
+  },
+  {
+    label: 'hoch',
+    main: '#C09C1B',
+    today: '#DBB11F',
+    future_max: '#E9CD68',
+    future_min: '#EFDA90',
+  },
+  {
+    label: 'sehr hoch',
+    main: '#B05B1C',
+    today: '#E0813B',
+    future_max: '#E79D67',
+    future_min: '#EEB891',
+  },
+]
+
 export const colorsSektoren = {
   Verkehr: colors.plane,
   'Land-, Forstwirtschaft, Fischerei': colors.public,

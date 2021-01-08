@@ -1,4 +1,7 @@
 import { colors } from 'constants'
+import { scaleQuantile } from 'd3-scale'
+import { co2Colors } from 'constants'
+import { jenks } from '../../utils/jenks'
 
 const co2_today = 11 // t
 const co2_model_low = 1 // t
@@ -196,6 +199,35 @@ export const emissions = {
       (1 + (1 / (100 - performance_2050_public)) * performance_2050_public) *
       5
   ), // 66924
+}
+
+export const getColorScale = (
+  time = '2020',
+  model = false,
+  isStroke = false
+) => {
+  const extent = {
+    today: [0, 11000],
+    future_min: [0, 2700],
+    future_max: [0, 1000],
+  }
+
+  let timeCurrent
+  let key
+  if (time == '2020') timeCurrent = 'today'
+  if (time == '2050') timeCurrent = 'future'
+
+  if (model === 'min') {
+    key = `${timeCurrent}_min`
+  } else if (model === 'max') {
+    key = `${timeCurrent}_max`
+  } else {
+    key = `${timeCurrent}`
+  }
+
+  return scaleQuantile()
+    .domain(extent[key])
+    .range(co2Colors.map((c) => c[isStroke ? 'main' : key]))
 }
 
 // use for production data

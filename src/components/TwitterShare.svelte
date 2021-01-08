@@ -1,11 +1,11 @@
 <script>
   import { afterUpdate } from 'svelte'
 
-  export let text
-  export let url
-  export let hashtags
-  export let via
-  export let related
+  export let text = ''
+  export let url = ''
+  export let hashtags = ''
+  export let via = ''
+  export let related = ''
   export let type = 'twitter'
 
   $: query = [

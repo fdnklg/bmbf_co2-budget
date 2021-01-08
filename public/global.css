@@ -7,19 +7,17 @@
 }
 
 @font-face {
-  font-family: 'Post Grotesk';
-  src: url('./fonts/PostGrotesk-Regular.woff2') format('woff2'),
-    url('./fonts/PostGrotesk-Regular.woff') format('woff');
-  font-weight: 400;
+  font-family: 'Post Grotesk Bold';
+  src: url('./fonts/PostGrotesk-Bold.woff2') format('woff2'),
+    url('./fonts/PostGrotesk-Bold.woff') format('woff');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Post Grotesk';
+  font-family: 'Post Grotesk Regular';
   src: url('./fonts/PostGrotesk-Regular.woff2') format('woff2'),
     url('./fonts/PostGrotesk-Regular.woff') format('woff');
-  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }

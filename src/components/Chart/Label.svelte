@@ -1,17 +1,17 @@
 <script>
-  import { getChartContext } from "./Chart.svelte";
-  const { x_scale, y_scale } = getChartContext();
-  export let annotation;
+  import { getChartContext } from './Chart.svelte'
+  const { x_scale, y_scale } = getChartContext()
+  export let annotation
 
-  const { x, y } = annotation;
+  const { x, y } = annotation
 
-  console.log("x_scale, y_scale", x_scale, y_scale);
+  console.log('x_scale, y_scale', x_scale, y_scale)
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .label {
-    font-family: "Post Grotesk";
+    font-family: 'Post Grotesk Regular';
     font-size: $font-size-s;
     font-stretch: unset;
   }

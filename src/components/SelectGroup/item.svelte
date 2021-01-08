@@ -51,27 +51,17 @@
       background: white;
       border-radius: 100%;
       border: 2px solid $color-main-20;
+
+      &.active {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        border: 2px solid $color-main;
+      }
     }
   }
 
   .active {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
     border: 2px solid $color-main;
-    &.car {
-      border-color: $color-car;
-    }
-    &.ecar {
-      border-color: $color-ecar;
-    }
-    &.car_mf {
-      border-color: $color-car_mf;
-    }
-    &.public {
-      border-color: $color-public;
-    }
-    &.bike {
-      border-color: $color-bike;
-    }
   }
 
   .value {

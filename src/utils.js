@@ -161,6 +161,17 @@ export const hexToRgbA = (hex) => {
   throw new Error('Bad Hex')
 }
 
+export const getTime = (str) => {
+  if (str.includes('2020')) return '2020'
+  if (str.includes('2050')) return '2050'
+}
+
+export const getModel = (str) => {
+  if (str.includes('min')) return 'min'
+  if (str.includes('max')) return 'max'
+  return ''
+}
+
 export const getDistanceProzent = (travelType, distance, mobility) => {
   const dDict = {
     5: 'd0to5',

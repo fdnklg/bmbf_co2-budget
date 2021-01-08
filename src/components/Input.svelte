@@ -125,7 +125,7 @@
 </style>
 
 <div>
-  <form style="background-color: {$activeColor}" class="form">
+  <form class="form">
     <label for="zipcode">Postleitzahl</label>
     <input
       id="zipcode"

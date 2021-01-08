@@ -1,16 +1,19 @@
 <script>
-  import { afterUpdate, createEventDispatcher } from 'svelte'
+  import { afterUpdate, createEventDispatcher, onMount } from 'svelte'
 
   export let selected
   export let items
   export let event = 'select'
   const dispatch = createEventDispatcher()
 
-  $: value = selected ? selected.id : 'none'
+  $: value = 'none'
 
   afterUpdate(() => {
-    console.log(value, selected)
     dispatch(event, value)
+  })
+
+  onMount(() => {
+    value = selected.id
   })
 </script>
 

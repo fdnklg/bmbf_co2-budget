@@ -2,7 +2,6 @@ import { dsvFormat } from 'd3-dsv'
 import union from '@turf/union'
 import unkinkPolygon from '@turf/unkink-polygon'
 import cleanCoords from '@turf/clean-coords'
-import kinks from '@turf/kinks'
 import difference from 'turf-difference'
 import bboxPolygon from '@turf/bbox-polygon'
 
@@ -71,7 +70,9 @@ export const createBoundingBox = (cutOutFeat) => {
 
   return {
     type: 'Feature',
+    id: 'boundingBox',
     properties: {
+      id: 'bounding-box',
       fill: '#fff',
       'fill-opacity': 0.85,
       'stroke-opacity': 0,
@@ -109,7 +110,7 @@ export const createCircle = (center, radiusInKm, style) => {
 
   return {
     type: 'Feature',
-    properties: style,
+    properties: { ...style, id: 'distance' },
     geometry: {
       type: 'Polygon',
       coordinates: [ret],

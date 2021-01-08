@@ -1,5 +1,12 @@
 import { writable, readable, derived } from 'svelte/store'
-import { fetchJson, createSzenarioText, getDistanceProzent } from './utils'
+import {
+  fetchJson,
+  createSzenarioText,
+  getDistanceProzent,
+  getTime,
+  getModel,
+} from './utils'
+import { getColorScale } from 'components/Widget/utils.js'
 import { s3Url, isoChronesUrl, spaceTypes } from './config'
 import { colors } from 'constants'
 import {
@@ -31,7 +38,7 @@ export const activeZipcode = writable(41372)
 export const isLocal = readable(false)
 
 export const activeColor = derived(travelType, ($travelType) => {
-  return colors[$travelType]
+  return '#f8f8f8'
 })
 
 let cache = {}
@@ -45,7 +52,6 @@ export const distancesData = derived(
         const distances = await fetchJson(
           `${s3Url}distances/${$activeZipcode}.json`
         )
-        console.log('distances', distances)
         let data = []
         const cityKeys = Object.keys(distances.cities)
         cityKeys.map((city) => {
@@ -122,27 +128,48 @@ export const szenarienData = derived(
             isochrones.map(({ iso, highlight }) => {
               // definiere stil des geojson als style objekt, was später übergeben wird
               // @TODO: Style Funkion die alle Fälle abdeckt
-              const style = {
-                fill: highlight
-                  ? widgetColors(`${$travelType}_`)
-                  : widgetColors('_'),
-                'fill-opacity': highlight ? 0.25 : 0.1,
-                stroke: widgetColors(`${$travelType}_`),
-                'stroke-opacity': 1,
-              }
+              let style
 
               if (iso) {
+                const time = getTime(iso)
+                const model = getModel(iso)
+                const colorScale = getColorScale(time, model)
+                const colorScaleContour = getColorScale(time, model, true)
+                const e = emissions[iso]
+                style = {
+                  fill: colorScale(e),
+                  'fill-opacity': 0.5,
+                  stroke: colorScaleContour(e),
+                  'stroke-opacity': 1,
+                }
+
                 const path = isoJson[`${iso}`]
-                const isochroneFeat = createFeature(path, style)
-                featuresToCut.push(isochroneFeat)
-                geojson.features.push(isochroneFeat)
+                const isochroneFillFeat = createFeature(path, {
+                  ...style,
+                  id: 'iso-fill',
+                })
+                const isochroneContourFeat = createFeature(path, {
+                  ...style,
+                  id: 'iso-contour',
+                })
+                featuresToCut.push(isochroneFillFeat)
+                geojson.features.push(isochroneFillFeat)
+                geojson.features.push(isochroneContourFeat)
               }
 
               if (!iso) {
+                style = {
+                  'fill-opacity': 0,
+                  stroke: '#080e2f',
+                  'stroke-opacity': 1,
+                }
                 const distCircle = createCircle(
                   [centroid.x, centroid.y],
                   $distance,
-                  style
+                  {
+                    ...style,
+                    id: 'distance',
+                  }
                 )
                 geojson.features.push(distCircle)
                 featuresToCut.push(distCircle)
@@ -283,11 +310,6 @@ export const randomAirport = derived(
     if ($data && $szenarienData) {
       const randomAirport =
         $data.airports[parseInt(Math.random() * $data.airports.length - 1)]
-      console.log(
-        'randomAirport',
-        randomAirport,
-        parseInt($data.airports.length - 1)
-      )
       set(randomAirport)
     }
     return false
