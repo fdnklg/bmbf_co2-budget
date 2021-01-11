@@ -9,6 +9,10 @@ a.source {
   }
 }
 
+a.mapboxgl-ctrl-logo {
+  display: none;
+}
+
 .source:after {
   content: '↗';
   position: absolute;

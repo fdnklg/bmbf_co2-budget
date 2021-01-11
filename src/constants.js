@@ -5,6 +5,12 @@ export const d5to20 = 10
 export const d20to50 = 25
 export const d50more = 50
 
+export const extent = {
+  today: [0, 11000],
+  future_min: [0, 2700],
+  future_max: [0, 1000],
+}
+
 export let stepScenario = '4.0'
 
 export const co2PerKm = {
@@ -13,6 +19,12 @@ export const co2PerKm = {
   ecar: 90,
   car_mf: 45,
   public: 25,
+}
+
+export const legendText = {
+  future:
+    'Prognostizierte CO2 Emissionen in kg für Reisetyp zur Einhaltung der Klimaziele 2050',
+  today: 'CO2 Emissionen in kg für Reisedistanz und Reisetyp',
 }
 
 export const colors = {

@@ -1,7 +1,6 @@
 import { colors } from 'constants'
 import { scaleQuantile } from 'd3-scale'
-import { co2Colors } from 'constants'
-import { jenks } from '../../utils/jenks'
+import { co2Colors, extent } from 'constants'
 
 const co2_today = 11 // t
 const co2_model_low = 1 // t
@@ -201,17 +200,25 @@ export const emissions = {
   ), // 66924
 }
 
+export const divideEven = (min, max, parts) => {
+  const getDiff = (a, b) => {
+    return Math.abs(a - b)
+  }
+
+  const difference = getDiff(min, max)
+  const part = difference / parts
+
+  let arr = Array.from(Array(parts + 1).keys())
+  arr = arr.map((d) => d * part)
+
+  return arr
+}
+
 export const getColorScale = (
   time = '2020',
   model = false,
   isStroke = false
 ) => {
-  const extent = {
-    today: [0, 11000],
-    future_min: [0, 2700],
-    future_max: [0, 1000],
-  }
-
   let timeCurrent
   let key
   if (time == '2020') timeCurrent = 'today'
