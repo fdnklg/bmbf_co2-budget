@@ -4,6 +4,7 @@
   import Map from 'components/Map/index.svelte'
   import Anchor from 'components/Navigation/Anchor.svelte'
   import Loading from 'components/Loading.svelte'
+  import Legend from 'components/Legend.svelte'
   import IntersectionObserver from 'components/IntersectionObserver.svelte'
   import Tile from 'components/Tile.svelte'
 
@@ -52,6 +53,7 @@
         lat={51}
         lon={9}
         zoom={6} />
+      <Legend {step} />
     </div>
     {#each data as item}
       <div class="szenario">

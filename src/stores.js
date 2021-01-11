@@ -8,11 +8,12 @@ import {
 } from './utils'
 import { getColorScale } from 'components/Widget/utils.js'
 import { s3Url, isoChronesUrl, spaceTypes } from './config'
-import { colors } from 'constants'
+import { extent, legendText } from 'constants'
 import {
   emissDistance,
   setsNew,
   emissions,
+  divideEven,
   widgetColors,
 } from 'components/Widget/utils.js'
 import {
@@ -125,10 +126,12 @@ export const szenarienData = derived(
           // füge features der isochrone/kreise (die im sets array liegen)in geojson
           if (szenario && isochrones) {
             let featuresToCut = []
-            isochrones.map(({ iso, highlight }) => {
+            isochrones.map(({ iso }) => {
               // definiere stil des geojson als style objekt, was später übergeben wird
               // @TODO: Style Funkion die alle Fälle abdeckt
               let style
+
+              console.log('iso', iso, !iso)
 
               if (iso) {
                 const time = getTime(iso)
@@ -155,9 +158,22 @@ export const szenarienData = derived(
                 featuresToCut.push(isochroneFillFeat)
                 geojson.features.push(isochroneFillFeat)
                 geojson.features.push(isochroneContourFeat)
-              }
 
-              if (!iso) {
+                const timeName = time == 2020 ? 'today' : 'future'
+                let label = `${timeName}`
+
+                if (model === 'min' || model === 'max') label += `_${model}`
+
+                // add legend stuff here
+                szenario.legend = {
+                  text: legendText[timeName],
+                  values: divideEven(...extent[label], 5).map((value) => ({
+                    value: value,
+                    fill: colorScale(value),
+                    stroke: colorScaleContour(value),
+                  })),
+                }
+              } else if (!iso) {
                 style = {
                   'fill-opacity': 0,
                   stroke: '#080e2f',
@@ -173,6 +189,16 @@ export const szenarienData = derived(
                 )
                 geojson.features.push(distCircle)
                 featuresToCut.push(distCircle)
+
+                // szenario.legend = {
+                //   text: 'Deine tägliche Reisedistanz',
+                //   values: [
+                //     {
+                //       value: 'Reisedistanz',
+                //       color: '#080e2f',
+                //     },
+                //   ],
+                // }
               }
 
               // Füge Pulsing Dot hinzu
