@@ -1,5 +1,4 @@
 <script>
-  import { afterUpdate } from 'svelte'
   import { szenarienData } from 'stores'
 
   export let step
@@ -11,10 +10,6 @@
     if (number === 'Reisedistanz') return number
     return `> ${number / 1000} kg`
   }
-
-  afterUpdate(() => {
-    if (data) console.log(data.legend)
-  })
 </script>
 
 <style lang="scss">

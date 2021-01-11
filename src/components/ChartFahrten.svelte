@@ -91,9 +91,13 @@
       },
       data: arr,
       annotation: {
-        label: `Hin- und Rückfahrt stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${
+        label: `Hin- und Rück${
+          label === 'Flug' ? 'flug' : 'fahrt'
+        } stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${
           co2Travel / 1000
-        } kg</span> CO2 aus. (${data.distance}&thinsp;km pro Fahrt)`,
+        } kg</span> CO2 aus. (${data.distance}&thinsp;km pro ${
+          label === 'Flug' ? 'Flug' : 'Fahrt'
+        })`,
       },
     }
   }

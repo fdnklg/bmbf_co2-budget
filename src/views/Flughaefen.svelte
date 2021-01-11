@@ -23,6 +23,9 @@
   $: width = null
   $: destination = null
   $: flightDistance = getDistance(start, destination)
+  $: filteredCities = $distancesData
+    ? getFiltered(flightDistance, $distancesData)
+    : null
   $: loaded = airports && $distancesData ? true : false
   $: centroid = null
 
@@ -34,6 +37,37 @@
 
   function handleDestination(e) {
     destination = airports.find((d) => d.id === e.detail)
+  }
+
+  function indexOfClosest(nums, target) {
+    let closest = Number.MAX_SAFE_INTEGER
+    let index = 0
+    nums.forEach((num, i) => {
+      let dist = Math.abs(target - num)
+
+      if (dist < closest) {
+        index = i
+        closest = dist
+      }
+    })
+    return index
+  }
+
+  function getFiltered(distance, cities) {
+    let citiesToMatch = [...cities]
+    let closest = [{ isFlight: true }]
+    if (cities) {
+      for (let index = 0; index < 3; index++) {
+        const closestIndex = indexOfClosest(
+          citiesToMatch.map((c) => c.distance),
+          distance
+        )
+        closest.push(citiesToMatch[closestIndex])
+        citiesToMatch.splice(closestIndex, 1) // remove closest distance from array
+      }
+      return closest
+    }
+    return closest
   }
 
   function getDistance(start, dest) {
@@ -100,7 +134,7 @@
     </Tile>
     <div bind:this={distancesRef} class="distances inner">
       {#if flightDistance && width && $distancesData}
-        {#each $distancesData as city}
+        {#each filteredCities as city}
           <ChartFahrten
             start={centroid.name}
             {width}

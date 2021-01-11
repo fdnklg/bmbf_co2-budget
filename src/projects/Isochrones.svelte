@@ -32,7 +32,6 @@
 
   function handleActiveStep(e) {
     step = e.detail
-    console.log(e)
     activeAnchor.set(e.detail)
   }
 
