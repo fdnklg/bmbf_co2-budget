@@ -11,29 +11,29 @@ export const createFeature = (path, style) => {
     .map((c) => c.split(',').map((cc) => parseFloat(cc)))
 
   // remove direct sequences of duplicate coords
-  let tCoords = []
-  coords.forEach((c, ci) => {
-    if (ci === 0 || c[0] !== coords[ci - 1][0] || c[1] !== coords[ci - 1][1]) {
-      tCoords.push(c)
-    }
-  })
-  coords = tCoords
+  // let tCoords = []
+  // coords.forEach((c, ci) => {
+  //   if (ci === 0 || c[0] !== coords[ci - 1][0] || c[1] !== coords[ci - 1][1]) {
+  //     tCoords.push(c)
+  //   }
+  // })
+  // coords = tCoords
 
   // remove duplicate coordinates in general (besides start and end)
   // this is a turf bug?!
-  tCoords = []
-  coords.forEach((c, ci) => {
-    let exists = false
-    for (let i = ci - 1; i >= 0; i -= 1) {
-      if (c[0] === coords[i][0] && c[1] === coords[i][1]) {
-        exists = true
-      }
-    }
-    if (ci === 0 || ci === coords.length - 1 || !exists) {
-      tCoords.push(c)
-    }
-  })
-  coords = tCoords
+  // tCoords = []
+  // coords.forEach((c, ci) => {
+  //   let exists = false
+  //   for (let i = ci - 1; i >= 0; i -= 1) {
+  //     if (c[0] === coords[i][0] && c[1] === coords[i][1]) {
+  //       exists = true
+  //     }
+  //   }
+  //   if (ci === 0 || ci === coords.length - 1 || !exists) {
+  //     tCoords.push(c)
+  //   }
+  // })
+  // coords = tCoords
 
   const geojson = {
     type: 'Feature',
@@ -51,10 +51,10 @@ export const createBoundingBox = (cutOutFeat) => {
   let united = false
   if (cutOutFeat && cutOutFeat.length > 1) {
     // better save than sorry
-    cutOutFeat = cutOutFeat.map((feat) => {
-      const polys = unkinkPolygon(cleanCoords.default(feat))
-      return polys.features[0]
-    })
+    // cutOutFeat = cutOutFeat.map((feat) => {
+    //   const polys = unkinkPolygon(cleanCoords.default(feat))
+    //   return polys.features[0]
+    // })
 
     united = cutOutFeat[0]
     for (let i = 1; i < cutOutFeat.length; i += 1) {
