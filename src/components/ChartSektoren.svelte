@@ -1,31 +1,33 @@
 <script>
-  import { data } from "stores";
+  import { data } from 'stores'
 
-  import Chart from "./Chart/Chart.svelte";
-  import Grid from "./Chart/Grid.svelte";
-  import Footer from "./Chart/Footer.svelte";
-  import Point from "./Chart/Point.svelte";
-  import Svg from "./Chart/Svg.svelte";
-  import Line from "./Chart/Line.svelte";
-  import { afterUpdate } from "svelte";
+  import Chart from './Chart/Chart.svelte'
+  import Grid from './Chart/Grid.svelte'
+  import Footer from './Chart/Footer.svelte'
+  import Point from './Chart/Point.svelte'
+  import Svg from './Chart/Svg.svelte'
+  import Line from './Chart/Line.svelte'
+  import { afterUpdate } from 'svelte'
 
-  export let step = 2.0;
+  export let step = 2.0
 
   $: dataSektoren = $data
     ? $data.sektoren.find((item) => item.step === step)
-    : false;
+    : false
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
 
   .linechart {
-    padding: 2em 0 3em 0;
+    padding: 2em 0 3em 2em;
     height: 220px;
     margin: auto;
 
     @include respond-max-screen-phablet {
       height: 100px;
+      padding-left: 30px;
+      width: calc(100%-20px);
     }
   }
 
@@ -50,6 +52,7 @@
   .grid-line {
     position: relative;
     display: block;
+    text-align: right;
   }
 
   .grid-line.horizontal {
@@ -93,6 +96,19 @@
 
     @include respond-max-screen-phablet {
       display: none;
+    }
+  }
+
+  .grid-line {
+    span.y-label {
+      left: -33px;
+      bottom: -12px;
+      width: 26px;
+    }
+
+    span.y-label-desc {
+      left: -31px;
+      top: -35px;
     }
   }
 
@@ -150,7 +166,10 @@
       <Chart x1={1990} x2={2019} y1={60} y2={140}>
         <Grid horizontal count={4} let:value>
           <div class="grid-line horizontal">
-            <span>{value === 140 ? '140% Veränderung der CO2-Emissionen seit 1990' : value}</span>
+            {#if value === 140}
+              <span class="y-label-desc">CO2-Emissionen seit 1990 in Prozent</span>
+            {/if}
+            <span class="y-label">{value}</span>
           </div>
         </Grid>
         <Grid vertical count={5} let:value>
