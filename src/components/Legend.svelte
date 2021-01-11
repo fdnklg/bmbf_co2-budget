@@ -8,7 +8,8 @@
   $: legendData = data ? data.legend : null
 
   function formatNumber(number) {
-    return number / 1000
+    if (number === 'Reisedistanz') return number
+    return `> ${number / 1000} kg`
   }
 
   afterUpdate(() => {
@@ -35,6 +36,17 @@
     height: 12px;
     border-radius: 100%;
     margin-right: 5px;
+
+    &.dashed {
+      background-color: transparent !important;
+      border-style: dashed !important;
+      border-width: 1px !important;
+    }
+  }
+
+  .descrition {
+    line-height: 140%;
+    padding-bottom: 10px;
   }
 
   .label {
@@ -49,12 +61,12 @@
 
 <div class="legend">
   {#if legendData}
-    <span>{legendData.text}</span>
+    <span class="descrition">{legendData.text}</span>
     <div class="labels">
       {#each legendData.values as value}
         <div class="item">
           <div
-            class="dot"
+            class="dot {value.value === 'Reisedistanz' ? 'dashed' : ''}"
             style="background-color: {value.fill}; border: 1px solid {value.stroke}" />
           <span class="label">{formatNumber(value.value)}</span>
         </div>

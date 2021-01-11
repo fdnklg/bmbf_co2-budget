@@ -126,6 +126,11 @@ export const szenarienData = derived(
           // füge features der isochrone/kreise (die im sets array liegen)in geojson
           if (szenario && isochrones) {
             let featuresToCut = []
+            szenario.legend = {
+              text: 'Erreichbarkeit',
+              values: [],
+            }
+
             isochrones.map(({ iso }) => {
               // definiere stil des geojson als style objekt, was später übergeben wird
               // @TODO: Style Funkion die alle Fälle abdeckt
@@ -167,6 +172,7 @@ export const szenarienData = derived(
                   text: legendText[timeName],
                   values: divideEven(...extent[label], 5).map((value) => ({
                     value: value,
+                    label: `> ${value}`,
                     fill: colorScale(value),
                     stroke: colorScaleContour(value),
                   })),
@@ -188,15 +194,10 @@ export const szenarienData = derived(
                 geojson.features.push(distCircle)
                 featuresToCut.push(distCircle)
 
-                // szenario.legend = {
-                //   text: 'Deine tägliche Reisedistanz',
-                //   values: [
-                //     {
-                //       value: 'Reisedistanz',
-                //       color: '#080e2f',
-                //     },
-                //   ],
-                // }
+                szenario.legend.values.push({
+                  value: 'Reisedistanz',
+                  color: '#080e2f',
+                })
               }
 
               // Füge Pulsing Dot hinzu
