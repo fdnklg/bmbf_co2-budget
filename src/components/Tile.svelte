@@ -10,7 +10,9 @@
     opacity: 0.5;
     padding: 15px;
     border: 1px solid transparent;
+    margin: auto;
     margin-bottom: 40px;
+    max-width: 550px;
     z-index: 20;
     @include transition-m;
 

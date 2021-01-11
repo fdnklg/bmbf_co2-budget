@@ -3,7 +3,7 @@ import { colors } from 'constants'
 export default {
   emissionen: [
     {
-      step: 1.1,
+      step: '1.1',
       text: {
         title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
         paragraph:
@@ -36,7 +36,7 @@ export default {
       ],
     },
     {
-      step: 1.2,
+      step: '1.2',
       text: {
         title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
         paragraph:
@@ -75,7 +75,7 @@ export default {
       ],
     },
     {
-      step: 1.3,
+      step: '1.3',
       text: {
         title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
         paragraph:
@@ -121,7 +121,7 @@ export default {
   ],
   sektoren: [
     {
-      step: 2.1,
+      step: '2.1',
       text: {
         title: 'Emissionen über Zeit nach Sektoren',
         paragraph:
@@ -143,7 +143,7 @@ export default {
       ],
     },
     {
-      step: 2.2,
+      step: '2.2',
       text: {
         title: 'Sektoren, die heute weniger Emissionen produzieren als 1990',
         paragraph:
@@ -162,7 +162,7 @@ export default {
       highlight: ['Landwirtschaft', 'Industrie', 'Energie'],
     },
     {
-      step: 2.3,
+      step: '2.3',
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
@@ -183,7 +183,7 @@ export default {
   ],
   szenarien: [
     {
-      step: 3.1,
+      step: '3.1',
       text: {
         title: 'Szenarien Titel 01',
         paragraph:
@@ -208,7 +208,7 @@ export default {
       },
     },
     {
-      step: 3.2,
+      step: '3.2',
       text: {
         title: 'Szenarien Titel 02',
         paragraph:
@@ -233,7 +233,7 @@ export default {
       },
     },
     {
-      step: 3.3,
+      step: '3.3',
       text: {
         title: 'Szenarien Titel 03',
         paragraph:
@@ -258,7 +258,7 @@ export default {
       },
     },
     {
-      step: 3.4,
+      step: '3.4',
       text: {
         title: 'Szenarien Titel 04',
         paragraph:
@@ -283,7 +283,7 @@ export default {
       },
     },
     {
-      step: 3.5,
+      step: '3.5',
       text: {
         title: 'Szenarien Titel 04',
         paragraph:
@@ -308,7 +308,7 @@ export default {
       },
     },
     {
-      step: 3.6,
+      step: '3.6',
       text: {
         title: 'Szenarien Titel 04',
         paragraph:

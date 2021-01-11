@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte'
-  import { zipcodes, data, userInput } from 'stores'
+  import { zipcodes, data, userInput, activeAnchor } from 'stores'
 
   import datasets from 'data'
 
@@ -13,12 +13,15 @@
 
   import { zipcodesUrl, sektorenUrl, airportsUrl, metadata } from 'config'
 
+  let step
+
   import Meta from 'components/Meta.svelte'
   import Header from 'components/Header/index.svelte'
   import Title from 'components/Title.svelte'
   import Section from 'components/Section.svelte'
   import Navigation from 'components/Navigation/index.svelte'
   import Anchor from 'components/Navigation/Anchor.svelte'
+  import IntersectionObserver from 'components/Intersectionobserver.svelte'
   import Share from 'components/Share.svelte'
 
   import Emissionen from 'views/Emissionen.svelte'
@@ -27,7 +30,19 @@
   import Szenarien from 'views/Szenarien.svelte'
   import Flughaefen from 'views/Flughaefen.svelte'
 
-  import Maps from 'projects/Maps.svelte'
+  function handleActiveStep(e) {
+    step = e.detail
+    console.log(e)
+    activeAnchor.set(e.detail)
+  }
+
+  const steps = {
+    start: 'start',
+    emissionen: '1.0',
+    sektoren: '2.0',
+    szenarien: '3.0',
+    flughaefen: '4.0',
+  }
 
   onMount(async () => {
     let parsed = {}
@@ -97,29 +112,34 @@
   <Header />
   <Navigation />
 
-  <Section>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+  <IntersectionObserver on:step={handleActiveStep} bind:step={steps.start}>
+    <Anchor anchorId={steps.start} />
+    <Section>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
 
-    <br />
-    <br />
+      <br />
+      <br />
 
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat. Damit
-    Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man
-    die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und
-    auseinander setzen, was jener Begründer der Wahrheit und gleichsam
-    Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-  </Section>
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
+      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
+      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
+      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    </Section>
+  </IntersectionObserver>
 
   <Title>Wo entstehen die meisten CO2-Emissionen?</Title>
 
-  <Anchor anchorId="1.0" />
-  <Emissionen />
+  <IntersectionObserver on:step={handleActiveStep} bind:step={steps.emissionen}>
+    <Anchor anchorId={steps.emissionen} />
+    <Emissionen />
+  </IntersectionObserver>
 
   <Section>
     Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -130,8 +150,10 @@
 
   <Title>Die Verkehrsziele hängen hinterher</Title>
 
-  <Anchor anchorId="2.0" />
-  <Sektoren />
+  <IntersectionObserver on:step={handleActiveStep} bind:step={steps.sektoren}>
+    <Anchor anchorId={steps.sektoren} />
+    <Sektoren />
+  </IntersectionObserver>
 
   <Section>
     Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -140,10 +162,12 @@
     gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
   </Section>
 
-  <Onboarding />
+  <IntersectionObserver on:step={handleActiveStep} bind:step={steps.szenarien}>
+    <Anchor anchorId={steps.szenarien} />
+    <Onboarding />
+  </IntersectionObserver>
 
   {#if $userInput}
-    <Anchor anchorId="3.0" />
     <Szenarien />
     <Section>
       Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
@@ -152,8 +176,12 @@
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </Section>
 
-    <Anchor anchorId="4.0" />
-    <Flughaefen />
+    <IntersectionObserver
+      on:step={handleActiveStep}
+      bind:step={steps.flughaefen}>
+      <Anchor anchorId={steps.flughaefen} />
+      <Flughaefen />
+    </IntersectionObserver>
 
     <Section>
       <Title>Zusammenfassung</Title>

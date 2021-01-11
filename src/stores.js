@@ -27,7 +27,7 @@ export const activeWaypoint = writable(null)
 export const activeVis = writable(null)
 export const flightDistance = writable(null)
 
-export const activeAnchor = writable('1')
+export const activeAnchor = writable('start')
 export const activeCategory = writable(null)
 export const data = writable(null)
 export const travelType = writable('car')
@@ -130,8 +130,6 @@ export const szenarienData = derived(
               // definiere stil des geojson als style objekt, was später übergeben wird
               // @TODO: Style Funkion die alle Fälle abdeckt
               let style
-
-              console.log('iso', iso, !iso)
 
               if (iso) {
                 const time = getTime(iso)

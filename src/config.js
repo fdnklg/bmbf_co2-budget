@@ -53,14 +53,14 @@ export const airportsUrl = `${isLocal ? 'data/' : s3Url}airports.csv`
 export const sektorenUrl = 'data/co2_sektoren.csv'
 
 export const navItems = [
-  {
-    id: 'start',
-    label: 'Start',
-    offsetY: -400,
-  },
+  // {
+  //   id: 'start',
+  //   label: 'Start',
+  //   offsetY: -400,
+  // },
   {
     id: '1.0',
-    label: 'Sektoren',
+    label: 'Emissionen',
     offsetY: '50%',
     items: [
       {
@@ -82,7 +82,7 @@ export const navItems = [
   },
   {
     id: '2.0',
-    label: 'Emissionen',
+    label: 'Sektoren',
     offsetY: -400,
     items: [
       {
@@ -143,12 +143,6 @@ export const navItems = [
     id: 'end',
     label: 'Zusammenfassung',
     offsetY: -400,
-  },
-]
-
-export const nav = [
-  {
-    id: '1.0',
   },
 ]
 
