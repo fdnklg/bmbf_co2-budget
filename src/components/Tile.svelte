@@ -1,5 +1,6 @@
 <script>
   export let active
+  export let full
   export let large
   export let isMap = false
 </script>
@@ -29,6 +30,10 @@
     padding: 45px;
   }
 
+  .full {
+    width: 100%;
+  }
+
   .active {
     opacity: 0.999;
     background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
@@ -39,6 +44,6 @@
 </style>
 
 <div
-  class="tile {active ? 'active' : ''} {large ? 'large' : ''} {isMap ? 'map' : ''}">
+  class="tile {active ? 'active' : ''} {large ? 'large' : ''} {isMap ? 'map' : ''} {full ? 'full' : ''}">
   <slot />
 </div>

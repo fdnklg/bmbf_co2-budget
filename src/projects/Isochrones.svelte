@@ -23,6 +23,7 @@
   import Anchor from 'components/Navigation/Anchor.svelte'
   import IntersectionObserver from 'components/Intersectionobserver.svelte'
   import Share from 'components/Share.svelte'
+  import Appendix from 'components/Appendix.svelte'
 
   import Emissionen from 'views/Emissionen.svelte'
   import Sektoren from 'views/Sektoren.svelte'
@@ -189,7 +190,10 @@
       eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </Section>
-  {/if}
 
-  <Share />
+    <Share />
+    <Section>
+      <Appendix />
+    </Section>
+  {/if}
 </div>

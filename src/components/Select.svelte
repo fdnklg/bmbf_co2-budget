@@ -3,7 +3,7 @@
 
   export let selected
   export let items
-  export let event = 'select'
+  export let event
   const dispatch = createEventDispatcher()
 
   $: value = 'none'

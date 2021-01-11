@@ -21,6 +21,17 @@ export const co2PerKm = {
   public: 25,
 }
 
+export const appendix = {
+  sources: [
+    ['https://urlhere.com', 'url label here'],
+    ['https://urlhere.com', 'url label here'],
+    ['https://urlhere.com', 'url label here'],
+    ['https://urlhere.com', 'url label here'],
+  ],
+  method:
+    'Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und auseinander setzen, was jener Begründer der Wahrheit und gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und auseinander setzen, was jener Begründer der Wahrheit und gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.',
+}
+
 export const legendText = {
   future:
     'Prognostizierte CO2 Emissionen in kg für Reisetyp zur Einhaltung der Klimaziele 2050',

@@ -41,8 +41,18 @@
 </script>
 
 <style lang="scss">
+  @import 'src/style/root.scss';
+  .share-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: $color-main;
+    &:first-of-type {
+      margin-bottom: 8px;
+    }
+  }
 </style>
 
-<a target="_blank" noreferrer {href} on:click={open}>
+<a class="share-link" target="_blank" noreferrer {href} on:click={open}>
   <slot />
 </a>

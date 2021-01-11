@@ -2,11 +2,11 @@
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .section {
     font-size: $font-size-m;
     line-height: $line-height-l;
-    margin: 4em auto;
+    margin: 3em auto;
 
     @include respond-max-screen-phablet {
       margin: 2em auto;

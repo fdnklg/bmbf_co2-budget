@@ -31,6 +31,8 @@
 
   let distancesRef
 
+  const exampleAirports = [{ label: 'Budapest', detail: 'BUD' }]
+
   function handleStart(e) {
     start = airports.find((d) => d.id === e.detail)
   }
@@ -126,6 +128,12 @@
           on:destination={handleDestination}
           event="destination"
           items={airports} />
+        <div class="examples">
+          {#each exampleAirports as airport}
+            <span
+              on:click={() => handleDestination(airport)}>{airport.label}</span>
+          {/each}
+        </div>
       </div>
       <SelectGroup
         data={travelTypesRides}
