@@ -43,6 +43,10 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
+div.mapboxgl-ctrl {
+  display: none !important;
+}
+
 body {
   color: #333;
   margin: 0;
