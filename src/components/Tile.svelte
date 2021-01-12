@@ -1,7 +1,7 @@
 <script>
   export let active
-  export let full
-  export let large
+  export let full = false
+  export let large = false
   export let isMap = false
 </script>
 
@@ -12,7 +12,6 @@
     padding: 15px;
     border: 1px solid transparent;
     margin: auto;
-    margin-bottom: 40px;
     max-width: 550px;
     z-index: 20;
     @include transition-m;

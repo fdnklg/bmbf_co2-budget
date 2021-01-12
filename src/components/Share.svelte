@@ -44,6 +44,7 @@
 
   .icons {
     margin: 10px 0 0 0;
+    display: flex;
   }
 
   .icon {

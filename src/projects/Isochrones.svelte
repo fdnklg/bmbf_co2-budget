@@ -191,7 +191,7 @@
       gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
     </Section>
 
-    <Share />
+    <!-- <Share /> -->
     <Section>
       <Appendix />
     </Section>

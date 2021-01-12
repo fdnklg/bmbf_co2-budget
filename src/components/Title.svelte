@@ -4,8 +4,7 @@
 <style lang="scss">
   @import 'src/style/root.scss';
   .title {
-    font-family: 'Piazzolla Light';
-    line-height: $line-height-s;
+    line-height: $line-height-m;
     letter-spacing: -0.25px;
     text-align: center;
     font-size: $font-size-xl;
@@ -15,12 +14,12 @@
 
     @include respond-max-screen-phablet {
       max-width: auto;
-      font-size: $font-size-m;
+      font-size: $font-size-l;
       margin-bottom: $space-l;
     }
   }
 </style>
 
-<div class="title">
+<h2 class="title">
   <slot />
-</div>
+</h2>

@@ -7,7 +7,7 @@
 
   import { data } from 'stores'
 
-  export let step = 1.0
+  export let step = '1.1'
 
   $: dataEmiss = $data
     ? $data.emissionen.find((item) => item.step === step)

@@ -41,27 +41,27 @@ export const legendText = {
 export const colors = {
   car: {
     main: '#E79D67',
-    light: '#FBF0E8',
+    light: '#EFC09D',
   },
   ecar: {
     main: '#E9CD68',
-    light: '#FCF7E8',
+    light: '#F1DF9D',
   },
   car_mf: {
     main: '#85C2A5',
-    light: '#EDF6F1',
+    light: '#B1D8C5',
   },
   public: {
     main: '#87AAAB',
-    light: '#EDF2F2',
+    light: '#B4CACB',
   },
   bike: {
     main: '#404455',
-    light: '#E2E3E5',
+    light: '#AAADB8',
   },
   plane: {
     main: '#E77667',
-    light: '#FBEAE8',
+    light: '#EFA79D',
   },
   neutral: {
     main: '#f8f8f8',

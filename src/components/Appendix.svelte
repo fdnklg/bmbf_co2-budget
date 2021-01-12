@@ -18,5 +18,5 @@
   <span class="title">Methodik</span>
   <p>{appendix.method}</p>
   <span class="title">Quellen</span>
-  {#each appendix.sources as source}<a href={source[1]}>{source[0]}</a>{/each}
+  {#each appendix.sources as source}<a href={source[0]}>{source[1]}</a>{/each}
 </div>

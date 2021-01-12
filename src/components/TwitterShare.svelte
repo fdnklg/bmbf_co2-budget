@@ -48,7 +48,7 @@
     align-items: center;
     color: $color-main;
     &:first-of-type {
-      margin-bottom: 8px;
+      margin-right: 15px;
     }
   }
 </style>

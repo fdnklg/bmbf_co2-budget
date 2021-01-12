@@ -9,11 +9,15 @@
   import Line from './Chart/Line.svelte'
   import { afterUpdate } from 'svelte'
 
-  export let step = 2.0
+  export let step = '2.1'
 
   $: dataSektoren = $data
     ? $data.sektoren.find((item) => item.step === step)
     : false
+
+  afterUpdate(() => {
+    console.log(dataSektoren)
+  })
 </script>
 
 <style lang="scss">
@@ -96,6 +100,10 @@
 
     @include respond-max-screen-phablet {
       display: none;
+
+      &.value {
+        display: block;
+      }
     }
   }
 
@@ -124,6 +132,11 @@
     display: flex;
     align-items: center;
     margin-right: 10px;
+    opacity: 0.35;
+
+    &.highlighted {
+      opacity: 1;
+    }
 
     .legend-line {
       height: 3px;
@@ -152,7 +165,7 @@
   {#if dataSektoren}
     <div class="legend">
       {#each dataSektoren.d as sektor}
-        <div class="legend-item">
+        <div class="legend-item {sektor.highlight ? 'highlighted' : ''}">
           <div
             style="background-color: {sektor.color.main}"
             class="legend-line" />
@@ -178,7 +191,10 @@
         <Svg>
           {#each dataSektoren.d as sektor}
             <Line data={sektor.data} let:d>
-              <path class="data-contour" {d} />
+              <path
+                style="stroke: {sektor.highlight ? 'white' : 'transparent'};"
+                class="data-contour"
+                {d} />
             </Line>
             <Line data={sektor.data} let:d>
               <path
@@ -188,6 +204,17 @@
             </Line>
           {/each}
         </Svg>
+        {#each dataSektoren.d as sektor}
+          {#if sektor.name === 'Verkehr' && step === '2.3'}
+            <Point
+              x={sektor.data.slice(-1)[0].x - 2}
+              y={sektor.data.slice(-1)[0].y + 27}>
+              <p style="color: {sektor.color.main}" class="label value">
+                {@html `${sektor.data.slice(-1)[0].y}%`}
+              </p>
+            </Point>
+          {/if}
+        {/each}
         {#each dataSektoren.d as sektor}
           <Point
             x={sektor.data.slice(-1)[0].x + 0.5}
