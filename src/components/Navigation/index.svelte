@@ -85,7 +85,6 @@
   }
 
   .nav-item {
-    font-family: 'Post Grotesk Regular';
     text-transform: uppercase;
     font-size: $font-size-xxs;
     letter-spacing: $letter-spacing-m;

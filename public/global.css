@@ -22,12 +22,21 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Post Grotesk Light';
+  src: url('./fonts/PostGrotesk-Light.woff2') format('woff2'),
+    url('./fonts/PostGrotesk-Light.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5 {
-  font-family: 'Piazzolla Light';
+  /* font-family: 'Piazzolla Light'; */
+  font-family: 'Post Grotesk Medium';
 }
 
 html,
@@ -39,7 +48,7 @@ body {
   height: 100vh;
   font-size: 15px;
   line-height: 150%;
-  font-family: 'Post Grotesk Regular', BlinkMacSystemFont, 'Segoe UI', Roboto,
+  font-family: 'Post Grotesk Light', BlinkMacSystemFont, 'Segoe UI', Roboto,
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 

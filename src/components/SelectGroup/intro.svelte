@@ -5,12 +5,22 @@
 
 <style lang="scss">
   @import 'src/style/root.scss';
+
+  .intro {
+    @include respond-max-screen-phablet {
+      text-align: center;
+    }
+  }
   .title {
     font-size: $font-size-l;
     color: $color-main;
     margin-bottom: 0px;
     margin-top: 0px;
     line-height: $line-height-m;
+
+    @include respond-max-screen-phablet {
+      font-size: 21px;
+    }
   }
 
   .subtitle {
@@ -18,8 +28,12 @@
     letter-spacing: $letter-spacing-s;
     line-height: 150%;
     color: $color-main-60;
-    margin-top: 3px;
+    margin-top: 0px;
     margin-bottom: 20px;
+
+    @include respond-max-screen-phablet {
+      font-size: 14px;
+    }
   }
 </style>
 

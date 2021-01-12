@@ -41,7 +41,11 @@
     margin: 0 auto;
     width: 100%;
     position: absolute;
-    bottom: 0px;
+    bottom: 20px;
+
+    // @include respond-max-screen-phablet {
+    //   bottom: 10px;
+    // }
   }
 
   .inner {
@@ -51,14 +55,14 @@
     padding-bottom: 40px;
 
     @include respond-max-screen-phablet {
+      padding-bottom: 0px;
       width: calc(100% - 20px);
-      padding-bottom: 10px;
     }
   }
   .title {
     font-size: $font-size-xxl;
     line-height: $line-height-s;
-    margin-bottom: 10px;
+    margin-bottom: 13px;
 
     @include respond-max-screen-medium {
       font-size: $font-size-l;
@@ -74,8 +78,15 @@
     letter-spacing: $letter-spacing-s;
     padding-bottom: 20px;
 
+    @include respond-max-screen-phablet {
+      padding-bottom: 0px;
+    }
     .label {
       padding-bottom: 5px;
+
+      @include respond-max-screen-phablet {
+        display: none;
+      }
     }
   }
   .gradient {
@@ -92,8 +103,19 @@
       to(rgba(255, 255, 255, 1)),
       color-stop(0.5, #fff)
     );
+
+    @include respond-max-screen-phablet {
+      height: 80vh;
+    }
   }
 
+  .map-wrapper {
+    height: 100%;
+    width: 100%;
+    @include respond-max-screen-phablet {
+      transform: translateY(-60px);
+    }
+  }
   .authors {
     font-size: $font-size-xs;
     letter-spacing: $letter-spacing-s;
@@ -118,15 +140,17 @@
 
 <header>
   <div class="container">
-    {#if current}
-      <Map
-        data={current}
-        animate={true}
-        hasPulsingDot={true}
-        lat={current.centroid.x}
-        lon={current.centroid.y}
-        zoom={[current.centroid.zoom]} />
-    {/if}
+    <div class="map-wrapper">
+      {#if current}
+        <Map
+          data={current}
+          animate={true}
+          hasPulsingDot={true}
+          lat={current.centroid.x}
+          lon={current.centroid.y}
+          zoom={[current.centroid.zoom]} />
+      {/if}
+    </div>
     <div class="gradient" />
     <div class="intro">
       <div class="inner">
@@ -147,11 +171,5 @@
         <Icon name="arrow_down" />
       </div>
     </div>
-    {#if current}
-      <Indicator
-        items={szenarioIndices}
-        index={szenarioIndex}
-        current={current.centroid} />
-    {/if}
   </div>
 </header>

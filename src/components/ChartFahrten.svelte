@@ -50,7 +50,7 @@
           co2Plane / 1000
         ).toFixed(1)} kg</span> CO2 aus. (${distance.toFixed(
           1
-        )}&thinsp;km pro Fahrt)`,
+        )}&thinsp;km / Fahrt)`,
       },
     }
   }
@@ -95,7 +95,7 @@
           label === 'Flug' ? 'flug' : 'fahrt'
         } stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${
           co2Travel / 1000
-        } kg</span> CO2 aus. (${data.distance}&thinsp;km pro ${
+        } kg</span> CO2 aus. (${data.distance}&thinsp;km / ${
           label === 'Flug' ? 'Flug' : 'Fahrt'
         })`,
       },
@@ -154,6 +154,7 @@
     font-size: $font-size-xl;
     display: flex;
     margin-right: 8px;
+    font-family: 'Post Grotesk Bold';
     align-items: flex-end;
     padding-bottom: 7px;
     justify-content: center;
@@ -166,7 +167,7 @@
     flex-direction: column;
     line-height: 130%;
     .description {
-      color: $color-main-40;
+      color: $color-main-60;
     }
 
     .journey {

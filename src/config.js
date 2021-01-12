@@ -202,32 +202,32 @@ const travelTypeItems = [
     },
   },
   {
-    label: 'Auto <br/> (2 Personen)',
+    label: 'Auto <br/> (2 P.)',
     icon: 'car_mf.svg',
     iconExtra: 'car_mf_extra',
     value: 'car_mf',
     ride: {
-      singular: 'Autofahrt (2 Personen)',
-      plural: 'Autofahrten (2 Personen)',
+      singular: 'Autofahrt (2 P.)',
+      plural: 'Autofahrten (2 P.)',
     },
   },
   {
-    label: 'E-Auto <br/> (1 Person)',
+    label: 'E-Auto <br/> (1 P.)',
     icon: 'car.svg',
     iconExtra: 'ecar_extra',
     value: 'ecar',
     ride: {
-      singular: 'Elekto-Autofahrt (1 Person)',
-      plural: 'Elektro-Autofahrten (1 Person)',
+      singular: 'Elekto-Autofahrt (1 P.)',
+      plural: 'Elektro-Autofahrten (1 P.)',
     },
   },
   {
-    label: 'Auto  <br/> (1 Person)',
+    label: 'Auto  <br/> (1 P.)',
     icon: 'car.svg',
     value: 'car',
     ride: {
-      singular: 'Autofahrt (1 Person)',
-      plural: 'Autofahrten (1 Person)',
+      singular: 'Autofahrt (1 P.)',
+      plural: 'Autofahrten (1 P.)',
     },
   },
 ]

@@ -1,6 +1,6 @@
 <script>
   import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
-
+  import * as animateScroll from 'svelte-scrollto'
   import Icon from 'components/Icon.svelte'
   import Button from 'components/Button.svelte'
 
@@ -8,6 +8,15 @@
   $: isEditing = true
 
   let zip
+
+  function scrollToFirstScene() {
+    animateScroll.scrollTo({
+      element: `[id='anchor-3.1']`,
+      offset: -30,
+      duration: 1500,
+      delay: 1000,
+    })
+  }
 
   const validate = (e) => {
     const value = zip.value
@@ -23,6 +32,10 @@
     validate()
     disable(e)
     userInput.set(true)
+
+    setTimeout(() => {
+      scrollToFirstScene()
+    }, 250)
   }
 
   const disable = (e) => {
@@ -36,6 +49,10 @@
     disable(e)
     setRandomZip()
     userInput.set(true)
+
+    setTimeout(() => {
+      scrollToFirstScene()
+    }, 250)
   }
 
   const setIconName = (isValid, isEditing) => {
@@ -103,6 +120,10 @@
     align-items: center;
     flex-direction: row;
     margin-top: 35px;
+
+    @include respond-max-screen-phablet {
+      justify-content: space-evenly;
+    }
   }
 
   .error {
@@ -143,9 +164,7 @@
   {/if}
 
   <div class="onboarding buttons">
-    <Button primary={true} handleClick={handleSubmit}>
-      Auswahl bestätigen
-    </Button>
+    <Button primary={true} handleClick={handleSubmit}>Bestätigen</Button>
     <Button primary={false} handleClick={handleRandom}>
       Zufällige Auswahl
     </Button>

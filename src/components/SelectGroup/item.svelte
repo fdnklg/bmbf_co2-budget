@@ -46,8 +46,8 @@
       position: absolute;
       top: -10px;
       right: 0px;
-      width: 30px;
-      height: 30px;
+      width: 26px;
+      height: 26px;
       background: white;
       border-radius: 100%;
       border: 2px solid $color-main-20;
@@ -84,6 +84,10 @@
     color: $color-main;
     line-height: $line-height-s;
     text-align: center;
+
+    @include respond-max-screen-phablet {
+      width: 67px;
+    }
   }
 </style>
 

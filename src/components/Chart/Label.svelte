@@ -11,7 +11,6 @@
 <style lang="scss">
   @import 'src/style/root.scss';
   .label {
-    font-family: 'Post Grotesk Regular';
     font-size: $font-size-s;
     font-stretch: unset;
   }

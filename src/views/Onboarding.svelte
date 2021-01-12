@@ -19,14 +19,18 @@
     margin-bottom: 40px;
 
     @include respond-max-screen-phablet {
-      width: calc(100% - 20px);
+      width: calc(100% - 40px);
     }
+  }
+
+  .wrapper {
+    width: 100%;
   }
 </style>
 
 <div class="onboarding container">
   <Tile large={true} active={true}>
-    <div class="inner">
+    <div class="wrapper">
       <SelectGroup data={travelTypes} isType="travelTypes" />
       <SelectGroup data={distances} isType="distances" />
       <Intro

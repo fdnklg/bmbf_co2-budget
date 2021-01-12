@@ -5,17 +5,17 @@
   @import 'src/style/root.scss';
   .title {
     line-height: $line-height-m;
-    letter-spacing: -0.25px;
     text-align: center;
     font-size: $font-size-xl;
     margin: auto;
-    margin-bottom: $space-l;
+    // margin-bottom: $space-l;
+    margin-bottom: 13px;
     max-width: 550px;
 
     @include respond-max-screen-phablet {
       max-width: auto;
       font-size: $font-size-l;
-      margin-bottom: $space-l;
+      width: calc(100% - 60px);
     }
   }
 </style>

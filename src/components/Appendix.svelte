@@ -5,6 +5,16 @@
 <style lang="scss">
   @import 'src/style/root.scss';
 
+  .title {
+    margin-bottom: 1px;
+    letter-spacing: $letter-spacing-s;
+    // font-family: 'Post Grotesk Bold';
+  }
+
+  .method {
+    margin-top: 0px;
+  }
+
   .appendix {
     display: flex;
     flex-direction: column;
@@ -16,7 +26,9 @@
 
 <div class="appendix">
   <span class="title">Methodik</span>
-  <p>{appendix.method}</p>
+  <p class="method">{appendix.method}</p>
   <span class="title">Quellen</span>
-  {#each appendix.sources as source}<a href={source[0]}>{source[1]}</a>{/each}
+  {#each appendix.sources as source}
+    <a class="source" href={source[0]}>{source[1]}</a>
+  {/each}
 </div>

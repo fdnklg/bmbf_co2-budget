@@ -27,6 +27,10 @@
 
   .large {
     padding: 45px;
+
+    @include respond-max-screen-phablet {
+      padding: 15px;
+    }
   }
 
   .full {

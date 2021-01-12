@@ -9,6 +9,7 @@
 </script>
 
 <style lang="scss">
+  @import 'src/style/root.scss';
   .container {
     margin-bottom: 30px;
 
@@ -23,6 +24,10 @@
     flex-wrap: wrap;
     margin: 0;
     padding: 0;
+
+    @include respond-max-screen-phablet {
+      justify-content: center;
+    }
   }
 </style>
 

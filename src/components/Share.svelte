@@ -33,7 +33,6 @@
   }
 
   .title {
-    font-family: 'Piazzolla Light';
     font-size: $font-size-l;
     margin: 5px 0;
   }

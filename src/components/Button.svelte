@@ -21,13 +21,13 @@
     border-radius: 3px;
     color: white;
     padding: 8px 13px;
-    margin-right: 20px;
     width: fit-content;
     cursor: pointer;
     opacity: 1;
 
     &.primary {
       background-color: $color-main;
+      margin-right: 10px;
     }
 
     &.secondary {

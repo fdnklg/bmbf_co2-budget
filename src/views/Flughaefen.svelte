@@ -30,9 +30,6 @@
   $: centroid = null
 
   let distancesRef
-
-  const exampleAirports = [{ label: 'Budapest', detail: 'BUD' }]
-
   function handleStart(e) {
     start = airports.find((d) => d.id === e.detail)
   }
@@ -109,7 +106,15 @@
     width: 100%;
     margin-bottom: 30px;
   }
-  .distances {
+
+  .wrapper {
+    padding-top: 40px;
+    margin: auto;
+    max-width: 550px;
+    width: 100%;
+    @include respond-max-screen-phablet {
+      width: calc(100% - 40px);
+    }
   }
 </style>
 
@@ -128,19 +133,13 @@
           on:destination={handleDestination}
           event="destination"
           items={airports} />
-        <div class="examples">
-          {#each exampleAirports as airport}
-            <span
-              on:click={() => handleDestination(airport)}>{airport.label}</span>
-          {/each}
-        </div>
       </div>
       <SelectGroup
         data={travelTypesRides}
         last={true}
         isType="travelTypeRides" />
     </Tile>
-    <div bind:this={distancesRef} class="distances inner">
+    <div bind:this={distancesRef} class="distances wrapper">
       {#if flightDistance && width && $distancesData}
         {#each filteredCities as city}
           <ChartFahrten

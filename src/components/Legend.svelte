@@ -24,6 +24,12 @@
     z-index: 10;
     width: 200px;
     font-size: 13px;
+
+    @include respond-max-screen-phablet {
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 3px;
+      padding: 10px;
+    }
   }
 
   .dot {
@@ -41,11 +47,13 @@
 
   .descrition {
     line-height: 140%;
+    letter-spacing: $letter-spacing-s;
     padding-bottom: 10px;
   }
 
   .label {
     transform: translateY(1px);
+    letter-spacing: $letter-spacing-s;
   }
 
   .item {

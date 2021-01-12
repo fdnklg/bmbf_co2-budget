@@ -32,6 +32,7 @@
         style: 'mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77',
         center: [lon, lat],
         zoom,
+        dragPan: false,
         scrollZoom: false,
       })
 

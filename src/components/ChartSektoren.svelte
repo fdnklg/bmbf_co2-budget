@@ -31,7 +31,7 @@
     @include respond-max-screen-phablet {
       height: 100px;
       padding-left: 30px;
-      width: calc(100%-20px);
+      width: calc(100% - 50px);
     }
   }
 
@@ -87,9 +87,9 @@
     position: absolute;
     width: 4em;
     bottom: -32px;
-    font-size: 14px;
-    color: $color-light-60;
+    font-size: 13px;
     text-align: center;
+    color: $color-main-60;
   }
 
   .label {
@@ -97,6 +97,10 @@
     line-height: $line-height-s;
     color: $color-main;
     display: block;
+
+    &.value {
+      display: none;
+    }
 
     @include respond-max-screen-phablet {
       display: none;
@@ -112,11 +116,15 @@
       left: -33px;
       bottom: -12px;
       width: 26px;
+      color: $color-main-60;
+      font-size: 13px;
     }
 
     span.y-label-desc {
       left: -31px;
       top: -35px;
+      color: $color-main-60;
+      font-size: 13px;
     }
   }
 
@@ -221,7 +229,7 @@
             y={sektor.data.slice(-1)[0].y + sektor.yOffset}>
             <p
               style="color: {sektor.highlight ? sektor.color.main : sektor.color.light}"
-              class="label">
+              class="label desktop">
               {sektor.name}
             </p>
           </Point>

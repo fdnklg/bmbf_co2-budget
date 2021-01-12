@@ -2,6 +2,7 @@ a.source {
   font-size: $font-size-xs;
   color: $color-main-60;
   text-decoration: none;
+  width: fit-content;
 
   &:hover {
     padding-bottom: 1px;

@@ -2,7 +2,7 @@
 </script>
 
 <style lang="scss">
-  @import "src/style/root.scss";
+  @import 'src/style/root.scss';
   .layout-scrollytelling {
     display: flex;
     position: relative;
@@ -28,7 +28,7 @@
 
   .vis {
     width: 50%;
-    backdrop-filter: blur(11px);
+    backdrop-filter: blur(20px);
     @include respond-max-screen-phablet {
       position: sticky;
       top: 0;
