@@ -24,4 +24,6 @@
 
 - szenario aus data.js löschen??
 
+- Legende Reisedisanz > Deine Reisedistanz
+
 - intro without dots good

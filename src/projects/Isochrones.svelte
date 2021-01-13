@@ -158,7 +158,7 @@
     <Szenarien />
     <Section>
       Neben dem alltäglichen Verkehr, reisen viele von uns aber auch immer wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
-      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da regelmäßgies Pendeln mit dem Flugzeug ehrlich gesagt jeden Rahmen sprengt.</small>
+      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da dies extrem viel über dem deutschen Durchschnitt liegt.</small>
     </Section>
 
     <IntersectionObserver

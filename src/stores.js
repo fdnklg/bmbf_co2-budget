@@ -195,7 +195,7 @@ export const szenarienData = derived(
                 featuresToCut.push(distCircle)
 
                 szenario.legend.values.push({
-                  value: 'Reisedistanz',
+                  value: 'Deine Reisedistanz',
                   color: '#080e2f',
                 })
               }
