@@ -91,6 +91,7 @@
   }
   .gradient {
     width: 100vw;
+    max-width: 100%;
     height: 50vh;
     position: absolute;
     bottom: 0;

@@ -22,6 +22,7 @@
 
   .container {
     width: 100vw;
+    max-width: 100%;
     @include max-width;
   }
 

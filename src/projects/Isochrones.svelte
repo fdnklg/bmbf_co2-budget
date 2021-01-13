@@ -75,6 +75,7 @@
   }
   .container {
     width: 100vw;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     color: $color-main;

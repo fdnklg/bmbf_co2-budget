@@ -38,6 +38,7 @@
   .sticky {
     height: 100vh;
     width: 100vw;
+    max-width: 100%;
     top: 0;
     position: sticky;
   }
