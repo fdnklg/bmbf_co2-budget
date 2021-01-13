@@ -133,13 +133,10 @@
   </IntersectionObserver>
 
   <Section>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    Der große Anteil der PKWs an der CO2-Produktion im Bereich Verkehr legt nahe, dass es hier ein großes Potential für Einsparungen gibt, die wir Bürger*innen direkt Beeinflussen können.
   </Section>
 
-  <Title>Die Verkehrsziele hängen hinterher</Title>
+  <Title>Verkehrs-Emissionen steigen weiter</Title>
 
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.sektoren}>
     <Anchor anchorId={steps.sektoren} />

@@ -31,7 +31,7 @@ export const colorsSektoren = [
     color: 'red',
   },
   {
-    name: 'Land-, Forstwirtschaft, Fischerei',
+    name: 'Abfall',
     color: 'grey',
   },
   {

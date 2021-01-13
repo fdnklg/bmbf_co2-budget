@@ -65,7 +65,7 @@
             bind:step={item.step}>
             <Tile isMap={true} active={item.step === step}>
               <h3 class="tile-title">{item.text.title}</h3>
-              <p class="tile-paragraph">{item.text.paragraph}</p>
+              <p class="tile-paragraph">{@html item.text.paragraph}</p>
             </Tile>
           </IntersectionObserver>
         </Anchor>

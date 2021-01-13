@@ -40,7 +40,7 @@ export default {
       text: {
         title: 'Straßenverkehr',
         paragraph:
-          '<strong class="highlight-orange">72%</strong> davon entfallen auf den Straßenverkehr.',
+          '<strong class="highlight-orange">72%</strong> der europäischen Verkehrsemissionen entfallen auf den Straßenverkehr.',
       },
       meta: {
         title: 'CO2-Emissionen im Straßenverkehr',
@@ -123,9 +123,9 @@ export default {
     {
       step: '2.1',
       text: {
-        title: 'Emissionen über Zeit nach Sektoren',
+        title: 'Ziele zum Schutz des Klimas',
         paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+          'Die Europäische Union hat sich für die nächsten Jahrzehnte vorgenommen den Ausstoß klimaschädlicher Treibhausgase zu reduzieren.',
       },
       meta: {
         source: {
@@ -136,7 +136,7 @@ export default {
       },
       highlight: [
         'Verkehr',
-        'Land-, Forstwirtschaft, Fischerei',
+        'Abfall',
         'Landwirtschaft',
         'Industrie',
         'Energie',
@@ -145,9 +145,9 @@ export default {
     {
       step: '2.2',
       text: {
-        title: 'Sektoren, die heute weniger Emissionen produzieren als 1990',
+        title: 'Langsamer Abbau von Emissionen',
         paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+          'Viele Sektoren, wie z.B. <strong class="highlight-land">Landwirtschaft</strong>, <strong class="highlight-energy">Energie</strong>, <strong class="highlight-industry">Industrie</strong> oder <strong class="highlight-waste">Abfall</strong>, haben es seit 1990 geschaft ihren Ausstoß langsam zu verringern.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
@@ -159,14 +159,14 @@ export default {
           label: 'Europäisches Parlament',
         },
       },
-      highlight: ['Landwirtschaft', 'Industrie', 'Energie'],
+      highlight: ['Landwirtschaft', 'Industrie', 'Energie', 'Abfall'],
     },
     {
       step: '2.3',
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
+          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von 23% gegenüber den Werten von 1990.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',

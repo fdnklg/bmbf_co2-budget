@@ -109,7 +109,7 @@ export const co2Colors = [
 
 export const colorsSektoren = {
   Verkehr: colors.plane,
-  'Land-, Forstwirtschaft, Fischerei': colors.public,
+  Abfall: colors.public,
   Industrie: colors.car_mf,
   Landwirtschaft: colors.bike,
   Energie: colors.ecar,
@@ -117,8 +117,8 @@ export const colorsSektoren = {
 
 export const offsetsSektoren = {
   Verkehr: 8,
-  'Land-, Forstwirtschaft, Fischerei': 12,
-  Energie: 8,
-  Landwirtschaft: 11.5,
-  Industrie: 3,
+  Abfall: 5,
+  Energie: 6,
+  Landwirtschaft: 10,
+  Industrie: 2,
 }

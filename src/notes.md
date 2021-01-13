@@ -6,4 +6,7 @@
 
 - emissionen - größere Abstände länger Zeit in einzelnen Schritten
 
+- !! Something is wrong about the sector-chart x-axis and data does not align?
+- !! Legende links müsste +0- sein...??
+
 - intro without dots good
