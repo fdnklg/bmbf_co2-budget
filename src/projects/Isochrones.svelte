@@ -144,10 +144,9 @@
   </IntersectionObserver>
 
   <Section>
-    Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-    weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-    eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-    gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+    Unser persönlicher Fußabdruck wird meistens in Tonnen oder Kilogramm CO2 umschrieben. Doch solche Angaben sind wenig hilfreich wenn wir verstehen wollen, was z.B. die Ziele der CO2-Reduktion im Kampf gegen den Klimawandel für uns im Alltag bedeuten.<br /><br />
+    Deshalb haben wir ein Werkzeug entwickelt, um CO2-Fußabdrücke in Bewegungsprofile zu übersetzen. Im folgenden kannst du dir dies auf dich persönlich zugeschnitten anzeigen lassen.<br /><br />
+    <strong>Privatsphäre geht vor:</strong> <i>Die von dir hier angegebenen Information werden von uns nicht gespeichert. Diese Seite nutzt keine Cookie- oder Tracking-Technologien.</i>
   </Section>
 
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.szenarien}>
