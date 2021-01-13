@@ -1,7 +1,7 @@
 import { dsvFormat } from 'd3-dsv'
 import union from '@turf/union'
-import unkinkPolygon from '@turf/unkink-polygon'
-import cleanCoords from '@turf/clean-coords'
+// import unkinkPolygon from '@turf/unkink-polygon'
+// import cleanCoords from '@turf/clean-coords'
 import difference from 'turf-difference'
 import bboxPolygon from '@turf/bbox-polygon'
 

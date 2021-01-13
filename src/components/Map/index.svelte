@@ -2,7 +2,7 @@
   import { onMount, beforeUpdate, afterUpdate, setContext } from 'svelte'
   import { pulsingDot } from './pulsingDot'
 
-  import { mapbox, key } from './mapbox.js'
+  import { Map, key, accessToken } from './mapbox.js'
   import { createGeojson } from './util'
 
   export let hasPulsingDot
@@ -27,13 +27,14 @@
     link.href = 'https://unpkg.com/mapbox-gl/dist/mapbox-gl.css'
 
     link.onload = () => {
-      map = new mapbox.Map({
+      map = new Map({
         container,
         style: 'mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77',
         center: [lon, lat],
         zoom,
         dragPan: false,
         scrollZoom: false,
+        accessToken
       })
 
       map.on('load', () => {

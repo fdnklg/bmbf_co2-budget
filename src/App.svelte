@@ -1,6 +1,6 @@
 <script>
   import Isochrones from 'projects/Isochrones.svelte'
-  import Maps from 'projects/Maps.svelte'
+  // import Maps from 'projects/Maps.svelte'
 
   const activeProject = 'isochrones'
 </script>
@@ -10,9 +10,5 @@
 </style>
 
 <div>
-  {#if activeProject === 'isochrones'}
-    <Isochrones />
-  {:else}
-    <Maps />
-  {/if}
+  <Isochrones />
 </div>

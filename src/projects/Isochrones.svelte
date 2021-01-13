@@ -157,10 +157,8 @@
   {#if $userInput}
     <Szenarien />
     <Section>
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+      Neben dem alltäglichen Verkehr, reisen viele von uns aber auch immer wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
+      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da regelmäßgies Pendeln mit dem Flugzeug ehrlich gesagt jeden Rahmen sprengt.</small>
     </Section>
 
     <IntersectionObserver
@@ -171,11 +169,9 @@
     </IntersectionObserver>
 
     <Section>
-      <Title>Zusammenfassung</Title>
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+      <Title>Gemeinsam ans Ziel</Title>
+      Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass diejenigen die einen Beitrag leisten können, dies auch tun.<br /><br />
+      Weiteres Mobilitätsprofil ausprobieren: ANCHOR LINK
     </Section>
 
     <Share />

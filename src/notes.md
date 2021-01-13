@@ -12,5 +12,16 @@
 - !! Auswahl 1: ÖPNV / Auswahl 2: Zug
 
 - Nach Formular bestätigen automatisch zur Karte scrollen
+    - manchmal scrollt automatisch, dann aber direkt zum 2. teil?
+
+- isochrones am anfang kein kreis da...
+
+- isochrones zoom onto smaller isos?!
+
+- letzte ISO wird nicht angezeigt?
+
+- nach dem letzten ISO noch etwas scrollplatz?
+
+- szenario aus data.js löschen??
 
 - intro without dots good

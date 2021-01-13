@@ -213,145 +213,145 @@ export const createSzenarioText = (
   const texte = {
     3.1: {
       car_mf: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
       ecar: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
       car: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
       bike: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
       foot: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
       public: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Dein Mobilitätsprofil',
+        paragraph: `<strong>XX</strong>% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>XX</strong> km mit dem <strong>XX</strong>.`,
       },
     },
     3.2: {
       car_mf: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen <strong>täglichen</strong> CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
       ecar: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen <strong>täglichen</strong> CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
       car: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen <strong>täglichen</strong> CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
       bike: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen <strong>täglichen</strong> CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
       foot: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen <strong>täglichen</strong> CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
       public: {
-        title: 'Title',
-        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. 30kg (11t im Jahr). Davon entfallen knapp 20% (6kg) auf Mobilität.`,
+        title: 'Aktueller CO2 Verbrauch',
+        paragraph: `In Deutschland haben Menschen im Durchschnitt einen täglichen CO2-Fußabdruck von ca. <strong>30kg</strong> (11t im Jahr). Davon entfallen knapp <strong>20%</strong> (6kg) auf Mobilität.`,
       },
     },
     3.3: {
       car_mf: {
-        title: 'Title',
-        paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
+        title: 'Im Vergleich zum Durchschnitt',
+        paragraph: `Basierend auf dem Deutschen Durschnitt, ergibt sich folgende Reichweite, wenn du im Auto mit einer weiteren Person reist. Hier siehst du ob dein Aktionsradius über oder unter dem Durchschnitt liegt. (Berechnung: 6 Tage die Woche, Hin- & Rückweg)`,
       },
       ecar: {
-        title: 'Title',
-        paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
+        title: 'Im Vergleich zum Durchschnitt',
+        paragraph: `Basierend auf dem Deutschen Durschnitt, ergibt sich folgende Reichweite, wenn du ein Elektroauto nutzt. Hier siehst du ob dein Aktionsradius über oder unter dem Durchschnitt liegt. (Berechnung: 6 Tage die Woche, Hin- & Rückweg)`,
       },
       car: {
-        title: 'Title',
-        paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
+        title: 'Im Vergleich zum Durchschnitt',
+        paragraph: `Basierend auf dem Deutschen Durschnitt, ergibt sich folgende Reichweite, wenn du alleine mit dem Auto unterwegs bist. Hier siehst du ob dein Aktionsradius über oder unter dem Durchschnitt liegt. (Berechnung: 6 Tage die Woche, Hin- & Rückweg)`,
       },
       bike: {
-        title: 'Title',
+        title: '!!! Title',
         paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
       },
       foot: {
-        title: 'Title',
+        title: '!!! Title',
         paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
       },
       public: {
-        title: 'Title',
-        paragraph: `Mit dem Auto ergibt sich daraus folgender Aktionsradius (6 Tage die Woche, Hin- & Rückweg.)`,
+        title: 'Im Vergleich zum Durchschnitt',
+        paragraph: `Basierend auf dem Deutschen Durschnitt, ergibt sich folgende Reichweite, wenn du den ÖPNV nutzt. Hier siehst du ob dein Aktionsradius über oder unter dem Durchschnitt liegt. (Berechnung: 6 Tage die Woche, Hin- & Rückweg)`,
       },
     },
     3.4: {
       car_mf: {
-        title: 'Title',
-        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
+        title: 'Szenario 2050',
+        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einen drastischen Einschnitt. (Effizienzsteigerung von Fahrzeugen wurde berücksichtigt)`,
       },
       ecar: {
-        title: 'Title',
-        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
+        title: 'Szenario 2050',
+        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Elektroauto bedeutet dies einen Einschnitt. (Effizienzsteigerung von Fahrzeugen wurde berücksichtigt)`,
       },
       car: {
-        title: 'Title',
-        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
+        title: 'Szenario 2050',
+        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einen drastischen Einschnitt. (Effizienzsteigerung von Fahrzeugen wurde berücksichtigt)`,
       },
       bike: {
-        title: 'Title',
+        title: '!! Title',
         paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
       },
       foot: {
-        title: 'Title',
+        title: '!! Title',
         paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
       },
       public: {
-        title: 'Title',
-        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem Auto bedeutet dies einnen drastischen Einschnitt.`,
+        title: 'Szenario 2050',
+        paragraph: `Wenn wir die Klimaziele bis 2050 einhalten wollen, müssen wir unseren individuellen Fußabdruck reduzieren. Hierfür gibt es verschiedene Szenarien, welche zwischen 1t und 2.7t pro Jahr liegen. Für den täglichen Aktionsradius mit dem ÖPNV bedeutet dies für die meisten kaum Einschnitte. (Effizienzsteigerung von Fahrzeugen wurde berücksichtigt)`,
       },
     },
     3.5: {
       car_mf: {
-        title: 'Title',
+        title: 'Alternativen zum Auto',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
       ecar: {
-        title: 'Title',
+        title: 'Alternativen zum Auto',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
       car: {
-        title: 'Title',
+        title: 'Alternativen zum Auto',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
       bike: {
-        title: 'Title',
+        title: '!! Title',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
       foot: {
-        title: 'Title',
+        title: '!! Title',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
       public: {
-        title: 'Title',
+        title: '!! Title',
         paragraph: `Würde man auf den öffentlichen Nahverkehr wechseln, der weniger CO2 verbraucht, könnte man sich einen größeren Aktionsradius erhalten.`,
       },
     },
     3.6: {
       car_mf: {
-        title: 'Title',
+        title: 'Auf den Mobilitäts-Mix kommt es an',
         paragraph: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
       },
       ecar: {
-        title: 'Title',
+        title: 'Auf den Mobilitäts-Mix kommt es an',
         paragraph: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
       },
       car: {
-        title: 'Title',
+        title: 'Auf den Mobilitäts-Mix kommt es an',
         paragraph: `Es muss aber auch nicht so drastisch sein. Selbst wenn man an nur zwei Tagen die Woche nicht mit dem Auto und statt dessen z.B. mit dem Rad fährt, kann man sich auch schon viel Mobilität zurück holen.`,
       },
       bike: {

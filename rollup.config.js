@@ -45,6 +45,7 @@ export default {
     name: 'app',
     file: 'public/build/bundle.js',
   },
+  // external: ['mapbox-gl'],
   plugins: [
     svelte({
       preprocess: sveltePreprocess({
