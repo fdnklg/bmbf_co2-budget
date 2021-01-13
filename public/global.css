@@ -165,3 +165,8 @@ button:focus {
 .mapboxgl-map {
   z-index: -1;
 }
+
+/*----- Copy Adjustments -----*/
+.tile-paragraph strong.highlight-orange{
+  color: rgb(231, 157, 103);
+}

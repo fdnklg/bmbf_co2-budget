@@ -162,9 +162,8 @@
           und
           <a target="_blank" href="https://fabiandinklage.com">FABIAN DINKLAGE</a></span>
         <p class="text">
-          Die individuelle Mobilität hat einen spürbaren Einfluss auf den
-          Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und
-          du ändern kannst, um einen positiven Beitrag zu leisten.
+          Unsere individuelle Mobilität hat einen spürbaren Einfluss auf den
+          Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der Mobilität ist.
         </p>
       </div>
       <div class="start">

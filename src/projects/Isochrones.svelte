@@ -116,26 +116,16 @@
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.start}>
     <Anchor anchorId={steps.start} />
     <Section>
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+      Unser gemeinsamer Austoß an Treibhausgasen ist einer der Haupt&shy;treiber des globalen Klimawandels. Der Großteil entfällt dabei auf CO2-Emmissionen.
 
       <br />
       <br />
 
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
-      Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und
-      weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles
-      eröffnen und auseinander setzen, was jener Begründer der Wahrheit und
-      gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.
+      Auf viele Formen der CO2-Produktion haben wir, als Bürger*innen, nur indirekten Einfluss, z.B. durch unsere Kaufentscheidungen. Bei der Mobilität ist dies anders. Durch die Wahl unserer Verkehrsmittel und unsere Gewohnheiten können wir einen direkten Beitrag leisten.
     </Section>
   </IntersectionObserver>
 
-  <Title>Wo entstehen die meisten CO2-Emissionen?</Title>
+  <Title>Wieviel CO2 verursachen wir durch unsere Mobilität?</Title>
 
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.emissionen}>
     <Anchor anchorId={steps.emissionen} />

@@ -5,9 +5,9 @@ export default {
     {
       step: '1.1',
       text: {
-        title: 'CO-2 Emissionen aller Verkehrs- und Transportmittel in Europa',
+        title: 'CO2 Emissionen in Europa',
         paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
+          '<strong>30%</strong> der gesamten europäischen CO2-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
       },
       meta: {
         title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
@@ -38,9 +38,9 @@ export default {
     {
       step: '1.2',
       text: {
-        title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
+        title: 'Straßenverkehr',
         paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
+          '<strong class="highlight-orange">72%</strong> davon entfallen auf den Straßenverkehr.',
       },
       meta: {
         title: 'CO2-Emissionen im Straßenverkehr',
@@ -77,9 +77,9 @@ export default {
     {
       step: '1.3',
       text: {
-        title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
+        title: 'Autos',
         paragraph:
-          'Die individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre, wie nachhaltig deine Art der Mobilität ist und du ändern kannst, um einen positiven Beitrag zu leisten.',
+          'Neben Motorrädern, LKWs und leichten Nutzfahrzeugen sind Autos mit <strong class="highlight-orange">60,7%</strong> für den Löwenanteil aller Emissionen im Bereich Verkehr verantwortlich.',
       },
       meta: {
         title: 'CO2-Emissionen im Straßenverkehr',
@@ -99,7 +99,7 @@ export default {
           type: 'Autos',
           value: 0.43,
           format: 'percent',
-          customValue: '60&thinsp;%',
+          customValue: '60,7&thinsp;%',
           fill: colors.car.main,
           showLabel: true,
           showValue: true,
