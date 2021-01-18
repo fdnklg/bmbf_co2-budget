@@ -13,6 +13,14 @@ export const extent = {
 
 export let stepScenario = '4.0'
 
+export const steps = {
+  start: 'start',
+  emissionen: '1.0',
+  sektoren: '2.0',
+  szenarien: '3.0',
+  flughaefen: '4.0',
+}
+
 export const co2PerKm = {
   plane: 380,
   car: 130,
