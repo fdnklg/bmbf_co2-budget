@@ -34,7 +34,7 @@
         zoom,
         dragPan: false,
         scrollZoom: false,
-        accessToken
+        accessToken,
       })
 
       map.on('load', () => {
@@ -161,29 +161,16 @@
     if (data && map) {
       const { geojson } = data
 
+      console.log('geojson ', geojson)
+
       const { centroid, travelType } = data
       const zoom = data.map.zoom
 
       const source = map.getSource('layers')
 
-      if (source) {
+      if (source && centroid) {
         source.setData(geojson)
         map.setLayoutProperty('icons', 'icon-image', travelType)
-
-        // if (animate) {
-        //   map.setPaintProperty('isoContours', 'line-opacity', 0)
-        //   map.setPaintProperty('isochrones', 'fill-opacity', 0)
-
-        //   setTimeout(() => {
-        //     map.setPaintProperty('isochrones', 'fill-opacity', 0.75)
-        //     map.setPaintProperty('isoContours', 'line-opacity', 1)
-        //   }, 500)
-
-        //   setTimeout(() => {
-        //     map.setPaintProperty('isochrones', 'fill-opacity', 0)
-        //     map.setPaintProperty('isoContours', 'line-opacity', 0)
-        //   }, 3500)
-        // } else {
 
         map.setPaintProperty('dist', 'line-opacity', ['get', 'stroke-opacity'])
 
@@ -196,10 +183,7 @@
           'get',
           'stroke-opacity',
         ])
-        // }
-      }
 
-      if (centroid) {
         map.flyTo({
           center: [centroid.x, centroid.y],
           zoom: zoom,

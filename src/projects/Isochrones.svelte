@@ -9,6 +9,7 @@
   } from 'stores'
 
   import datasets from 'data'
+  let step
 
   import {
     parseDataEmissionen,
