@@ -18,6 +18,12 @@
   import Tile from 'components/Tile.svelte'
   import ChartFahrten from '../components/ChartFahrten.svelte'
 
+  travelTypesRides.elements.map((d) => {
+    if (d.label === 'ÖPNV') {
+      d.label = 'Zug'
+    }
+    return d
+  })
   $: airports = $data ? $data.airports : null
   $: start = null
   $: width = null

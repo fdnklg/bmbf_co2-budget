@@ -246,9 +246,6 @@ export const travelTypesRides = {
   elements: travelTypeItems
     .filter((d) => d.value !== 'bike')
     .map((d) => {
-      // if (d.label === 'ÖPNV') {
-      //   d.label = 'Zug'
-      // }
       return d
     }),
 }
