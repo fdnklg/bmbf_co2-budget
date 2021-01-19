@@ -5,10 +5,33 @@
   import Intro from 'components/SelectGroup/Intro.svelte'
 
   import { travelTypes, distances } from 'config'
+  import { getDocumentHeight } from 'utils'
   import { userInput } from 'stores'
+
+  const inputClass = 'onboarding-input'
 
   function handleClick() {
     userInput.set(true)
+  }
+
+  window.onscroll = function (ev) {
+    const documentHeight = getDocumentHeight()
+    if (window.innerHeight + window.scrollY >= documentHeight) {
+      const inputNode = document.querySelector(`.${inputClass}`)
+      const hintNode = document.querySelector(`.input-hint`)
+
+      inputNode.classList.add('blink')
+      hintNode.classList.add('visible')
+      hintNode.classList.add('highlight')
+
+      setTimeout(() => {
+        inputNode.classList.remove('blink')
+      }, 300)
+
+      setTimeout(() => {
+        hintNode.classList.remove('highlight')
+      }, 300)
+    }
   }
 </script>
 
@@ -34,9 +57,11 @@
       <SelectGroup data={travelTypes} isType="travelTypes" />
       <SelectGroup data={distances} isType="distances" />
       <Intro
+        subtitleClassname="input-hint"
         title="In welchem Raum bist du unterwegs?"
-        subtitle="Wähle deine deutsche gültige Postleitzahl." />
-      <Input />
+        subtitle="Gib deine Postleitzahl ein und bestätige. Oder fahre mit einer zufälligen
+      Postleitzahl fort." />
+      <Input className={inputClass} />
     </div>
   </Tile>
 </div>
