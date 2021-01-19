@@ -3,10 +3,13 @@ a.source {
   color: $color-main-60;
   text-decoration: none;
   width: fit-content;
+  padding-bottom: 1px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.125s ease-in-out;
 
   &:hover {
-    padding-bottom: 1px;
-    border-bottom: 1px solid $color-main-40;
+    border-bottom: 1px solid $color-main-60;
+    color: $color-main-60;
   }
 }
 

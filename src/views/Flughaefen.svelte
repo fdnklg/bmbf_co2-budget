@@ -108,6 +108,11 @@
     }
   }
 
+  .label {
+    color: $color-main-60;
+    margin-bottom: 5px;
+  }
+
   .select-group {
     width: 100%;
     margin-bottom: 30px;
@@ -129,11 +134,13 @@
     <Tile large={true} active={true}>
       <div class="select-group inner">
         <Intro title={airportsIntro.title} subtitle={airportsIntro.subtitle} />
+        <span class="label">Startflughafen</span>
         <Select
           selected={$selectedAirport}
           on:start={handleStart}
           event="start"
           items={airports} />
+        <span class="label">Zielflughafen</span>
         <Select
           selected={destination}
           on:destination={handleDestination}

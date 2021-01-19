@@ -12,8 +12,6 @@
   $: dataEmiss = $data
     ? $data.emissionen.find((item) => item.step === step)
     : false
-
-  console.log('$data.emissionen', $data.emissionen)
 </script>
 
 <style lang="scss">

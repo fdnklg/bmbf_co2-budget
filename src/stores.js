@@ -22,6 +22,7 @@ import {
   createCircle,
   createBoundingBox,
 } from 'components/Map/util.js'
+import { zoomLevels } from './constants'
 
 export const activeWaypoint = writable(null)
 export const activeVis = writable(null)
@@ -108,6 +109,8 @@ export const szenarienData = derived(
           szenario.travelType = $travelType
           szenario.space = spaceTypes[regiostar]
 
+          szenario.map.zoom = zoomLevels[`step-${szenario.step}`][$travelType]
+
           const { diameter, isochrones, space, step } = szenario
 
           // füge Texte zum Daten Objekt hinzu:
@@ -127,7 +130,7 @@ export const szenarienData = derived(
           if (szenario && isochrones) {
             let featuresToCut = []
             szenario.legend = {
-              text: 'Erreichbarkeit',
+              text: 'Deine Reisedistanz',
               values: [],
             }
 
@@ -193,7 +196,7 @@ export const szenarienData = derived(
                 featuresToCut.push(distCircle)
 
                 szenario.legend.values.push({
-                  value: 'Reisedistanz',
+                  value: 'Deine Reisedistanz',
                   color: '#080e2f',
                 })
               }

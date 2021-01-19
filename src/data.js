@@ -1,4 +1,6 @@
-import { colors } from 'constants'
+import { travelType } from 'stores'
+import { get } from 'svelte/store'
+import { colors, zoomLevels } from 'constants'
 
 export default {
   emissionen: [
@@ -190,9 +192,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 6.2,
+        zoom: zoomLevels['step-3.1'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -215,9 +216,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 8.2,
+        zoom: zoomLevels['step-3.2'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -240,9 +240,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 8.2,
+        zoom: zoomLevels['step-3.3'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -265,9 +264,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 10,
+        zoom: zoomLevels['step-3.4'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -290,9 +288,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 10,
+        zoom: zoomLevels['step-3.5'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -315,9 +312,8 @@ export default {
           'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
       },
       map: {
-        zipcode: 41372,
         distance: 50,
-        zoom: 8.2,
+        zoom: zoomLevels['step-3.6'][get(travelType)],
         diameter: true,
       },
       widget: {

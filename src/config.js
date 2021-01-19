@@ -141,12 +141,12 @@ export const navItems = [
   {
     id: '4.0',
     label: 'Fliegen',
-    offsetY: -300,
+    offsetY: -(dimensions[1] / 2),
   },
   {
     id: 'end',
     label: 'Zusammenfassung',
-    offsetY: -400,
+    offsetY: -(dimensions[1] / 2),
   },
 ]
 
@@ -245,8 +245,8 @@ export const travelTypes = {
 
 export const travelTypesRides = {
   hasIntro: true,
-  title: 'Vergleiche deinen Flug mit anderen Reisezielen.',
-  subtitle: 'Wähle ein Fortbewegnungsmittel.',
+  title: 'Vergleiche deinen Flug mit anderen Fortbewegungsmitteln.',
+  subtitle: 'Wähle ein Fortbewegungsmittel.',
   elements: travelTypeItems
     .filter((d) => d.value !== 'bike')
     .map((d) => {

@@ -7,17 +7,12 @@
   import Point from './Chart/Point.svelte'
   import Svg from './Chart/Svg.svelte'
   import Line from './Chart/Line.svelte'
-  import { afterUpdate } from 'svelte'
 
   export let step = '2.1'
 
   $: dataSektoren = $data
     ? $data.sektoren.find((item) => item.step === step)
     : false
-
-  afterUpdate(() => {
-    console.log(dataSektoren)
-  })
 </script>
 
 <style lang="scss">

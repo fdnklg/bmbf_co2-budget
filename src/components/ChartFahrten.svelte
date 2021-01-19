@@ -72,8 +72,6 @@
 
     const marginPerBar = getPercentPerBar(rides, width)
 
-    console.log('x', barSlice - marginPerBar)
-
     let arr = Array.from(Array(rides).keys())
     arr = arr.map((d, i) => ({
       value: barSlice,
