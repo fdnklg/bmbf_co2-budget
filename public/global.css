@@ -184,3 +184,8 @@ strong {
 .tile-paragraph strong.highlight-waste {
   color: rgb(135, 170, 171);
 }
+
+.appendix>.method>a{
+  font-weight:bold;
+  color: rgb(107, 110, 130);
+}
