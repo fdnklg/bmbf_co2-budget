@@ -39,6 +39,8 @@
         {
           value: 100,
           x: 100,
+          align: 'right',
+          textAlign: 'right',
           format: 'percent',
           fill: colors.plane.main,
           showLabel: false,
@@ -51,6 +53,9 @@
         ).toFixed(1)} kg</span> CO2 aus. (${distance.toFixed(
           1
         )}&thinsp;km / Fahrt)`,
+        x: 100,
+        align: 'right',
+        textAlign: 'right',
       },
     }
   }
@@ -67,10 +72,14 @@
 
     const marginPerBar = getPercentPerBar(rides, width)
 
+    console.log('x', barSlice - marginPerBar)
+
     let arr = Array.from(Array(rides).keys())
     arr = arr.map((d, i) => ({
       value: barSlice,
       x: barSlice - marginPerBar,
+      align: barSlice - marginPerBar < 50 ? 'left' : 'right',
+      textAlign: barSlice - marginPerBar < 50 ? 'left' : 'right',
       format: 'percent',
       fill:
         i === 0
@@ -91,6 +100,9 @@
       },
       data: arr,
       annotation: {
+        x: barSlice - marginPerBar,
+        align: barSlice - marginPerBar < 50 ? 'left' : 'right',
+        textAlign: barSlice - marginPerBar < 50 ? 'left' : 'right',
         label: `Hin- und Rück${
           label === 'Flug' ? 'flug' : 'fahrt'
         } stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${

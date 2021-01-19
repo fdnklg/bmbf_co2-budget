@@ -1,13 +1,13 @@
 <script>
   import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
   import * as animateScroll from 'svelte-scrollto'
-  import Icon from 'components/Icon.svelte'
   import Button from 'components/Button.svelte'
 
-  $: isValid = true
+  $: isValid = false
   $: isEditing = true
 
   let zip
+  export let className
 
   function scrollToFirstScene() {
     animateScroll.scrollTo({
@@ -31,10 +31,12 @@
   const handleSubmit = (e) => {
     validate()
     disable(e)
-    userInput.set(true)
 
     setTimeout(() => {
-      scrollToFirstScene()
+      if (isValid) {
+        scrollToFirstScene()
+        userInput.set(true)
+      }
     }, 250)
   }
 
@@ -117,6 +119,7 @@
 
   .buttons {
     display: flex;
+    font-size: $font-size-m;
     align-items: center;
     flex-direction: row;
     margin-top: 35px;
@@ -129,6 +132,10 @@
   .error {
     font-size: $font-size-s;
     line-height: $line-height-m;
+
+    @include respond-max-screen-phablet {
+      text-align: center;
+    }
   }
 
   .zipInput {
@@ -146,7 +153,7 @@
 </style>
 
 <div>
-  <form class="form">
+  <form class="form {className}">
     <label for="zipcode">Postleitzahl</label>
     <input
       id="zipcode"

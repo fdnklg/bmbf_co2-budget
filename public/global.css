@@ -58,7 +58,7 @@ div.mapboxgl-ctrl {
 }
 
 body {
-  color: #333;
+  color: #080e2f;
   margin: 0;
   box-sizing: border-box;
 }
@@ -127,17 +127,6 @@ button:focus {
   border-color: #666;
 }
 
-/* .vis {
-  align-items: center;
-  justify-content: center;
-  background-color: white;
-  box-shadow: rgba(26, 25, 43, 0.016) 0px 2.8px 2.2px,
-    rgba(26, 25, 43, 0.02) 0px 12.5px 10px,
-    rgba(26, 25, 43, 0.024) 0px 22.3px 17.9px,
-    rgba(26, 25, 43, 0.027) 0px 41.8px 33.4px,
-    rgba(26, 25, 43, 0.02) 0px 100px 80px;
-} */
-
 .padding {
   padding: 0 var(--space-m);
 }
@@ -149,15 +138,6 @@ button:focus {
   line-height: 100%;
 }
 
-.metric {
-  font-size: var(--font-size-xs);
-}
-
-.dist {
-  font-size: var(--font-size-l);
-  font-weight: bold;
-}
-
 .sticky {
   position: sticky;
 }
@@ -166,27 +146,41 @@ button:focus {
   z-index: -1;
 }
 
+strong {
+  font-weight: normal;
+  font-family: 'Post Grotesk Bold';
+}
+
+.input-hint.highlight {
+  color: #080e2f !important;
+}
+
+.blink {
+  border: 1px solid rgb(231, 118, 103) !important;
+  transition: all 0.125s ease-in-out;
+}
+
 /*----- Copy Adjustments -----*/
-.tile-paragraph strong.highlight-orange{
+.tile-paragraph strong.highlight-orange {
   color: rgb(231, 157, 103);
 }
 
-.tile-paragraph strong.highlight-traffic{
+.tile-paragraph strong.highlight-traffic {
   color: rgb(231, 118, 103);
 }
 
-.tile-paragraph strong.highlight-land{
+.tile-paragraph strong.highlight-land {
   color: rgb(64, 68, 85);
 }
 
-.tile-paragraph strong.highlight-energy{
+.tile-paragraph strong.highlight-energy {
   color: rgb(233, 205, 104);
 }
 
-.tile-paragraph strong.highlight-industry{
+.tile-paragraph strong.highlight-industry {
   color: rgb(133, 194, 165);
 }
 
-.tile-paragraph strong.highlight-waste{
+.tile-paragraph strong.highlight-waste {
   color: rgb(135, 170, 171);
 }

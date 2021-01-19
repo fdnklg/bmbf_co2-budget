@@ -20,7 +20,7 @@
     padding-right: 5px;
 
     &.flip {
-      bottom: 40px;
+      bottom: 34px;
       top: auto;
     }
   }
@@ -48,11 +48,11 @@
   }
 
   .right {
-    transform: translate(2px, -2px);
+    transform: translate(8px, -2px);
   }
 
   .left {
-    transform: translate(-10px, -2px);
+    transform: translate(-3px, -2px);
   }
 
   .label {

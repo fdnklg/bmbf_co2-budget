@@ -1,6 +1,7 @@
 <script>
   export let title
   export let subtitle
+  export let subtitleClassname
 </script>
 
 <style lang="scss">
@@ -14,7 +15,7 @@
   .title {
     font-size: $font-size-l;
     color: $color-main;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     margin-top: 0px;
     line-height: $line-height-m;
 
@@ -39,5 +40,5 @@
 
 <div class="intro">
   <h2 class="title">{title}</h2>
-  <p class="subtitle">{subtitle}</p>
+  <p class="subtitle {subtitleClassname}">{subtitle}</p>
 </div>

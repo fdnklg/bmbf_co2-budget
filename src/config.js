@@ -184,31 +184,12 @@ export const distances = {
 
 const travelTypeItems = [
   {
-    label: 'Fuß / Fahrrad',
-    icon: 'bike.svg',
-    value: 'bike',
+    label: 'Auto  <br/> (1 P.)',
+    icon: 'car.svg',
+    value: 'car',
     ride: {
-      singular: 'Radfahrt',
-      plural: 'Radfahrten',
-    },
-  },
-  {
-    label: 'ÖPNV',
-    icon: 'public.svg',
-    value: 'public',
-    ride: {
-      singular: 'Zugfahrt',
-      plural: 'Zugfahrten',
-    },
-  },
-  {
-    label: 'Auto <br/> (2 P.)',
-    icon: 'car_mf.svg',
-    iconExtra: 'car_mf_extra',
-    value: 'car_mf',
-    ride: {
-      singular: 'Autofahrt (2 P.)',
-      plural: 'Autofahrten (2 P.)',
+      singular: 'Autofahrt (1 P.)',
+      plural: 'Autofahrten (1 P.)',
     },
   },
   {
@@ -222,12 +203,31 @@ const travelTypeItems = [
     },
   },
   {
-    label: 'Auto  <br/> (1 P.)',
-    icon: 'car.svg',
-    value: 'car',
+    label: 'Auto <br/> (2 P.)',
+    icon: 'car_mf.svg',
+    iconExtra: 'car_mf_extra',
+    value: 'car_mf',
     ride: {
-      singular: 'Autofahrt (1 P.)',
-      plural: 'Autofahrten (1 P.)',
+      singular: 'Autofahrt (2 P.)',
+      plural: 'Autofahrten (2 P.)',
+    },
+  },
+  {
+    label: 'ÖPNV',
+    icon: 'public.svg',
+    value: 'public',
+    ride: {
+      singular: 'Zugfahrt',
+      plural: 'Zugfahrten',
+    },
+  },
+  {
+    label: 'Fuß / Fahrrad',
+    icon: 'bike.svg',
+    value: 'bike',
+    ride: {
+      singular: 'Radfahrt',
+      plural: 'Radfahrten',
     },
   },
 ]
@@ -246,9 +246,6 @@ export const travelTypesRides = {
   elements: travelTypeItems
     .filter((d) => d.value !== 'bike')
     .map((d) => {
-      // if (d.label === 'ÖPNV') {
-      //   d.label = 'Zug'
-      // }
       return d
     }),
 }

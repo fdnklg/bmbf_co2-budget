@@ -30,6 +30,28 @@
     align-items: center;
     flex-direction: column;
     cursor: pointer;
+    transition: all 0.125s ease-in-out;
+
+    &:hover {
+      .label {
+        color: $color-main;
+      }
+
+      .icon {
+        border: 2px solid $color-main-40;
+      }
+    }
+
+    &.active {
+      .label {
+        color: $color-main;
+      }
+
+      .icon {
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
+        border: 2px solid $color-main;
+      }
+    }
   }
   .icon {
     width: 46px;
@@ -41,6 +63,7 @@
     border-radius: 50%;
     border: 2px solid $color-main-20;
     background-color: white;
+    transition: all 0.125s ease-in-out;
 
     &.small {
       position: absolute;
@@ -53,15 +76,10 @@
       border: 2px solid $color-main-20;
 
       &.active {
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.125);
         border: 2px solid $color-main;
       }
     }
-  }
-
-  .active {
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
-    border: 2px solid $color-main;
   }
 
   .value {
@@ -81,9 +99,15 @@
     font-size: $font-size-xs;
     width: 80px;
     margin-top: 10px;
-    color: $color-main;
+    color: $color-main-40;
     line-height: $line-height-s;
     text-align: center;
+    transition: all 0.125s ease-in-out;
+
+    &.active {
+      color: $color-main;
+      font-family: $font-bold;
+    }
 
     @include respond-max-screen-phablet {
       width: 67px;
@@ -91,8 +115,10 @@
   }
 </style>
 
-<li class="item" on:click={() => handleClick(isType, value)}>
-  <div class="icon {isType} {value} {isActive(isType, value) ? 'active' : ''}">
+<li
+  class="item {isActive(isType, value) ? 'active' : ''}"
+  on:click={() => handleClick(isType, value)}>
+  <div class="icon {isType} {value}">
     {#if isType === 'distances'}
       <span class="value">{value}</span>
       <span class="metric">km</span>
@@ -106,5 +132,6 @@
       <Icon name={iconExtra} />
     </div>
   {/if}
-  <span class="label">{@html label}</span>
+  <span
+    class="label {isActive(isType, value) ? 'active' : ''}">{@html label}</span>
 </li>

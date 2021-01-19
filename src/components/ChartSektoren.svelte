@@ -188,9 +188,10 @@
         <Grid horizontal count={4} let:value>
           <div class="grid-line horizontal">
             {#if value === 140}
-              <span class="y-label-desc">Entwicklung der CO2-Emissionen seit 1990 in Prozent</span>
+              <span class="y-label-desc">Entwicklung der CO2-Emissionen seit
+                1990 in Prozent</span>
             {/if}
-            <span class="y-label">{value}</span>
+            <span class="y-label">{value - 100}</span>
           </div>
         </Grid>
         <Grid vertical count={5} let:value>

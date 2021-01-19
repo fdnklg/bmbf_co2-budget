@@ -1,8 +1,15 @@
 <script>
   import { onMount } from 'svelte'
-  import { zipcodes, data, userInput, activeAnchor } from 'stores'
+  import {
+    zipcodes,
+    data,
+    userInput,
+    activeAnchor,
+    activeZipcode,
+  } from 'stores'
 
   import datasets from 'data'
+  let step
 
   import {
     parseDataEmissionen,
@@ -12,8 +19,7 @@
   } from 'utils'
 
   import { zipcodesUrl, sektorenUrl, airportsUrl, metadata } from 'config'
-
-  let step
+  import { steps } from 'constants'
 
   import Meta from 'components/Meta.svelte'
   import Header from 'components/Header/index.svelte'
@@ -36,19 +42,16 @@
     activeAnchor.set(e.detail)
   }
 
-  const steps = {
-    start: 'start',
-    emissionen: '1.0',
-    sektoren: '2.0',
-    szenarien: '3.0',
-    flughaefen: '4.0',
-  }
-
   onMount(async () => {
     let parsed = {}
     const codes = await loadFile(zipcodesUrl)
     const sektoren = await loadFile(sektorenUrl, ';')
     const airports = await loadFile(airportsUrl, ',')
+
+    const randomZipcode = parseInt(
+      codes.columns[parseInt(codes.columns.length * Math.random())]
+    )
+    activeZipcode.set(randomZipcode)
 
     parsed['emissionen'] = parseDataEmissionen(datasets)
     parsed['sektoren'] = parseDataSektoren(sektoren, datasets)
@@ -116,12 +119,17 @@
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.start}>
     <Anchor anchorId={steps.start} />
     <Section>
-      Unser gemeinsamer Austoß an Treibhausgasen ist einer der Haupt&shy;treiber des globalen Klimawandels. Der Großteil entfällt dabei auf CO2-Emmissionen.
+      Unser gemeinsamer Austoß an Treibhausgasen ist einer der Haupt&shy;treiber
+      des globalen Klimawandels. Der Großteil entfällt dabei auf
+      CO2-Emmissionen.
 
       <br />
       <br />
 
-      Auf viele Formen der CO2-Produktion haben wir, als Bürger*innen, nur indirekten Einfluss, z.B. durch unsere Kaufentscheidungen. Bei der Mobilität ist dies anders. Durch die Wahl unserer Verkehrsmittel und unsere Gewohnheiten können wir einen direkten Beitrag leisten.
+      Auf viele Formen der CO2-Produktion haben wir, als Bürger*innen, nur
+      indirekten Einfluss, z.B. durch unsere Kaufentscheidungen. Bei der
+      Mobilität ist dies anders. Durch die Wahl unserer Verkehrsmittel und
+      unsere Gewohnheiten können wir einen direkten Beitrag leisten.
     </Section>
   </IntersectionObserver>
 
@@ -133,7 +141,9 @@
   </IntersectionObserver>
 
   <Section>
-    Der große Anteil der PKWs an der CO2-Produktion im Bereich Verkehr legt nahe, dass es hier ein großes Potential für Einsparungen gibt, die wir Bürger*innen direkt Beeinflussen können.
+    Der große Anteil der PKWs an der CO2-Produktion im Bereich Verkehr legt
+    nahe, dass es hier ein großes Potential für Einsparungen gibt, die wir
+    Bürger*innen direkt Beeinflussen können.
   </Section>
 
   <Title>Verkehrs-Emissionen steigen weiter</Title>
@@ -144,9 +154,16 @@
   </IntersectionObserver>
 
   <Section>
-    Unser persönlicher Fußabdruck wird meistens in Tonnen oder Kilogramm CO2 umschrieben. Doch solche Angaben sind wenig hilfreich wenn wir verstehen wollen, was z.B. die Ziele der CO2-Reduktion im Kampf gegen den Klimawandel für uns im Alltag bedeuten.<br /><br />
-    Deshalb haben wir ein Werkzeug entwickelt, um CO2-Fußabdrücke in Bewegungsprofile zu übersetzen. Im folgenden kannst du dir dies auf dich persönlich zugeschnitten anzeigen lassen.<br /><br />
-    <strong>Privatsphäre geht vor:</strong> <i>Die von dir hier angegebenen Information werden von uns nicht gespeichert. Diese Seite nutzt keine Cookie- oder Tracking-Technologien.</i>
+    Unser persönlicher Fußabdruck wird meistens in Tonnen oder Kilogramm CO2
+    umschrieben. Doch solche Angaben sind wenig hilfreich wenn wir verstehen
+    wollen, was z.B. die Ziele der CO2-Reduktion im Kampf gegen den Klimawandel
+    für uns im Alltag bedeuten.<br /><br />
+    Deshalb haben wir ein Werkzeug entwickelt, um CO2-Fußabdrücke in
+    Bewegungsprofile zu übersetzen. Im folgenden kannst du dir dies auf dich
+    persönlich zugeschnitten anzeigen lassen.<br /><br />
+    <strong>Privatsphäre geht vor:</strong>
+    <i>Die von dir hier angegebenen Information werden von uns nicht
+      gespeichert. Diese Seite nutzt keine Cookie- oder Tracking-Technologien.</i>
   </Section>
 
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.szenarien}>
@@ -157,8 +174,12 @@
   {#if $userInput}
     <Szenarien />
     <Section>
-      Neben dem alltäglichen Verkehr, reisen viele von uns aber auch immer wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
-      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da dies extrem viel über dem deutschen Durchschnitt liegt.</small>
+      Neben dem alltäglichen Verkehr, reisen viele von uns aber auch immer
+      wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren
+      unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck
+      einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
+      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen,
+        da dies extrem viel über dem deutschen Durchschnitt liegt.</small>
     </Section>
 
     <IntersectionObserver
@@ -170,7 +191,10 @@
 
     <Section>
       <Title>Gemeinsam ans Ziel</Title>
-      Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass diejenigen die einen Beitrag leisten können, dies auch tun.<br /><br />
+      Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des
+      Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder
+      gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass
+      diejenigen die einen Beitrag leisten können, dies auch tun.<br /><br />
       Weiteres Mobilitätsprofil ausprobieren: ANCHOR LINK
     </Section>
 

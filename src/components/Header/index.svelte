@@ -1,11 +1,12 @@
 <script>
   import { szenarienData } from 'stores'
+  import { onInterval } from 'core/utils.js'
   import { onMount, afterUpdate } from 'svelte'
   import Map from 'components/Map/index.svelte'
-  import Indicator from './Indicator.svelte'
   import Icon from 'components/Icon.svelte'
 
   const szenarioIndices = [2, 3, 4]
+  let initial = true
 
   export let duration = 6000
   let szenarioIndex = 0
@@ -13,20 +14,20 @@
     ? $szenarienData[szenarioIndices[szenarioIndex]]
     : false
 
-  onMount(() => {
-    const interval = setInterval(() => {
-      szenarioIndex =
-        szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
-    }, duration)
-
-    return () => {
-      clearInterval(interval)
+  $: {
+    if ($szenarienData && !$szenarienData[szenarioIndices[szenarioIndex]]) {
+      setTimeout(() => {
+        szenarioIndex =
+          szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
+        initial = false
+      }, 500)
     }
-  })
-  afterUpdate(() => {
+  }
+
+  onInterval(() => {
     szenarioIndex =
       szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
-  })
+  }, duration)
 </script>
 
 <style lang="scss">
@@ -163,7 +164,8 @@
           <a target="_blank" href="https://fabiandinklage.com">FABIAN DINKLAGE</a></span>
         <p class="text">
           Unsere individuelle Mobilität hat einen spürbaren Einfluss auf den
-          Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der Mobilität ist.
+          Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der
+          Mobilität ist.
         </p>
       </div>
       <div class="start">
