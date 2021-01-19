@@ -166,27 +166,32 @@ button:focus {
   z-index: -1;
 }
 
+strong {
+  font-weight: normal;
+  font-family: 'Post Grotesk Bold';
+}
+
 /*----- Copy Adjustments -----*/
-.tile-paragraph strong.highlight-orange{
+.tile-paragraph strong.highlight-orange {
   color: rgb(231, 157, 103);
 }
 
-.tile-paragraph strong.highlight-traffic{
+.tile-paragraph strong.highlight-traffic {
   color: rgb(231, 118, 103);
 }
 
-.tile-paragraph strong.highlight-land{
+.tile-paragraph strong.highlight-land {
   color: rgb(64, 68, 85);
 }
 
-.tile-paragraph strong.highlight-energy{
+.tile-paragraph strong.highlight-energy {
   color: rgb(233, 205, 104);
 }
 
-.tile-paragraph strong.highlight-industry{
+.tile-paragraph strong.highlight-industry {
   color: rgb(133, 194, 165);
 }
 
-.tile-paragraph strong.highlight-waste{
+.tile-paragraph strong.highlight-waste {
   color: rgb(135, 170, 171);
 }
