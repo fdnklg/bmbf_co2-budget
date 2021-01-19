@@ -250,12 +250,14 @@ export const getColorScale = (
 export const sets = {
   car: [
     [],
+    [],
     ['car_2020'],
     ['car_2050_min', 'car_2050_max'],
     ['car_2050_bike_min', 'car_2050_bike_max'],
     [],
   ],
   car_mf: [
+    [],
     [],
     ['car_mf_2020'],
     ['car_mf_2050_min', 'car_mf_2050_max'],
@@ -264,11 +266,13 @@ export const sets = {
   ],
   ecar: [
     [],
+    [],
     ['ecar_2020'],
     ['ecar_2050_min', 'ecar_2050_max'],
     ['ecar_2050_bike_min', 'ecar_2050_bike_max'],
   ],
   public: [
+    [],
     [],
     ['public_2020'],
     ['public_2050_min', 'public_2050_max'],
@@ -276,6 +280,7 @@ export const sets = {
     [],
   ],
   bike: [
+    [],
     [],
     ['car_2020'],
     ['car_2050_min', 'car_2050_max'],

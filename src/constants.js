@@ -40,10 +40,14 @@ export const appendix = {
     'Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und auseinander setzen, was jener Begründer der Wahrheit und gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.Damit Ihr indess erkennt, woher dieser ganze Irrthum gekommen ist, und weshalb man die Lust anklagt und den Schmerz lobet, so will ich Euch Alles eröffnen und auseinander setzen, was jener Begründer der Wahrheit und gleichsam Baumeister des glücklichen Lebens selbst darüber gesagt hat.',
 }
 
+export const content = {
+  projectTitle: 'Wie weit komme ich mit meinem CO2-Budget?',
+}
+
 export const legendText = {
   future:
-    'Prognostizierte CO2 Emissionen in kg für Reisetyp zur Einhaltung der Klimaziele 2050',
-  today: 'CO2 Emissionen in kg für Reisedistanz und Reisetyp',
+    'Prognostizierte CO2 Emissionen in kg für deine Reisetyp zur Einhaltung der Klimaziele 2050',
+  today: 'CO2 Emissionen in kg für deine Reisedistanz und Reisetyp',
 }
 
 export const colors = {

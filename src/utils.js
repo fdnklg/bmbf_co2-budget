@@ -100,6 +100,12 @@ export const getDocumentHeight = () => {
   )
 }
 
+export const getWindowDimensions = () => {
+  if (typeof window.innerWidth == 'number') {
+    return [window.innerWidth, window.innerHeight]
+  }
+}
+
 export const observe = (target) => {
   const observer = new IntersectionObserver(
     (entries) => {

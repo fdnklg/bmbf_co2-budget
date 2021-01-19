@@ -132,8 +132,6 @@ export const szenarienData = derived(
             }
 
             isochrones.map(({ iso }) => {
-              // definiere stil des geojson als style objekt, was später übergeben wird
-              // @TODO: Style Funkion die alle Fälle abdeckt
               let style
 
               if (iso) {

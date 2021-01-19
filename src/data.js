@@ -147,7 +147,7 @@ export default {
       text: {
         title: 'Langsamer Abbau von Emissionen',
         paragraph:
-          'Viele Sektoren, wie z.B. <strong class="highlight-land">Landwirtschaft</strong>, <strong class="highlight-energy">Energie</strong>, <strong class="highlight-industry">Industrie</strong> oder <strong class="highlight-waste">Abfall</strong>, haben es seit 1990 geschaft ihren Ausstoß langsam zu verringern.',
+          'Viele Sektoren, wie z.B. <strong class="highlight-land">Landwirtschaft</strong>, <strong class="highlight-energy">Energie</strong>, <strong class="highlight-industry">Industrie</strong> oder <strong class="highlight-waste">Abfall</strong>, haben es seit 1990 geschafft ihren Ausstoß langsam zu verringern.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
@@ -267,7 +267,7 @@ export default {
       map: {
         zipcode: 41372,
         distance: 50,
-        zoom: 8.2,
+        zoom: 10,
         diameter: true,
       },
       widget: {
@@ -292,7 +292,7 @@ export default {
       map: {
         zipcode: 41372,
         distance: 50,
-        zoom: 8.2,
+        zoom: 10,
         diameter: true,
       },
       widget: {

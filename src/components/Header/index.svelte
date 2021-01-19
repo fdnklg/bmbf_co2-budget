@@ -1,7 +1,8 @@
 <script>
   import { szenarienData } from 'stores'
   import { onInterval } from 'core/utils.js'
-  import { onMount, afterUpdate } from 'svelte'
+  import { content } from 'constants'
+
   import Map from 'components/Map/index.svelte'
   import Icon from 'components/Icon.svelte'
 
@@ -13,16 +14,6 @@
   $: current = $szenarienData
     ? $szenarienData[szenarioIndices[szenarioIndex]]
     : false
-
-  $: {
-    if ($szenarienData && !$szenarienData[szenarioIndices[szenarioIndex]]) {
-      setTimeout(() => {
-        szenarioIndex =
-          szenarioIndex === szenarioIndices.length - 1 ? 0 : szenarioIndex + 1
-        initial = false
-      }, 500)
-    }
-  }
 
   onInterval(() => {
     szenarioIndex =
@@ -156,7 +147,7 @@
     <div class="gradient" />
     <div class="intro">
       <div class="inner">
-        <h1 class="title">Wie weit komme ich mit meinem CO2-Budget?</h1>
+        <h1 class="title">{content.projectTitle}</h1>
         <span class="authors">von
           <a target="_blank" href="https://www.sebastianmeier.eu/">SEBASTIAN
             MEIER</a>

@@ -161,8 +161,6 @@
     if (data && map) {
       const { geojson } = data
 
-      console.log('geojson ', geojson)
-
       const { centroid, travelType } = data
       const zoom = data.map.zoom
 

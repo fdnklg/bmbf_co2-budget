@@ -1,4 +1,8 @@
-import { d0to5, d5to20, d20to50, d50more, isLocal } from 'constants'
+import { d0to5, d5to20, d20to50, d50more, isLocal, content } from 'constants'
+import { getWindowDimensions } from 'utils'
+
+const dimensions = getWindowDimensions()
+
 export const s3Url = 'https://locobss-story-co2.s3.eu-central-1.amazonaws.com/'
 
 export const isoChronesUrl = isLocal ? `data/` : s3Url
@@ -6,7 +10,7 @@ export const isoChronesUrl = isLocal ? `data/` : s3Url
 export const activeProject = 'maps'
 
 export const metadata = {
-  title: 'Titel der Seite',
+  title: content.projectTitle,
   lang: 'de',
   twitter_site: '@BMBF_Bund',
   twitter_creator: '@fdnklg',
@@ -66,46 +70,46 @@ export const navItems = [
       {
         id: '1.1',
         label: 'Alle Verkehrsträger',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
       {
         id: '1.2',
         label: 'Straßenverkehr',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
       {
         id: '1.3',
         label: 'Autos',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
     ],
   },
   {
     id: '2.0',
     label: 'Sektoren',
-    offsetY: -400,
+    offsetY: -(dimensions[1] / 2),
     items: [
       {
         id: '2.1',
         label: 'Alle Verkehrsträger',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
       {
         id: '2.2',
         label: 'Straßenverkehr',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
       {
         id: '2.3',
         label: 'Autos',
-        offsetY: -400,
+        offsetY: -(dimensions[1] / 2),
       },
     ],
   },
   {
     id: '3.0',
     label: 'Szenarien',
-    offsetY: -400,
+    offsetY: -(dimensions[1] / 2),
     items: [
       {
         id: '3.1',

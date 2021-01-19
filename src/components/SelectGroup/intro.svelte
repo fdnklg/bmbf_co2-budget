@@ -1,7 +1,7 @@
 <script>
   export let title
   export let subtitle
-  export let subtitleClassname
+  export let subtitleClassname = ''
 </script>
 
 <style lang="scss">
@@ -40,5 +40,7 @@
 
 <div class="intro">
   <h2 class="title">{title}</h2>
-  <p class="subtitle {subtitleClassname}">{subtitle}</p>
+  <p class="subtitle {subtitleClassname}">
+    {@html subtitle}
+  </p>
 </div>

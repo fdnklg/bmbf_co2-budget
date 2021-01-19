@@ -3,6 +3,7 @@
   export let full = false
   export let large = false
   export let isMap = false
+  export let small = false
 </script>
 
 <style lang="scss">
@@ -37,6 +38,10 @@
     width: 100%;
   }
 
+  .small {
+    width: calc(100% - 40px);
+  }
+
   .active {
     opacity: 0.999;
     background-image: linear-gradient(to top left, $color-tile-light, #f6f8f9);
@@ -47,6 +52,6 @@
 </style>
 
 <div
-  class="tile {active ? 'active' : ''} {large ? 'large' : ''} {isMap ? 'map' : ''} {full ? 'full' : ''}">
+  class="tile {small ? 'small' : ''} {active ? 'active' : ''} {large ? 'large' : ''} {isMap ? 'map' : ''} {full ? 'full' : ''}">
   <slot />
 </div>

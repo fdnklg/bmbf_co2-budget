@@ -24,6 +24,11 @@
     width: fit-content;
     cursor: pointer;
     opacity: 1;
+    transition: all 0.125s ease-in-out;
+
+    &:hover {
+      opacity: 0.6;
+    }
 
     &.primary {
       background-color: $color-main;

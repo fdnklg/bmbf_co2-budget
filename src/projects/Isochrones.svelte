@@ -1,4 +1,5 @@
 <script>
+  import * as animateScroll from 'svelte-scrollto'
   import { onMount } from 'svelte'
   import {
     zipcodes,
@@ -7,6 +8,8 @@
     activeAnchor,
     activeZipcode,
   } from 'stores'
+
+  import Button from 'components/Button.svelte'
 
   import datasets from 'data'
   let step
@@ -40,6 +43,13 @@
   function handleActiveStep(e) {
     step = e.detail
     activeAnchor.set(e.detail)
+  }
+
+  function scrollToOnboarding() {
+    animateScroll.scrollTo({
+      element: `[id='anchor-3.0']`,
+      offset: 0,
+    })
   }
 
   onMount(async () => {
@@ -195,7 +205,11 @@
       Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder
       gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass
       diejenigen die einen Beitrag leisten können, dies auch tun.<br /><br />
-      Weiteres Mobilitätsprofil ausprobieren: ANCHOR LINK
+
+      <p>Weitere Mobilitätsprofile ausprobieren:</p>
+      <Button primary={true} handleClick={scrollToOnboarding}>
+        Zur Auswahl
+      </Button>
     </Section>
 
     <Share />

@@ -26,7 +26,6 @@
     right: $space-l;
     align-items: center;
   }
-
   .label {
     padding-right: 5px;
     color: $color-main-60;
@@ -64,7 +63,7 @@
 </style>
 
 <div class="social container">
-  <Tile full={true} active={true}>
+  <Tile small={true} full={true} active={true}>
     <h3 class="title">Hat dir der Artikel gefallen?</h3>
     <span class="label">Dann teile ihn mit deinen Freunden</span>
     <div class="icons">

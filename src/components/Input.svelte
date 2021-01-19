@@ -1,5 +1,7 @@
 <script>
   import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
+  import { getWindowDimensions } from 'utils'
+
   import * as animateScroll from 'svelte-scrollto'
   import Button from 'components/Button.svelte'
 
@@ -12,9 +14,9 @@
   function scrollToFirstScene() {
     animateScroll.scrollTo({
       element: `[id='anchor-3.1']`,
-      offset: -30,
+      offset: -60,
       duration: 1500,
-      delay: 1000,
+      delay: 0,
     })
   }
 
@@ -37,7 +39,7 @@
         scrollToFirstScene()
         userInput.set(true)
       }
-    }, 250)
+    }, 500)
   }
 
   const disable = (e) => {
@@ -54,7 +56,7 @@
 
     setTimeout(() => {
       scrollToFirstScene()
-    }, 250)
+    }, 500)
   }
 
   const setIconName = (isValid, isEditing) => {
@@ -90,7 +92,7 @@
     max-width: 50%;
     outline: none;
     background-color: white;
-    border: 1px solid $color-main-20;
+    border: 2px solid $color-main-20;
     flex-direction: column;
     box-shadow: none;
     @include transition-s;

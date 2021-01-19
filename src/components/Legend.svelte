@@ -7,7 +7,7 @@
   $: legendData = data ? data.legend : null
 
   function formatNumber(number) {
-    if (number === 'Reisedistanz') return number
+    if (number === 'Deine Reisedistanz') return number
     return `> ${number / 1000} kg`
   }
 </script>
@@ -69,7 +69,7 @@
       {#each legendData.values as value}
         <div class="item">
           <div
-            class="dot {value.value === 'Reisedistanz' ? 'dashed' : ''}"
+            class="dot {value.value === 'Deine Reisedistanz' ? 'dashed' : ''}"
             style="background-color: {value.fill}; border: 1px solid {value.stroke}" />
           <span class="label">{formatNumber(value.value)}</span>
         </div>

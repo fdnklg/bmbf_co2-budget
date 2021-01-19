@@ -147,7 +147,7 @@
   :global(.annotation-label) {
     font-family: 'Post Grotesk Bold';
     border-radius: 3px;
-    padding: 3px 5px;
+    padding: 1px 4px;
     @include travel-type-color(background-color, $light: true);
     @include travel-type-color(color, $light: false);
     color: white;
