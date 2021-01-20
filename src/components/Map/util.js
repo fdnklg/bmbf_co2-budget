@@ -2,6 +2,7 @@ import { dsvFormat } from 'd3-dsv'
 import union from '@turf/union'
 import difference from 'turf-difference'
 import bboxPolygon from '@turf/bbox-polygon'
+import bbox from '@turf/bbox'
 
 export const createFeature = (path, style) => {
   let coords = path
@@ -54,10 +55,34 @@ export const createBoundingBox = (cutOutFeat) => {
     //   return polys.features[0]
     // })
 
-    // united = cutOutFeat[0]
-    // for (let i = 1; i < cutOutFeat.length; i += 1) {
-    //   united = union.default(united, cutOutFeat[i])
-    // }
+    // there were problems with some polygons not willing to be combined
+    // after some trial and error it looks like polygons that are within another polygon are the problem
+    // so we simply either ignore or replace those...
+    united = cutOutFeat[0]
+    for (let i = 1; i < cutOutFeat.length; i += 1) {
+      const bb1 = bbox(united);
+      const bb2 = bbox(cutOutFeat[i]);
+
+      // bb2 in bb1
+      if (
+        bb2[0] > bb1[0] && bb2[0] < bb1[2] &&
+        bb2[1] > bb1[1] && bb2[1] < bb1[3] &&
+        bb2[2] > bb1[0] && bb2[2] < bb1[2] &&
+        bb2[3] > bb1[1] && bb2[3] < bb1[3]
+      ) {
+        // ignore this one its within united
+      } else if (
+        bb1[0] > bb2[0] && bb1[0] < bb2[2] &&
+        bb1[1] > bb2[1] && bb1[1] < bb2[3] &&
+        bb1[2] > bb2[0] && bb1[2] < bb2[2] &&
+        bb1[3] > bb2[1] && bb1[3] < bb2[3]
+      ) {
+        united = cutOutFeat[i];
+      } else {
+        // looks like there is an overlap
+        united = union.default(united, cutOutFeat[i])
+      }
+    }
   }
 
   let bboxEurope = [-5.2288281645, 42.0255985816, 25.622332041, 58.9956007543]
