@@ -54,10 +54,10 @@ export const createBoundingBox = (cutOutFeat) => {
     //   return polys.features[0]
     // })
 
-    united = cutOutFeat[0]
-    for (let i = 1; i < cutOutFeat.length; i += 1) {
-      united = union.default(united, cutOutFeat[i])
-    }
+    // united = cutOutFeat[0]
+    // for (let i = 1; i < cutOutFeat.length; i += 1) {
+    //   united = union.default(united, cutOutFeat[i])
+    // }
   }
 
   let bboxEurope = [-5.2288281645, 42.0255985816, 25.622332041, 58.9956007543]

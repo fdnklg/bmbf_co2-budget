@@ -52,7 +52,7 @@ export const distancesData = derived(
       // [distance, co2, x-, y-coordinates]
       const getData = async () => {
         const distances = await fetchJson(
-          `${s3Url}distances/${$activeZipcode}.json`
+          `${s3Url}distances/${parseInt($activeZipcode)}.json`
         )
         let data = []
         const cityKeys = Object.keys(distances.cities)
@@ -88,10 +88,10 @@ export const szenarienData = derived(
         const jsonKey = `${$activeZipcode}-${$travelType}`
         if (!cache[jsonKey]) {
           const centroid = await fetchJson(
-            `${s3Url}centroids/${$activeZipcode}.json`
+            `${s3Url}centroids/${parseInt($activeZipcode)}.json`
           )
           const isoJson = await fetchJson(
-            `${isoChronesUrl}isochrones/${$activeZipcode}_${$travelType}.json`
+            `${isoChronesUrl}isochrones/${parseInt($activeZipcode)}_${$travelType}.json`
           )
           cache[jsonKey] = { centroid, isoJson }
         }
