@@ -28,18 +28,21 @@
     if (isValid) {
       activeZipcode.set(value)
     }
+    return isValid
   }
 
   const handleSubmit = (e) => {
-    validate()
+    const valid = validate()
     disable(e)
+    if (valid) {
+      userInput.set(true)
+    }
 
     setTimeout(() => {
       if (isValid) {
         scrollToFirstScene()
-        userInput.set(true)
       }
-    }, 500)
+    }, 50)
   }
 
   const disable = (e) => {
@@ -56,7 +59,7 @@
 
     setTimeout(() => {
       scrollToFirstScene()
-    }, 500)
+    }, 50)
   }
 
   const setIconName = (isValid, isEditing) => {
