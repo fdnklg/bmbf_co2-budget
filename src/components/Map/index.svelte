@@ -14,9 +14,9 @@
     getMap: () => map,
   })
 
-  export let lat
-  export let lon
-  export let zoom
+  export let lat = false
+  export let lon = false
+  export let zoom = false
 
   let container
   $: tType = 'bike'
@@ -25,8 +25,8 @@
     map = new Map({
       container,
       style: 'mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77',
-      center: [lon, lat],
-      zoom,
+      center: [lat, lon],
+      zoom: zoom,
       dragPan: false,
       scrollZoom: false,
       accessToken,

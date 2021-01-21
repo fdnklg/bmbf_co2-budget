@@ -141,7 +141,7 @@
           hasPulsingDot={true}
           lat={current.centroid.x}
           lon={current.centroid.y}
-          zoom={[current.centroid.zoom]} />
+          zoom={[current.map.zoom]} />
       {/if}
     </div>
     <div class="gradient" />
