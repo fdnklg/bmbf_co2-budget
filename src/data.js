@@ -186,11 +186,7 @@ export default {
   szenarien: [
     {
       step: '3.1',
-      text: {
-        title: 'Szenarien Titel 01',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.1'][get(travelType)],
@@ -210,11 +206,7 @@ export default {
     },
     {
       step: '3.2',
-      text: {
-        title: 'Szenarien Titel 02',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.2'][get(travelType)],
@@ -234,11 +226,7 @@ export default {
     },
     {
       step: '3.3',
-      text: {
-        title: 'Szenarien Titel 03',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.3'][get(travelType)],
@@ -258,11 +246,7 @@ export default {
     },
     {
       step: '3.4',
-      text: {
-        title: 'Szenarien Titel 04',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.4'][get(travelType)],
@@ -282,11 +266,7 @@ export default {
     },
     {
       step: '3.5',
-      text: {
-        title: 'Szenarien Titel 04',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.5'][get(travelType)],
@@ -306,11 +286,7 @@ export default {
     },
     {
       step: '3.6',
-      text: {
-        title: 'Szenarien Titel 04',
-        paragraph:
-          'Lorem ipsum dolor sit amet, consectetur adipisici elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquid ex ea commodi consequat.',
-      },
+      text: {},
       map: {
         distance: 50,
         zoom: zoomLevels['step-3.6'][get(travelType)],

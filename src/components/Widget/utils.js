@@ -253,22 +253,23 @@ export const sets = {
     [],
     ['car_2020'],
     ['car_2050_min', 'car_2050_max'],
+    ['public_2050_min', 'public_2050_max'],
     ['car_2050_bike_min', 'car_2050_bike_max'],
-    [],
   ],
   car_mf: [
     [],
     [],
     ['car_mf_2020'],
     ['car_mf_2050_min', 'car_mf_2050_max'],
+    ['public_2050_min', 'public_2050_max'],
     ['car_mf_2050_bike_min', 'car_mf_2050_bike_max'],
-    [],
   ],
   ecar: [
     [],
     [],
     ['ecar_2020'],
     ['ecar_2050_min', 'ecar_2050_max'],
+    ['public_2050_min', 'public_2050_max'],
     ['ecar_2050_bike_min', 'ecar_2050_bike_max'],
   ],
   public: [
@@ -276,8 +277,8 @@ export const sets = {
     [],
     ['public_2020'],
     ['public_2050_min', 'public_2050_max'],
+    ['car_2050_min', 'car_2050_max'],
     ['public_2050_bike_min', 'public_2050_bike_max'],
-    [],
   ],
   bike: [
     [],
@@ -319,6 +320,15 @@ export const setsNew = {
       { iso: null, annotation: 'distance', highlight: false },
     ],
     [
+      { iso: 'public_2050_min', highlight: false },
+      {
+        iso: 'public_2050_max',
+        highlight: true,
+        annotation: 'public_2050_max',
+      },
+      { iso: null, highlight: false },
+    ],
+    [
       { iso: 'car_2050_bike_min', highlight: false },
       {
         iso: 'car_2050_bike_max',
@@ -327,7 +337,6 @@ export const setsNew = {
       },
       { iso: null, highlight: false },
     ],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
   ],
   car_mf: [
     [{ iso: null, highlight: true, annotation: 'distance' }],

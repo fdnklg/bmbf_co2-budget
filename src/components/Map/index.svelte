@@ -4,6 +4,7 @@
 
   import { Map, key, accessToken } from './mapbox.js'
   import { createGeojson } from './util'
+  import bbox from '@turf/bbox'
 
   export let hasPulsingDot
   export let data
@@ -31,6 +32,8 @@
       scrollZoom: false,
       accessToken,
     })
+
+    map.doubleClickZoom.disable()
 
     map.on('load', () => {
       map.addSource('layers', { type: 'geojson', data: createGeojson() })
@@ -164,6 +167,7 @@
 
       if (source && centroid) {
         source.setData(geojson)
+
         map.setLayoutProperty('icons', 'icon-image', travelType)
 
         map.setPaintProperty('dist', 'line-opacity', ['get', 'stroke-opacity'])
@@ -178,10 +182,32 @@
           'stroke-opacity',
         ])
 
-        map.flyTo({
-          center: [centroid.x, centroid.y],
-          zoom: zoom,
-        })
+        // map.flyTo({
+        //   center: [centroid.x, centroid.y],
+        //   zoom: zoom,
+        // })
+        
+        const boundGeoJson = JSON.parse(JSON.stringify(geojson))
+        if (boundGeoJson.features.length > 3) {
+          const remove = [];
+          boundGeoJson.features.forEach((f, fi) => {
+            if ('id' in f.properties && (f.properties.id === 'bounding-box' || f.properties.id === 'pulsingDot' || f.properties.id === 'distance')) {
+              remove.push(fi)
+            }
+          });
+          for (let i = remove.length - 1; i >= 0; i -= 1) {
+            boundGeoJson.features.splice(remove[i], 1);
+          }
+        }
+
+        const padding = (window.innerWidth < 500) ? 20 : 50;
+        console.log(padding);
+
+        map.fitBounds(
+          bbox(boundGeoJson), { 
+            padding
+          }
+        );
 
         tType = travelType
       }

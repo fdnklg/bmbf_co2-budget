@@ -106,7 +106,6 @@ export const szenarienData = derived(
           szenario.centroid = centroid
           szenario.mobility = mobility
           szenario.airport = airport
-          szenario.travelType = $travelType
           szenario.space = spaceTypes[regiostar]
 
           szenario.map.zoom = zoomLevels[`step-${szenario.step}`][$travelType]
@@ -122,6 +121,8 @@ export const szenarienData = derived(
             space,
             dProzent
           )
+
+          szenario.travelType = szenario.text.travelType
 
           // erstelle geojson
           const geojson = createGeojson()
