@@ -6,15 +6,15 @@
   animateScroll.setGlobalOptions({
     offset: 200,
     duration: 750,
-    onStart: (element, offset) => {
-      if (element) {
-        console.log('Start scrolling to element:', element)
-      } else if (offset) {
-        console.log(
-          `Start scrolling to page offset: (${offset.x}, ${offset.y})`
-        )
-      }
-    },
+    // onStart: (element, offset) => {
+    //   if (element) {
+    //     console.log('Start scrolling to element:', element)
+    //   } else if (offset) {
+    //     console.log(
+    //       `Start scrolling to page offset: (${offset.x}, ${offset.y})`
+    //     )
+    //   }
+    // },
   })
 
   function isVisible(step) {

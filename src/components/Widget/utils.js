@@ -311,30 +311,30 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'car_2050_min', highlight: false },
       {
         iso: 'car_2050_max',
         highlight: true,
         annotation: 'Emissionen: Einhaltung der Klimaziele 2050',
       },
+      { iso: 'car_2050_min', highlight: false },
       { iso: null, annotation: 'distance', highlight: false },
     ],
     [
-      { iso: 'public_2050_min', highlight: false },
       {
         iso: 'public_2050_max',
         highlight: true,
         annotation: 'public_2050_max',
       },
+      { iso: 'public_2050_min', highlight: false },
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'car_2050_bike_min', highlight: false },
       {
         iso: 'car_2050_bike_max',
         highlight: true,
         annotation: 'car_2050_bike_max',
       },
+      { iso: 'car_2050_bike_min', highlight: false },
       { iso: null, highlight: false },
     ],
   ],
@@ -346,24 +346,32 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'car_mf_2050_min', highlight: false },
       {
         iso: 'car_mf_2050_max',
         highlight: true,
         annotation: 'car_mf_2050_max',
       },
+      { iso: 'car_mf_2050_min', highlight: false },
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'car_mf_2050_bike_min', highlight: false },
+      {
+        iso: 'public_2050_max',
+        highlight: true,
+        annotation: 'public_2050_max',
+      },
+      { iso: 'public_2050_min', highlight: false },
+      { iso: null, highlight: false },
+    ],
+    [
       {
         iso: 'car_mf_2050_bike_max',
         highlight: true,
         annotation: 'car_mf_2050_bike_max',
       },
+      { iso: 'car_mf_2050_bike_min', highlight: false },
       { iso: null, highlight: false },
     ],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
   ],
   ecar: [
     [{ iso: null, highlight: true, annotation: 'distance' }],
@@ -373,22 +381,31 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'ecar_2050_min', highlight: false },
       { iso: 'ecar_2050_max', highlight: true, annotation: 'ecar_2050_max' },
+      { iso: 'ecar_2050_min', highlight: false },
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'ecar_2050_bike_min', highlight: false },
+      {
+        iso: 'public_2050_max',
+        highlight: true,
+        annotation: 'public_2050_max',
+      },
+      { iso: 'public_2050_min', highlight: false },
+      { iso: null, highlight: false },
+    ],
+    [
       {
         iso: 'ecar_2050_bike_max',
         highlight: true,
         annotation: 'ecar_2050_bike_max',
       },
-      { iso: null, highlight: false },
+      { iso: 'ecar_2050_bike_min', highlight: false },
+      { iso: null, highlight: true, annotation: 'distance' },
     ],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
   ],
   public: [
+    [{ iso: null, highlight: true, annotation: 'distance' }],
     [{ iso: null, highlight: true, annotation: 'distance' }],
     [
       { iso: 'public_2020', highlight: true, annotation: 'public_2020' },
@@ -401,6 +418,25 @@ export const setsNew = {
         highlight: true,
         annotation: 'public_2050_max',
       },
+      {
+        iso: 'public_2050_min',
+        highlight: true,
+        annotation: 'public_2050_min',
+      },
+      { iso: null, highlight: false },
+    ],
+    [
+      // { iso: 'public_2050_min', highlight: false},
+      {
+        iso: 'car_2050_max',
+        highlight: true,
+        annotation: 'car_2050_max',
+      },
+      {
+        iso: 'car_2050_min',
+        highlight: true,
+        annotation: 'car_2050_min',
+      },
       { iso: null, highlight: false },
     ],
     [
@@ -410,10 +446,13 @@ export const setsNew = {
         highlight: true,
         annotation: 'public_2050_bike_max',
       },
+      {
+        iso: 'public_2050_bike_min',
+        highlight: true,
+        annotation: 'public_2050_bike_min',
+      },
       { iso: null, highlight: false },
     ],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
   ],
   bike: [
     [{ iso: null, highlight: true, annotation: 'distance' }],
@@ -423,12 +462,12 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      // { iso: 'car_2050_min', highlight: false},
+      { iso: 'car_2050_min', highlight: true, annotation: 'car_2050_min' },
       { iso: 'car_2050_max', highlight: true, annotation: 'car_2050_max' },
       { iso: null, highlight: false },
     ],
     [
-      // { iso: 'bike_2050_car_min', highlight: false},
+      { iso: 'bike_2050_car_min', highlight: false},
       {
         iso: 'bike_2050_car_max',
         highlight: true,
@@ -436,7 +475,15 @@ export const setsNew = {
       },
       { iso: null, highlight: false },
     ],
-    [{ iso: null, highlight: true, annotation: 'distance' }],
+    [
+      { iso: 'bike_2050_public_min', highlight: false},
+      {
+        iso: 'bike_2050_public_max',
+        highlight: true,
+        annotation: 'bike_2050_public_max',
+      },
+      { iso: null, highlight: false },
+    ],
   ],
 }
 

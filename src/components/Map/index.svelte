@@ -201,8 +201,7 @@
         }
 
         const padding = (window.innerWidth < 500) ? 20 : 50;
-        console.log(padding);
-
+        
         map.fitBounds(
           bbox(boundGeoJson), { 
             padding

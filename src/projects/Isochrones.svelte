@@ -201,6 +201,7 @@
 
     <Section>
       <Title>Gemeinsam ans Ziel</Title>
+      Natürlich ist es am Ende des Tages nicht so einfach, denn neben Mobilität produzieren wir in all unseren anderen Lebensbereich ebenfalls CO2 und unser gesamter Fußabdruck setzt sich aus all dem zusammen. Nichtsdesto trotz soll dieser Artikel darauf aufmerksam machen, welchen Einfluss unsere Wahl der Fortbewegungsmittel auf unseren CO2-Fußabdruck hat und was die Klimaziele für unsere Mobilität bedeuten.<br /><br /> 
       Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des
       Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder
       gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass
