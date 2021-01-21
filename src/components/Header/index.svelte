@@ -139,8 +139,8 @@
           data={current}
           animate={true}
           hasPulsingDot={true}
-          lat={current.centroid.x}
-          lon={current.centroid.y}
+          lat={current.centroid.y}
+          lon={current.centroid.x}
           zoom={[current.map.zoom]} />
       {/if}
     </div>

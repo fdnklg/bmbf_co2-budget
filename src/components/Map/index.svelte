@@ -25,7 +25,7 @@
     map = new Map({
       container,
       style: 'mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77',
-      center: [lat, lon],
+      center: [lon, lat],
       zoom: zoom,
       dragPan: false,
       scrollZoom: false,
