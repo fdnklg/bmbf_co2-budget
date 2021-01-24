@@ -12,7 +12,7 @@
   import { point } from '@turf/helpers'
 
   import Select from 'components/Select.svelte'
-  import Intro from 'components/SelectGroup/Intro.svelte'
+  import Intro from 'components/SelectGroup/intro.svelte'
   import SelectGroup from 'components/SelectGroup/index.svelte'
   import Loading from 'components/Loading.svelte'
   import Tile from 'components/Tile.svelte'

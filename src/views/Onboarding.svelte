@@ -2,7 +2,7 @@
   import SelectGroup from 'components/SelectGroup/index.svelte'
   import Input from 'components/Input.svelte'
   import Tile from 'components/Tile.svelte'
-  import Intro from 'components/SelectGroup/Intro.svelte'
+  import Intro from 'components/SelectGroup/intro.svelte'
 
   import { travelTypes, distances } from 'config'
   import { getDocumentHeight } from 'utils'
