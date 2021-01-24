@@ -6,7 +6,7 @@
   import Loading from 'components/Loading.svelte'
   import ChartEmissionen from 'components/ChartEmissionen.svelte'
   import LayoutScrollytelling from 'components/LayoutScrollytelling.svelte'
-  import IntersectionObserver from 'components/IntersectionObserver.svelte'
+  import IntersectionObserver from 'components/Intersectionobserver.svelte'
 
   let step
   $: currentData = $data ? $data['emissionen'] : null
@@ -61,7 +61,9 @@
             <Anchor anchorId={item.step} />
             <Tile active={item.step === step}>
               <h3 class="tile-title">{item.text.title}</h3>
-              <p class="tile-paragraph">{@html item.text.paragraph}</p>
+              <p class="tile-paragraph">
+                {@html item.text.paragraph}
+              </p>
             </Tile>
           </IntersectionObserver>
         {/each}
