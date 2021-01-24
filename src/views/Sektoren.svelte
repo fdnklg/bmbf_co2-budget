@@ -6,7 +6,7 @@
   import Anchor from 'components/Navigation/Anchor.svelte'
   import ChartSektoren from 'components/ChartSektoren.svelte'
   import LayoutScrollytelling from 'components/LayoutScrollytelling.svelte'
-  import IntersectionObserver from 'components/IntersectionObserver.svelte'
+  import IntersectionObserver from 'components/Intersectionobserver.svelte'
 
   $: currentData = $data ? $data['sektoren'] : null
   let stepVis
@@ -58,7 +58,9 @@
             <Anchor anchorId={item.step} />
             <Tile active={item.step === stepVis}>
               <h3 class="tile-title">{item.text.title}</h3>
-              <p class="tile-paragraph">{@html item.text.paragraph}</p>
+              <p class="tile-paragraph">
+                {@html item.text.paragraph}
+              </p>
             </Tile>
           </IntersectionObserver>
         {/each}

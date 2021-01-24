@@ -5,7 +5,7 @@
   import Anchor from 'components/Navigation/Anchor.svelte'
   import Loading from 'components/Loading.svelte'
   import Legend from 'components/Legend.svelte'
-  import IntersectionObserver from 'components/IntersectionObserver.svelte'
+  import IntersectionObserver from 'components/Intersectionobserver.svelte'
   import Tile from 'components/Tile.svelte'
 
   function handleActiveStep(e) {
