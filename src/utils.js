@@ -234,8 +234,8 @@ export const createSzenarioText = (
     car_mf: 'Auto',
     ecar: 'Auto',
     bike: 'Fahrrad',
-    public: 'ÖPNV'
-  };
+    public: 'ÖPNV',
+  }
 
   const texte = {
     3.1: {

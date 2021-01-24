@@ -24,9 +24,9 @@
     margin: auto;
 
     @include respond-max-screen-phablet {
-      height: 100px;
-      padding-left: 30px;
-      width: calc(100% - 50px);
+      height: 130px;
+      padding-left: 10px;
+      width: calc(100% - 40px);
     }
   }
 
@@ -56,7 +56,7 @@
 
   .grid-line.horizontal {
     width: auto;
-    border-bottom: 1px dashed #ccc;
+    border-bottom: 1px solid $color-main-20;
   }
 
   .data {
@@ -81,10 +81,19 @@
   .x-label {
     position: absolute;
     width: 4em;
-    bottom: -32px;
+    bottom: -28px;
     font-size: 13px;
     text-align: center;
+    transform: translateX(-50%);
     color: $color-main-60;
+  }
+
+  .x-tip {
+    width: 1px;
+    height: 5px;
+    position: absolute;
+    bottom: -5px;
+    background-color: $color-main-20;
   }
 
   .label {
@@ -116,7 +125,7 @@
     }
 
     span.y-label-desc {
-      left: -31px;
+      left: -23px;
       top: -35px;
       color: $color-main-60;
       font-size: 13px;
@@ -191,6 +200,7 @@
         </Grid>
         <Grid vertical count={5} let:value>
           <span class="x-label">{value}</span>
+          <div class="x-tip" />
         </Grid>
         <Svg>
           {#each dataSektoren.d as sektor}
@@ -208,17 +218,6 @@
             </Line>
           {/each}
         </Svg>
-        {#each dataSektoren.d as sektor}
-          {#if sektor.name === 'Verkehr' && step === '2.3'}
-            <Point
-              x={sektor.data.slice(-1)[0].x - 2}
-              y={sektor.data.slice(-1)[0].y + 27}>
-              <p style="color: {sektor.color.main}" class="label value">
-                {@html `${sektor.data.slice(-1)[0].y}%`}
-              </p>
-            </Point>
-          {/if}
-        {/each}
         {#each dataSektoren.d as sektor}
           <Point
             x={sektor.data.slice(-1)[0].x + 0.5}

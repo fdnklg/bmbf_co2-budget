@@ -161,7 +161,6 @@
       const { geojson } = data
 
       const { centroid, travelType } = data
-      const zoom = data.map.zoom
 
       const source = map.getSource('layers')
 
@@ -186,27 +185,30 @@
         //   center: [centroid.x, centroid.y],
         //   zoom: zoom,
         // })
-        
+
         const boundGeoJson = JSON.parse(JSON.stringify(geojson))
         if (boundGeoJson.features.length > 3) {
-          const remove = [];
+          const remove = []
           boundGeoJson.features.forEach((f, fi) => {
-            if ('id' in f.properties && (f.properties.id === 'bounding-box' || f.properties.id === 'pulsingDot' || f.properties.id === 'distance')) {
+            if (
+              'id' in f.properties &&
+              (f.properties.id === 'bounding-box' ||
+                f.properties.id === 'pulsingDot' ||
+                f.properties.id === 'distance')
+            ) {
               remove.push(fi)
             }
-          });
+          })
           for (let i = remove.length - 1; i >= 0; i -= 1) {
-            boundGeoJson.features.splice(remove[i], 1);
+            boundGeoJson.features.splice(remove[i], 1)
           }
         }
 
-        const padding = (window.innerWidth < 500) ? 20 : 50;
-        
-        map.fitBounds(
-          bbox(boundGeoJson), { 
-            padding
-          }
-        );
+        const padding = window.innerWidth < 500 ? 20 : 50
+
+        map.fitBounds(bbox(boundGeoJson), {
+          padding,
+        })
 
         tType = travelType
       }

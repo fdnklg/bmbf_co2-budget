@@ -35,6 +35,11 @@
     }
   }
 
+  .extra {
+    margin-bottom: 75vh;
+    overflow: scroll;
+  }
+
   .sticky {
     height: 100vh;
     width: 100vw;
@@ -56,17 +61,21 @@
         zoom={6} />
       <Legend {step} />
     </div>
-    {#each data as item}
-      <div class="szenario">
+    {#each data as item, i}
+      <div class="szenario {i === data.length - 1 ? 'extra' : ''}">
         <Anchor anchorId={item.step}>
           <IntersectionObserver
             rootMargin={`-${0.25 * 100}% 0% -${100 - 0.55 * 100}% 0%`}
             on:step={handleActiveStep}
             bind:step={item.step}>
-            <Tile isMap={true} active={item.step === step}>
-              <h3 class="tile-title">{item.text.title}</h3>
-              <p class="tile-paragraph">{@html item.text.paragraph}</p>
-            </Tile>
+            {#if item.text}
+              <Tile isMap={true} active={item.step === step}>
+                <h3 class="tile-title">{item.text.title}</h3>
+                <p class="tile-paragraph">
+                  {@html item.text.paragraph}
+                </p>
+              </Tile>
+            {/if}
           </IntersectionObserver>
         </Anchor>
       </div>

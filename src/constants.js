@@ -72,51 +72,6 @@ export const legendText = {
   today: 'CO2 Emissionen in kg für deine Reisedistanz und Reisetyp',
 }
 
-export const zoomLevels = {
-  'step-3.1': {
-    car: 8,
-    ecar: 8,
-    car_mf: 8,
-    public: 8,
-    bike: 8,
-  },
-  'step-3.2': {
-    car: 8.5,
-    ecar: 8,
-    car_mf: 8,
-    public: 7,
-    bike: 8,
-  },
-  'step-3.3': {
-    car: 8.5,
-    ecar: 7.5,
-    car_mf: 7.5,
-    public: 8.6,
-    bike: 8,
-  },
-  'step-3.4': {
-    car: 10,
-    ecar: 8.5,
-    car_mf: 9,
-    public: 8.2,
-    bike: 8,
-  },
-  'step-3.5': {
-    car: 9.6,
-    ecar: 7.6,
-    car_mf: 9,
-    public: 8,
-    bike: 8,
-  },
-  'step-3.6': {
-    car: 8,
-    ecar: 8,
-    car_mf: 8,
-    public: 8,
-    bike: 8,
-  },
-}
-
 export const colors = {
   car: {
     main: '#E79D67',

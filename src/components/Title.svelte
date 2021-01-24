@@ -14,6 +14,7 @@
 
     @include respond-max-screen-phablet {
       max-width: auto;
+      line-height: $line-height-s;
       font-size: $font-size-l;
       width: calc(100% - 60px);
     }

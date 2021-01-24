@@ -114,27 +114,27 @@ export const navItems = [
       {
         id: '3.1',
         label: 'Dein Reisestil',
-        offsetY: -25,
+        offsetY: -55,
       },
       {
         id: '3.2',
         label: 'Deutscher Durchschnitt',
-        offsetY: -25,
+        offsetY: -55,
       },
       {
         id: '3.3',
         label: 'Klimaziele 2050',
-        offsetY: -25,
+        offsetY: -55,
       },
       {
         id: '3.4',
         label: 'Mobilitätsmix',
-        offsetY: -25,
+        offsetY: -55,
       },
       {
         id: '3.5',
         label: 'Das Rad',
-        offsetY: -25,
+        offsetY: -55,
       },
     ],
   },

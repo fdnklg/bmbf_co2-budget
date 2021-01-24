@@ -22,7 +22,6 @@ import {
   createCircle,
   createBoundingBox,
 } from 'components/Map/util.js'
-import { zoomLevels } from './constants'
 
 export const activeWaypoint = writable(null)
 export const activeVis = writable(null)
@@ -91,13 +90,17 @@ export const szenarienData = derived(
             `${s3Url}centroids/${parseInt($activeZipcode)}.json`
           )
           const isoJson = await fetchJson(
-            `${isoChronesUrl}isochrones/${parseInt($activeZipcode)}_${$travelType}.json`
+            `${isoChronesUrl}isochrones/${parseInt(
+              $activeZipcode
+            )}_${$travelType}.json`
           )
           cache[jsonKey] = { centroid, isoJson }
         }
 
         const { centroid, isoJson } = cache[jsonKey]
         const { mobility, regiostar, airport } = centroid
+
+        console.log('szenarien', szenarien)
 
         // iteriere über alle szenarien
         szenarien.map((szenario, i) => {
@@ -107,8 +110,6 @@ export const szenarienData = derived(
           szenario.mobility = mobility
           szenario.airport = airport
           szenario.space = spaceTypes[regiostar]
-
-          szenario.map.zoom = zoomLevels[`step-${szenario.step}`][$travelType]
 
           const { diameter, isochrones, space, step } = szenario
 
@@ -131,7 +132,7 @@ export const szenarienData = derived(
           if (szenario && isochrones) {
             let featuresToCut = []
             szenario.legend = {
-              text: 'Deine Reisedistanz',
+              text: '',
               values: [],
             }
 

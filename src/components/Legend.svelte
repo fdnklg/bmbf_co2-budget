@@ -25,10 +25,10 @@
     width: 200px;
     font-size: 13px;
 
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 3px;
+    padding: 10px;
     @include respond-max-screen-phablet {
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 3px;
-      padding: 10px;
     }
   }
 
@@ -64,7 +64,7 @@
 
 <div class="legend">
   {#if legendData}
-    <span class="descrition">{legendData.text}</span>
+    {#if legendData.text}<span class="descrition">{legendData.text}</span>{/if}
     <div class="labels">
       {#each legendData.values as value}
         <div class="item">

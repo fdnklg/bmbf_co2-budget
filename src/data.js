@@ -1,6 +1,6 @@
 import { travelType } from 'stores'
 import { get } from 'svelte/store'
-import { colors, zoomLevels } from 'constants'
+import { colors } from 'constants'
 
 export default {
   emissionen: [
@@ -168,7 +168,7 @@ export default {
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
-          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von 23% gegenüber den Werten von 1990.',
+          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von <strong class="highlight-traffic">23%</strong> gegenüber den Werten von 1990.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
@@ -189,7 +189,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.1'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -209,7 +208,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.2'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -229,7 +227,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.3'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -249,7 +246,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.4'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -269,7 +265,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.5'][get(travelType)],
         diameter: true,
       },
       widget: {
@@ -289,7 +284,6 @@ export default {
       text: {},
       map: {
         distance: 50,
-        zoom: zoomLevels['step-3.6'][get(travelType)],
         diameter: true,
       },
       widget: {
