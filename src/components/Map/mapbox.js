@@ -1,11 +1,16 @@
-import { Map } from "mapbox-gl";
+import { Map, ScaleControl, AttributionControl } from 'mapbox-gl'
 
 // mapbox.accessToken = __env__.isProd
 //   ? process.env.MAPBOX_TOKEN
 //   : __env__.MAPBOX_ACCESS_TOKEN;
 
-const accessToken = 'pk.eyJ1IjoiZmRua2xnIiwiYSI6ImNqeXptazB6czAzM3QzY215bG4xZ242dHEifQ.5ovP53lbKKEVb0OghgtQig'
+const Scale = ScaleControl
 
-const key = {};
+const Attribution = AttributionControl
 
-export { Map, key, accessToken };
+const accessToken =
+  'pk.eyJ1IjoiZmRua2xnIiwiYSI6ImNqeXptazB6czAzM3QzY215bG4xZ242dHEifQ.5ovP53lbKKEVb0OghgtQig'
+
+const key = {}
+
+export { Map, key, accessToken, Scale, Attribution }

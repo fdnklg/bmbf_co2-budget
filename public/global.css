@@ -53,8 +53,21 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
-div.mapboxgl-ctrl {
+a.mapboxgl-ctrl-logo {
   display: none !important;
+}
+
+.mapboxgl-ctrl-scale {
+  font-family: 'Post Grotesk Regular';
+  color: #080e2f;
+  border-bottom: 1px solid #080e2f !important;
+  border-right: 1px solid #080e2f !important;
+  border-left: 1px solid #080e2f !important;
+}
+
+.mapboxgl-ctrl-bottom-right {
+  bottom: 20px !important;
+  right: 20px !important;
 }
 
 body {
@@ -185,7 +198,7 @@ strong {
   color: rgb(135, 170, 171);
 }
 
-.appendix>.method>a{
-  font-weight:bold;
+.appendix > .method > a {
+  font-weight: bold;
   color: rgb(107, 110, 130);
 }

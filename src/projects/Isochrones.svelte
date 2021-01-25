@@ -94,6 +94,12 @@
     color: $color-main;
     margin: 0 auto;
   }
+
+  p.addition {
+    color: $color-main-60;
+    line-height: 150%;
+    font-size: $font-size-xs;
+  }
   .article-item {
     transform: translateZ(0);
     background-color: $color-light;
@@ -188,8 +194,10 @@
       wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren
       unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck
       einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
-      <small>Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen,
-        da dies extrem viel über dem deutschen Durchschnitt liegt.</small>
+      <p class="addition">
+        Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da
+        dies extrem viel über dem deutschen Durchschnitt liegt.
+      </p>
     </Section>
 
     <IntersectionObserver
@@ -201,7 +209,12 @@
 
     <Section>
       <Title>Gemeinsam ans Ziel</Title>
-      Natürlich ist es am Ende des Tages nicht so einfach, denn neben Mobilität produzieren wir in all unseren anderen Lebensbereich ebenfalls CO2 und unser gesamter Fußabdruck setzt sich aus all dem zusammen. Nichtsdesto trotz soll dieser Artikel darauf aufmerksam machen, welchen Einfluss unsere Wahl der Fortbewegungsmittel auf unseren CO2-Fußabdruck hat und was die Klimaziele für unsere Mobilität bedeuten.<br /><br /> 
+      Natürlich ist es am Ende des Tages nicht so einfach, denn neben Mobilität
+      produzieren wir in all unseren anderen Lebensbereich ebenfalls CO2 und
+      unser gesamter Fußabdruck setzt sich aus all dem zusammen. Nichtsdesto
+      trotz soll dieser Artikel darauf aufmerksam machen, welchen Einfluss
+      unsere Wahl der Fortbewegungsmittel auf unseren CO2-Fußabdruck hat und was
+      die Klimaziele für unsere Mobilität bedeuten.<br /><br />
       Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des
       Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder
       gesundheitlichen Gründen angewiesen. Umso wichtiger ist es, dass

@@ -19,7 +19,7 @@
   @import 'src/style/root.scss';
 
   .linechart {
-    padding: 2em 0 3em 2em;
+    padding: 2em 0 2.3em 2em;
     height: 220px;
     margin: auto;
 
@@ -126,7 +126,7 @@
 
     span.y-label-desc {
       left: -23px;
-      top: -35px;
+      top: -29px;
       color: $color-main-60;
       font-size: 13px;
     }

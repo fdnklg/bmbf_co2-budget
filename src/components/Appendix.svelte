@@ -18,8 +18,8 @@
   .appendix {
     display: flex;
     flex-direction: column;
-    line-height: 150%;
     color: $color-main-60;
+    line-height: 150%;
     font-size: $font-size-xs;
   }
 

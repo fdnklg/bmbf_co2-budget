@@ -2,7 +2,7 @@
   import { onMount, beforeUpdate, afterUpdate, setContext } from 'svelte'
   import { pulsingDot } from './pulsingDot'
 
-  import { Map, key, accessToken } from './mapbox.js'
+  import { Map, key, accessToken, Scale, Attribution } from './mapbox.js'
   import { createGeojson } from './util'
   import bbox from '@turf/bbox'
 
@@ -10,6 +10,7 @@
   export let data
   export let animate
   let map
+  let scale
 
   setContext(key, {
     getMap: () => map,
@@ -30,8 +31,19 @@
       zoom: zoom,
       dragPan: false,
       scrollZoom: false,
+      attributionControl: false,
       accessToken,
     })
+
+    scale = new Scale({
+      maxWidth: 120,
+      unit: 'imperial',
+    })
+    map.addControl(new Attribution(), 'top-right')
+    map.addControl(scale, 'bottom-right')
+    scale.setUnit('metric')
+
+    console.log('scale', scale)
 
     map.doubleClickZoom.disable()
 

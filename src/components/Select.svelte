@@ -20,6 +20,7 @@
 <style lang="scss">
   .select {
     position: relative;
+    margin-top: 5px;
     &::after {
       position: absolute;
       content: '\25BC';

@@ -146,6 +146,7 @@
     font-family: 'Post Grotesk Bold';
     border-radius: 3px;
     padding: 1px 4px;
+    white-space: nowrap;
     @include travel-type-color(background-color, $light: true);
     @include travel-type-color(color, $light: false);
     color: white;
