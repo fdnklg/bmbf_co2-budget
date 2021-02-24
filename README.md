@@ -1,4 +1,4 @@
-# BMBF Prototypes
+# BMBF: Wie weit komme ich mit meinem CO₂ Budget?
 
 ## Get started
 
