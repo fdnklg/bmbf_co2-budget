@@ -298,7 +298,7 @@ export const setsNew = {
       {
         iso: null,
         highlight: true,
-        annotation: 'Deine CO2-Emissionen pro 100 km',
+        annotation: 'Deine CO₂-Emissionen pro 100 km',
       },
     ],
     [{ iso: null, highlight: true, annotation: 'distance' }],
@@ -467,7 +467,7 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'bike_2050_car_min', highlight: false},
+      { iso: 'bike_2050_car_min', highlight: false },
       {
         iso: 'bike_2050_car_max',
         highlight: true,
@@ -476,7 +476,7 @@ export const setsNew = {
       { iso: null, highlight: false },
     ],
     [
-      { iso: 'bike_2050_public_min', highlight: false},
+      { iso: 'bike_2050_public_min', highlight: false },
       {
         iso: 'bike_2050_public_max',
         highlight: true,

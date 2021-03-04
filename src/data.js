@@ -7,12 +7,12 @@ export default {
     {
       step: '1.1',
       text: {
-        title: 'CO2 Emissionen in Europa',
+        title: 'CO₂ Emissionen in Europa',
         paragraph:
-          '<strong>30%</strong> der gesamten europäischen CO2-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
+          '<strong>30%</strong> der gesamten europäischen CO₂-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
       },
       meta: {
-        title: 'CO2-Emissionen des Verkehrs innerhalb der EU',
+        title: 'CO₂-Emissionen des Verkehrs innerhalb der EU',
         subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
         source: {
           label: 'Europäische Umweltagentur',
@@ -45,7 +45,7 @@ export default {
           '<strong class="highlight-orange">72%</strong> der europäischen Verkehrsemissionen entfallen auf den Straßenverkehr.',
       },
       meta: {
-        title: 'CO2-Emissionen im Straßenverkehr',
+        title: 'CO₂-Emissionen im Straßenverkehr',
         subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
         source: {
           label: 'Europäische Umweltagentur',
@@ -84,7 +84,7 @@ export default {
           'Neben Motorrädern, LKWs und leichten Nutzfahrzeugen sind Autos mit <strong class="highlight-orange">60,7%</strong> für den Löwenanteil aller Emissionen im Bereich Verkehr verantwortlich.',
       },
       meta: {
-        title: 'CO2-Emissionen im Straßenverkehr',
+        title: 'CO₂-Emissionen im Straßenverkehr',
         subtitle: 'Aufschlüsselung der Emissionen nach Verkehrsträgern.',
         source: {
           label: 'Europäische Umweltagentur',
@@ -154,7 +154,7 @@ export default {
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
         subtitle:
-          'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+          'Die CO₂-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
         source: {
           url:
             'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
@@ -173,7 +173,7 @@ export default {
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
         subtitle:
-          'Die CO2-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+          'Die CO₂-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
         source: {
           url:
             'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
@@ -196,7 +196,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },
@@ -215,7 +215,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },
@@ -234,7 +234,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },
@@ -253,7 +253,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },
@@ -272,7 +272,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },
@@ -291,7 +291,7 @@ export default {
           title: 'Waypoint Start',
         },
         annotation: {
-          label: 'Deine CO2-Emissionen',
+          label: 'Deine CO₂-Emissionen',
           align: 'right',
           x: 100,
         },

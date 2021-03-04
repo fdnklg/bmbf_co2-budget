@@ -4,9 +4,9 @@ import { getWindowDimensions } from 'utils'
 const dimensions = getWindowDimensions()
 
 export const s3Url = 'https://locobss-story-co2.s3.eu-central-1.amazonaws.com/'
-//locobss-story-risk.s3.eu-central-1.amazonaws.com/postcode/01067.json
+// https:locobss-story-risk.s3.eu-central-1.amazonaws.com/postcode/01067.json
 
-https: export const isoChronesUrl = isLocal ? `data/` : s3Url
+export const isoChronesUrl = isLocal ? `data/` : s3Url
 
 export const activeProject = 'maps'
 

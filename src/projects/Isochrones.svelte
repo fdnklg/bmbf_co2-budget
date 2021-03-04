@@ -137,19 +137,19 @@
     <Section>
       Unser gemeinsamer Austoß an Treibhausgasen ist einer der Haupt&shy;treiber
       des globalen Klimawandels. Der Großteil entfällt dabei auf
-      CO2-Emmissionen.
+      CO₂-Emmissionen.
 
       <br />
       <br />
 
-      Auf viele Formen der CO2-Produktion haben wir, als Bürger*innen, nur
+      Auf viele Formen der CO₂-Produktion haben wir, als Bürger*innen, nur
       indirekten Einfluss, z.B. durch unsere Kaufentscheidungen. Bei der
       Mobilität ist dies anders. Durch die Wahl unserer Verkehrsmittel und
       unsere Gewohnheiten können wir einen direkten Beitrag leisten.
     </Section>
   </IntersectionObserver>
 
-  <Title>Wieviel CO2 verursachen wir durch unsere Mobilität?</Title>
+  <Title>Wieviel CO₂ verursachen wir durch unsere Mobilität?</Title>
 
   <IntersectionObserver on:step={handleActiveStep} bind:step={steps.emissionen}>
     <Anchor anchorId={steps.emissionen} />
@@ -157,7 +157,7 @@
   </IntersectionObserver>
 
   <Section>
-    Der große Anteil der PKWs an der CO2-Produktion im Bereich Verkehr legt
+    Der große Anteil der PKWs an der CO₂-Produktion im Bereich Verkehr legt
     nahe, dass es hier ein großes Potential für Einsparungen gibt, die wir
     Bürger*innen direkt Beeinflussen können.
   </Section>
@@ -170,11 +170,11 @@
   </IntersectionObserver>
 
   <Section>
-    Unser persönlicher Fußabdruck wird meistens in Tonnen oder Kilogramm CO2
+    Unser persönlicher Fußabdruck wird meistens in Tonnen oder Kilogramm CO₂
     umschrieben. Doch solche Angaben sind wenig hilfreich wenn wir verstehen
-    wollen, was z.B. die Ziele der CO2-Reduktion im Kampf gegen den Klimawandel
+    wollen, was z.B. die Ziele der CO₂-Reduktion im Kampf gegen den Klimawandel
     für uns im Alltag bedeuten.<br /><br />
-    Deshalb haben wir ein Werkzeug entwickelt, um CO2-Fußabdrücke in
+    Deshalb haben wir ein Werkzeug entwickelt, um CO₂-Fußabdrücke in
     Bewegungsprofile zu übersetzen. Im folgenden kannst du dir dies auf dich
     persönlich zugeschnitten anzeigen lassen.<br /><br />
     <strong>Privatsphäre geht vor:</strong>
@@ -192,7 +192,7 @@
     <Section>
       Neben dem alltäglichen Verkehr, reisen viele von uns aber auch immer
       wieder mit dem Flugzeug. Flugreisen, gerade Langstrecken, produzieren
-      unglaublich viel CO2. In der folgenden Ansicht wird der CO2-Fußabdruck
+      unglaublich viel CO₂. In der folgenden Ansicht wird der CO₂-Fußabdruck
       einer Flugreise in Bezug zu Zug- und Autoreisen gestellt.<br /><br />
       <p class="addition">
         Beim alltäglichen Verkehr haben wir Flugreisen außenvor gelassen, da
@@ -210,10 +210,10 @@
     <Section>
       <Title>Gemeinsam ans Ziel</Title>
       Natürlich ist es am Ende des Tages nicht so einfach, denn neben Mobilität
-      produzieren wir in all unseren anderen Lebensbereich ebenfalls CO2 und
+      produzieren wir in all unseren anderen Lebensbereich ebenfalls CO₂ und
       unser gesamter Fußabdruck setzt sich aus all dem zusammen. Nichtsdesto
       trotz soll dieser Artikel darauf aufmerksam machen, welchen Einfluss
-      unsere Wahl der Fortbewegungsmittel auf unseren CO2-Fußabdruck hat und was
+      unsere Wahl der Fortbewegungsmittel auf unseren CO₂-Fußabdruck hat und was
       die Klimaziele für unsere Mobilität bedeuten.<br /><br />
       Im Bereich Mobilität kann jeder von uns einen Beitrag zur Rettung des
       Klimas beitragen. Manche von uns sind auf ein Auto aus beruflichen oder

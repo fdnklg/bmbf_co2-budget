@@ -35,6 +35,14 @@
     }
   }
 
+  .tile-title {
+    margin: 7px 0 0 0;
+  }
+
+  .tile-paragraph {
+    margin: 7px 0;
+  }
+
   .extra {
     margin-bottom: 75vh;
     overflow: scroll;

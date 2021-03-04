@@ -58,6 +58,7 @@
   .label {
     margin-bottom: 15px;
     line-height: $line-height-m;
+    font-size: $font-size-s;
   }
 
   .iconWrapper {

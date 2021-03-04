@@ -178,7 +178,7 @@
   <div class="onboarding buttons">
     <Button primary={true} handleClick={handleSubmit}>Bestätigen</Button>
     <Button primary={false} handleClick={handleRandom}>
-      Zufällige Auswahl
+      Zufällige Postleitzahl
     </Button>
   </div>
 </div>

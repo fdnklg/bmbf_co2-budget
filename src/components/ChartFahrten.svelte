@@ -3,6 +3,7 @@
   import { travelTypeRides } from 'stores'
   import { travelTypesRides } from 'config'
   import { co2PerKm, colors } from 'constants'
+  import { formattedNumber } from 'utils'
 
   import Loading from 'components/Loading.svelte'
   import Chart from './Chart/Chart.svelte'
@@ -48,11 +49,13 @@
         },
       ],
       annotation: {
-        label: `Hin- und Rückflug stoßen insgesamt <span class="annotation-label plane">${(
+        label: `Hin- und Rückflug stoßen insgesamt <span class="annotation-label plane">${formattedNumber(
+          ',.1f',
           co2Plane / 1000
-        ).toFixed(1)} kg</span> CO2 aus. (${distance.toFixed(
-          1
-        )}&thinsp;km / Fahrt)`,
+        )}&thinsp;kg</span> CO₂ aus. <span class="addition">(${formattedNumber(
+          ',.1f',
+          distance
+        )}&thinsp;km / Fahrt)</span>`,
         x: 100,
         align: 'right',
         textAlign: 'right',
@@ -103,11 +106,13 @@
         textAlign: barSlice - marginPerBar < 50 ? 'left' : 'right',
         label: `Hin- und Rück${
           label === 'Flug' ? 'flug' : 'fahrt'
-        } stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${
+        } stößt insgesamt <span class="annotation-label ${$travelTypeRides}">${formattedNumber(
+          ',.1f',
           co2Travel / 1000
-        } kg</span> CO2 aus. (${data.distance}&thinsp;km / ${
-          label === 'Flug' ? 'Flug' : 'Fahrt'
-        })`,
+        )}&thinsp;kg</span> CO₂ aus. <span class="addition">(${formattedNumber(
+          ',.1f',
+          data.distance
+        )}&thinsp;km / ${label === 'Flug' ? 'Flug' : 'Fahrt'})</span>`,
       },
     }
   }
@@ -167,7 +172,7 @@
     margin-right: 8px;
     font-family: 'Post Grotesk Bold';
     align-items: flex-end;
-    padding-bottom: 7px;
+    padding-bottom: 4px;
     justify-content: center;
 
     @include travel-type-color(color, $light: false);

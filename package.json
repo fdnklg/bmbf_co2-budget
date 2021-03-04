@@ -29,6 +29,7 @@
     "@turf/helpers": "^6.1.4",
     "@turf/union": "^6.0.3",
     "d3-dsv": "^2.0.0",
+    "d3-format": "^2.0.0",
     "d3-scale": "^3.2.3",
     "d3-shape": "^2.0.0",
     "mapbox-gl": "^2.0.1",
