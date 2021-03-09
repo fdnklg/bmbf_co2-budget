@@ -43,8 +43,6 @@
     map.addControl(scale, 'bottom-right')
     scale.setUnit('metric')
 
-    console.log('scale', scale)
-
     map.doubleClickZoom.disable()
 
     map.on('load', () => {

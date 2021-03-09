@@ -96,7 +96,7 @@
     <SelectGroup data={travelTypes} isType="travelTypes" />
     <Input />
     <div class="vis map sticky">
-      <Map animate={false} lat={9} lon={51} zoom={5} />
+      <Map animate={false} lat={9} lon={51} zoom={9} />
     </div>
 
     {#each items as item, index}
