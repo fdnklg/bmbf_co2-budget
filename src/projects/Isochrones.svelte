@@ -227,8 +227,7 @@
     </Section>
 
     <Share />
-    <Section>
-      <Appendix />
-    </Section>
+
+    <Appendix />
   {/if}
 </div>

@@ -5,7 +5,6 @@
   @import 'src/style/root.scss';
   .title {
     line-height: $line-height-m;
-    text-align: center;
     font-size: $font-size-xl;
     margin: auto;
     // margin-bottom: $space-l;
@@ -13,6 +12,7 @@
     max-width: 550px;
 
     @include respond-max-screen-phablet {
+      text-align: center;
       max-width: auto;
       line-height: $line-height-s;
       font-size: $font-size-l;

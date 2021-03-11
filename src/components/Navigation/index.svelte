@@ -18,7 +18,7 @@
   })
 
   function isVisible(step) {
-    return !['start', '3.1', '3.2', '3.3', '3.4', '3.5', '3.6'].includes(step)
+    return !['start', '3.1', '3.2', '3.3', '3.4', '3.5'].includes(step)
   }
 
   function hasNoPointerEvents(userInput, itemStep) {
