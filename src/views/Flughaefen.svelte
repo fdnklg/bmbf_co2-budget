@@ -103,8 +103,9 @@
     margin: auto;
 
     @include respond-max-screen-phablet {
-      width: calc(100% - 20px);
+      width: calc(100% - 2em);
       margin-left: 10px;
+      margin: auto;
     }
   }
 

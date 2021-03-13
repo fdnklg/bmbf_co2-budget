@@ -10,7 +10,7 @@
   @import 'src/style/root.scss';
   .tile {
     opacity: 0.5;
-    padding: 15px;
+    padding: 30px;
     border: 1px solid transparent;
     margin: auto;
     max-width: 550px;
@@ -22,7 +22,7 @@
     @include transition-m;
 
     @include respond-max-screen-phablet {
-      padding: 10px;
+      padding: 20px;
     }
   }
 
@@ -31,10 +31,10 @@
   }
 
   .large {
-    padding: 45px;
+    padding: 25px;
 
-    @include respond-max-screen-phablet {
-      padding: 15px;
+    @include respond-min-screen-tablet {
+      padding: 45px;
     }
   }
 
@@ -43,14 +43,14 @@
   }
 
   .small {
-    width: calc(100% - 40px);
+    width: calc(100% - 80px);
   }
 
   .active {
     opacity: 0.999;
     background-image: linear-gradient(to top left, #f6f8f9, white);
     border: 1px solid $color-tile;
-    border-radius: $border-radius-m;
+    border-radius: $border-radius-l;
     @include transition-m;
   }
 </style>

@@ -23,7 +23,7 @@
     left: 20px;
     z-index: 10;
     width: 200px;
-    font-size: 13px;
+    font-size: 14px;
 
     background-color: rgba(255, 255, 255, 0.85);
     border-radius: 3px;

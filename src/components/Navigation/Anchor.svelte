@@ -4,7 +4,7 @@
 
 <style>
   .anchor {
-    height: 60px;
+    height: 30px;
   }
 </style>
 

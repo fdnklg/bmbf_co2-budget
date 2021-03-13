@@ -5,10 +5,10 @@
     {
       url: '/data/BMBF_Logo.svg',
       alt: 'Link zum Code auf Github',
-      maxWidth: '153px',
-      height: '77px',
+      maxWidth: '152px',
+      height: '106px',
       text:
-        'Gefördert durch das <a target="_blank" href="https://www.bmbf.de/">Bundesministerium für Bildung und Forschung</a> zu finden.',
+        'Gefördert durch das <a target="_blank" href="https://www.bmbf.de/">Bundesministerium für Bildung und Forschung.</a>',
       width: '100%',
     },
     {
@@ -24,7 +24,7 @@
       alt: 'Link zum Code auf Github',
       maxWidth: '75px',
       text:
-        'Ein Projekt von <a target="_blank" href="https://vislab.io">Vislab.io</a> als Teil des Forschungsvorhaben LoCobSS.',
+        'Ein Projekt von <a target="_blank" href="https://vislab.io">Vislab.io</a> als Teil des Forschungs&shy;vorhaben LoCobSS.',
       width: '50%',
     },
   ]
@@ -35,19 +35,25 @@
 
   .container {
     width: 100%;
+    line-height: 160%;
     padding-top: 50px;
     border-top: 1px solid $color-main-20;
     margin: 100px 0;
+    letter-spacing: 0.01em;
   }
 
   .item-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 0 0 30px 0;
+    margin: 0 0 20px 0;
   }
 
   .item-text {
-    margin: 15px 0 0 0;
+    margin: 10px 0 0 0;
+  }
+
+  .sources {
+    margin-bottom: 3em;
   }
 
   .logos {
@@ -58,21 +64,37 @@
   .appendix {
     max-width: 720px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
-    line-height: 150%;
+    line-height: 170%;
     font-size: $font-size-xs;
     color: $color-main-60;
     margin: auto;
+
+    @include respond-min-screen-tablet {
+      flex-direction: row;
+    }
   }
 
   .row {
-    width: calc(50% - 1em);
+    width: calc(100% - 4em);
+    align-self: center;
+    align-self: center;
+
+    &:first-of-type {
+      margin-bottom: 20px;
+    }
+
+    @include respond-min-screen-tablet {
+      width: calc(50% - 1em);
+      flex-direction: row;
+      align-self: flex-start;
+    }
 
     ul {
-      list-style-type: none;
       margin: 0;
-      padding: 0;
+      list-style-type: '→   ';
+      padding-left: 23px;
     }
   }
 
@@ -108,7 +130,16 @@
       {@html appendix.method}
     </div>
     <div class="row">
-      <h3 class="title">Das Projekt</h3>
+      <div class="sources">
+        <h3 class="title">Quellen</h3>
+        <ul>
+          {#each appendix.sources as source}
+            <li>
+              <a href={source[0]}>{@html source[1]}</a>
+            </li>
+          {/each}
+        </ul>
+      </div>
       <div class="logos">
         {#each logos as item}
           <div class="item-wrapper" style="width: {item.width};">
@@ -119,16 +150,6 @@
             <span class="item-text">{@html item.text}</span>
           </div>
         {/each}
-      </div>
-      <div class="sources">
-        <h3 class="title">Quellen</h3>
-        <ul>
-          {#each appendix.sources as source}
-            <li>
-              <a href={source[0]}>{@html source[1]}</a>
-            </li>
-          {/each}
-        </ul>
       </div>
     </div>
   </div>

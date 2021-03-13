@@ -31,7 +31,7 @@
   }
 
   .wrapper {
-    width: calc(100% - 20px);
+    width: calc(100% - 2em);
     height: auto;
     margin: auto;
   }
@@ -62,6 +62,7 @@
                 {@html item.text.paragraph}
               </p>
             </Tile>
+            <div class="gap" />
           </IntersectionObserver>
         {/each}
       </div>

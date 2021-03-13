@@ -4,6 +4,6 @@
   margin: auto;
 
   @include respond-max-screen-phablet {
-    width: calc(100% - 40px);
+    width: calc(100% - 2em);
   }
 }

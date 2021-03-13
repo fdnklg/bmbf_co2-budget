@@ -18,9 +18,9 @@
     background-color: transparent;
   }
   .button {
-    border-radius: 3px;
+    border-radius: 100px;
     color: white;
-    padding: 8px 13px;
+    padding: 12px 20px;
     width: fit-content;
     cursor: pointer;
     opacity: 1;
@@ -40,7 +40,7 @@
     }
 
     &.secondary {
-      border-bottom: 1px solid $color-main;
+      // border-bottom: 1px solid $color-main;
       padding: 0 0 3px 0;
       color: $color-main;
       height: fit-content;

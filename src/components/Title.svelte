@@ -12,11 +12,10 @@
     max-width: 550px;
 
     @include respond-max-screen-phablet {
-      text-align: center;
+      // text-align: center;
       max-width: auto;
-      line-height: $line-height-s;
+      line-height: $line-height-m;
       font-size: $font-size-l;
-      width: calc(100% - 60px);
     }
   }
 </style>

@@ -44,6 +44,7 @@
   @import 'src/style/root.scss';
   .share-link {
     text-decoration: none;
+    border-bottom: none;
     display: flex;
     align-items: center;
     color: $color-main;

@@ -30,13 +30,14 @@
     width: 400px;
 
     @include respond-max-screen-phablet {
-      width: calc(100% - 20px);
+      width: calc(100% - 2em);
       margin-left: 10px;
+      margin: auto;
     }
   }
 
   .tile-title {
-    margin: 7px 0 0 0;
+    margin: 0px;
   }
 
   .tile-paragraph {

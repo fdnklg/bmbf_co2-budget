@@ -61,6 +61,12 @@
   }
 }
 
+@mixin respond-min-screen-tablet {
+  @media (min-width: $screen-tablet) {
+    @content;
+  }
+}
+
 @mixin respond-min-screen-large {
   @media (min-width: $screen-large) {
     @content;

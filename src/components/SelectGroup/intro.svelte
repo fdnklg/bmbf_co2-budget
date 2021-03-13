@@ -15,12 +15,12 @@
   .title {
     font-size: $font-size-l;
     color: $color-main;
-    margin-bottom: 0px;
     margin-top: 0px;
+    margin-bottom: 5px;
     line-height: $line-height-m;
 
     @include respond-max-screen-phablet {
-      font-size: 21px;
+      font-size: $font-size-l;
     }
   }
 
@@ -31,10 +31,6 @@
     color: $color-main-60;
     margin-top: 0px;
     margin-bottom: 20px;
-
-    @include respond-max-screen-phablet {
-      font-size: 14px;
-    }
   }
 </style>
 

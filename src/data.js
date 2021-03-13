@@ -9,7 +9,7 @@ export default {
       text: {
         title: 'CO₂ Emissionen in Europa',
         paragraph:
-          '<strong>30%</strong> der gesamten europäischen CO₂-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
+          '<strong>30&thinsp;%</strong> der gesamten europäischen CO₂-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
       },
       meta: {
         title: 'CO₂-Emissionen des Verkehrs innerhalb der EU',
@@ -42,7 +42,7 @@ export default {
       text: {
         title: 'Straßenverkehr',
         paragraph:
-          '<strong class="highlight-orange">72%</strong> der europäischen Verkehrsemissionen entfallen auf den Straßenverkehr.',
+          '<strong class="highlight-orange">72&thinsp;%</strong> der europäischen Verkehrs&shy;emissionen entfallen auf den Straßenverkehr.',
       },
       meta: {
         title: 'CO₂-Emissionen im Straßenverkehr',
@@ -81,7 +81,7 @@ export default {
       text: {
         title: 'Autos',
         paragraph:
-          'Neben Motorrädern, LKWs und leichten Nutzfahrzeugen sind Autos mit <strong class="highlight-orange">60,7%</strong> für den Löwenanteil aller Emissionen im Bereich Verkehr verantwortlich.',
+          'Neben Motorrädern, LKWs und leichten Nutzfahrzeugen sind Autos mit <strong class="highlight-orange">60,7&thinsp;%</strong> für den Löwenanteil aller Emissionen im Bereich Verkehr verantwortlich.',
       },
       meta: {
         title: 'CO₂-Emissionen im Straßenverkehr',
@@ -168,7 +168,7 @@ export default {
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
-          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von <strong class="highlight-traffic">23%</strong> gegenüber den Werten von 1990.',
+          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von <strong class="highlight-traffic">23&thinsp;%</strong> gegenüber den Werten von 1990.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',

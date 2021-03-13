@@ -48,16 +48,16 @@
 
     @include respond-max-screen-phablet {
       padding-bottom: 0px;
-      width: calc(100% - 20px);
+      width: calc(100% - 2em);
     }
   }
   .title {
-    font-size: $font-size-xxl;
+    font-size: $font-size-xl;
     line-height: $line-height-s;
-    margin-bottom: 13px;
+    margin-bottom: 14px;
 
-    @include respond-max-screen-medium {
-      font-size: $font-size-l;
+    @include respond-min-screen-tablet {
+      font-size: $font-size-xxl;
     }
   }
 

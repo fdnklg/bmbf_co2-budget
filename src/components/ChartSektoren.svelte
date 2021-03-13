@@ -82,7 +82,7 @@
     position: absolute;
     width: 4em;
     bottom: -28px;
-    font-size: 13px;
+    font-size: 14px;
     text-align: center;
     transform: translateX(-50%);
     color: $color-main-60;
@@ -121,14 +121,14 @@
       bottom: -12px;
       width: 26px;
       color: $color-main-60;
-      font-size: 13px;
+      font-size: 14px;
     }
 
     span.y-label-desc {
       left: -23px;
       top: -29px;
       color: $color-main-60;
-      font-size: 13px;
+      font-size: 14px;
     }
   }
 
@@ -168,7 +168,7 @@
     position: absolute;
     left: 0;
     bottom: 2px;
-    font-size: 14px;
+    font-size: 15px;
     color: $color-light-60;
   }
 </style>
