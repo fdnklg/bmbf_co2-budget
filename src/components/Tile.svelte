@@ -10,7 +10,7 @@
   @import 'src/style/root.scss';
   .tile {
     opacity: 0.5;
-    padding: 30px;
+    padding: 20px;
     border: 1px solid transparent;
     margin: auto;
     max-width: 550px;
@@ -20,10 +20,6 @@
       0 10px 8px rgba(0, 0, 0, 0.0299982), 0 15px 15px rgba(0, 0, 0, 0.0296004),
       0 30px 30px rgba(0, 0, 0, 0.0309366), 0 70px 65px rgba(0, 0, 0, 0.05);
     @include transition-m;
-
-    @include respond-max-screen-phablet {
-      padding: 20px;
-    }
   }
 
   .map {

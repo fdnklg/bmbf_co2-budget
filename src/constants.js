@@ -19,6 +19,7 @@ export const steps = {
   sektoren: '2.0',
   szenarien: '3.0',
   flughaefen: '4.0',
+  appendix: 'appendix',
 }
 
 export const co2PerKm = {

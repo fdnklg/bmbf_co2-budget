@@ -47,6 +47,11 @@
   .extra {
     margin-bottom: 75vh;
     overflow: scroll;
+
+    @include respond-min-screen-tablet {
+      margin-left: 0px;
+      padding: 0 30px 0 20px;
+    }
   }
 
   .sticky {

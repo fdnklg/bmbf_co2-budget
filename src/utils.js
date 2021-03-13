@@ -257,27 +257,27 @@ export const createSzenarioText = (
       car_mf: {
         travelType: 'car',
         title: 'Dein Mobilitätsprofil',
-        paragraph: `<strong>${prozent}</strong>&thinsp;% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}</strong>.<br /><strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
+        paragraph: `<strong>${prozent}&thinsp;%</strong> der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}.</strong> <strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
       },
       ecar: {
         travelType: 'car',
         title: 'Dein Mobilitätsprofil',
-        paragraph: `<strong>${prozent}</strong>&thinsp;% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong> km mit dem <strong>${translations[travelType]}</strong>.<br /><strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
+        paragraph: `<strong>${prozent}&thinsp;%</strong> der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong> km mit dem <strong>${translations[travelType]}.</strong> <strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
       },
       car: {
         travelType: 'car',
         title: 'Dein Mobilitätsprofil',
-        paragraph: `<strong>${prozent}</strong>&thinsp;% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}</strong>.<br /><strong>${distance}&thinsp;km </strong><span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
+        paragraph: `<strong>${prozent}&thinsp;%</strong> der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}.</strong> <strong>${distance}&thinsp;km </strong><span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
       },
       bike: {
         travelType: 'bike',
         title: 'Dein Mobilitätsprofil',
-        paragraph: `<strong>${prozent}</strong>&thinsp;% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}</strong>.<br /><strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
+        paragraph: `<strong>${prozent}&thinsp;%</strong> der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}.</strong> <strong>${distance}&thinsp;km </strong> <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
       },
       public: {
         travelType: 'public',
         title: 'Dein Mobilitätsprofil',
-        paragraph: `<strong>${prozent}</strong>&thinsp;% der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}</strong>.<br /><strong>${distance}</strong>&thinsp;km <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
+        paragraph: `<strong>${prozent}&thinsp;%</strong> der Menschen in deiner Region haben ein ähnliches Reiseverhalten wie du mit <strong>${distance}</strong>&thinsp;km mit dem <strong>${translations[travelType]}.</strong> <strong>${distance}</strong>&thinsp;km <span class="addition">(Hin- & Rückweg)</span> entspricht dem hier angezeigten Kreis um deine Postleitzahl.`,
       },
     },
     3.2: {

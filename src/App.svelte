@@ -238,7 +238,9 @@
     </Section>
 
     <Share />
-
-    <Appendix />
+    <IntersectionObserver on:step={handleActiveStep} bind:step={steps.appendix}>
+      <Anchor anchorId={steps.appendix} />
+      <Appendix />
+    </IntersectionObserver>
   {/if}
 </div>

@@ -144,6 +144,7 @@
     @include respond-max-screen-phablet {
       width: 100%;
       max-width: auto;
+      margin: 30px 0 90px;
     }
   }
 

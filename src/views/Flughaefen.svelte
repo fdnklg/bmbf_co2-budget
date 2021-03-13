@@ -124,9 +124,6 @@
     margin: auto;
     max-width: 550px;
     width: 100%;
-    @include respond-max-screen-phablet {
-      width: calc(100% - 40px);
-    }
   }
 </style>
 

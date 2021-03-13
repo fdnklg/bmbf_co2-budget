@@ -146,7 +146,7 @@ export const navItems = [
   },
   {
     id: 'end',
-    label: 'Zusammenfassung',
+    label: 'Über das Projekt',
     offsetY: -(dimensions[1] / 2),
   },
 ]

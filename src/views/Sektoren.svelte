@@ -27,17 +27,17 @@
   }
 
   .tile-title {
-    margin-top: 0;
+    margin: 0;
+  }
+
+  .tile-paragraph {
+    margin: 7px 0;
   }
 
   .wrapper {
     width: calc(100% - 2em);
     height: auto;
     margin: auto;
-  }
-
-  .tile-paragraph {
-    margin-bottom: 0;
   }
 
   .sticky {
