@@ -9,7 +9,7 @@ export default {
       text: {
         title: 'CO₂ Emissionen in Europa',
         paragraph:
-          '<strong>30&thinsp;%</strong> der gesamten europäischen CO₂-Emissionen lassen sich auf den Verkehr zurückführen (Luft, Schiff, Eisenbahn & Straße).',
+          '<strong>30&thinsp;%</strong> der gesamten europäischen CO₂-Emissionen lassen sich auf den Verkehr zurückführen <span class="addition">(Luft, Schiff, Eisenbahn & Straße).</span>',
       },
       meta: {
         title: 'CO₂-Emissionen des Verkehrs innerhalb der EU',
