@@ -318,25 +318,19 @@ export const content = derived(
   }
 )
 
-export const selectedAirport = derived(
-  [szenarienData, data],
-  ([$szenarienData, $data], set) => {
-    if ($data && $szenarienData) {
-      const airportId = $data.szenarien[0].airport
-      const nearestAirport = $data.airports[airportId]
-      set(nearestAirport)
-    }
-    return false
-  }
-)
+export const selectedAirport = writable(null)
 
 export const randomAirport = derived(
   [szenarienData, data],
   ([$szenarienData, $data], set) => {
     if ($data && $szenarienData) {
+      const airportId = $data.szenarien[0].airport
+      const nearestAirport = $data.airports[airportId]
+      selectedAirport.set(nearestAirport.id)
+
       const randomAirport =
         $data.airports[parseInt(Math.random() * $data.airports.length - 1)]
-      set(randomAirport)
+      set(randomAirport.id)
     }
     return false
   }
