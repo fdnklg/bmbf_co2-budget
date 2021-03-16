@@ -24,7 +24,7 @@
 <div class="select">
   <select bind:value={selected}>
     {#each items as item}
-      <option value={item.id} selected={selected === item.id}>{item.name}</option>
+      <option value={item.id}>{item.name}</option>
     {/each}
   </select>
 </div>

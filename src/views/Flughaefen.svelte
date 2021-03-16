@@ -1,7 +1,7 @@
 <script>
   import {
     distancesData,
-    szenarienData,
+    masterCentroid,
     selectedAirport,
     randomAirport,
   } from 'stores'
@@ -34,7 +34,7 @@
     ? getFiltered(flightDistance, $distancesData)
     : null
   $: loaded = airports && $distancesData ? true : false
-  $: centroid = null
+  $: startName = $masterCentroid.name
   
   let distancesRef
 
@@ -84,9 +84,6 @@
 
   afterUpdate(() => {
     width = distancesRef ? distancesRef.getBoundingClientRect().width : null
-    if ($szenarienData && $randomAirport) {
-      centroid = $data.szenarien[0].centroid
-    }
   })
 </script>
 
@@ -143,7 +140,7 @@
       {#if flightDistance && width && $distancesData}
         {#each filteredCities as city}
           <ChartFahrten
-            start={centroid.name}
+            start={startName}
             {width}
             distance={flightDistance}
             airports={{ start: start, destination: destination }}

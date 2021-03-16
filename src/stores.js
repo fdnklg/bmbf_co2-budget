@@ -76,6 +76,8 @@ export const distancesData = derived(
   }
 )
 
+export const masterCentroid = writable(null)
+
 export const szenarienData = derived(
   [data, travelType, distance, activeZipcode],
   ([$data, $travelType, $distance, $activeZipcode], set) => {
@@ -99,6 +101,8 @@ export const szenarienData = derived(
 
         const { centroid, isoJson } = cache[jsonKey]
         const { mobility, regiostar, airport } = centroid
+
+        masterCentroid.set(centroid)
 
         // iteriere über alle szenarien
         szenarien.map((szenario, i) => {
