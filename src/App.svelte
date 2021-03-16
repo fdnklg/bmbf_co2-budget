@@ -221,7 +221,7 @@
     <Section>
       <Title>Gemeinsam ans Ziel</Title>
       Natürlich ist es am Ende des Tages nicht so einfach, denn neben Mobilität
-      produzieren wir in all unseren anderen Lebensbereich ebenfalls CO₂ und
+      produzieren wir in all unseren anderen Lebensbereichen ebenfalls CO₂ und
       unser gesamter Fußabdruck setzt sich aus all dem zusammen. Nichtsdesto
       trotz soll dieser Artikel darauf aufmerksam machen, welchen Einfluss
       unsere Wahl der Fortbewegungsmittel auf unseren CO₂-Fußabdruck hat und was
@@ -233,7 +233,7 @@
 
       <p>Weitere Mobilitätsprofile ausprobieren:</p>
       <Button primary={true} handleClick={scrollToOnboarding}>
-        Zur Auswahl
+        Zurück zur Auswahl
       </Button>
     </Section>
 
