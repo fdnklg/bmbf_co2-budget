@@ -100,8 +100,6 @@ export const szenarienData = derived(
         const { centroid, isoJson } = cache[jsonKey]
         const { mobility, regiostar, airport } = centroid
 
-        console.log('szenarien', szenarien)
-
         // iteriere über alle szenarien
         szenarien.map((szenario, i) => {
           // füge isochrone namen array zu daten objekt
