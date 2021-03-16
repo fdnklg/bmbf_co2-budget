@@ -11,15 +11,14 @@ export const isoChronesUrl = isLocal ? `data/` : s3Url
 export const activeProject = 'maps'
 
 export const metadata = {
-  title: content.projectTitle,
+  authors: 'Sebastian Meier | @seb_meier, Fabian Dinklage | @fdnklg',
   lang: 'de',
-  twitter_site: '@BMBF_Bund',
-  twitter_creator: '@fdnklg',
-  og_url: 'https://fabiandinklage.com',
-  og_title: 'Projekt Titel',
-  og_description: 'Hier steht ein Text der das Projekt kurz beschreibt.',
-  og_image:
-    'https://fabiandinklage.com/public/images/demos/demos-tooltip-3840x2040.jpg',
+  twitter_site: '@seb_meier',
+  twitter_creator: '',
+  url: 'https://co2-mobilitaet.vislab.io',
+  title: 'Wie weit komme ich mit meinem CO2-Budget?',
+  description: 'Unsere individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der Mobilität ist.',
+  image: 'https://co2-mobilitaet.vislab.io/data/social_media.jpg',
 }
 
 export const spaceTypes = {
@@ -246,8 +245,8 @@ export const travelTypes = {
 
 export const travelTypesRides = {
   hasIntro: true,
-  title: 'Vergleiche deinen Flug mit anderen Fortbewegungsmitteln.',
-  subtitle: 'Wähle ein Fortbewegungsmittel.',
+  title: 'Vergleiche deinen Flug mit anderen Fortbewegungs&shy;mitteln.',
+  subtitle: 'Wähle ein Fortbewegungs&shy;mittel.',
   elements: travelTypeItems
     .filter((d) => d.value !== 'bike')
     .map((d) => {
