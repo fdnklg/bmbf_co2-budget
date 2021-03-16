@@ -54,7 +54,7 @@ export const colorsSektoren = [
 ]
 
 export const zipcodesUrl = `${s3Url}postcodes.txt`
-export const airportsUrl = `${isLocal ? 'data/' : s3Url}airports.csv`
+export const airportsUrl = `${s3Url}airports.csv`
 export const sektorenUrl = 'data/co2_sektoren.csv'
 
 export const navItems = [
