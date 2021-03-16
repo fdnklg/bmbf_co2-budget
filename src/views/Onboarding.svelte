@@ -6,13 +6,8 @@
 
   import { travelTypes, distances } from 'config'
   import { getDocumentHeight } from 'utils'
-  import { userInput } from 'stores'
 
   const inputClass = 'onboarding-input'
-
-  function handleClick() {
-    userInput.set(true)
-  }
 
   window.onscroll = function (ev) {
     const documentHeight = getDocumentHeight()

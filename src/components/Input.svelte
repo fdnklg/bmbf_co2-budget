@@ -1,7 +1,6 @@
 <script>
-  import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
-  import { getWindowDimensions } from 'utils'
-
+  import { zipcodes, activeZipcode, userInput } from 'stores'
+  
   import * as animateScroll from 'svelte-scrollto'
   import Button from 'components/Button.svelte'
 
@@ -60,12 +59,6 @@
     setTimeout(() => {
       scrollToFirstScene()
     }, 50)
-  }
-
-  const setIconName = (isValid, isEditing) => {
-    if (isEditing) return 'search'
-    if (!isValid) return 'invalid'
-    return 'valid'
   }
 
   const setRandomZip = () => {

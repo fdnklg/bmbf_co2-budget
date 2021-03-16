@@ -18,8 +18,6 @@
   }
 
   onMount(async () => {
-    const articleItems = document.querySelectorAll('.article-item')
-
     // set observe for markers
     observe(
       markerBarStart,

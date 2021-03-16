@@ -17,7 +17,6 @@
   export let width
 
   let transformedData = false
-  let travelLabel = ''
 
   function getPercentPerBar(rides, width) {
     const spacesPx = rides - 1

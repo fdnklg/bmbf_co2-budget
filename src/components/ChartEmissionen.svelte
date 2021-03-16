@@ -1,7 +1,6 @@
 <script>
   import Chart from './Chart/Chart.svelte'
   import Bars from './Chart/Bars.svelte'
-  import Header from './Chart/Header.svelte'
   import Footer from './Chart/Footer.svelte'
   import Annotation from './Chart/Annotation.svelte'
 

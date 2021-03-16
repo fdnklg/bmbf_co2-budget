@@ -12,7 +12,6 @@
   import Button from 'components/Button.svelte'
 
   import datasets from 'data'
-  let step
 
   import {
     parseDataEmissionen,
@@ -41,7 +40,6 @@
   import Flughaefen from 'views/Flughaefen.svelte'
 
   function handleActiveStep(e) {
-    step = e.detail
     activeAnchor.set(e.detail)
   }
 

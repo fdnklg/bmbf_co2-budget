@@ -1,6 +1,6 @@
 import { dsvFormat } from 'd3-dsv'
 import { colorsSektoren, offsetsSektoren } from 'constants'
-import { format as d3Format, formatLocale } from 'd3-format'
+import { formatLocale } from 'd3-format'
 
 export const lightenColor = (color, percent) => {
   const num = parseInt(color.replace('#', ''), 16),

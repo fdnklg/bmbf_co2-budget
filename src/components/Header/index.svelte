@@ -7,7 +7,6 @@
   import Icon from 'components/Icon.svelte'
 
   const szenarioIndices = [2, 3, 4]
-  let initial = true
 
   export let duration = 6000
   let szenarioIndex = 0

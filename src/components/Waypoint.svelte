@@ -1,5 +1,4 @@
 <script>
-  import { onMount } from 'svelte'
   import Intersectionobserver from './Intersectionobserver.svelte'
 
   import { activeVis, activeWaypoint } from 'stores'
