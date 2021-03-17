@@ -7,6 +7,7 @@
   import Legend from 'components/Legend.svelte'
   import IntersectionObserver from 'components/Intersectionobserver.svelte'
   import Tile from 'components/Tile.svelte'
+  import * as animateScroll from 'svelte-scrollto'
 
   function handleActiveStep(e) {
     step = e.detail
@@ -20,6 +21,17 @@
   $: currentData = $szenarienData
     ? $szenarienData.find((d) => d.step == step)
     : false
+  
+  $: {
+    if (data) {
+      animateScroll.scrollTo({
+        element: `[id='anchor-3.1']`,
+        offset: -60,
+        duration: 1500,
+        delay: 0,
+      })
+    }
+  }
 </script>
 
 <style lang="scss">
