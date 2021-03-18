@@ -6,12 +6,12 @@
   const Icons = [
     {
       name: 'twitter',
-      text: 'Der Text zum Projekt',
-      url: 'https://fabiandinklage.com',
+      text: 'Wie weit kommst du mit deinem CO2-Budget?',
+      url: 'https://co2-mobilitaet.vislab.io',
     },
     {
       name: 'facebook',
-      url: 'https://fabiandinklage.com',
+      url: 'https://co2-mobilitaet.vislab.io',
     },
   ]
 </script>
