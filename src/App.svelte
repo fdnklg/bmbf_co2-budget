@@ -20,10 +20,9 @@
     loadFile,
   } from 'utils'
 
-  import { zipcodesUrl, sektorenUrl, airportsUrl, metadata } from 'config'
+  import { zipcodesUrl, sektorenUrl, airportsUrl } from 'config'
   import { steps } from 'constants'
 
-  import Meta from 'components/Meta.svelte'
   import Header from 'components/Header/index.svelte'
   import Title from 'components/Title.svelte'
   import Section from 'components/Section.svelte'
@@ -131,7 +130,6 @@
 </style>
 
 <div class="container">
-  <Meta meta={metadata} />
   <Header />
   <Navigation />
 
