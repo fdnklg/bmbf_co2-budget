@@ -1,7 +1,7 @@
 <script>
   import {
     distancesData,
-    szenarienData,
+    masterCentroid,
     selectedAirport,
     randomAirport,
   } from 'stores'
@@ -25,24 +25,18 @@
     return d
   })
   $: airports = $data ? $data.airports : null
-  $: start = null
+  $: start = airports.find((d) => d.id === $selectedAirport)
   $: width = null
-  $: destination = null
+  $: destinationAirport = $randomAirport
+  $: destination = airports.find((d) => d.id === destinationAirport)
   $: flightDistance = getDistance(start, destination)
   $: filteredCities = $distancesData
     ? getFiltered(flightDistance, $distancesData)
     : null
   $: loaded = airports && $distancesData ? true : false
-  $: centroid = null
-
+  $: startName = $masterCentroid.name
+  
   let distancesRef
-  function handleStart(e) {
-    start = airports.find((d) => d.id === e.detail)
-  }
-
-  function handleDestination(e) {
-    destination = airports.find((d) => d.id === e.detail)
-  }
 
   function indexOfClosest(nums, target) {
     let closest = Number.MAX_SAFE_INTEGER
@@ -90,10 +84,6 @@
 
   afterUpdate(() => {
     width = distancesRef ? distancesRef.getBoundingClientRect().width : null
-    if ($szenarienData && $randomAirport) {
-      centroid = $data.szenarien[0].centroid
-      destination = $randomAirport
-    }
   })
 </script>
 
@@ -134,15 +124,11 @@
         <Intro title={airportsIntro.title} subtitle={airportsIntro.subtitle} />
         <span class="label">Startflughafen</span>
         <Select
-          selected={$selectedAirport}
-          on:start={handleStart}
-          event="start"
+          bind:selected={$selectedAirport}
           items={airports} />
         <span class="label">Zielflughafen</span>
         <Select
-          selected={destination}
-          on:destination={handleDestination}
-          event="destination"
+          bind:selected={destinationAirport}
           items={airports} />
       </div>
       <SelectGroup
@@ -154,7 +140,7 @@
       {#if flightDistance && width && $distancesData}
         {#each filteredCities as city}
           <ChartFahrten
-            start={centroid.name}
+            start={startName}
             {width}
             distance={flightDistance}
             airports={{ start: start, destination: destination }}

@@ -1,8 +1,6 @@
 <script>
-  import { activeColor, zipcodes, activeZipcode, userInput } from 'stores'
-  import { getWindowDimensions } from 'utils'
-
-  import * as animateScroll from 'svelte-scrollto'
+  import { zipcodes, activeZipcode, userInput } from 'stores'
+  
   import Button from 'components/Button.svelte'
 
   $: isValid = false
@@ -10,15 +8,6 @@
 
   let zip
   export let className
-
-  function scrollToFirstScene() {
-    animateScroll.scrollTo({
-      element: `[id='anchor-3.1']`,
-      offset: -60,
-      duration: 1500,
-      delay: 0,
-    })
-  }
 
   const validate = (e) => {
     const value = zip.value
@@ -37,12 +26,6 @@
     if (valid) {
       userInput.set(true)
     }
-
-    setTimeout(() => {
-      if (isValid) {
-        scrollToFirstScene()
-      }
-    }, 50)
   }
 
   const disable = (e) => {
@@ -56,16 +39,6 @@
     disable(e)
     setRandomZip()
     userInput.set(true)
-
-    setTimeout(() => {
-      scrollToFirstScene()
-    }, 50)
-  }
-
-  const setIconName = (isValid, isEditing) => {
-    if (isEditing) return 'search'
-    if (!isValid) return 'invalid'
-    return 'valid'
   }
 
   const setRandomZip = () => {

@@ -1,5 +1,3 @@
-import { travelType } from 'stores'
-import { get } from 'svelte/store'
 import { colors } from 'constants'
 
 export default {

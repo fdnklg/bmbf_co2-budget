@@ -1,12 +1,4 @@
 @font-face {
-  font-family: 'Piazzolla Light';
-  src: url('./fonts/Piazzolla-Light.woff2') format('woff2'),
-    url('./fonts/Piazzolla-Light.woff') format('woff');
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: 'Post Grotesk Bold';
   src: url('./fonts/PostGrotesk-Bold.woff2') format('woff2'),
     url('./fonts/PostGrotesk-Bold.woff') format('woff');
@@ -35,7 +27,6 @@ h2,
 h3,
 h4,
 h5 {
-  /* font-family: 'Piazzolla Light'; */
   font-family: 'Post Grotesk Bold';
 }
 

@@ -1,6 +1,4 @@
 <script>
-  import { afterUpdate } from 'svelte'
-
   export let text = ''
   export let url = ''
   export let hashtags = ''
@@ -22,10 +20,6 @@
     type === 'twitter'
       ? `https://twitter.com/intent/tweet?${query}`
       : `http://www.facebook.com/share.php?u=${encodeURIComponent(url)}`
-
-  afterUpdate(() => {
-    console.log('href', href)
-  })
 
   function open(e) {
     e.preventDefault()

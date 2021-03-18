@@ -26,7 +26,7 @@
   onMount(() => {
     map = new Map({
       container,
-      style: 'mapbox://styles/fdnklg/ckj0fopmu8mbs19qkhuu3fx77',
+      style: 'mapbox://styles/juli84/ckmc46x3s9e8p17pgybrf1cwm',
       center: [lon, lat],
       zoom: zoom,
       dragPan: false,

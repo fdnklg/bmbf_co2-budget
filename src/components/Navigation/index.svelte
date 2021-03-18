@@ -9,7 +9,6 @@
   })
 
   function isVisible(step) {
-    console.log('is visible', step)
     return ![
       'start',
       '3.1',

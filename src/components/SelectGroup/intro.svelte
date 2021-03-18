@@ -35,7 +35,7 @@
 </style>
 
 <div class="intro">
-  <h2 class="title">{title}</h2>
+  <h2 class="title">{@html title}</h2>
   <p class="subtitle {subtitleClassname}">
     {@html subtitle}
   </p>

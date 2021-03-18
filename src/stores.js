@@ -76,6 +76,8 @@ export const distancesData = derived(
   }
 )
 
+export const masterCentroid = writable(null)
+
 export const szenarienData = derived(
   [data, travelType, distance, activeZipcode],
   ([$data, $travelType, $distance, $activeZipcode], set) => {
@@ -100,7 +102,7 @@ export const szenarienData = derived(
         const { centroid, isoJson } = cache[jsonKey]
         const { mobility, regiostar, airport } = centroid
 
-        console.log('szenarien', szenarien)
+        masterCentroid.set(centroid)
 
         // iteriere über alle szenarien
         szenarien.map((szenario, i) => {
@@ -320,25 +322,19 @@ export const content = derived(
   }
 )
 
-export const selectedAirport = derived(
-  [szenarienData, data],
-  ([$szenarienData, $data], set) => {
-    if ($data && $szenarienData) {
-      const airportId = $data.szenarien[0].airport
-      const nearestAirport = $data.airports[airportId]
-      set(nearestAirport)
-    }
-    return false
-  }
-)
+export const selectedAirport = writable(null)
 
 export const randomAirport = derived(
   [szenarienData, data],
   ([$szenarienData, $data], set) => {
     if ($data && $szenarienData) {
+      const airportId = $data.szenarien[0].airport
+      const nearestAirport = $data.airports[airportId]
+      selectedAirport.set(nearestAirport.id)
+
       const randomAirport =
         $data.airports[parseInt(Math.random() * $data.airports.length - 1)]
-      set(randomAirport)
+      set(randomAirport.id)
     }
     return false
   }
