@@ -35,6 +35,8 @@
   .dot {
     width: 12px;
     height: 12px;
+    min-width: 12px;
+    min-height: 12px;
     border-radius: 100%;
     margin-right: 5px;
 
@@ -42,6 +44,10 @@
       background-color: transparent !important;
       border-style: dashed !important;
       border-width: 1px !important;
+
+      @include respond-max-screen-phablet {
+        transform: translateY(-9px);
+      }
     }
   }
 
@@ -56,9 +62,23 @@
     letter-spacing: $letter-spacing-s;
   }
 
+  .labels {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    @include respond-max-screen-phablet {
+      height: 76px;
+    }
+  }
+
   .item {
     display: flex;
     align-items: center;
+
+    @include respond-max-screen-phablet {
+      width: calc(50% - 5px);
+      line-height: 140%;
+    }
   }
 </style>
 
