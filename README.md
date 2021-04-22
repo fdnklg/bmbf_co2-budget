@@ -27,7 +27,3 @@ To create an optimised version of the app:
 ```bash
 npm run build
 ```
-
-## TODO
-
-- remove personal mapbox access token before launch

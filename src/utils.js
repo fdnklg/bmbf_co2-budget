@@ -122,15 +122,11 @@ export const getWindowDimensions = () => {
 }
 
 export const observe = (target) => {
-  const observer = new IntersectionObserver(
-    (entries) => {
-    },
-    {
-      threshold: [0.75],
-      delay: 100,
-      trackVisibility: true,
-    }
-  )
+  const observer = new IntersectionObserver((entries) => {}, {
+    threshold: [0.75],
+    delay: 100,
+    trackVisibility: true,
+  })
   return observer.observe(target)
 }
 
@@ -236,9 +232,6 @@ export const createSzenarioText = (
   space,
   prozent
 ) => {
-  // @Sebastian
-  // hier kannst du die Texte für die einzelnen Szenarien verfassen.
-  // wir können hier einfach HTML reinschreiben um die Textblöcke zu stylen
   const translations = {
     car: 'Auto',
     car_mf: 'Auto',

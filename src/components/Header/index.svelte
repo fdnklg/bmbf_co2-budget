@@ -33,10 +33,6 @@
     width: 100%;
     position: absolute;
     bottom: 20px;
-
-    // @include respond-max-screen-phablet {
-    //   bottom: 10px;
-    // }
   }
 
   .inner {

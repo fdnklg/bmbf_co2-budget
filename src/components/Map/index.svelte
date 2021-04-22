@@ -120,38 +120,6 @@
         map.addImage('pulsing-dot', pulsingDot(map, 200, 'rgba(0,0,0,1)'), {
           pixelRatio: 2,
         })
-
-        /*
-
-        Expressions in MapboxGLJS
-        https://docs.mapbox.com/mapbox-gl-js/style-spec/expressions/
-        https://docs.mapbox.com/help/tutorials/mapbox-gl-js-expressions/
-
-        What is the name of this?
-        Expressions
-
-        What kind of operators do exist?
-        String, Logical, Camera, Data, Mathmatical
-
-        What are the existing operators?
-        get, has, id, geometry-type, properties, feature-state
-
-        Where can expressions be used?
-        layout, paint, filter property of Layers
-
-        What is the syntax?
-        Lisp-like syntax, represented using JSON arrays
-        [expression_name, argument_0, argument_1, ...]
-
-        How can expressions appear?
-        - Expressions expect n arguments, depending on the expression
-        - Arguments of expressions can be another expression that takes arguments
-
-        How to create a valid expression?
-        Check what argument the expression expects.
-        Define how your layers shall work.
-
-        */
       }
       updateMap()
     })
@@ -190,11 +158,6 @@
           'get',
           'stroke-opacity',
         ])
-
-        // map.flyTo({
-        //   center: [centroid.x, centroid.y],
-        //   zoom: zoom,
-        // })
 
         const boundGeoJson = JSON.parse(JSON.stringify(geojson))
         if (boundGeoJson.features.length > 3) {

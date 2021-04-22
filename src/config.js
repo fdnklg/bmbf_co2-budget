@@ -4,7 +4,6 @@ import { getWindowDimensions } from 'utils'
 const dimensions = getWindowDimensions()
 
 export const s3Url = 'https://locobss-story-co2.s3.eu-central-1.amazonaws.com/'
-// https:locobss-story-risk.s3.eu-central-1.amazonaws.com/postcode/01067.json
 
 export const isoChronesUrl = isLocal ? `data/` : s3Url
 
@@ -17,7 +16,8 @@ export const metadata = {
   twitter_creator: '',
   url: 'https://co2-mobilitaet.vislab.io',
   title: 'Wie weit komme ich mit meinem CO2-Budget?',
-  description: 'Unsere individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der Mobilität ist.',
+  description:
+    'Unsere individuelle Mobilität hat einen spürbaren Einfluss auf den Klimawandel. Erfahre mehr darüber, wie nachhaltig deine Form der Mobilität ist.',
   image: 'https://co2-mobilitaet.vislab.io/data/social_media.jpg',
 }
 

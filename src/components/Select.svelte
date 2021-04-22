@@ -7,16 +7,8 @@
   .select {
     position: relative;
     margin-top: 5px;
-    &::after {
-      position: absolute;
-      content: '\25BC';
-      right: 12px;
-      transform: translateY(5px);
-      font-size: 8px;
-    }
     select {
       width: 100%;
-      appearance: none;
     }
   }
 </style>

@@ -9,31 +9,6 @@ export const createFeature = (path, style) => {
     .split(';')
     .map((c) => c.split(',').map((cc) => parseFloat(cc)))
 
-  // remove direct sequences of duplicate coords
-  // let tCoords = []
-  // coords.forEach((c, ci) => {
-  //   if (ci === 0 || c[0] !== coords[ci - 1][0] || c[1] !== coords[ci - 1][1]) {
-  //     tCoords.push(c)
-  //   }
-  // })
-  // coords = tCoords
-
-  // remove duplicate coordinates in general (besides start and end)
-  // this is a turf bug?!
-  // tCoords = []
-  // coords.forEach((c, ci) => {
-  //   let exists = false
-  //   for (let i = ci - 1; i >= 0; i -= 1) {
-  //     if (c[0] === coords[i][0] && c[1] === coords[i][1]) {
-  //       exists = true
-  //     }
-  //   }
-  //   if (ci === 0 || ci === coords.length - 1 || !exists) {
-  //     tCoords.push(c)
-  //   }
-  // })
-  // coords = tCoords
-
   const geojson = {
     type: 'Feature',
     properties: style,
@@ -60,24 +35,32 @@ export const createBoundingBox = (cutOutFeat) => {
     // so we simply either ignore or replace those...
     united = cutOutFeat[0]
     for (let i = 1; i < cutOutFeat.length; i += 1) {
-      const bb1 = bbox(united);
-      const bb2 = bbox(cutOutFeat[i]);
+      const bb1 = bbox(united)
+      const bb2 = bbox(cutOutFeat[i])
 
       // bb2 in bb1
       if (
-        bb2[0] > bb1[0] && bb2[0] < bb1[2] &&
-        bb2[1] > bb1[1] && bb2[1] < bb1[3] &&
-        bb2[2] > bb1[0] && bb2[2] < bb1[2] &&
-        bb2[3] > bb1[1] && bb2[3] < bb1[3]
+        bb2[0] > bb1[0] &&
+        bb2[0] < bb1[2] &&
+        bb2[1] > bb1[1] &&
+        bb2[1] < bb1[3] &&
+        bb2[2] > bb1[0] &&
+        bb2[2] < bb1[2] &&
+        bb2[3] > bb1[1] &&
+        bb2[3] < bb1[3]
       ) {
         // ignore this one its within united
       } else if (
-        bb1[0] > bb2[0] && bb1[0] < bb2[2] &&
-        bb1[1] > bb2[1] && bb1[1] < bb2[3] &&
-        bb1[2] > bb2[0] && bb1[2] < bb2[2] &&
-        bb1[3] > bb2[1] && bb1[3] < bb2[3]
+        bb1[0] > bb2[0] &&
+        bb1[0] < bb2[2] &&
+        bb1[1] > bb2[1] &&
+        bb1[1] < bb2[3] &&
+        bb1[2] > bb2[0] &&
+        bb1[2] < bb2[2] &&
+        bb1[3] > bb2[1] &&
+        bb1[3] < bb2[3]
       ) {
-        united = cutOutFeat[i];
+        united = cutOutFeat[i]
       } else {
         // looks like there is an overlap
         united = union.default(united, cutOutFeat[i])
@@ -86,7 +69,6 @@ export const createBoundingBox = (cutOutFeat) => {
   }
 
   let bboxEurope = [-5.2288281645, 42.0255985816, 25.622332041, 58.9956007543]
-  // let bboxEurope = [-430.3125, -85.513398, 443.671875, 85.051129]
   let bboxEuropeFeat
   if (united) {
     bboxEuropeFeat = difference(bboxPolygon.default(bboxEurope), united)
