@@ -125,7 +125,7 @@ export default {
       text: {
         title: 'Ziele zum Schutz des Klimas',
         paragraph:
-          'Die Europäische Union hat sich für die nächsten Jahrzehnte vorgenommen den Ausstoß klimaschädlicher Treibhausgase zu reduzieren.',
+          'Die Europäische Union hat sich für die nächsten Jahrzehnte vorgenommen, den Ausstoß klimaschädlicher Treibhausgase zu reduzieren.',
       },
       meta: {
         source: {
@@ -147,7 +147,7 @@ export default {
       text: {
         title: 'Langsamer Abbau von Emissionen',
         paragraph:
-          'Viele Sektoren, wie z.B. <strong class="highlight-land">Landwirtschaft</strong>, <strong class="highlight-energy">Energie</strong>, <strong class="highlight-industry">Industrie</strong> oder <strong class="highlight-waste">Abfall</strong>, haben es seit 1990 geschafft ihren Ausstoß langsam zu verringern.',
+          'Viele Sektoren, wie z.B. <strong class="highlight-land">Landwirtschaft</strong>, <strong class="highlight-energy">Energie</strong>, <strong class="highlight-industry">Industrie</strong> oder <strong class="highlight-waste">Abfall</strong>, haben es seit 1990 geschafft, ihren CO₂ Ausstoß langsam zu verringern.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
@@ -166,12 +166,12 @@ export default {
       text: {
         title: 'Steigende Tendenz im Sektor Verkehr',
         paragraph:
-          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige positive Tendenz gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von <strong class="highlight-traffic">23&thinsp;%</strong> gegenüber den Werten von 1990.',
+          'Während es in den Jahren 2008 bis 2013 eine kurzzeitige Reduktion der Emissionen gab, steigen die Zahlen seit 2014 wieder stetig an und liegen heute bei einem Plus von <strong class="highlight-traffic">23&thinsp;%</strong> gegenüber den Werten von 1990.',
       },
       meta: {
         title: 'CO-2 Emissionen nach Sektoren',
         subtitle:
-          'Die CO₂-Emissionen im Verkehr steigen tendenziell eher als dass sie sinken.',
+          'Die CO₂-Emissionen im Verkehr steigen tendenziell eher an, als dass sie sinken.',
         source: {
           url:
             'https://www.eea.europa.eu/data-and-maps/data/data-viewers/greenhouse-gases-viewer',
