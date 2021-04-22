@@ -153,7 +153,7 @@ export const navItems = [
 export const distances = {
   hasIntro: true,
   title: 'Wie weit fährst du täglich?',
-  subtitle: 'Wähle die Strecke die du im Durchschnitt zurücklegst.',
+  subtitle: 'Wähle die Strecke, die du im Durchschnitt zurücklegst.',
   elements: [
     {
       label: '',
